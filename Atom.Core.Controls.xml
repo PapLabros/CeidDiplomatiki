@@ -1,0 +1,576 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Core.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Core.Controls.BaseAnimationsArgs`2">
+            <summary>
+            The standard arguments of an animation
+            </summary>
+            <typeparam name="ValueType">The type of the value property</typeparam>
+            <typeparam name="ConfigurationType">The type of the congiguration</typeparam>
+        </member>
+        <member name="F:Atom.Core.Controls.BaseAnimationsArgs`2.AnimateTo">
+            <summary>
+            The value to animate to
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.BaseAnimationsArgs`2.Configuration">
+            <summary>
+            The configuration of the animation
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.BaseAnimationsArgs`2.Duration">
+            <summary>
+            The duration of the animation
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.BaseAnimationsArgs`2.AnimateFrom">
+            <summary>
+            If true, we should animate from a custom value, otherwise we should animate from the current value
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.BaseAnimationsArgs`2.AnimateFromValue">
+            <summary>
+            The custom value to animate from
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.BaseAnimationsArgs`2.DecelerationRatio">
+            <summary>
+            The deceleration ratio of the animation ranging between 0 and 1
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.BaseAnimationsArgs`2.#ctor(`0,`1)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="animateTo">The value to animate to</param>
+            <param name="configuration">The configuration of the animation</param>
+        </member>
+        <member name="T:Atom.Core.Controls.ColorAnimationArgs">
+            <summary>
+            The animation arguments for a color animation
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ColorAnimationArgs.#ctor(System.String,Atom.Core.Controls.ColorAnimationConfiguration)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="animateTo">The value to animate to</param>
+            <param name="configuration">The configuration of the animation</param>
+        </member>
+        <member name="T:Atom.Core.Controls.BaseAnimationConfiguration`1">
+            <summary>
+            The standard configuration of every animation
+            </summary>
+            <typeparam name="ValueType">The type of the value the animation animates to</typeparam>
+        </member>
+        <member name="F:Atom.Core.Controls.BaseAnimationConfiguration`1.AnimateFrom">
+            <summary>
+            A flag indicating whether we should animate from a custom value or not
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.BaseAnimationConfiguration`1.AnimateFromValue">
+            <summary>
+            The value from when we should animate from
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.BaseAnimationConfiguration`1.Duration">
+            <summary>
+            The duration of the animation
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.BaseAnimationConfiguration`1.DecelerationRatio">
+            <summary>
+            The value of the deceleration ration ranging between 0 and 1
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.BaseAnimationConfiguration`1.#ctor(System.Single,System.Boolean,`0,System.Double)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">If true, we should animate from a custom value, otherwise we should animate from the current value</param>
+            <param name="animateFromValue">The custom value to animate from</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+        </member>
+        <member name="T:Atom.Core.Controls.ColorAnimationConfiguration">
+            <summary>
+            The configuration of a color animation
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.RenderTransformAnimationConfiguration">
+            <summary>
+            The configuration of a render transform animation
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.RenderTransformAnimationConfiguration.#ctor(System.Single,System.Boolean,System.Double,System.Double)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">If true, we should animate from a custom value, otherwise we should animate from the current value</param>
+            <param name="animateFromValue">The custom value to animate from</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+        </member>
+        <member name="T:Atom.Core.Controls.ThicknessAnimationConfiguration">
+            <summary>
+            The configuration of a thickness animation
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.RenderTransformAnimationArgs">
+            <summary>
+            The animation arguments for a render transform animation
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.RenderTransformAnimationArgs.#ctor(System.Double,Atom.Core.Controls.RenderTransformAnimationConfiguration)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="animateTo">The value to animate to</param>
+            <param name="configuration">The configuration of the animation</param>
+        </member>
+        <member name="M:Atom.Core.Controls.ThicknessAnimationArgs.#ctor(System.Double[],Atom.Core.Controls.ThicknessAnimationConfiguration)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="animateTo">The value to animate to</param>
+            <param name="configuration">The configuration of the animation</param>
+        </member>
+        <member name="T:Atom.Core.Controls.AdjustableValueInputOption">
+            <summary>
+            The available input options of the adjustable value input view
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.AdjustableValueInputOption.UnsignedInteger">
+            <summary>
+            Positive integer value input
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.AdjustableValueInputOption.UnsignedDouble">
+            <summary>
+            Positive double value input
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.AdjustableValueInputOption.Integer">
+            <summary>
+            Integer value input
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.AdjustableValueInputOption.Double">
+            <summary>
+            Double value input
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ColorAnimationTargetProperty">
+            <summary>
+            The names of the targeted properties of the color animations
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.ColorAnimationTargetProperty.Background">
+            <summary>
+            The back ground of an element
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.ColorAnimationTargetProperty.Foreground">
+            <summary>
+            The text of an element
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.ColorAnimationTargetProperty.BorderBrush">
+            <summary>
+            The border of an element
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.ColorAnimationTargetProperty.Stroke">
+            <summary>
+            The stroke of an element
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.ColorAnimationTargetProperty.Fill">
+            <summary>
+            The fill of an element
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.DialogType">
+            <summary>
+            The available dialog types
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.DialogType.Normal">
+            <summary>
+            Normal dialog type
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.DialogType.Warning">
+            <summary>
+            Dialog that displays a warning to the user
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.DialogType.Error">
+            <summary>
+            Error or critical dialog type
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.TextInputOption">
+            <summary>
+            The available input options of a text input view
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.None">
+            <summary>
+            Default input setting with no restrictions
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.Phone">
+            <summary>
+            Phone number
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.Email">
+            <summary>
+            Email
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.UnsignedInteger">
+            <summary>
+            Positive number with no floating point
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.UnsignedDouble">
+            <summary>
+            Positive number with a single floating point
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.Integer">
+            <summary>
+            Number with no floating point
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.Double">
+            <summary>
+            Number with a single floating point
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.Latin">
+            <summary>
+            Latin characters
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.LatinAndNumers">
+            <summary>
+            Latin characters and the numbers
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.LatinAndNumersAndSymbols">
+            <summary>
+            Latin characters , the numbers and the symbols
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.TextInputOption.HexColor">
+            <summary>
+            Characters required for the presentation of the hex value of a color
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ThicknessAnimationTargetProperty">
+            <summary>
+            The names of the targeted properties of the thickness animations
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.ThicknessAnimationTargetProperty.Margin">
+            <summary>
+            The margin of an element
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.ThicknessAnimationTargetProperty.Padding">
+            <summary>
+            The padding of an element
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.TransitionalResult">
+            <summary>
+            All the available dialog results
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.BaseDialogResult">
+            <summary>
+            The base for all the dialog results
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.BaseDialogResult.NoInteraction">
+            <summary>
+            A flag indicating whether the user has interacted with the dialog or not
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.BaseDialogResult.Feedback">
+            <summary>
+            A flag indicating whether we got a positive feedback or not
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.BaseDialogResult.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.BaseDialogResult.ToString">
+            <summary>
+            Returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Core.Controls.StandardDialogResult">
+            <summary>
+            A standard <see cref="T:Atom.Core.Controls.BaseDialogResult"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.StandardDialogResult.Feedback">
+            <summary>
+            A flag indicating whether we got a positive feedback or not
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.StandardDialogResult.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.DataDialogResult">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.StandardDialogResult"/> used when displaying a data manipulation dialog to the user
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.DataDialogResult.Data">
+            <summary>
+            The data
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.DataDialogResult.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.DateDialogResult">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.StandardDialogResult"/> used when displaying a date dialog to the user
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.DateDialogResult.Date">
+            <summary>
+            The date selected by the user
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.LongDaySpanDialogResult">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.StandardDialogResult"/> used when displaying a long day span dialog to the user
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.LongDaySpanDialogResult.DaySpan">
+            <summary>
+            The day span selected by the user
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ModelDialogResult`1">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.StandardDialogResult"/> that contains a <see cref="P:Atom.Core.Controls.ModelDialogResult`1.Model"/> of type <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T">The type of the model</typeparam>
+        </member>
+        <member name="P:Atom.Core.Controls.ModelDialogResult`1.Model">
+            <summary>
+            The data model
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ModelDialogResult`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.OKDialogResult">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.BaseDialogResult"/> used when displaying an information dialog to the user
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.OKDialogResult.OK">
+            <summary>
+            A flag indicating whether the user accepted the error
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.OKDialogResult.Feedback">
+            <summary>
+            A flag indicating whether we got a positive feedback or not
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.OptionsDialogResult`1">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.StandardDialogResult"/> that contains a list of options 
+            </summary>
+            <typeparam name="TOption">The type of the options</typeparam>
+        </member>
+        <member name="P:Atom.Core.Controls.OptionsDialogResult`1.Options">
+            <summary>
+            The options result
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.OptionsDialogResult`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.PropertiesDialogResult">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.BaseDialogResult"/> that contains a list of properties 
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.PropertiesDialogResult.Properties">
+            <summary>
+            The properties result
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.PropertiesDialogResult.Feedback">
+            <summary>
+            A flag indicating whether we have a positive feed back or not
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.PropertiesDialogResult.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.TextDialogResult">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.StandardDialogResult"/> used for inputing <see cref="P:Atom.Core.Controls.TextDialogResult.Text"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.TextDialogResult.Text">
+            <summary>
+            The text
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.TextDialogResult.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.TextDialogResult.ToString">
+            <summary>
+            Returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Core.Controls.TransitionalDialogResult">
+            <summary>
+            A <see cref="T:Atom.Core.Controls.BaseDialogResult"/> used when displaying a transitional dialog to the user
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.TransitionalDialogResult.Yes">
+            <summary>
+            Positive feedback
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.TransitionalDialogResult.No">
+            <summary>
+            Negative feedback
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.TransitionalDialogResult.Feedback">
+            <summary>
+            The feedback
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ControlsDI">
+            <summary>
+            The control services that should be available anywhere on the application
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ControlsDI.GetDataContextManager">
+            <summary>
+            A shortcut to access the <see cref="T:Atom.Core.Controls.IDataContextManager"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.BaseFactory">
+            <summary>
+            The base of every view model factory
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.BaseFactory.Create``1">
+            <summary>
+            Creates the requested service of type <typeparamref name="TService"/>
+            </summary>
+            <typeparam name="TService">The type of the service to create</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.Controls.BaseFactory.Create``1(System.Action{``0})">
+            <summary>
+            Creates, configures and returns a <typeparamref name="TService"/> of a specified type
+            </summary>
+            <typeparam name="TService">The type of the service</typeparam>
+            <param name="configure">The configuration action</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.Controls.BaseFactory.CreateCasted``2(System.Func{``0},System.Action{``1})">
+            <summary>
+            Creates, configures and returns a <typeparamref name="TService"/> casted to a specified type
+            </summary>
+            <typeparam name="TService">The type of the service</typeparam>
+            <typeparam name="TImplementation">The type of the service that is derived from the <typeparamref name="TService"/></typeparam>
+            <param name="creation">The action that creates service</param>
+            <param name="configure">The action that configures the service that is being casted to the appropriate type</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Core.Controls.IDataContextManager">
+            <summary>
+            The manager responsible for all the calls of the view's data context 
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IDataContextManager.SetDataContext(System.Object,System.Object)">
+            <summary>
+            Sets the specified data context to the specified view
+            </summary>
+            <param name="view">The specific view</param>
+            <param name="dataContext">The data context we want to add to it</param>
+        </member>
+        <member name="T:Atom.Core.Controls.ItemArrangedEventArgs`2">
+            <summary>
+            Event arguments for the <see cref="T:Atom.Core.Controls.ItemArrangedEventHandler`2"/>
+            </summary>
+            <typeparam name="TItem">The type of the item that was arranged</typeparam>
+            <typeparam name="TTarget">The type of the target that the item was placed into</typeparam>
+        </member>
+        <member name="P:Atom.Core.Controls.ItemArrangedEventArgs`2.Item">
+            <summary>
+            The item that was arranged
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ItemArrangedEventArgs`2.Target">
+            <summary>
+            The target that was placed into
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ItemArrangedEventArgs`2.#ctor(`0,`1)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="item">The item that was arranged</param>
+            <param name="target">The target that the item was placed into</param>
+        </member>
+        <member name="T:Atom.Core.Controls.ItemArrangedEventHandler`2">
+            <summary>
+            Event handler that gets fired when an item gets arranged
+            </summary>
+            <typeparam name="TItem">The type of the item that was arranged</typeparam>
+            <typeparam name="TTarget">The type of the target that the item was placed into</typeparam>
+            <param name="sender">The owner of the handler</param>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="T:Atom.Core.Controls.IPassword">
+            <summary>
+            Interface that forces the implementation of a <see cref="P:Atom.Core.Controls.IPassword.SecurePassword"/> property and the password changed event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IPassword.SecurePassword">
+            <summary>
+            The password
+            </summary>
+        </member>
+    </members>
+</doc>

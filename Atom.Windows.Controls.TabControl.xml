@@ -1,0 +1,1463 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.Controls.TabControl</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControlApplicationPage">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseApplicationPage"/> that uses a <see cref="T:Atom.Windows.Controls.TabControl.TabControlHost"/> as its <see cref="P:Atom.Windows.Controls.BaseApplicationPage.MainBodyGrid"/> child
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlApplicationPage.Host">
+            <summary>
+            The tab control host
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlApplicationPage.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlApplicationPage.Add(System.String,System.Windows.UIElement,System.Boolean)">
+            <summary>
+            Adds the specified <paramref name="content"/> to the <see cref="T:Atom.Windows.Controls.TabControl.TabControlHost"/>
+            </summary>
+            <param name="tabName">The name of the tab</param>
+            <param name="content">The element of the tab</param>
+            <param name="closable">Defines whether this tab can be closed or not</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlApplicationPage.Add(System.String,Atom.Core.VectorSource,System.Windows.UIElement,System.Boolean)">
+            <summary>
+            Adds the specified <paramref name="content"/> to the <see cref="T:Atom.Windows.Controls.TabControl.TabControlHost"/>
+            </summary>
+            <param name="tabName">The text of the tab</param>
+            <param name="vectorSource">The vector source of the icon of the tab</param>
+            <param name="content">The body of the tab</param>
+            <param name="closable">Defines whether this tab can be closed or not</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlApplicationPage.CreateGUI">
+            <summary>
+            Creates and adds the required GUI elements
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.OverlayManager">
+            <summary>
+            The data gathered from the overlay manager
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.OverlayManager.TabIsDragged">
+            <summary>
+            A flag indicating whether there is a tab that is being dragged or not
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.OverlayManager.PointedTabControl">
+            <summary>
+            The tab control that is pointed by the cursor
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.OverlayManager.OverlayWindow">
+            <summary>
+            The overlay window that is currently presented
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.Tab">
+            <summary>
+            A tab for a tab control
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.mTabRelativeSource">
+            <summary>
+            The relative source for the tab
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.mContentContainer">
+            <summary>
+            The member of the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Content"/> property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.hookID">
+            <summary>
+            The ID of the currently active global hook
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.proc">
+            <summary>
+            The delegate we need to keep alive in order to not get disposed by the GC
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.mMouseDown">
+            <summary>
+            A flag indicating whether the user is holding the left click on the tab
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.mIsMoved">
+            <summary>
+            A flag indicating whether the tab has just been moved to another window
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.mTabControl">
+            <summary>
+            The tab control that contains this tab
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.mWindowParent">
+            <summary>
+            The window that contains this tab
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.mContainer">
+            <summary>
+            The container that contains the tab control
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.mAdditionalLength">
+            <summary>
+            The additional length the cursor has to move in order to move the tab.
+            Used when a small tab moves into the position of a larger tab
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.PinButton">
+            <summary>
+            The pin button
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.CloseButton">
+            <summary>
+            The close button
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.ContentContainer">
+            <summary>
+            The container that presents the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Content"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.Content">
+            <summary>
+            The content that the tab navigates to
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.ContentProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Content"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnContentPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Content"/> property changes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.Pinned">
+            <summary>
+            If true, then the tab is pinned, otherwise it's not
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.PinnedProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Pinned"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.VectorSource">
+            <summary>
+            The vector source
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.VectorSourceProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.VectorSource"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.Closable">
+            <summary>
+            If true, then the tab can be closed, otherwise it can not
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.ClosableProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Closable"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.PinButtonBackColor">
+            <summary>
+            The back color of the pin button
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.PinButtonBackColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.PinButtonBackColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.PinButtonPinnedBackColor">
+            <summary>
+            The back color of the pin button when the tab is pinned
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.pinButtonPinnedBackColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.PinButtonPinnedBackColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.PinButtonForeColor">
+            <summary>
+            The fore color of the pin button
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.PinButtonForeColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.PinButtonForeColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.PinButtonPinnedForeColor">
+            <summary>
+            The fore color of the pin button when the tab is pinned
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.PinButtonPinnedForeColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.PinButtonPinnedForeColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.CloseButtonBackColor">
+            <summary>
+            The back color of the close button
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.CloseButtonBackColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.CloseButtonBackColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.CloseButtonForeColor">
+            <summary>
+            The fore color of the close button
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.CloseButtonForeColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.CloseButtonForeColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.HasDialog">
+            <summary>
+            If true, then a confirmation dialog will show up before closing the dialog
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.HasDialogProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.HasDialog"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.Message">
+            <summary>
+            The confirmation message that is show before closing the dialog
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.MessageProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Message"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.ToString">
+            <summary>
+            Returns a string that represents the object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.ShowDialogAsync``2(``0)">
+            <summary>
+            Shows a dialog that returns a <typeparamref name="TDialogResult"/> when the user gives input and uses a <typeparamref name="TDialogOverlay"/> as the overlay
+            </summary>
+            <typeparam name="TDialogResult">The type of the dialog result</typeparam>
+            <typeparam name="TDialogOverlay">The type of the dialog overlay</typeparam>
+            <param name="dialogOverlay">The overlay that contains the dialog</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.ShowHintDialogAsync``2(``0,System.Boolean,System.Single)">
+            <summary>
+            Shows a minimal dialog that returns a <typeparamref name="TDialogResult"/> when the user gives input
+            </summary>
+            <typeparam name="THintDialogComponent">The type of the hint dialog component</typeparam>
+            <typeparam name="TDialogResult">The type of the dialog result</typeparam>
+            <param name="hintDialogComponent">The hint dialog component</param>
+            <param name="autoHide">A flag indicating whether the dialog component should get automatically hidden or not</param>
+            <param name="seconds">The time in seconds after the dialog component should get hidden</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.CreateWindow(Atom.Windows.Controls.TabControl.TabControlHostContainer)">
+            <summary>
+            Creates and returns a window to host the specified <paramref name="container"/>
+            </summary>
+            <param name="container">The container that the window is created for</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.CreateFirstContentElement">
+            <summary>
+            Creates and returns the first control element
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.CreateSecondContentElement">
+            <summary>
+            Creates and returns the second control element
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.CreateThirdContentElement">
+            <summary>
+            Creates and returns the third content element
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.CreateFourthContentElement">
+            <summary>
+            Creates and returns the fourth content element
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnSelectedChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.BaseControl.Selected"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Signify that the user attempts to move the tab
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Signify that the user finished moving the tab
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnMouseMove(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the user's cursor movement
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnPreviewMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the mouse down
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the mouse enter of the cursor
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the mouse leave of the cursor
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the mouse down of the cursor
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Handles the mouse up of the cursor
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.ConfigureControlButtons(Atom.Windows.Controls.IconButton)">
+            <summary>
+            Configures the specified button to fit the theme of the tab
+            </summary>
+            <param name="button">The button to configure</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.GetTopmostHwnd(System.Collections.Generic.List{System.IntPtr})">
+            <summary>
+            Gets the top most window from a list of window handles
+            </summary>
+            <param name="hwnds">The list of the window handles</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.GlobalMouseHookCallback(System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            Handles the newly created window movement that contains the tab for as long as the user drags it
+            </summary>
+            <param name="nCode"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.InitializaContentContainer">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.TabControl.Tab.ContentContainer"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.Tab.OnContentChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Content"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.PinButton">
+            <summary>
+            The pin button of the <see cref="T:Atom.Windows.Controls.TabControl.Tab"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.PinButton.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.PinButton.OnSelectedChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.BaseControl.Selected"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControl">
+            <summary>
+            Control that contains both the tabs and the tabs' contents
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.PinnedTabs">
+            <summary>
+            Gets the number of pinned tabs.
+            It gets refreshed every time a pinned tab changes its status
+            because every time we add a tab we subscribe to its 
+            property changed event!
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.SelectedDockType">
+            <summary>
+            The dock type value that is selected through the overlay window
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.TabsItemsControl">
+            <summary>
+            The items control that contains the tabs
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.TabsContentItemsControl">
+            <summary>
+            The items control that contains the tabs content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.TabsHostBackground">
+            <summary>
+            The background
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControl.TabsHostBackgroundProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControl.TabsHostBackground"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.TabsHostPadding">
+            <summary>
+            The padding of the tabs host
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControl.TabsHostPaddingProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControl.TabsHostPadding"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.FillDock">
+            <summary>
+            A flag indicating whether we are trying to apply a fill dock
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControl.FillDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControl.FillDock"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.TopDock">
+            <summary>
+            A flag indicating whether we are trying to apply a top dock
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControl.TopDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControl.TopDock"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.BottomDock">
+            <summary>
+            A flag indicating whether we are trying to apply a bottom dock
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControl.BottomDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControl.BottomDock"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.LeftDock">
+            <summary>
+            A flag indicating whether we are trying to apply a right dock
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControl.LeftDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControl.LeftDock"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControl.RightDock">
+            <summary>
+            A flag indicating whether we are trying to apply a left dock
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControl.RightDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControl.RightDock"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Add(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Adds a tab to the tab control
+            </summary>
+            <param name="tab">The new tab</param>
+            <remarks>
+                We should use this method when adding and moving a tab in order for it to have its commands
+                correctly set
+            </remarks>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Add(System.String,System.Windows.UIElement,System.Boolean,System.Object,System.Action{System.Windows.UIElement})">
+            <summary>
+            Adds a tab to the tab control
+            </summary>
+            <param name="text">The text of the tab</param>
+            <param name="content">The body of the tab</param>
+            <param name="closable">Defines whether this tab can be closed or not</param>
+            <param name="registerKey">
+            The key that is used for keeping track this content.
+            NOTE: If this is set to <see cref="!:null"/> then the content we do not keep track of the content
+            </param>
+            <param name="onClose">Handles the close of the tab</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Add(System.String,Atom.Core.VectorSource,System.Windows.UIElement,System.Boolean,System.Object,System.Action{System.Windows.UIElement})">
+            <summary>
+            Adds a tab to the tab control
+            </summary>
+            <param name="text">The text of the tab</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="content">The body of the tab</param>
+            <param name="closable">Defines whether this tab can be closed or not</param>
+            <param name="registerKey">
+            The key that is used for keeping track this content.
+            NOTE: If this is set to <see cref="!:null"/> then the content we do not keep track of the content
+            </param>
+            <param name="onClose">Handles the close of the tab</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.SelectTab(System.Int32)">
+            <summary>
+            Selects the tab of the specific index
+            </summary>
+            <param name="index">The index of the tab in the tab control</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.SelectTab(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Selects this tab and deselects any other previously selected
+            </summary>
+            <param name="tab">The tab we want to select</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.MoveTab(Atom.Windows.Controls.TabControl.Tab,System.Int32)">
+            <summary>
+            Moves the tab
+            </summary>
+            <param name="tab">The tab we want to move</param>
+            <param name="newIndex">The new position</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.PinTab(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Pins or unpins the tab
+            </summary>
+            <param name="tabToPin">The tab we want to pin</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Remove(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Removes the specified <paramref name="tab"/> and closes the parent if needed
+            </summary>
+            <param name="tab"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Remove(Atom.Windows.Controls.TabControl.Tab,System.Boolean)">
+            <summary>
+            Removes the specified <paramref name="tab"/> and closes the parent if needed
+            </summary>
+            <param name="tab">The tab we want to remove</param>
+            <param name="closeIfMain">If this is set to true, after the removal of this tab, if it was the last of the parent, the parent will get closed</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.CloseTabAsync(Atom.Windows.Controls.TabControl.Tab,System.Boolean)">
+            <summary>
+            Closes the specified <paramref name="tab"/>
+            </summary>
+            <param name="tab">The tab we want to close and remove</param>
+            <param name="forceClose">A flag indicating whether a transitional dialog should be shown or not when a dialog has been set</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.SubscribeTabToTabControl(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Subscribes the specific tab to this tab control
+            </summary>
+            <param name="tab">The view model that controls the tab we want to subscribe to this tab control</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.AddDockOverlayBorder(System.Windows.Controls.Grid,System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates and add a dock overlay border to the specified grid
+            </summary>
+            <param name="parent">The specified grid</param>
+            <param name="gridColumn">The column to place the border overlay to</param>
+            <param name="gridRow">The row to place the border overlay to</param>
+            <param name="columnSpan">The column span of the border overlay</param>
+            <param name="rowSpan">The row span of the border overlay</param>
+            <param name="dockPropertyName">The name of the view model of the property that controls the visibility of the border overlay</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControlHost">
+            <summary>
+            A host responsible for containing multiple tab controls
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlHost.WindowParent">
+            <summary>
+            The window that contains this tab control host
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.#ctor(System.Windows.Window)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.Add(System.String,System.Windows.UIElement,System.Boolean,System.Object,System.Action{System.Windows.UIElement})">
+            <summary>
+            Adds a tab to the first tab control and creates it if none is found
+            </summary>
+            <param name="tabName">The text of the tab</param>
+            <param name="content">The body of the tab</param>
+            <param name="closable">Defines whether this tab can be closed or not</param>
+            <param name="registerKey">
+            The key that is used for keeping track this content.
+            NOTE: If this is set to <see cref="!:null"/> then the content we do not keep track of the content
+            </param>
+            <param name="onClose">Handles the close of the tab</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.Add(System.String,Atom.Core.VectorSource,System.Windows.UIElement,System.Boolean,System.Object,System.Action{System.Windows.UIElement})">
+            <summary>
+            Adds a tab to the first tab control and creates it if none is found
+            </summary>
+            <param name="tabName">The text of the tab</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="content">The body of the tab</param>
+            <param name="closable">Defines whether this tab can be closed or not</param>
+            <param name="registerKey">
+            The key that is used for keeping track this content.
+            NOTE: If this is set to <see cref="!:null"/> then the content we do not keep track of the content
+            </param>
+            <param name="onClose">Handles the close of the tab</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.Move(Atom.Windows.Controls.TabControl.TabControl,System.Int32)">
+            <summary>
+            Moves the tab control
+            </summary>
+            <param name="tabControl">The tab control we want to move</param>
+            <param name="newIndex">The new index</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.FirstOrCreate">
+            <summary>
+            Gets the first tab control of the host and if there isn't any it creates and adds it
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControlHostContainer">
+            <summary>
+            Tab control host container used for mapping the owners of the tabs, the tab controls and the tab control hosts  
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlHostContainer.TabControlHosts">
+            <summary>
+            The tab control hosts this container contains
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHostContainer.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHostContainer.#ctor(Atom.Windows.Controls.TabControl.TabControlHost)">
+            <summary>
+            Constructor that takes in as parameter the tab control host view model that's the reason of its creation
+            </summary>
+            <param name="tabControlHost">The tab control host</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHostContainer.BuildTabControlHostContainer">
+            <summary>
+            Builds the tab control host container
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControlManager">
+            <summary>
+            Static class with helper methods for locating the tab control components
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlManager.Containers">
+            <summary>
+            The tab control host containers, used for mapping the entire tab control
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlManager.Mapper">
+            <summary>
+            A mapper containing all the available tab control hosts.
+            Using this mapper we can acquire data about the parents that
+            contain the tab control hosts!
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlManager.ActiveTabControlHost">
+            <summary>
+            Gets the tab control host whose window parent is active.
+            If none is found then <see cref="!:null"/> is returned!
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlManager.MainParentTabControlHost">
+            <summary>
+            Gets the tab control host that is placed in the main parent.
+            If none is found then <see cref="!:null"/> is returned!
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlManager.TabControls">
+            <summary>
+            All the tab controls that are currently being used
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlManager.Tabs">
+            <summary>
+            All the tabs that are currently being used
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.ContainsTab(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Checks if the specified <paramref name="tab"/> is contained
+            in any of the tab control hosts registered to the tab control 
+            manager
+            </summary>
+            <param name="tab">The tab to check if its contained</param>
+            <returns></returns>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlManager.ActiveTab">
+            <summary>
+            Gets the currently active tab.
+            NOTE: If a window parent is active then the selected tab of that window is prioritized,
+                  otherwise the selected tab of the main parent and if the main parent doesn't have an 
+                  active tab then a random selected tab is returned!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.AddTabControlHost(System.Windows.Window)">
+            <summary>
+            Creates and adds a tab control host.
+            This method should be used when creating tab control hosts,
+            since it creates and adds the necessary container!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.AddTabControlHost(System.Windows.Window,Atom.Windows.Controls.TabControl.TabControlHostContainer)">
+            <summary>
+            Creates and adds a tab control host.
+            This method should be used when creating tab control hosts,
+            since it links the tab control hosts to an already existing tab control host container!
+            </summary>
+            <param name="parent">The parent that will contain the specified container</param>
+            <param name="container">The container</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.AddTabControlHost(Atom.Windows.Controls.TabControl.TabControlHost,Atom.Windows.Controls.TabControl.TabControlHostContainer)">
+            <summary>
+            Adds the tab control host to the mapper
+            </summary>
+            <param name="tabControlHost">The tab control host we want to add</param>
+            <param name="container">The host container</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.RemoveTabControlHost(Atom.Windows.Controls.TabControl.TabControlHost)">
+            <summary>
+            Removes the tab control host from the mapper
+            </summary>
+            <param name="tabControlHost">The tab control host we want to remove</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.CloseParent(System.Windows.Window,System.Boolean)">
+            <summary>
+            Closes the parent
+            </summary>
+            <param name="parent">The parent we want to close</param>
+            <param name="closeIfMain">If this is set to true, this function will close the parent even if it is the main one!</param>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlManager.TrackMapper">
+            <summary>
+            Mapper that is used for keeping track of specific tabs
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(Atom.Windows.Controls.TabControl.TabControlHost,System.String,Atom.Core.VectorSource,System.Func{System.Windows.UIElement},System.Object,System.Boolean,System.Action{System.Windows.UIElement})">
+            <summary>
+            Opens the element provided by the <paramref name="implementationFactory"/> to a new tab and registers it using the <paramref name="key"/>
+            </summary>
+            <param name="tabControlHost">The host that the tab will be placed into</param>
+            <param name="text">The text of the tab</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="implementationFactory">The implementation factory that provides the element</param>
+            <param name="key">The key that will be used for registering the element</param>
+            <param name="closable">A flag indicating whether this tab can be closed or not</param>
+            <param name="onClose">Handles the close of the tab</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(Atom.Windows.Controls.TabControl.TabControl,System.String,Atom.Core.VectorSource,System.Func{System.Windows.UIElement},System.Object,System.Boolean,System.Action{System.Windows.UIElement})">
+            <summary>
+            Opens the element provided by the <paramref name="implementationFactory"/> to a new tab and registers it using the <paramref name="key"/>
+            </summary>
+            <param name="tabControl">The tab control that the tab will be placed into</param>
+            <param name="text">The text of the tab</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="implementationFactory">The implementation factory that provides the element</param>
+            <param name="key">The key that will be used for registering the element</param>
+            <param name="closable">A flag indicating whether this tab can be closed or not</param>
+            <param name="onClose">Handles the close of the tab</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(System.Windows.UIElement,System.String,Atom.Core.VectorSource,System.Func{System.Windows.UIElement},System.Object,System.Boolean,System.Action{System.Windows.UIElement})">
+            <summary>
+            Opens the element provided by the <paramref name="implementationFactory"/> to a new tab and registers it using the <paramref name="key"/>
+            </summary>
+            <param name="element">The element used for finding the tab control that the tab will be placed into</param>
+            <param name="text">The text of the tab</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="implementationFactory">The implementation factory that provides the element</param>
+            <param name="key">The key that will be used for registering the element</param>
+            <param name="closable">A flag indicating whether this tab can be closed or not</param>
+            <param name="onClose">Handles the close of the tab</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(System.String,Atom.Core.VectorSource,System.Func{System.Windows.UIElement},System.Object,System.Boolean,System.Action{System.Windows.UIElement})">
+            <summary>
+            Opens the element provided by the <paramref name="implementationFactory"/> to a new tab and registers it using the <paramref name="key"/>.
+            NOTE: This method will used the first of the <see cref="P:Atom.Windows.Controls.TabControl.TabControlManager.ActiveTab"/>s to determine the parent of the element provided by the <paramref name="implementationFactory"/>!
+            NOTE: If no active tab is found, then the tab is created at the first tab control of the first tab control host of the first tab control host container!
+            </summary>
+            <param name="text">The text of the tab</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="implementationFactory">The implementation factory that provides the element</param>
+            <param name="key">The key that will be used for registering the element</param>
+            <param name="closable">A flag indicating whether this tab can be closed or not</param>
+            <param name="onClose">Handles the close of the tab</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Register(System.Object,System.Windows.UIElement)">
+            <summary>
+            Registers the element to keep track of its existence
+            </summary>
+            <param name="key">The identifier key</param>
+            <param name="element">The element</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Unregister(System.Object)">
+            <summary>
+            Unregisters the element with the specified <paramref name="key"/>
+            </summary>
+            <param name="key">The key of the element to unregister</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.UnRegister(System.Windows.UIElement)">
+            <summary>
+            Unregisters the specified <paramref name="element"/>
+            </summary>
+            <param name="element">The element to unregister</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.IsRegistered(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Checks if the content element of the specified <paramref name="tab"/> is registered or not
+            </summary>
+            <param name="tab"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.IsRegistered(System.Object)">
+            <summary>
+            Checks if there is an element registered with the specified <paramref name="key"/>
+            </summary>
+            <param name="key">The key of the element to check if is registered</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.IsRegistered(System.Windows.UIElement)">
+            <summary>
+            Checks if the specified <paramref name="element"/> is registered
+            </summary>
+            <param name="element">The element to check if is registered</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Focus(System.Object)">
+            <summary>
+            Focuses the tab that contains the element with the specified <paramref name="key"/>
+            </summary>
+            <param name="key">The key of the tracked element</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Focus(System.Windows.UIElement)">
+            <summary>
+            Focuses the tab that contains the specified <paramref name="element"/>
+            </summary>
+            <param name="element">The element that is contained in the tab we want to focus</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetHosts(Atom.Windows.Controls.TabControl.TabControlHostContainer)">
+            <summary>
+            Gets the tab control hosts that are contained in the specified container
+            </summary>
+            <param name="container">The specified container</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetContainer(Atom.Windows.Controls.TabControl.TabControlHost)">
+            <summary>
+            Gets the container that contains the specific tab control host
+            </summary>
+            <param name="tabControlHost">The specific tab control host</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetContainer(Atom.Windows.Controls.TabControl.TabControl)">
+            <summary>
+            Gets the container that contains the specific tab control
+            </summary>
+            <param name="tabControl">The specific tab control</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetContainer(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Gets the container that contains the specific tab
+            </summary>
+            <param name="tab">The specific tab</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetMainParent(System.Windows.Window[])">
+            <summary>
+            Gets the main parent of collection of parents
+            </summary>
+            <param name="parents">The collection of parents</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetParents(Atom.Windows.Controls.TabControl.TabControlHostContainer)">
+            <summary>
+            Gets the parents that are associated with tab control hosts that are contained by the specific container
+            </summary>
+            <param name="container">The specific container</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetParent(Atom.Windows.Controls.TabControl.TabControlHost)">
+            <summary>
+            Gets the parent that contains the specific tab control host
+            </summary>
+            <param name="tabControlHost">The specific tab control host</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetParent(Atom.Windows.Controls.TabControl.TabControl)">
+            <summary>
+            Get's the parent that contains the specific tab control
+            </summary>
+            <param name="tabControl">The specific tab control</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetParent(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Gets the parent that contains the specific tab
+            </summary>
+            <param name="tab">The specific tab</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetHosts(System.Windows.Window)">
+            <summary>
+            Gets the tab control hosts that are contained in the specified parent
+            </summary>
+            <param name="parent">The parent that contains the tab control hosts</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetHosts(Atom.Windows.Controls.TabControl.TabControlHostContainer,System.Windows.Window)">
+            <summary>
+            Gets the tab control hosts that are contained in the specified parent and the specified container
+            </summary>
+            <param name="container">The container that contains the tab control hosts</param>
+            <param name="parent">The parent that contains the tab control hosts</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetHost(Atom.Windows.Controls.TabControl.TabControl)">
+            <summary>
+            Gets the host that contains the specific tab control
+            </summary>
+            <param name="tabControl">The specific control</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetHost(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Gets the host that contains the specific tab
+            </summary>
+            <param name="tab">The specific tab</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetHost(System.Windows.UIElement)">
+            <summary>
+            Gets the host that contains the specific tab body
+            </summary>
+            <param name="content">The specific tab body</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetControls(System.Windows.Window)">
+            <summary>
+            Gets the tab controls that are contained in the specified parent
+            </summary>
+            <param name="parent">The parent that contains the tab controls</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetControl(Atom.Windows.Controls.TabControl.Tab)">
+            <summary>
+            Gets the control that contains the specific tab
+            </summary>
+            <param name="tab">The specific tab</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetControl(System.Windows.UIElement)">
+            <summary>
+            Gets the control that contains the specific tab body
+            </summary>
+            <param name="targetElement">The tab content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetTab(System.Windows.UIElement)">
+            <summary>
+            Gets the tab that contains the specific tab body
+            </summary>
+            <param name="targetElement">The tab content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetLeftTab(Atom.Windows.Controls.TabControl.Tab,System.Nullable{System.Boolean})">
+            <summary>
+            Returns the tab located next to the specific tab on its left side and null if there isn't any
+            </summary>
+            <param name="tab">The specific tab</param>
+            <param name="state">Filter for the state of the left tab:
+                null: We don't care for it's pinned state
+                true: The tab must be pinned
+                false: The tab mustn't be pinned
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.GetRightTab(Atom.Windows.Controls.TabControl.Tab,System.Nullable{System.Boolean})">
+            <summary>
+            Returns the tab located next to the specific tab on its right side and null if there isn't any
+            </summary>
+            <param name="tab">The specific tab</param>
+            <param name="state">Filter for the state of the left tab:
+                null: We don't care for it's pinned state
+                true: The tab must be pinned
+                false: The tab mustn't be pinned
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow">
+            <summary>
+            Interaction logic for TabControlDockOverlayWindow.xaml
+            </summary>
+            <summary>
+            TabControlDockOverlayWindow
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.WindowBorderBrush">
+            <summary>
+            The border brush of the window
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.WindowBorderBrushProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.WindowBorderBrush"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.DockIndicatorsColor">
+            <summary>
+            The color of the dock indicators
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.DockIndicatorsColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.DockIndicatorsColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.DockIndicatorsMouseOverColor">
+            <summary>
+            The background
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.DockIndicatorsMouseOverColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.DockIndicatorsMouseOverColor"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.TopDock">
+            <summary>
+            A flag indicating whether or not top dock is allowed
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.TopDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.TopDock"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.BottomDock">
+            <summary>
+            A flag indicating whether or not bottom dock is allowed
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.BottomDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.BottomDock"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.FillDock">
+            <summary>
+            A flag indicating whether or not fill dock is allowed
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.FillDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.FillDock"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.LeftDockMouseOver">
+            <summary>
+            A flag indicating whether or not left dock is allowed
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.LeftDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.LeftDockMouseOver"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.RightDock">
+            <summary>
+            A flag indicating whether or not right dock is allowed
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.RightDockProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.RightDock"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.TopDockOption_MouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor enters the top dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.LeftDockOption_MouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor enters the left dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.FillDockOption_MouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor enters the fill dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.RightDockOption_MouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor enters the right dock option
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.BottomDockOption_MouseEnter(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor enters the bottom dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.TopDockOption_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor leaves the top dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.LeftDockOption_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor leaves the left dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.FillDockOption_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor leaves the fill dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.RightDockOption_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor leaves the right dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.BottomDockOption_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Fires when the cursor leaves the bottom dock option
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.OverlayWindow_MouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Sets the selected docking type to none
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.AnimateMouseOverColor(System.Object)">
+            <summary>
+            Animates the color of the path when the cursor hovers above it
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.AnimateNormalColor(System.Object)">
+            <summary>
+            Animates the color of the path when it's in normal state
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.AnimateColor(System.Object,System.Windows.Media.Color)">
+            <summary>
+            Animates the color of the path
+            </summary>
+            <param name="sender">The sender</param>
+            <param name="color">The color to animate to</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDockOverlayWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControlHostDialogWindow">
+            <summary>
+            Interaction logic for TabControlHostWindow.xaml
+            </summary>
+            <summary>
+            TabControlHostDialogWindow
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlHostDialogWindow.TabControlHost">
+            <summary>
+            The tab control host of this dialog window
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHostDialogWindow.#ctor(Atom.Windows.Controls.TabControl.TabControlHostContainer)">
+            <summary>
+            Constructor that takes in the container of the tab control host as parameter.
+            NOTE: This is a dialog and can only be created by an already existing tab control!
+                  That means that this tab control host should always be contained by an already existing
+                  container!
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHostDialogWindow.Window_Closed(System.Object,System.EventArgs)">
+            <summary>
+            Removes the window view model from the mapper of the Tab Manager 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHostDialogWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControlDialogManager">
+            <summary>
+            A dialog manager that shows dialogs within the tab containers
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.TabControl.TabControlDialogManager.Mapper">
+            <summary>
+            Mapper that tracks all the registered keys along with their related elements
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.OpenAsync``1(System.Windows.UIElement,System.String,Atom.Core.VectorSource,System.Func{``0},System.Object,System.Boolean,System.Action{``0})">
+            <summary>
+            Shows the element provided by the <paramref name="implementationFactory"/> to a new dialog and registers it using the <paramref name="key"/>
+            </summary>
+            <param name="element">The element used for finding the parent that the element provided by the <paramref name="implementationFactory"/> will be placed into</param>
+            <param name="text">The text of the dialog</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="implementationFactory">The implementation factory that provides the element</param>
+            <param name="key">The key that will be used for registering the element</param>
+            <param name="closable">A flag indicating whether this tab can be closed or not</param>
+            <param name="onClose">Handles the close of the dialog</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.OpenAsync``1(System.String,Atom.Core.VectorSource,System.Func{``0},System.Object,System.Boolean,System.Action{``0})">
+            <summary>
+            Shows the element provided by the <paramref name="implementationFactory"/> to a new dialog and registers it using the <paramref name="key"/>.
+            NOTE: This method should only be used when unable to find a <see cref="T:System.Windows.UIElement"/> to determine the parent of the element!
+                  Otherwise, the <see cref="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.OpenAsync``1(System.Windows.UIElement,System.String,Atom.Core.VectorSource,System.Func{``0},System.Object,System.Boolean,System.Action{``0})"/> should be used!
+            </summary>
+            <param name="text">The text of the dialog</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="implementationFactory">The implementation factory that provides the element</param>
+            <param name="key">The key that will be used for registering the element</param>
+            <param name="closable">A flag indicating whether this tab can be closed or not</param>
+            <param name="onClose">Handles the close of the dialog</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.CloseAsync(System.Object)">
+            <summary>
+            Closes the dialog with the specified <paramref name="key"/>
+            </summary>
+            <param name="key">The key of the dialog</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.IsRegistered(System.Object)">
+            <summary>
+            Checks if there is an element registered with the specified <paramref name="key"/>
+            </summary>
+            <param name="key">The key of the element to check if is registered</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.IsRegistered(System.Windows.UIElement)">
+            <summary>
+            Checks if the specified <paramref name="element"/> is registered
+            </summary>
+            <param name="element">The element to check if is registered</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.Focus(System.Object)">
+            <summary>
+            Focuses the tab that contains the element with the specified <paramref name="key"/>
+            </summary>
+            <param name="key">The key of the tracked element</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.Focus(System.Windows.UIElement)">
+            <summary>
+            Focuses the tab that contains the specified <paramref name="element"/>
+            </summary>
+            <param name="element">The element that is contained in the tab we want to focus</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.ShowDialogAsync``2(``0)">
+            <summary>
+            Shows a dialog that returns a <typeparamref name="TDialogResult"/> when the user gives input and uses a <typeparamref name="TDialogOverlay"/> as the overlay
+            </summary>
+            <typeparam name="TDialogResult">The type of the dialog result</typeparam>
+            <typeparam name="TDialogOverlay">The type of the dialog overlay</typeparam>
+            <param name="dialogOverlay">The overlay that contains the dialog</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.ShowDialogAsync``2(System.Windows.UIElement,``0)">
+            <summary>
+            Shows a dialog that returns a <typeparamref name="TDialogResult"/> when the user gives input and uses a <typeparamref name="TDialogOverlay"/> as the overlay
+            </summary>
+            <typeparam name="TDialogResult">The type of the dialog result</typeparam>
+            <typeparam name="TDialogOverlay">The type of the dialog overlay</typeparam>
+            <param name="targetElement">The target element</param>
+            <param name="dialogOverlay">The overlay that contains the dialog</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.ShowHintDialogAsync``2(``0,System.Boolean,System.Single)">
+            <summary>
+            Shows a minimal dialog that returns a <typeparamref name="TDialogResult"/> when the user gives input
+            </summary>
+            <typeparam name="THintDialogComponent">The type of the hint dialog component</typeparam>
+            <typeparam name="TDialogResult">The type of the dialog result</typeparam>
+            <param name="hintDialogComponent">The hint dialog component</param>
+            <param name="autoHide">A flag indicating whether the dialog component should get automatically hidden or not</param>
+            <param name="seconds">The time in seconds after the dialog component should get hidden</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.ShowHintDialogAsync``2(System.Windows.UIElement,``0,System.Boolean,System.Single)">
+            <summary>
+            Shows a minimal dialog that returns a <typeparamref name="TDialogResult"/> when the user gives input
+            </summary>
+            <typeparam name="THintDialogComponent">The type of the hint dialog component</typeparam>
+            <typeparam name="TDialogResult">The type of the dialog result</typeparam>
+            <param name="targetElement">The element that will be used to determine the parent of the dialog</param>
+            <param name="hintDialogComponent">The hint dialog component</param>
+            <param name="autoHide">A flag indicating whether the dialog component should get automatically hidden or not</param>
+            <param name="seconds">The time in seconds after the dialog component should get hidden</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.SetClosable(System.Windows.UIElement,System.Boolean)">
+            <summary>
+            Determines whether the parent that presents the current <paramref name="element"/>
+            should be <paramref name="closable"/> or not
+            </summary>
+            <param name="element">The element</param>
+            <param name="closable">A flag indicating the closable state of the parent of the <paramref name="element"/></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.ShowContentAsync(System.Windows.FrameworkElement,System.Windows.UIElement,Atom.Windows.Controls.BubblesPresenterArgs)">
+            <summary>
+            Shows the specified <paramref name="content"/> element relative to the specified <paramref name="relativeTo"/> element
+            </summary>
+            <param name="relativeTo">The element that the <paramref name="content"/> element should be shown relative to</param>
+            <param name="content">The content to show</param>
+            <param name="args">The args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.HideContentAsync(System.Windows.UIElement)">
+            <summary>
+            Hides the specified <paramref name="content"/>
+            </summary>
+            <param name="content">The content that is shown and should get hidden</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.SwapContentAsync(System.Windows.FrameworkElement,System.Windows.UIElement,System.Windows.UIElement,Atom.Windows.Controls.BubblesPresenterArgs)">
+            <summary>
+            Hides the specified <paramref name="oldContent"/> and shows the specified <paramref name="content"/> at its place 
+            relative to the specified <paramref name="relativeTo"/> element
+            </summary>
+            <param name="relativeTo">The element that the <paramref name="content"/> element should be shown relative to</param>
+            <param name="content">The content to show</param>
+            <param name="oldContent">The content that is shown and should get hidden</param>
+            <param name="args">The args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.IsAnyContentBeingPresented(System.Windows.UIElement)">
+            <summary>
+            A flag indicating whether there is any content that is being presented to the container that contains the specified <paramref name="element"/>
+            </summary>
+            <param name="element">One of the elements that are contained in the container that we want to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.HideAllContentAsync(System.Windows.UIElement)">
+            <summary>
+            Hides all the contents are presented in the container that contains the <paramref name="element"/>
+            </summary>
+            <param name="element">One of the elements that are contained in the container we want everything to get hidden</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.IsContentBeingPresented(System.Windows.UIElement)">
+            <summary>
+            Checks if the specified <paramref name="content"/> is being presented
+            </summary>
+            <param name="content">The content to check if its being presented</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.FrameworkConstructionExtensions">
+            <summary>
+            Extension methods related to <see cref="T:Atom.Core.FrameworkConstruction"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.FrameworkConstructionExtensions.AddDialogManager(Atom.Core.FrameworkConstruction)">
+            <summary>
+            Injects the default dialog manager into the framework construction.
+            </summary>
+            <param name="construction">The framework construction</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.TabControl.TabControlHostWindowViewModel">
+            <summary>
+            View model for a window with a tab control host
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHostWindowViewModel.#ctor(System.Windows.Window)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+    </members>
+</doc>

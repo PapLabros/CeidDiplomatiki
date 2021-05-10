@@ -1,0 +1,20 @@
+﻿<Application x:Class="CeidDiplomatiki.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CeidDiplomatiki"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Order is important -->
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows;component/Styles/ColorsStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/FontsStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ColorsStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ScrollBarsStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/WindowsStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ContextMenusStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ToolTipsStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

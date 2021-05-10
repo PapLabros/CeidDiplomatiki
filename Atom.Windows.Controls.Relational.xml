@@ -1,0 +1,510 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.Controls.Relational</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent">
+            <summary>
+            The base for all the database options components
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent.Validate">
+            <summary>
+            Validates the inserted data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent.UpdateOptionData">
+            <summary>
+            Updates the data of the options data model with the values inserted by the user.
+            NOTE: Before calling this method the <see cref="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent.Validate"/> method should get called
+                  to ensure the validity of the data!
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1">
+            <summary>
+            The base for all the database options components
+            </summary>
+            <typeparam name="TOptions">The type of the options</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.Options">
+            <summary>
+            The options
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.ContentStackPanel">
+            <summary>
+            The stack panel that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.OptionsForm">
+            <summary>
+            The options form
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.OptionsContainer">
+            <summary>
+            The options container
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.ConnectionStringButton">
+            <summary>
+            The connection string button
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.TestButton">
+            <summary>
+            The test button
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.#ctor(`0)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="options">The options</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.Validate">
+            <summary>
+            Validates the inserted data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.UpdateOptionData">
+            <summary>
+            Updates the data of the options data model with the values inserted by the user.
+            NOTE: Before calling this method the <see cref="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.Validate"/> method should get called
+                  to ensure the validity of the data!
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.FormatValidConnectionString(System.String)">
+            <summary>
+            Further formats the already valid connection string.
+            Ex. Remove the MySQL default port connection string part.
+            </summary>
+            <param name="connectionString">The connection string</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.CreateForm">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.OptionsForm"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.IsConnectionValidAsync(`0,System.String)">
+            <summary>
+            Checks whether the specified valid <paramref name="connectionString"/> contained in the specified 
+            <paramref name="options"/> can open a connection or not
+            </summary>
+            <param name="options">The options</param>
+            <param name="connectionString">The connection string</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer">
+            <summary>
+            Contains multiple database options components
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.mMapper">
+            <summary>
+            Mapper that maps the database options with their related components
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.ContentStackPanel">
+            <summary>
+            The stack panel that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.OptionSelectorStackPanel">
+            <summary>
+            The stack panel that contains the <see cref="P:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.OptionSelectorTextBlock"/> and the <see cref="P:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.OptionSelectorDropDown"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.OptionSelectorTextBlock">
+            <summary>
+            The option selector text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.OptionSelectorDropDown">
+            <summary>
+            The option selector drop down
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.Add``1(Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent{``0})">
+            <summary>
+            Adds an options component
+            </summary>
+            <typeparam name="TOptions">The type of the options</typeparam>
+            <param name="component">The component</param>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.SelectedOptions">
+            <summary>
+            Gets the selected options
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.Show(Atom.Relational.BaseDatabaseOptionsDataModel)">
+            <summary>
+            Shows the component that presents the specified <paramref name="options"/>
+            </summary>
+            <param name="options">The options</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.Validate">
+            <summary>
+            Validates the data of the currently visible component
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.UpdateOptionData">
+            <summary>
+            Updates the data of the options data model with the values inserted by the user.
+            NOTE: Before calling this method the <see cref="M:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.Validate"/> method should get called
+                  to ensure the validity of the data!
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DatabaseOptionComponentsContainer.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.DataConfigurationComponent`1">
+            <summary>
+            Standard configuration component for a data model
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.GetDataStorage">
+            <summary>
+            Gets the data storage
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.Mapper">
+            <summary>
+            The property mapper
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.ContentStackPanel">
+            <summary>
+            The stack panel that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.PropertiesTextBlock">
+            <summary>
+            The properties text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.PropertySelectionForm">
+            <summary>
+            The property selection form
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.PropertiesOrderTextBlock">
+            <summary>
+            The properties order text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.PropertiesOrderDataGrid">
+            <summary>
+            The properties order data grid
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.FormulasTextBlock">
+            <summary>
+            The formulas text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.FormulasContainer">
+            <summary>
+            The existing formulas container
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.AddFormulaButton">
+            <summary>
+            The add formula button
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.#ctor(System.Func{Atom.Relational.PropertyOptionsDataStorage{`0}},Atom.Core.PropertyMapper{`0})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="getDataStorage">Gets the data storage</param>
+            <param name="mapper">The property mapper</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.GetConfigurationOptions">
+            <summary>
+            Gets the preview options inserted to the component
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.OnInitialized(System.EventArgs)">
+            <summary>
+            Handles the initialization of the control
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponent`1.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.PropertyShortcodeComponent`3"/> used by the <see cref="T:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1"/>
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.GetDataStorage">
+            <summary>
+            Gets the data storage
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.#ctor(Atom.Core.PropertyShortcode,System.Type,System.Func{Atom.Relational.PropertyOptionsDataStorage{`0}})">
+            <summary>
+            Shortcode based constructor
+            </summary>
+            <param name="shortcode">The shortcode</param>
+            <param name="instanceType">The type of the instance that contains all the shortcode information</param>
+            <param name="getDataStorage">Gets the data storage</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.#ctor(System.Type,System.Reflection.PropertyInfo,System.String,System.Func{Atom.Relational.PropertyOptionsDataStorage{`0}})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="instanceType">The type of the instance that contains all the shortcode information</param>
+            <param name="propertyInfo">The property info</param>
+            <param name="parentPath">The parent path</param>
+            <param name="getDataStorage">Gets the data storage</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.CreateFilterComponent(System.Collections.Generic.IEnumerable{Atom.Core.PropertyShortcode})">
+            <summary>
+            Creates and returns a property shortcode filter component
+            </summary>
+            <param name="propertyShortcodes">The property shortcodes</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.CreateFilterComponent(Atom.Core.PropertyShortcodeFilter,System.Collections.Generic.IEnumerable{Atom.Core.PropertyShortcode})">
+            <summary>
+            Creates and returns a property shortcode filter component
+            </summary>
+            <param name="propertyShortcodes">The property shortcodes</param>
+            <param name="filter">The filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.CreateShortcodeComponent(System.Object,System.Type,System.Reflection.PropertyInfo,System.String)">
+            <summary>
+            Creates and returns a shortcode component
+            </summary>
+            <param name="instance">The instance of the value of the property if any</param>
+            <param name="instanceType">The type of the instance that contains all the shortcode information</param>
+            <param name="propertyInfo">The property info</param>
+            <param name="parentPath">The parent path</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.CreateValueTranslatorComponent(System.Reflection.PropertyInfo)">
+            <summary>
+            Creates and returns a value translator component
+            </summary>
+            <param name="propertyInfo">The property of the shortcode that the translator is created for</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.CreateValueTranslatorComponent(Atom.Core.PropertyShortcodeValueTranslator,System.Reflection.PropertyInfo)">
+            <summary>
+            Creates and returns a value translator component
+            </summary>
+            <param name="translator">The translator</param>
+            <param name="propertyInfo">The property of the shortcode that the translator is created for</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.GetCustomShortcodesAsync">
+            <summary>
+            Gets the custom shortcodes related to the component
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.OnCustomShortcodeAdded(Atom.Core.PropertyShortcode)">
+            <summary>
+            Handles the addition of a custom shortcode.
+            NOTE: This method should be overridden to attach functionality to the shortcode
+                  after its addition (ex. the data storage save) has been completed!
+                  Ex. Attach a context menu to the shortcode.
+            NOTE: This method is called both when a custom shortcode is created and on the
+                  <see cref="M:Atom.Windows.Controls.PropertyShortcodeComponent`3.OnInitialized(System.EventArgs)"/>
+                  method where all the pre-existing custom shortcodes are retrieved and placed
+                  in the container!
+            </summary>
+            <param name="shortcode">The shortcode</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaPropertyShortcodeComponent`1.OnShortcodeCreated(Atom.Core.PropertyShortcode)">
+            <summary>
+            Handles the creation of a shortcode.
+            NOTE: Override the <see cref="M:Atom.Windows.Controls.PropertyShortcodeComponent`3.CreateShortcode(Atom.Core.ShortcodeCreationEventArgs)"/>
+                  method to provide a custom shortcode implementation!
+            </summary>
+            <param name="shortcode">The shortcode</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.ShortcodesContainer`4"/> used by the <see cref="T:Atom.Windows.Controls.Relational.DataConfigurationComponent`1"/>
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1.GetDataStorage">
+            <summary>
+            Gets the data storage
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1.#ctor(System.Func{Atom.Relational.PropertyOptionsDataStorage{`0}})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="getDataStorage">Gets the data storage</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1.CreateShortcodeComponent(System.Object,System.Type,System.Reflection.PropertyInfo,System.String)">
+            <summary>
+            Creates and returns a shortcode component
+            </summary>
+            <param name="instance">The instance of the value of the property if any</param>
+            <param name="instanceType">The type of the instance whose properties are used for creating custom shortcodes</param>
+            <param name="propertyInfo">The property info</param>
+            <param name="parentPath">The parent path</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1.GetAllCustomShortcodesAsync">
+            <summary>
+            Gets all the custom shortcodes to be set to the <see cref="P:Atom.Core.PropertyShortcode.CustomShortcodes"/>
+            of every <see cref="T:Atom.Core.PropertyShortcode"/> in order for its formula to be calculated correctly
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1.OnCustomShortcodeAdded(Atom.Core.PropertyShortcode)">
+            <summary>
+            Handles the addition of a custom shortcode.
+            NOTE: This method should be overridden to attach functionality to the shortcode
+                  after its addition (ex. the data storage save) has been completed!
+                  Ex. Attach a context menu to the shortcode.
+            NOTE: This method is called both when a custom shortcode is created and on the
+                  <see cref="M:Atom.Windows.Controls.ShortcodesContainer`4.OnInitialized(System.EventArgs)"/>
+                  method where all the pre-existing custom shortcodes are retrieved and placed
+                  in the container!
+            </summary>
+            <param name="shortcode">The shortcode</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1.OnCustomShortcodeCreated(Atom.Core.PropertyShortcode)">
+            <summary>
+            Handles the creation of a shortcode.
+            NOTE: This method is usually used to save the shortcode to the data storage!
+            NOTE: Use the <see cref="M:Atom.Windows.Controls.ShortcodesContainer`4.OnCustomShortcodeAdded(Atom.Core.PropertyShortcode)"/>
+                  method to provide extra functionality to the shortcode since its called at all the places in the code where a custom shortcode is added!
+                  Ex. On the <see cref="M:Atom.Windows.Controls.ShortcodesContainer`4.OnInitialized(System.EventArgs)"/> where all the
+                  pre-existing shortcodes are retrieved!
+            NOTE: Override the <see cref="M:Atom.Windows.Controls.ShortcodesContainer`4.CreateShortcode(Atom.Core.ShortcodeCreationEventArgs)"/>
+                  method to provide a custom shortcode implementation!
+            </summary>
+            <param name="shortcode">The shortcode</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInput`1">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseFormInput"/> that contains multiple <see cref="T:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1"/>s
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInput`1.GetDataStorage">
+            <summary>
+            Gets the data storage
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInput`1.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Func{Atom.Relational.PropertyOptionsDataStorage{`0}})">
+            <summary>
+            Default constructor
+            </summary>
+             <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="getDataStorage">Gets the data storage</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInput`1.CreateFormInputContainer(System.Object)">
+            <summary>
+            Creates and returns the input element container
+            </summary>
+            <param name="args">The creation args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.StandardFormInputContainer`1"/> that contains a <see cref="T:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer`1"/>
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1.GetDataStorage">
+            <summary>
+            Gets the data storage
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1.#ctor(Atom.Windows.Controls.BaseFormInput,System.Func{Atom.Relational.PropertyOptionsDataStorage{`0}})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="formInput">The form input that contains this input container</param>
+            <param name="dataStorage">Gets the data storage</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1.ClearValue">
+            <summary>
+            Clears the inserted value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1.CreateInputControl">
+            <summary>
+            Creates and returns the input element of the appropriate type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1.ConfigureInputControl(Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainer{`0})">
+            <summary>
+            Further configures the input control
+            </summary>
+            <param name="inputControl">The input control</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1.GetValueCore">
+            <summary>
+            Gets the value of the input internally
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.DataConfigurationComponentFormulaShortcodesContainerFormInputContainer`1.SetValueCore(System.Object)">
+            <summary>
+            Sets the value to the input internally
+            </summary>
+            <param name="value">The value to set at the input</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.IOptionsContainerExtensions">
+            <summary>
+            Extension methods for the <see cref="T:Atom.Windows.Controls.IOptionsContainer"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.IOptionsContainerExtensions.AddDataPresenterConfigurationOption``1(Atom.Windows.Controls.IOptionsContainer,System.Func{Atom.Windows.Controls.IDataPresenter{``0}},System.Func{Atom.Relational.PropertyOptionsDataStorage{``0}},Atom.Core.PropertyMapper{``0})">
+            <summary>
+            Adds an option responsible for configuring the specified <paramref name="presenterRetriever"/>
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="container">The options container</param>
+            <param name="presenterRetriever">The data presenter</param>
+            <param name="getDataStorage">The data storage</param>
+            <param name="mapper">The mapper</param>
+        </member>
+    </members>
+</doc>

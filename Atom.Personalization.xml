@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Personalization</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Personalization.Constants">
+            <summary>
+            Personalization constants
+            </summary>
+        </member>
+        <member name="F:Atom.Personalization.Constants.White">
+            <summary>
+            Typically used as the back color of a control
+            </summary>
+        </member>
+        <member name="F:Atom.Personalization.Constants.LightGray">
+            <summary>
+            Typically used as the disabled color
+            </summary>
+        </member>
+        <member name="F:Atom.Personalization.Constants.Gray">
+            <summary>
+            Typically used as the text color of a control
+            </summary>
+        </member>
+        <member name="F:Atom.Personalization.Constants.LightBlue">
+            <summary>
+            Typically used to indicate a neutral state
+            </summary>
+        </member>
+        <member name="F:Atom.Personalization.Constants.Blue">
+            <summary>
+            Typically used to indicate a neutral state
+            or the selected state
+            </summary>
+        </member>
+        <member name="F:Atom.Personalization.Constants.DarkBlue">
+            <summary>
+            Typically used to indicate a neutral state
+            </summary>
+        </member>
+        <member name="F:Atom.Personalization.Constants.Green">
+            <summary>
+            Typically used to indicate a successful or an active state
+            </summary>
+        </member>
+        <member name="F:Atom.Personalization.Constants.Red">
+            <summary>
+            Typically used to indicate an error state
+            </summary>
+        </member>
+    </members>
+</doc>

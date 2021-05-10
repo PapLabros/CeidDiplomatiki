@@ -1,0 +1,1963 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.FrameworkElementAnimationsExtensions">
+            <summary>
+            Helpers to animate framework elements in specific ways
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleInAsync(System.Windows.FrameworkElement,System.Boolean,System.Single,System.Double)">
+            <summary>
+            Scales in the specified <paramref name="element"/>
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="firstLoad">A flag indicating if its the first load</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="startingScaleFactor">The starting scale factor</param>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleOutAsync(System.Windows.FrameworkElement,System.Single,System.Double,System.Windows.Visibility)">
+            <summary>
+            Scales out the specified <paramref name="element"/>
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="endingScaleFactor">The ending scale factor</param>
+            <param name="animationEndingVisibility">The visibility of the <paramref name="element"/> after the finish of the animation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeInAsync(System.Windows.FrameworkElement,System.Boolean,System.Single,System.Double,System.Double)">
+            <summary>
+            Scales and fades in the specified <paramref name="element"/>
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="firstLoad">A flag indicating if its the first load</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="startingScaleFactor">The starting scale factor</param>
+            <param name="toOpacity">The opacity to animate to</param>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeOutAsync(System.Windows.FrameworkElement,System.Single,System.Double,System.Windows.Visibility)">
+            <summary>
+            Scales and fades out the specified <paramref name="element"/>
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="endingScaleFactor">The ending scale factor</param>
+            <param name="animationEndingVisibility">The visibility of the <paramref name="element"/> after the finish of the animation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.SlideAndFadeInAsync(System.Windows.FrameworkElement,Atom.Core.Direction,System.Boolean,System.Single,System.Boolean,System.Int32)">
+            <summary>
+            Slides an element in
+            </summary>
+            <param name="element">The element to be slided in</param>
+            <param name="direction">The slide direction</param>
+            <param name="firstLoad">Indicates if this is the first load</param>
+            <param name="duration">The time the animation will take to complete</param>
+            <param name="keepMargin">Whether to keep the element at the same size during the animation</param>
+            <param name="size">The animation width/height to animate to. If not specified the elements size is used</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.SlideAndFadeOutAsync(System.Windows.FrameworkElement,Atom.Core.Direction,System.Boolean,System.Single,System.Boolean,System.Int32)">
+            <summary>
+            Slides an element out
+            </summary>
+            <param name="element">The element to be slided in</param>
+            <param name="direction">The slide direction</param>
+            <param name="firstLoad">Indicates if this is the first load</param>
+            <param name="duration">The time the animation will take to complete</param>
+            <param name="keepMargin">Whether to keep the element at the same size during the animation</param>
+            <param name="size">The animation width/height to animate to. If not specified the elements size is used</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.FadeInAsync(System.Windows.FrameworkElement,System.Boolean,System.Single,System.Double)">
+            <summary>
+            Fades an element in
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="duration">The time the animation will take</param>
+            <param name="firstLoad">Indicates if this is the first load</param>
+            <param name="toOpacity">The opacity to animate to</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.FadeOutAsync(System.Windows.FrameworkElement,System.Single,System.Double,System.Windows.Visibility)">
+            <summary>
+            Fades out an element
+            </summary>
+            <param name="element">The element to animate</param>
+            <param name="duration">The time the animation will take</param>
+            <param name="opacity">The custom ending opacity</param>
+            <param name="animationEndingVisibility">The visibility of the element after the end of the animation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ChangeColorAsync(System.Windows.FrameworkElement,System.String,Atom.Core.Controls.ColorAnimationTargetProperty,System.Windows.Media.Color,System.Single,System.Double,System.Boolean,System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Animates the color of an element
+            </summary>
+            <param name="element">The element that we are going to animate its color</param>
+            <param name="parentType">The type of the parent</param>
+            <param name="targetProperty">The property that the animation should target</param>
+            <param name="color">The color to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRation">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromColor">The value to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ChangeColorAsync(System.Windows.FrameworkElement,System.Windows.DependencyProperty,System.Windows.Media.Color,System.Single,System.Double,System.Boolean,System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Animates the color of an element
+            </summary>
+            <param name="element">The element that we are going to animate its color</param>
+            <param name="property">The property that the animation should target</param>
+            <param name="color">The color to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRation">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromColor">The value to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.RotateAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Double,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Rotates an element
+            </summary>
+            <param name="element">The element to rotate</param>
+            <param name="angle">The angle to rotate to in degrees</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRation">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromAngle">The angle to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.SetCanvasLeftAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Double,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Animates the canvas left attached property of the element
+            </summary>
+            <param name="element">The element whose canvas left property to animate</param>
+            <param name="canvasLeft">The value to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRation">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromCanvasLeft">The custom value to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.SetCanvasTopAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Double,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Animates the canvas top attached property of the element
+            </summary>
+            <param name="element">The element whose canvas top property to animate</param>
+            <param name="canvasTop">The value to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRation">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromCanvasTop">The custom value to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.SetCanvasLocationAsync(System.Windows.FrameworkElement,System.Windows.Point,System.Single,System.Double,System.Boolean,System.Nullable{System.Windows.Point})">
+            <summary>
+            Animates the canvas top attached property of the element
+            </summary>
+            <param name="element">The element whose canvas top property to animate</param>
+            <param name="location">The value to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRation">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromLocation">The custom value to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleXAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Scales the width of an element
+            </summary>
+            <param name="element">The element to scale</param>
+            <param name="widthScaleFactor">The multiplier factor of the width</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromWidthScaleFactor">The multiplier factor of the width to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleYAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Scales the height of an element
+            </summary>
+            <param name="element">The element to scale</param>
+            <param name="heightScaleFactor">The multiplier factor of the height</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromHeightScaleFactor">The multiplier factor of the height to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Scales the width and the height of an element
+            </summary>
+            <param name="element">The element to rotate</param>
+            <param name="ScaleFactor">The multiplier factor of the width and the height</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromScaleFactor">The multiplier factor of the width and the height to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ChangeThicknessAsync(System.Windows.FrameworkElement,Atom.Core.Controls.ThicknessAnimationTargetProperty,System.Double[],System.Single,System.Boolean,System.Double[])">
+            <summary>
+            Scales the width and the height of an element
+            </summary>
+            <param name="element">The element to rotate</param>
+            <param name="targetProperty">The property this animation should target</param>
+            <param name="thickness">The new thickness value</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
+            <param name="animateFromThickness">The thickness value to animate from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ChangeMarginAsync(System.Windows.FrameworkElement,System.Windows.Thickness,System.Single,System.Boolean,System.Nullable{System.Windows.Thickness})">
+            <summary>
+            Changes the margin of the <paramref name="element"/>
+            </summary>
+            <param name="element">The element whose margin should get animated</param>
+            <param name="margin">The margin to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating whether we want to animate from a custom margin or not</param>
+            <param name="animateFromMargin">The custom margin animate from</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.StoryboardExtensions">
+            <summary>
+            Extension methods associated with the <see cref="T:System.Windows.Media.Animation.Storyboard"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddSlideFromLeft(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide from left animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard the animation is going to be added to</param>
+            <param name="seconds">The duration of the animation</param>
+            <param name="offset">The distance to the left to start from</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddSlideToLeft(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide to left animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard the animation is going to be added to</param>
+            <param name="seconds">The duration of the animation</param>
+            <param name="offset">The distance to the right to start from</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddSlideFromRight(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide from right animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard the animation is going to be added to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="offset">The distance to the left to start from</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddSlideToRight(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide to right animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard the animation is going to be added to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="offset">The distance to the right to start from</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+            <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddSlideFromTop(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide from top animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="offset">The distance to the top to start from</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddSlideToTop(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide to top animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="offset">The distance to the top to end at</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddSlideFromBottom(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide from bottom animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="offset">The distance to the bottom to start from</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddSlideToBottom(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Single,System.Boolean)">
+            <summary>
+            Adds a slide to bottom animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="offset">The distance to the bottom to end at</param>
+            <param name="decelerationRatio">The rate of deceleration</param>
+            <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddFadeIn(System.Windows.Media.Animation.Storyboard,System.Single,System.Double,System.Boolean,System.Double)">
+            <summary>
+            Adds a fade in animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="toOpacity">The to opacity</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="from">Animate from a custom opacity if requested</param>
+            <param name="opacity">The custom starting opacity</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddFadeOut(System.Windows.Media.Animation.Storyboard,System.Single,System.Boolean,System.Double)">
+            <summary>
+            Adds a fade out animation to the storyboard
+            </summary>
+            <param name="storyboard">The storyboard to add the animation to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="To">Animate to a custom opacity if requested</param>
+            <param name="opacity">The custom ending opacity</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddColorAnimation(System.Windows.Media.Animation.Storyboard,System.String,Atom.Core.Controls.ColorAnimationTargetProperty,System.Windows.Media.Color,System.Single,System.Double,System.Boolean,System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Adds a color animation to the <paramref name="sb"/>
+            </summary>
+            <param name="sb">The specific storyboard</param>
+            <param name="parentType">The type of the parent</param>
+            <param name="targetProperty">The property we should target</param>
+            <param name="color">The color to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRation">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific color value</param>
+            <param name="animateFromColor">The specific color value to start from</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddColorAnimation(System.Windows.Media.Animation.Storyboard,System.Windows.DependencyProperty,System.Windows.Media.Color,System.Single,System.Double,System.Boolean,System.Nullable{System.Windows.Media.Color})">
+            <summary>
+            Adds a color animation to the <paramref name="sb"/>
+            </summary>
+            <param name="sb">The specific storyboard</param>
+            <param name="property">The property we should target</param>
+            <param name="color">The color to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRation">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific color value</param>
+            <param name="animateFromColor">The specific color value to start from</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddRotateAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Double,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Adds a rotate animation to the storyboard
+            </summary>
+            <param name="storyboard">The specific storyboard</param>
+            <param name="angle">The angle to rotate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific angle</param>
+            <param name="animateFromAngle">The specific angle to start from</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddCanvasLeftAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Double,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Add a canvas left animation to the storyboard
+            </summary>
+            <param name="storyboard">The specific storyboard</param>
+            <param name="canvasLeft">The canvas left value to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific canvas left value</param>
+            <param name="animateFromCanvasLeft">The canvas left value to start from</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddCanvasTopAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Double,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Add a canvas top animation to the storyboard
+            </summary>
+            <param name="storyboard">The specific storyboard</param>
+            <param name="canvasTop">The canvas top value to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="decelerationRatio">The deceleration ratio of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific canvas top value</param>
+            <param name="animateFromCanvasTop">The canvas top value to start from</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleXAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Adds a width scale animation to the storyboard
+            </summary>
+            <param name="storyboard">The specific storyboard</param>
+            <param name="widthScaleFactor">The multiplier factor of the width</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific scale x value</param>
+            <param name="animateFromWidthScaleFactor">The multiplier factor of the width to animate from</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleYAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+            <summary>
+            Adds a height scale animation to the storyboard
+            </summary>
+            <param name="storyboard">The specific storyboard</param>
+            <param name="heightScaleFactor">The multiplier factor of the height</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific angle</param>
+            <param name="animateFromheightScaleFactor">The multiplier factor of the height to animate from</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddThicknessAnimation(System.Windows.Media.Animation.Storyboard,Atom.Core.Controls.ThicknessAnimationTargetProperty,System.Double[],System.Single,System.Boolean,System.Double[])">
+            <summary>
+            Adds a width scale animation to the storyboard
+            </summary>
+            <param name="storyboard">The specific storyboard</param>
+            <param name="targetProperty">The target property</param>
+            <param name="thickness">The thickness to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific angle</param>
+            <param name="animateFromThickness">The thickness to animate from</param>
+        </member>
+        <member name="M:Atom.Windows.StoryboardExtensions.AddMarginAnimation(System.Windows.Media.Animation.Storyboard,System.Windows.Thickness,System.Single,System.Boolean,System.Nullable{System.Windows.Thickness})">
+            <summary>
+            Adds a thickness margin animation to the <paramref name="storyboard"/>
+            </summary>
+            <param name="storyboard">The specific storyboard</param>
+            <param name="margin">The margin to animate to</param>
+            <param name="duration">The duration of the animation</param>
+            <param name="animateFrom">A flag indicating if we want to start from a specific margin</param>
+            <param name="animateFromMargin">The custom margin to animate from</param>
+        </member>
+        <member name="T:Atom.Windows.AnimateBaseAttachedProperty`2">
+            <summary>
+            The class the is the base of all our animation attached properties
+            </summary>
+            <typeparam name="Parent">The parent class to be the attached property</typeparam>
+            <typeparam name="Property">The type of this attached property</typeparam>
+        </member>
+        <member name="F:Atom.Windows.AnimateBaseAttachedProperty`2.mAlreadyLoaded">
+            <summary>
+            True if this is the very first time the value has been updated
+            Used to make sure we run the logic at least once during first load
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.AnimateBaseAttachedProperty`2.mFirstLoadValue">
+            <summary>
+            The most recent value use if we get a value changed before we do the first load
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.AnimateBaseAttachedProperty`2.OnValueUpdated(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            The method that is called every time the dependency property is changed, even if it is the same value
+            </summary>
+            <param name="d">The UI element that contains this property</param>
+            <param name="value">The newly changed value</param>
+        </member>
+        <member name="M:Atom.Windows.AnimateBaseAttachedProperty`2.DoAnimation(System.Windows.FrameworkElement,`1,System.Boolean)">
+            <summary>
+            The animation method that is fired when the value changes
+            </summary>
+            <param name="element">The element</param>
+            <param name="value">The new value</param>
+            <param name="firstLoad">If true then the element is being loaded before the animation begins</param>
+        </member>
+        <member name="T:Atom.Windows.BaseAttachedProperty`2">
+            <summary>
+            A base attached property to replace the vanilla WPF attached property
+            </summary>
+            <typeparam name="Parent">The parent class to be the attached property</typeparam>
+            <typeparam name="Property">The type of this attached property</typeparam>
+        </member>
+        <member name="P:Atom.Windows.BaseAttachedProperty`2.Instance">
+            <summary>
+            A single instance of the attached property.
+            NOTE: This is required in order to call non static methods
+                  through static methods, like the event methods!
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.BaseAttachedProperty`2.ValueProperty">
+            <summary>
+            The attached property definition
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.BaseAttachedProperty`2.OnValuePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            The callback event when the <see cref="F:Atom.Windows.BaseAttachedProperty`2.ValueProperty"/> changes
+            NOTE: This event will not fire when the new property value is the same as the old one 
+            </summary>
+            <param name="d">The UI element that had its property changed</param>
+            <param name="e">The property arguments</param>
+        </member>
+        <member name="M:Atom.Windows.BaseAttachedProperty`2.OnValuePropertyUpdated(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            The callback event when the <see cref="F:Atom.Windows.BaseAttachedProperty`2.ValueProperty"/> changes, even if it the same value
+            </summary>
+            <param name="d">The UI element that has its property changed</param>
+            <param name="value">The newly inserted value of the property</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.BaseAttachedProperty`2.GetValue(System.Windows.DependencyObject)">
+            <summary>
+            Gets the value of this dependency property of a UI element
+            </summary>
+            <param name="d">The UI element that contains this property</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.BaseAttachedProperty`2.SetValue(System.Windows.DependencyObject,`1)">
+            <summary>
+            Sets the specific value to this specific dependency property
+            </summary>
+            <param name="d">The UI element that contains the dependency property</param>
+            <param name="value">The value to set the dependency property to</param>
+        </member>
+        <member name="M:Atom.Windows.BaseAttachedProperty`2.OnValueChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            The method that is called every time the dependency property is changed
+            </summary>
+            <param name="d">The UI element that contains this property</param>
+            <param name="e">The arguments of the event</param>
+        </member>
+        <member name="M:Atom.Windows.BaseAttachedProperty`2.OnValueUpdated(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            The method that is called every rime the dependency property is changed, even if it is the same value
+            </summary>
+            <param name="d">The UI element that contains this property</param>
+            <param name="value">The newly changed value</param>
+        </member>
+        <member name="T:Atom.Windows.BaseCommandExecutionProperty`2">
+            <summary>
+            The base for every command execution property
+            </summary>
+            <typeparam name="Parent">The parent class to be the attached property</typeparam>
+            <typeparam name="TElement">The type of the element</typeparam>
+        </member>
+        <member name="M:Atom.Windows.BaseCommandExecutionProperty`2.Element_MouseButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Fires when we have a mouse button down event
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.BaseCommandExecutionProperty`2.Element_MouseButtonUp(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Fires when we have a mouse button up event
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.BaseCommandExecutionProperty`2.OnValueUpdated(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Override the on value updated method to add the Command to execute
+            </summary>
+            <param name="d"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Atom.Windows.BaseCommandExecutionProperty`2.AddClickHandler(`1)">
+            <summary>
+            Adds the necessary event handlers
+            </summary>
+            <param name="element">The UI element</param>
+        </member>
+        <member name="M:Atom.Windows.BaseCommandExecutionProperty`2.RemoveClickHandler(`1)">
+            <summary>
+            Removes the already added necessary event handlers
+            </summary>
+            <param name="element">The UI element</param>
+        </member>
+        <member name="M:Atom.Windows.BaseCommandExecutionProperty`2.GetCommandParameter(`1)">
+            <summary>
+            Gets the parameter of the executable command.
+            NOTE: Override this method to select a command parameter other than
+                  the <paramref name="element"/>'s DataContext
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.BaseCommandExecutionProperty`1">
+            <summary>
+            The base for every command execution property
+            </summary>
+            <typeparam name="TParent">The parent class to be the attached property</typeparam>
+        </member>
+        <member name="T:Atom.Windows.LeftClickProperty`2">
+            <summary>
+            Simulates the left click event
+            </summary>
+            <typeparam name="Parent">The parent class to be the attached property</typeparam>
+            <typeparam name="TElement">The type of the element</typeparam>
+        </member>
+        <member name="M:Atom.Windows.LeftClickProperty`2.AddClickHandler(`1)">
+            <summary>
+            Adds the necessary event handlers
+            </summary>
+            <param name="element">The UI element</param>
+        </member>
+        <member name="M:Atom.Windows.LeftClickProperty`2.RemoveClickHandler(`1)">
+            <summary>
+            Removes the already added necessary event handlers
+            </summary>
+            <param name="element">The UI element</param>
+        </member>
+        <member name="T:Atom.Windows.LeftClickProperty">
+            <summary>
+            Simulates the left click event
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.RightClickProperty">
+            <summary>
+            Simulates the right click event
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.RightClickProperty.AddClickHandler(System.Windows.FrameworkElement)">
+            <summary>
+            Adds the necessary event handlers
+            </summary>
+            <param name="element">The UI element</param>
+        </member>
+        <member name="M:Atom.Windows.RightClickProperty.RemoveClickHandler(System.Windows.FrameworkElement)">
+            <summary>
+            Removes the already added necessary event handlers
+            </summary>
+            <param name="element">The UI element</param>
+        </member>
+        <member name="T:Atom.Windows.BaseGridDefinitionsProperty`1">
+            <summary>
+            Property that's the base of the properties related to the grid's definitions
+            </summary>
+            <typeparam name="Parent"></typeparam>
+        </member>
+        <member name="M:Atom.Windows.BaseGridDefinitionsProperty`1.OnValueUpdated(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            The event that fires every time the value of the property is changed
+            </summary>
+            <param name="d"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Atom.Windows.BaseGridDefinitionsProperty`1.SetDefinitions(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Updates the row/columns definitions
+            </summary>
+            <param name="grid">The targeted grid</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="T:Atom.Windows.GridColumnsProperty">
+            <summary>
+            Property responsible for setting the correct number of columns on a grid
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.GridRowsProperty">
+            <summary>
+            Property responsible for setting the correct number of rows on a grid
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.BitmapImageExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Windows.Media.Imaging.BitmapImage"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.BitmapImageExtensions.ToByteArray(System.Windows.Media.Imaging.BitmapImage)">
+            <summary>
+            Converts the specified <paramref name="image"/> to a <see cref="!:byte[]"/>
+            </summary>
+            <param name="image">The bitmap image</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.BrushesExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Windows.Media.Brush"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.BrushesExtensions.ToColor(System.Windows.Media.Brush)">
+            <summary>
+            Gets the color of the given <paramref name="brush"/>
+            </summary>
+            <param name="brush">The brush to get the color from</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.ByteArrayExtensions">
+            <summary>
+            Extensions for <see cref="!:byte[]"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.ByteArrayExtensions.ToBitmapImage(System.Byte[])">
+            <summary>
+            Creates and returns a <see cref="T:System.Windows.Media.Imaging.BitmapImage"/> that represents the specified <paramref name="imageData"/>
+            </summary>
+            <param name="imageData">The image data</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.ColorChangeMode">
+            <summary>
+            The two available color change modes
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.ColorChangeMode.Darken">
+            <summary>
+            Darkens the color
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.ColorChangeMode.Lighten">
+            <summary>
+            Lightens the color
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.ColorExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Windows.Media.Color"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.ColorExtensions.ToHex(System.Windows.Media.Color,System.Boolean)">
+            <summary>
+            Extension method that returns the hex value of a <see cref="T:System.Windows.Media.Color"/>
+            </summary>
+            <param name="c">The specific color</param>
+            <param name="returnHash">Whether to place "#" in front of the hex value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ColorExtensions.RGBConverter(System.Windows.Media.Color,System.Boolean)">
+            <summary>
+            Extension method that returns the RGB value of a <see cref="T:System.Windows.Media.Color"/>
+            </summary>
+            <param name="c">The specific color</param>
+            <param name="returnRGB">Whether to place "RGB" in front of the RGB value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ColorExtensions.ToBrush(System.Windows.Media.Color)">
+            <summary>
+            Converts the given <paramref name="c"/> to a <see cref="T:System.Windows.Media.SolidColorBrush"/>
+            </summary>
+            <param name="c">The color to convert to a brush</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ColorExtensions.ToDarkerColor(System.Windows.Media.Color,System.UInt32)">
+            <summary>
+            Darkens the given <paramref name="c"/>
+            </summary>
+            <param name="c">The color to darken</param>
+            <param name="level">The darken level</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ColorExtensions.ToLighterColor(System.Windows.Media.Color,System.UInt32)">
+            <summary>
+            Lightens the given <paramref name="c"/>
+            </summary>
+            <param name="c">The color to lighten</param>
+            <param name="level">The darken level</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ColorExtensions.ChangeColorComponent(System.Int32,Atom.Windows.ColorChangeMode,System.UInt32)">
+            <summary>
+            Changes the given <paramref name="colorComponent"/> based on the <paramref name="level"/>
+            </summary>
+            <param name="colorComponent">The color component to change</param>
+            <param name="mode">The color change mode</param>
+            <param name="level">The level of the change</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ColorExtensions.PerceivedBrightness(System.Windows.Media.Color)">
+            <summary>
+            Perceives the brightness of the <paramref name="c"/> using a special formula
+            </summary>
+            <param name="c">The color to perceive its brightness</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ColorExtensions.DarkOrWhite(System.Windows.Media.Color)">
+            <summary>
+            Selects between black and white, the more fitting color to contrast the given <paramref name="c"/>
+            </summary>
+            <param name="c">The color to find the more fitting contrast</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.CommandHelpers">
+            <summary>
+            Helper methods associated with <see cref="T:System.Windows.Input.ICommand"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.CommandHelpers.CanExecuteCommandSource(System.Windows.Input.ICommandSource)">
+            <summary>
+            Checks if the given <paramref name="commandSource"/> element can execute its command
+            </summary>
+            <param name="commandSource">The element to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.CommandHelpers.ExecuteCommand(System.Windows.Input.ICommand,System.Object,System.Windows.IInputElement)">
+            <summary>
+            Executes the given <paramref name="command"/>
+            </summary>
+            <param name="command">The command to execute</param>
+            <param name="parameter">The command parameter</param>
+            <param name="target">The element that's the target of the command</param>
+        </member>
+        <member name="M:Atom.Windows.CommandHelpers.ExecuteCommand``1(Atom.Core.RelayCommand{``0},``0,System.Windows.IInputElement)">
+            <summary>
+            Executes the given <paramref name="command"/>
+            </summary>
+            <typeparam name="TCommandParameter">The type of the parameter of the command</typeparam>
+            <param name="command">The command to execute</param>
+            <param name="parameter">The command parameter</param>
+            <param name="target">The element that's the target of the command</param>
+        </member>
+        <member name="T:Atom.Windows.InputDataHelpers">
+            <summary>
+            Helpers for getting data of input
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.InputDataHelpers.GetMousePosition">
+            <summary>
+            Gets the current position of the cursor on screen
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.InputDataHelpers.GetMousePosition(System.Windows.IInputElement)">
+            <summary>
+            Gets the cursor position relative to the <paramref name="element"/>
+            </summary>
+            <param name="element">The element to get the cursor position relative to</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.InputDataHelpers.GetControlPosition(System.Windows.Media.Visual)">
+            <summary>
+            Gets the position of the control relative to the screen
+            </summary>
+            <param name="cntrl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.InterceptMouse">
+            <summary>
+            Methods for setting global low level hooks on the mouse
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.InterceptMouse.Instance">
+            <summary>
+            A single instance of the class
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.InterceptMouse.WH_MOUSE_LL">
+            <summary>
+            The ID of the mouse hook
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.InterceptMouse.GWL_WNDPROC">
+            <summary>
+            The ID for setting a window procedure
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.InterceptMouse.SetHook(Atom.Windows.InterceptMouse.LowLevelMouseProc)">
+            <summary>
+            Sets a low level global hook on the mouse
+            </summary>
+            <param name="proc"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.InterceptMouse.LowLevelMouseProc">
+            <summary>
+            The type of the delegate that should be inserted when setting a hook
+            </summary>
+            <param name="nCode"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.InterceptMouse.POINT">
+            <summary>
+            The position coordinates of the mouse taken straight from the memory
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.InterceptMouse.MSLLHOOKSTRUCT">
+            <summary>
+            General data for the mouse taken straight from the memory
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.MouseMessages">
+            <summary>
+            The messages that represent various mouse actions
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.WindowCondition">
+            <summary>
+            The code that specifies the condition of the window we want to select
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.DependencyObjectsExtensions">
+            <summary>
+            Extensions methods for dependency objects
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.DependencyObjectsExtensions.DisconnectChild(System.Windows.DependencyObject,System.Windows.UIElement)">
+            <summary>
+            Disconnects the specified <paramref name="child"/> from its <paramref name="parent"/>
+            </summary>
+            <param name="parent">The parent of the child</param>
+            <param name="child">The child to disconnect from its parent</param>
+        </member>
+        <member name="T:Atom.Windows.ExternDll">
+            <summary>
+            the names of the external libraries that are used
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.EffectsFactory">
+            <summary>
+            Helper methods associated with <see cref="T:System.Windows.Media.Effects.Effect"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.EffectsFactory.CreateDropShadowEffect(System.Windows.Media.Color)">
+            <summary>
+            Creates and returns a drop shadow effect
+            </summary>
+            <param name="color">The color of the shadow</param>
+        </member>
+        <member name="M:Atom.Windows.EffectsFactory.CreateDropShadowEffect(System.String)">
+            <summary>
+            Creates and returns a drop shadow effect
+            </summary>
+            <param name="color">The color of the shadow</param>
+        </member>
+        <member name="T:Atom.Windows.FileDialogConstants">
+            <summary>
+            Constants associated with the file dialogs
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.FileDialogConstants.Data">
+            <summary>
+            All the available filters paired with their related vector sources and their related colors
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.FileDialogConstants.ParseFileExtensions(System.String)">
+            <summary>
+            Parses the specified <paramref name="fileDialogFilter"/> and returns an <see cref="!:IEnumerable&lt;string&gt;"/>
+            that contains the file extensions
+            </summary>
+            <param name="fileDialogFilter">The open file dialog filter to parse</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.DialogFilterDataModel">
+            <summary>
+            Contains all the information related to a filter
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.DialogFilterDataModel.Filter">
+            <summary>
+            The filter
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.DialogFilterDataModel.VectorSource">
+            <summary>
+            The vector source
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.DialogFilterDataModel.Color">
+            <summary>
+            The color
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.DialogFilterDataModel.#ctor(System.String,Atom.Core.VectorSource,System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="filter">The filter</param>
+            <param name="vectorSource">The vector source</param>
+            <param name="color">The color</param>
+        </member>
+        <member name="T:Atom.Windows.FileDialogHelpers">
+            <summary>
+            Helper methods associated with file dialogs
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.FileDialogHelpers.SaveFile(System.String,System.String,System.String,System.String@)">
+            <summary>
+            Attempts to save a file.
+            NOTE: If the user didn't select a file name, <see cref="!:false"/> is returned!
+            NOTE: If the user selected a file name, <see cref="!:true"/> is returned 
+                  and the file name is stored in the <paramref name="fileName"/> parameter!
+            </summary>
+            <param name="filter">
+            The filter of the files.
+            NOTE: This is usually taken from <see cref="T:Atom.Windows.FileDialogConstants"/>
+            </param>
+            <param name="defaultFileName">The default file name</param>
+            <param name="defaultFileExtension">The default file extension</param>
+            <param name="fileName">The file name selected by the user</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FileDialogHelpers.SaveExcelFile(System.String,System.String@)">
+            <summary>
+            Attempts to save a file.
+            NOTE: If the user didn't select a file name, <see cref="!:false"/> is returned!
+            NOTE: If the user selected a file name, <see cref="!:true"/> is returned 
+                  and the file name is stored in the <paramref name="fileName"/> parameter!
+            </summary>
+            <param name="defaultFileName">The default file name</param>
+            <param name="fileName">The file name selected by the user</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FileDialogHelpers.OpenFile(System.String,System.String@)">
+            <summary>
+            Attempts to open a file.
+            NOTE: If the user didn't select a file name, <see cref="!:false"/> is returned!
+            NOTE: If the user selected a file name, <see cref="!:true"/> is returned 
+                  and the file name is stored in the <paramref name="fileName"/> parameter!
+            </summary>
+            <param name="filter">
+            The filter of the files.
+            NOTE: This is usually taken from <see cref="T:Atom.Windows.FileDialogConstants"/>
+            </param>
+            <param name="fileName">The file name selected by the user</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FileDialogHelpers.OpenClassLibraryFile(System.String@)">
+            <summary>
+            Attempts to open a class library (.dll) file
+            </summary>
+            <param name="fileName">The file name selected by the user</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.FrameworkElementExtensions">
+            <summary>
+            Extension methods for framework elements
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementExtensions.GetImage(System.Windows.FrameworkElement)">
+            <summary>
+            Creates and returns an image from the specified <paramref name="element"/>
+            </summary>
+            <param name="element">The element to create the image from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementExtensions.GetElementRectangle(System.Windows.FrameworkElement,System.Windows.UIElement)">
+            <summary>
+            Gets the rectangle of <paramref name="element"/> relative to the <paramref name="relativeParentElement"/>
+            </summary>
+            <param name="element">The element whose rectangle to get</param>
+            <param name="relativeParentElement">The parent that of the rectangle that we will use to get the position of the element relative to</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.FrameworkElementExtensions.RestrictContainedElementMovement(System.Windows.FrameworkElement,System.Windows.FrameworkElement,System.Windows.Point)">
+            <summary>
+            Calculates the location of the <paramref name="containedElement"/> taking into consideration the bounds of the <paramref name="container"/>
+            </summary>
+            <param name="containedElement">The contained element</param>
+            <param name="container">The container</param>
+            <param name="cursorRelativeToContainer">The location of the cursor relative to the container</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.GridExtensions">
+            <summary>
+            Extension methods associated with <see cref="T:System.Windows.Controls.Grid"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.GridExtensions.GetElementsOfColumn``1(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Gets all the children of the <paramref name="grid"/> that are placed in the column with index <paramref name="columnIndex"/>
+            </summary>
+            <typeparam name="T">The type of the items the we want to get</typeparam>
+            <param name="grid">The target grid</param>
+            <param name="columnIndex">The index of the column</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.GridExtensions.GetElementsOfColumn(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Gets all the children of the <paramref name="grid"/> that are placed in the column with index <paramref name="columnIndex"/>
+            </summary>
+            <param name="grid">The target grid</param>
+            <param name="columnIndex">The index of the column</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.GridExtensions.CountElementsOfColumn``1(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Counts the children of the <paramref name="grid"/> that are placed in the column with index <paramref name="columnIndex"/>
+            </summary>
+            <typeparam name="T">The type of the items we want to count</typeparam>
+            <param name="grid">The target grid</param>
+            <param name="columnIndex">The index of the column</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.GridExtensions.CountElementsOfColumn(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Counts the children of the <paramref name="grid"/> that are placed in the column with index <paramref name="columnIndex"/>
+            </summary>
+            <param name="grid">The target grid</param>
+            <param name="columnIndex">The index of the column</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.GridExtensions.GetElementsOfRow``1(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Gets all the children of the <paramref name="grid"/> that are placed in the row with index <paramref name="rowIndex"/> 
+            </summary>
+            <typeparam name="T">The type of the items the we want to get</typeparam>
+            <param name="grid">The target grid</param>
+            <param name="rowIndex">The index of the row</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.GridExtensions.GetElementsOfRow(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Gets all the children of the <paramref name="grid"/> that are placed in the row with index <paramref name="rowIndex"/> 
+            </summary>
+            <param name="grid">The target grid</param>
+            <param name="rowIndex">The index of the row</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.GridExtensions.CountElementsOfRow``1(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Counts the children of the <paramref name="grid"/> that are placed in the row with index <paramref name="rowIndex"/>
+            </summary>
+            <typeparam name="T">The type of the items we want to count</typeparam>
+            <param name="grid">The target grid</param>
+            <param name="rowIndex">The index of the column</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.GridExtensions.CountElementsOfRow(System.Windows.Controls.Grid,System.Int32)">
+            <summary>
+            Counts the children of the <paramref name="grid"/> that are placed in the row with index <paramref name="rowIndex"/>
+            </summary>
+            <param name="grid">The target grid</param>
+            <param name="rowIndex">The index of the column</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.HardwareHelpers">
+            <summary>
+            Helpers methods associated with Hardware
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.HardwareHelpers.GetInstalledPrinterNames">
+            <summary>
+            Gets the names of the installed printers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.HardwareHelpers.GetInstalledPrinters">
+            <summary>
+            Gets the names of the installed printers
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.ImageSourceExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Windows.Media.ImageSource"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.ImageSourceExtensions.ToByteArray(System.Windows.Media.ImageSource,System.Windows.Media.Imaging.BitmapEncoder)">
+            <summary>
+            Creates and returns a <see cref="!:byte[]"/> that represents the specified <paramref name="imageSource"/>
+            </summary>
+            <param name="imageSource">The image source</param>
+            <param name="encoder">
+            The encoder.
+            Ex.: <see cref="T:System.Windows.Media.Imaging.PngBitmapEncoder"/>
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ImageSourceExtensions.ToByteArray(System.Windows.Media.ImageSource)">
+            <summary>
+            Creates and returns a <see cref="!:byte[]"/> that represents the specified <paramref name="imageSource"/>
+            </summary>
+            <param name="imageSource">The image source</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.IWindow">
+            <summary>
+            Interface that forces the implementation of the window property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.IWindow.Window">
+            <summary>
+            The window property
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.ObjectsExtensions">
+            <summary>
+            Extension methods for objects
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.ObjectsExtensions.IsDisconnected(System.Object)">
+            <summary>
+            Checks if the specific object is disconnected from the visual tree
+            </summary>
+            <param name="obj">The object to check</param>
+            <returns>
+                True if the object is disconnected , false if it isn't
+            </returns>
+        </member>
+        <member name="T:Atom.Windows.WindowsPersonalization">
+            <summary>
+            All the windows personalization info of the application
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.AddLocalPortResult">
+            <summary>
+            The result types of the <see cref="M:Atom.Windows.Printing.AddLocalPort(System.String)"/> method
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Printing">
+            <summary>
+            Helper methods and extensions associated with printing
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Printing.DefaultPDFGenerationFilePath">
+            <summary>
+            The default file path of the auto generated PDFs
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Printing.SilentPrinterName">
+            <summary>
+            The name of the printer that will get generated
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Printing.AddLocalPort(System.String)">
+            <summary>
+            Adds a local print port for silent printing pdf files
+            </summary>
+            <param name="filePath">The file path of the pdf that will get created</param>
+            <remarks>
+            Original source: https://www.codeproject.com/Tips/92982/Adding-a-Local-Port-through-XcvData-and-C
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Printing.AddPrinter(System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a new printer
+            </summary>
+            <param name="printerName">The name of the printer</param>
+            <param name="printerDriver">The name of the driver of the printer</param>
+            <param name="portName">
+            The name of the port, usually the file path of pdf we want to generate.
+            NOTE: Use the <see cref="M:Atom.Windows.Printing.AddLocalPort(System.String)"/> to create a port
+            </param>
+            <param name="sharedPrinter">If true then the printer is shared, otherwise it's a local one</param>
+            <param name="isFilePrinter">If true, then we are generating a file and not actually printing on a printer</param>
+            <returns>True if the operation was successful and false if the operation failed</returns>
+        </member>
+        <member name="M:Atom.Windows.Printing.GeneratePDFAsync(System.Windows.Media.Visual,System.String)">
+            <summary>
+            Generates the requested pdf file
+            </summary>
+            <param name="filePath">The path of the file we want to generate</param>
+            <param name="visual">The visual we want to generate the pdf from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Printing.GetDefaultPrinterName">
+            <summary>
+            Gets the default printer name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Printing.SetDefaultPrinter(System.String)">
+            <summary>
+            Sets the printer with the specified <paramref name="printerName"/> as the default printer
+            </summary>
+            <param name="printerName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Printing.PrintHTMLAsync(System.String,System.String)">
+            <summary>
+            Prints the specified <paramref name="html"/> using the printer with the specified <paramref name="printerName"/>
+            </summary>
+            <param name="html">The HTML</param>
+            <param name="printerName">The printer name</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.RectsExtensions">
+            <summary>
+            Extension methods associated with the <see cref="T:System.Windows.Rect"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.RectsExtensions.OverlapsWith(System.Windows.Rect,System.Windows.Rect)">
+            <summary>
+            Checks if the <paramref name="rect1"/> overlaps with the <paramref name="rect2"/>
+            </summary>
+            <param name="rect1">The first rect</param>
+            <param name="rect2">The second rect</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.MouseHelper">
+            <summary>
+            Helper methods associated with the mouse
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Screen">
+            <summary>
+            Represents a display device or multiple display devices on a single system.
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Screen.AllScreens">
+            <summary>
+            Gets an array of all displays on the system.
+            </summary>
+            <returns>An enumerable of type Screen, containing all displays on the system.</returns>
+        </member>
+        <member name="P:Atom.Windows.Screen.Bounds">
+            <summary>
+            Gets the bounds of the display.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Rect" />, representing the bounds of the display.</returns>
+        </member>
+        <member name="P:Atom.Windows.Screen.DeviceName">
+            <summary>
+            Gets the device name associated with a display.
+            </summary>
+            <returns>The device name associated with a display.</returns>
+        </member>
+        <member name="P:Atom.Windows.Screen.Primary">
+            <summary>
+            Gets a value indicating whether a particular display is the primary device.
+            </summary>
+            <returns>true if this display is primary; otherwise, false.</returns>
+        </member>
+        <member name="P:Atom.Windows.Screen.PrimaryScreen">
+            <summary>
+            Gets the primary display.
+            </summary>
+            <returns>The primary display.</returns>
+        </member>
+        <member name="P:Atom.Windows.Screen.WorkingArea">
+            <summary>
+            Gets the working area of the display. The working area is the desktop area of the display, excluding task bars, docked windows, and docked tool bars.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Rect" />, representing the working area of the display.</returns>
+        </member>
+        <member name="M:Atom.Windows.Screen.FromHandle(System.IntPtr)">
+            <summary>
+            Retrieves a Screen for the display that contains the largest portion of the specified control.
+            </summary>
+            <param name="hwnd">The window handle for which to retrieve the Screen.</param>
+            <returns>A Screen for the display that contains the largest region of the object. In multiple display environments where no display contains any portion of the specified window, the display closest to the object is returned.</returns>
+        </member>
+        <member name="M:Atom.Windows.Screen.FromPoint(System.Windows.Point)">
+            <summary>
+            Retrieves a Screen for the display that contains the specified point.
+            </summary>
+            <param name="point">A <see cref="T:System.Windows.Point" /> that specifies the location for which to retrieve a Screen.</param>
+            <returns>A Screen for the display that contains the point. In multiple display environments where no display contains the point, the display closest to the specified point is returned.</returns>
+        </member>
+        <member name="M:Atom.Windows.Screen.Equals(System.Object)">
+            <summary>
+            Gets or sets a value indicating whether the specified object is equal to this Screen.
+            </summary>
+            <param name="obj">The object to compare to this Screen.</param>
+            <returns>true if the specified object is equal to this Screen; otherwise, false.</returns>
+        </member>
+        <member name="M:Atom.Windows.Screen.GetHashCode">
+            <summary>
+            Computes and retrieves a hash code for an object.
+            </summary>
+            <returns>A hash code for an object.</returns>
+        </member>
+        <member name="T:Atom.Windows.ScreensExtensions">
+            <summary>
+            Extension methods associated with <see cref="T:Atom.Windows.Screen"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.ScreensExtensions.GetScreenFrom(System.Windows.Window)">
+            <summary>
+            Gets the screen that the <paramref name="window"/> is displayed to
+            </summary>
+            <param name="window">The window to get the screen from</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.ScreensExtensions.GetScreenFrom(System.Windows.Point)">
+            <summary>
+            Gets the screen that the <paramref name="point"/> is displayed at
+            </summary>
+            <param name="point">The point to get the screen from</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.StringExtensions">
+            <summary>
+            Extension methods for string
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.StringExtensions.ToColor(System.String)">
+            <summary>
+            Converts the specific <paramref name="s"/> to a <see cref="T:System.Windows.Media.Color"/>
+            </summary>
+            <param name="s">The string to convert to color</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.StringExtensions.ToBrush(System.String)">
+            <summary>
+            Converts the specific <paramref name="s"/> to a <see cref="T:System.Windows.Media.Brush"/>
+            </summary>
+            <param name="s">The string to convert to a brush</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.StringExtensions.GetScreenSize(System.String,System.Windows.UIElement,System.Windows.Media.FontFamily,System.Double,System.Windows.FontStyle,System.Windows.FontWeight,System.Windows.FontStretch)">
+            <summary>
+            Gets the size of the specified <paramref name="text"/>
+            </summary>
+            <param name="text">The text</param>
+            <param name="element">The element that contains the text</param>
+            <param name="fontFamily">The font family of the text</param>
+            <param name="fontSize">The font size of the text</param>
+            <param name="fontStyle">The font style of the text</param>
+            <param name="fontWeight">The font weight of the text</param>
+            <param name="fontStretch">The font stretch of the text</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.SystemInformation">
+            <summary>
+            Information associated with the current system
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.SystemInformation.VirtualScreen">
+            <summary>
+            Gets the bounds of the virtual screen.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Rect" /> that specifies the bounding rectangle of the entire virtual screen.</returns>
+        </member>
+        <member name="P:Atom.Windows.SystemInformation.WorkingArea">
+            <summary>
+            Gets the size, in pixels, of the working area of the screen.
+            </summary>
+            <returns>A <see cref="T:System.Windows.Rect" /> that represents the size, in pixels, of the working area of the screen.</returns>
+        </member>
+        <member name="T:Atom.Windows.UIElementsExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Windows.UIElement"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.UIElementsExtensions.GetRelativeLocation``1(System.Windows.UIElement)">
+            <summary>
+            Get the relative position of the <paramref name="uiElement"/> to its parent of type <typeparamref name="TParent"/>
+            </summary>
+            <typeparam name="TParent">The type of the parent of the <paramref name="uiElement"/> to use as reference point</typeparam>
+            <param name="uiElement">The ui element to which relative position we want to get</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.UIElementsExtensions.GetRelativeLocation(System.Windows.UIElement,System.Windows.UIElement)">
+            <summary>
+            Gets the relative location of the <paramref name="uiElement"/> relative to its <paramref name="container"/>
+            </summary>
+            <param name="uiElement">The ui element to which relative position we want to get</param>
+            <param name="container">One of the parents of the <paramref name="uiElement"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.UriExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Uri"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.UriExtensions.ToBitmapImage(System.Uri)">
+            <summary>
+            Creates and returns a <see cref="T:System.Windows.Media.Imaging.BitmapImage"/> from the specified <paramref name="uri"/>
+            </summary>
+            <param name="uri">The Uri</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.ArrayConverterConfiguration">
+            <summary>
+            The configuration for the double arrays converters
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.ArrayConverterConfiguration.CustomFirstValue">
+            <summary>
+            The first value of the double array to override
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.ArrayConverterConfiguration.CustomSecondValue">
+            <summary>
+            The second value of the double array to override
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.ArrayConverterConfiguration.CustomThirdValue">
+            <summary>
+            The third value of the double array to override
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.ArrayConverterConfiguration.CustomFourthValue">
+            <summary>
+            The fourth value of the double array to override
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.ArrayConverterConfiguration.#ctor(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="customFirstValue">The first value of the double array to override</param>
+            <param name="customSecondValue">The second value of the double array to override</param>
+            <param name="customThirdValue">The third value of the double array to override</param>
+            <param name="customFourthValue">The fourth value of the double array to override</param>
+        </member>
+        <member name="T:Atom.Windows.AtomOrientationToWindowsOrientationConverter">
+            <summary>
+            Converter that converters <see cref="T:Atom.Core.OrientationStatus"/> to <see cref="T:System.Windows.Controls.Orientation"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.BaseValueConverter`1">
+            <summary>
+            A base value converter that allows direct XAML usage
+            </summary>
+            <typeparam name="TValueConverter">The type of this value converter</typeparam>
+        </member>
+        <member name="F:Atom.Windows.BaseValueConverter`1.Instance">
+            <summary>
+            A single instance of the value converter that can be used multiple times
+            instead of creating instances of the converter
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.BaseValueConverter`1.Converter">
+            <summary>
+            A single static instance of this value converter
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.BaseValueConverter`1.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Provides a static instance of the value converter 
+            </summary>
+            <param name="serviceProvider">The service provider</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.BaseValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert one type to another
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.BaseValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            The method to convert a value back to it's source type
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.BooleanInvertConverter">
+            <summary>
+            A converter that takes in a <see cref="T:System.Boolean"/> and inverts it
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.BooleanToBorderThicknessConverter">
+            <summary>
+            A converter that takes in a boolean and returns a thickness of 2 if true, useful for applying 
+            border radius on a true value
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.BooleanToCursorConverter">
+            <summary>
+            A converter that takes boolean and returns a Default or a Hand cursor
+            (use the parameter to invert the result)
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.BooleanToVisibilityCollapsedConverter">
+            <summary>
+            A converter that takes in a boolean and returns a <see cref="F:System.Windows.Visibility.Collapsed"/> if the flag is set to false
+            and <see cref="F:System.Windows.Visibility.Visible"/> if the flag is set to true.
+            NOTE: By setting the converter parameter to a non null value, the converters result is inverted!
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.BooleanToVisibilityHiddenConverter">
+            <summary>
+            A converter that takes in a boolean and returns a <see cref="F:System.Windows.Visibility.Collapsed"/> if the flag is set to false
+            and <see cref="F:System.Windows.Visibility.Visible"/> if the flag is set to true
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.BrushToColorConverter">
+            <summary>
+            A converter that takes in a <see cref="T:System.Windows.Media.SolidColorBrush"/> and returns its <see cref="T:System.Windows.Media.Color"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.ColorToBrushConverter">
+            <summary>
+            A converter that takes in a <see cref="T:System.Windows.Media.Color"/> and returns its <see cref="T:System.Windows.Media.SolidColorBrush"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.DarkOrWhiteColorConverter">
+            <summary>
+            Converter that used the inserted <see cref="T:System.Windows.Media.Color"/> to select a dark or white color
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.DirectionInvertConverter">
+            <summary>
+            A converter that takes in a <see cref="T:Atom.Core.Direction"/> an inverts it
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.DoubleArrayToCornerRadiusConverter">
+            <summary>
+            A value converter that takes in a double array and returns a <see cref="T:System.Windows.CornerRadius"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.DoubleArrayToThicknessConverter">
+            <summary>
+            A converter that takes in a double array and returns a <see cref="T:System.Windows.Thickness"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.DoubleToCornerRadiusConverter">
+            <summary>
+            Converter that takes in a double and returns a <see cref="T:System.Windows.CornerRadius"/>.
+            NOTE: User the parameter of the converter to multiply the inputed double value
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.DoubleToThicknessConverter">
+            <summary>
+            Converter that takes in a double and returns a <see cref="T:System.Windows.Thickness"/>.
+            NOTE: User the parameter of the converter to multiply the inputed double value
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.EmptyEnumerableToVisibilityCollapsedConverter">
+            <summary>
+            Converter that checks if the inserter <see cref="T:System.Collections.IEnumerable"/> is <see cref="!:null"/> or if it doesn't have any values
+            and returns a <see cref="F:System.Windows.Visibility.Collapsed"/> if that's the case and <see cref="F:System.Windows.Visibility.Visible"/> if there are any values
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.EnumValueWrapperToValueConverter`1">
+            <summary>
+            Extracts the <see cref="P:Atom.Core.EnumValueWrapper`1.EnumValue"/> from an <see cref="T:Atom.Core.EnumValueWrapper`1"/>
+            </summary>
+            <typeparam name="TEnumValue">The type of the enum value</typeparam>
+        </member>
+        <member name="T:Atom.Windows.LightenBrushConverter">
+            <summary>
+            Converter that lightens a <see cref="T:System.Windows.Media.Brush"/>
+            NOTE: The parameter is the lighten level of type <see cref="T:System.UInt32"/> the default value is 2
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.LightenColorConverter">
+            <summary>
+            Converter that lightens a <see cref="T:System.Windows.Media.Color"/>
+            </summary>
+            NOTE: The parameter is the lighten level of type <see cref="T:System.UInt32"/>, the default value is 2
+        </member>
+        <member name="T:Atom.Windows.NullOrEmptyStringToVisibilityCollapsedConverter">
+            <summary>
+            Converter that returns a <see cref="T:System.Windows.Visibility"/> by checking whether the string is null or empty, or it has a value
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.NullValueToVisibilityCollapsedConverter">
+            <summary>
+            Converter that returns a <see cref="T:System.Windows.Visibility"/> by checking whether the value is null, or it has a value.
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.ObjectToBooleanConverter">
+            <summary>
+            Converter that takes in a <see cref="T:System.String"/> and returns <see cref="!:false"/> if it's <see cref="!:null"/> or empty
+            and <see cref="!:true"/> if it's not
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.OrientationInvertConverter">
+            <summary>
+            A converter that takes in a <see cref="T:System.Windows.Controls.Orientation"/> value and returns the opposite
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.PercentageConverter">
+            <summary>
+            Converter that takes in a numeric value and multiplies it with a numeric parameter
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.CornerRadiusPercentageConverter">
+            <summary>
+            Converter that takes in a <see cref="T:System.Windows.CornerRadius"/> and multiplies it with a numeric parameter
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.ThicknessPercentageConverter">
+            <summary>
+            Converter that takes in a <see cref="T:System.Windows.Thickness"/> and multiplies it with a numeric parameter
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.StringHexToBrushConverter">
+            <summary>
+            A converter that takes a HEX string and converts it to a WPF Brush
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.StringHexToColorConverter">
+            <summary>
+            A converter that takes in a hex string and returns a <see cref="T:System.Windows.Media.Color"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.StringRGBToBrushConverter">
+            <summary>
+            A converter that takes in an RGB string such as FF00FF and converts it to a WPF brush
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.StringToGeometryConverter">
+            <summary>
+            A converter that takes in a string and returns a Path
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.VisibilityCollapsedToMarginConverter">
+            <summary>
+            Converter that when the value is <see cref="F:System.Windows.Visibility.Collapsed"/> it returns a uniform margin that is set to zero
+            and when its value is <see cref="F:System.Windows.Visibility.Visible"/> it returns the thickness that is passed through its parameter
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.VisualNotFoundException">
+            <summary>
+            The exception that is thrown when a visual is not found
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.VisualNotFoundException.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="message">The message of the exception</param>
+        </member>
+        <member name="M:Atom.Windows.VisualNotFoundException.ToString">
+            <summary>
+            Returns a string that represents this object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.VisualsExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Windows.Media.Visual"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.VisualsExtensions.GetParent``1(System.Windows.Media.Visual,System.Boolean)">
+            <summary>
+            Recursively searches for a parent of type <typeparamref name="T"/>.
+            NOTE: The first parent that is found of type <typeparamref name="T"/> is returned!
+                  If no parent is found, then <see cref="!:null"/> is returned!
+            </summary>
+            <typeparam name="T">The type of the parent to search for</typeparam>
+            <param name="visual">The visual that is contained in the parent to search for</param>
+            <param name="throwIfNotFound">
+            A flag indicating whether a <see cref="T:Atom.Windows.VisualNotFoundException"/> should be thrown if a parent of type <typeparamref name="T"/> was not found
+            or if <see cref="!:null"/> should be returned instead!</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.VisualsExtensions.GetParent(System.Windows.Media.Visual,System.Boolean)">
+            <summary>
+            Recursively searches for a parent of type <see cref="T:System.Windows.Media.Visual"/>
+            NOTE: The first parent that is found of type <see cref="T:System.Windows.Media.Visual"/> is returned!
+                  If no parent is found, then <see cref="!:null"/> is returned!
+            </summary>
+            <param name="visual">The visual that is contained in the parent to search for</param>
+            <param name="throwIfNotFound">A flag indicating whether an exception should be thrown if the parent is not found</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.VisualsExtensions.GetAbstractParent``1(System.Windows.Media.Visual)">
+            <summary>
+            Recursively searches for a parent of type <typeparamref name="TAbstraction"/>
+            NOTE: The first parent that is found of type <typeparamref name="TAbstraction"/> is returned!
+                  If no parent is found, then <see cref="!:null"/> is returned!
+            </summary>
+            <typeparam name="TAbstraction">An abstract representation of the parent (usually an interface)</typeparam>
+            <param name="visual">The visual that is contained in the parent to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.VisualsExtensions.TryGetAbstractParent``1(System.Windows.Media.Visual,``0@)">
+            <summary>
+            Attempt to retrieve the parent of type <typeparamref name="TAbstraction"/>
+            </summary>
+            <typeparam name="TAbstraction">An abstract representation of the parent (usually an interface)</typeparam>
+            <param name="visual">The visual that is contained in the parent to search for</param>
+            <param name="parent">
+            The parent result.
+            NOTE: If no parent is found then this is set to the default value of the abstraction!
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.VisualsExtensions.GetAbstractChild``1(System.Windows.Media.Visual)">
+            <summary>
+            Recursively searches for a child of type <see cref="T:System.Windows.Media.Visual"/>
+            NOTE: The first child that is found of type <see cref="T:System.Windows.Media.Visual"/> is returned!
+                  If no parent is found, then <see cref="!:null"/> is returned!
+            </summary>
+            <typeparam name="TAbstraction">An abstract representation of the child (usually an interface)</typeparam>
+            <param name="visual">The visual that is contains the child we want to get</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.VisualsExtensions.IsChildOf(System.Windows.Media.Visual,System.Windows.Media.Visual)">
+            <summary>
+            Checks if the specified <paramref name="targetElement"/> is a child of the <paramref name="parent"/>
+            </summary>
+            <param name="targetElement">The target element</param>
+            <param name="parent">The potential parent</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.WindowDockPosition">
+            <summary>
+            The dock position of the window
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowDockPosition.Undocked">
+            <summary>
+            Not docked
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowDockPosition.Left">
+            <summary>
+            Docked to the left of the screen
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowDockPosition.Right">
+            <summary>
+            Docked to the right of the screen
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowDockPosition.TopBottom">
+            <summary>
+            Docked to the top/bottom of the screen
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowDockPosition.TopLeft">
+            <summary>
+            Docked to the top-left of the screen
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowDockPosition.TopRight">
+            <summary>
+            Docked to the top-right of the screen
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowDockPosition.BottomLeft">
+            <summary>
+            Docked to the bottom-left of the screen
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowDockPosition.BottomRight">
+            <summary>
+            Docked to the bottom-right of the screen
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.WindowResizer">
+            <summary>
+            Fixes the issue with Windows of Style <see cref="F:System.Windows.WindowStyle.None"/> covering the task bar
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowResizer.mWindow">
+            <summary>
+            The window to handle the resizing for
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowResizer.mScreenSize">
+            <summary>
+            The last calculated available screen size
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowResizer.mEdgeTolerance">
+            <summary>
+            How close to the edge the window has to be to be detected as at the edge of the screen
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowResizer.mMonitorDpi">
+            <summary>
+            The transform matrix used to convert WPF sizes to screen pixels
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowResizer.mLastScreen">
+            <summary>
+            The last screen the window was on
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowResizer.mLastDock">
+            <summary>
+            The last known dock position
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.WindowResizer.mBeingMoved">
+            <summary>
+            A flag indicating if the window is currently being moved/dragged
+            </summary>
+        </member>
+        <member name="E:Atom.Windows.WindowResizer.WindowDockChanged">
+            <summary>
+            Called when the window dock position changes
+            </summary>
+        </member>
+        <member name="E:Atom.Windows.WindowResizer.WindowStartedMove">
+            <summary>
+            Called when the window starts being moved/dragged
+            </summary>
+        </member>
+        <member name="E:Atom.Windows.WindowResizer.WindowFinishedMove">
+            <summary>
+            Called when the window has been moved/dragged and then finished
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.WindowResizer.CurrentMonitorSize">
+            <summary>
+            The size and position of the current monitor the window is on
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.WindowResizer.CurrentMonitorMargin">
+            <summary>
+            The margin around the window for the current window to compensate for any non-usable area
+            such as the task bar
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.WindowResizer.CurrentScreenSize">
+            <summary>
+            The size and position of the current screen in relation to the multi-screen desktop
+            For example a second monitor on the right will have a Left position of
+            the X resolution of the screens on the left
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.WindowResizer.#ctor(System.Windows.Window)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="window">The window to monitor and correctly maximize</param>
+        </member>
+        <member name="M:Atom.Windows.WindowResizer.Window_SourceInitialized(System.Object,System.EventArgs)">
+            <summary>
+            Initialize and hook into the windows message pump
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.WindowResizer.Window_LocationChanged(System.Object,System.EventArgs)">
+            <summary>
+            Monitor for moving of the window and constantly check for docked positions
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.WindowResizer.Window_SizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            Monitors for size changes and detects if the window has been docked (Aero snap) to an edge
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.WindowResizer.WindowProc(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr,System.Boolean@)">
+            <summary>
+            Listens out for all windows messages for this window
+            </summary>
+            <param name="hwnd"></param>
+            <param name="msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <param name="handled"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.WindowResizer.WmGetMinMaxInfo(System.IntPtr,System.IntPtr)">
+            <summary>
+            Get the min/max window size for this window
+            Correctly accounting for the task bar size and position
+            </summary>
+            <param name="hwnd"></param>
+            <param name="lParam"></param>
+        </member>
+        <member name="M:Atom.Windows.WindowResizer.GetCursorPosition">
+            <summary>
+            Gets the current cursor position in screen coordinates relative to an entire multi-desktop position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Atom.Windows.POINT.X">
+            <summary>
+            x coordinate of point.
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.POINT.Y">
+            <summary>
+            y coordinate of point.
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.POINT.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Construct a point of coordinates (x,y).
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.WindowsExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Windows.Window"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.WindowsExtensions.IsMain(System.Windows.Window)">
+            <summary>
+            Checks if the specified <paramref name="window"/> is the main application window
+            </summary>
+            <param name="window">The window to check if it's the main window</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

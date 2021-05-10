@@ -1,0 +1,2122 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Relational</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Relational.UniqueAttribute">
+            <summary>
+            Denotes one or more properties that represents a unique index column
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.UniqueAttribute.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.BaseDatabaseOptionsDataModel">
+            <summary>
+            The base for all the database provider options data model
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.BaseDatabaseOptionsDataModel.Id">
+            <summary>
+            Unique identifier for the model
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.BaseDatabaseOptionsDataModel.Provider">
+            <summary>
+            The database provider the options represent
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.BaseDatabaseOptionsDataModel.Name">
+            <summary>
+            The name of the database provider
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.BaseDatabaseOptionsDataModel.DatabaseName">
+            <summary>
+            The name of the database
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDatabaseOptionsDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDatabaseOptionsDataModel.ToString">
+            <summary>
+            Returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDatabaseOptionsDataModel.TryGetConnectionString(System.String@)">
+            <summary>
+            Attempts to create the <paramref name="connectionString"/> string
+            </summary>
+            <param name="connectionString">The connection string result</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDatabaseOptionsDataModel.CompareTo(System.Object)">
+            <summary>
+            Compares the current object to the specified <paramref name="obj"/>
+            </summary>
+            <param name="obj">The object to be compared to</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDatabaseOptionsDataModel.CompareTo(Atom.Relational.BaseDatabaseOptionsDataModel)">
+            <summary>
+            Compares the current object to the specified <paramref name="other"/>
+            </summary>
+            <param name="other">The object to be compared to</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDatabaseOptionsDataModel.Equals(Atom.Relational.BaseDatabaseOptionsDataModel)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.BaseDataModel`1">
+            <summary>
+            The base for all the data models
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:Atom.Relational.BaseDataModel`1.Id">
+            <summary>
+            The id
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDataModel`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDataModel`1.ToString">
+            <summary>
+            Returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.BaseDataModel">
+            <summary>
+            A <see cref="T:Atom.Relational.BaseDataModel`1"/> that uses an <see cref="T:System.Int32"/> and auto increment
+            primary key column
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.BaseDataModel.Id">
+            <summary>
+            The id
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.BaseDateDataModel`1">
+            <summary>
+            A <see cref="T:Atom.Relational.BaseDataModel`1"/> that implements the <see cref="T:Atom.Core.IDateCreateable"/> and the <see cref="T:Atom.Core.IDateModifiable"/> interfaces
+            </summary>
+            <typeparam name="TKey"></typeparam>
+        </member>
+        <member name="P:Atom.Relational.BaseDateDataModel`1.DateCreated">
+            <summary>
+            The date the data were created
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.BaseDateDataModel`1.DateModified">
+            <summary>
+            The date the data were lastly modified
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDateDataModel`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.BaseDateDataModel">
+            <summary>
+            A <see cref="T:Atom.Relational.BaseDateDataModel`1"/> that uses an <see cref="T:System.Int32"/> and auto increment
+            primary key column
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.BaseDateDataModel.Id">
+            <summary>
+            The id
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDateDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.SQLDatabaseProvider">
+            <summary>
+            The available SQL database providers
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.DataRowExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Data.DataRow"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetString(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.String"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetInt(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.Int32"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetUnsignedInt(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDouble(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.Double"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetShort(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.Int16"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetLong(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.Int64"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetUnsignedLong(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDecimal(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.Decimal"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetBool(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.Boolean"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDateTime(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetByte(System.Data.DataRow,System.Int32)">
+            <summary>
+            Gets a <see cref="T:System.String"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableString(System.Data.DataRow,System.Int32,System.String)">
+            <summary>
+            Gets a <see cref="T:System.Byte"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableInt(System.Data.DataRow,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Gets a possibly null <see cref="T:System.Int32"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableDouble(System.Data.DataRow,System.Int32,System.Nullable{System.Double})">
+            <summary>
+            Gets a possibly null <see cref="T:System.Double"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableShort(System.Data.DataRow,System.Int32,System.Nullable{System.Int16})">
+            <summary>
+            Gets a possibly null <see cref="T:System.Int16"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableLong(System.Data.DataRow,System.Int32,System.Nullable{System.Int64})">
+            <summary>
+            Gets a possibly null <see cref="T:System.Int64"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableUnsignedLong(System.Data.DataRow,System.Int32,System.Nullable{System.UInt64})">
+            <summary>
+            Gets a possibly null <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableDecimal(System.Data.DataRow,System.Int32,System.Nullable{System.Decimal})">
+            <summary>
+            Gets a possibly null <see cref="T:System.Decimal"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableBool(System.Data.DataRow,System.Int32,System.Nullable{System.Boolean})">
+            <summary>
+            Gets a possibly null <see cref="T:System.Boolean"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableDateTime(System.Data.DataRow,System.Int32,System.Nullable{System.DateTime})">
+            <summary>
+            Gets a possible null <see cref="T:System.DateTime"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallbackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DataRowExtensions.GetDbNullableByte(System.Data.DataRow,System.Int32,System.Nullable{System.Byte})">
+            <summary>
+            Gets a possibly null <see cref="T:System.Byte"/>
+            </summary>
+            <param name="row">The row</param>
+            <param name="index">The index</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.DataStorageResult">
+            <summary>
+            Represents a data storage result
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.DataStorageResult.ErrorType">
+            <summary>
+            The error type
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.DataStorageResult.ErrorMessage">
+            <summary>
+            The error message
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.DataStorageResult.Successful">
+            <summary>
+            A flag indicating whether the request was successful or not
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult.op_Implicit(System.String)~Atom.Relational.DataStorageResult">
+            <summary>
+            Creates a <see cref="T:Atom.Relational.DataStorageResult"/> using the specified string as its error message
+            </summary>
+            <param name="s">The string</param>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult.op_Implicit(System.Exception)~Atom.Relational.DataStorageResult">
+            <summary>
+            Creates a <see cref="T:Atom.Core.Failable"/> using the message of the specified ex and its inner exceptions
+            as its error message
+            </summary>
+            <param name="ex">The exception</param>
+        </member>
+        <member name="T:Atom.Relational.DataStorageResult`1">
+            <summary>
+            A <see cref="T:Atom.Relational.DataStorageResult"/> that has a result type of <typeparamref name="TResult"/>
+            </summary>
+            <typeparam name="TResult">The type of the result</typeparam>
+        </member>
+        <member name="P:Atom.Relational.DataStorageResult`1.Result">
+            <summary>
+            The data
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult`1.#ctor(`0)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="result">The result</param>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult`1.op_Implicit(System.String)~Atom.Relational.DataStorageResult{`0}">
+            <summary>
+            Creates a <see cref="T:Atom.Relational.DataStorageResult`1"/> using the specified string as its error message
+            </summary>
+            <param name="s">The string</param>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult`1.op_Implicit(System.Exception)~Atom.Relational.DataStorageResult{`0}">
+            <summary>
+            Creates a <see cref="T:Atom.Relational.DataStorageResult`1"/> using the message of the specified ex and its inner exceptions
+            as its error message
+            </summary>
+            <param name="ex">The exception</param>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult`1.op_Implicit(`0)~Atom.Relational.DataStorageResult{`0}">
+            <summary>
+            Creates a <see cref="T:Atom.Core.Failable`1"/> using the specified result as its result
+            </summary>
+            <param name="result">The result</param>
+        </member>
+        <member name="M:Atom.Relational.DataStorageResult`1.op_Implicit(Atom.Relational.DataStorageResult{`0})~Atom.Core.Failable{`0}">
+            <summary>
+            Converts a <see cref="T:Atom.Relational.DataStorageResult`1"/> to a <see cref="T:Atom.Core.Failable`1"/>
+            </summary>
+            <param name="result">The data storage result</param>
+        </member>
+        <member name="T:Atom.Relational.BaseDataStorage`1">
+            <summary>
+            The default implementation of the <see cref="T:Atom.Relational.IDataStorage"/>
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+        </member>
+        <member name="P:Atom.Relational.BaseDataStorage`1.DbContext">
+            <summary>
+            The database context
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.#ctor(`0)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="dbContext">The database context</param>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.ResetAsync">
+            <summary>
+            Resets the <see cref="P:Atom.Relational.BaseDataStorage`1.DbContext"/>.
+            NOTE: This is used to populate the tables of the <see cref="P:Atom.Relational.BaseDataStorage`1.DbContext"/>
+                  with their default values if any!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.EnsureDataStorageAsync">
+            <summary>
+            Makes sure that the data storage exists.
+            Returns true if the database is created, false if it already existed.
+            Note: This method doesn't update the data storage based on the changes of the data models!
+                  If the data storage exists no action is taken, otherwise the data storage is getting created.  
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.ClearDataStorageAsync">
+            <summary>
+            Clears the data storage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.AddAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},``0,System.Func{`0,``0,System.Threading.Tasks.Task})">
+            <summary>
+            Adds the specified <paramref name="item"/> to the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> where the item will be added</param>
+            <param name="item">The item to add</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.AddRangeAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Collections.Generic.IEnumerable{``0},System.Func{`0,System.Collections.Generic.IEnumerable{``0},System.Threading.Tasks.Task})">
+            <summary>
+            Adds the specified <paramref name="items"/> to the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> where the item will be added</param>
+            <param name="items">The items to add</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.FirstAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Gets the first item of the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the <paramref name="setSelector"/> using the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item we want to retrieve</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.FirstAsync``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Uses the specified <paramref name="query"/> to retrieve the first item using the specified <paramref name="predicate"/> function.
+            NOTE: This method is used when the includes are performed using the <paramref name="query"/>!
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="query">The query</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.FirstOrDefaultAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Gets the first item if any of the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the <paramref name="setSelector"/> using the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item we want to retrieve</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.FirstOrDefaultAsync``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Uses the specified <paramref name="query"/> to retrieve the first item if any using the specified <paramref name="predicate"/> function.
+            NOTE: This method is used when the includes are performed using the <paramref name="query"/>!
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="query">The query</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.WhereAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Uses the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the <paramref name="setSelector"/> to retrieve the items using the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the items we want to retrieve</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.WhereAsync``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Uses the specified <paramref name="query"/> to retrieve the items using the specified <paramref name="predicate"/> function.
+            NOTE: This method is used when the includes are performed using the <paramref name="query"/>! 
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="query">The query</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.ToListAsync``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Uses the specified <paramref name="query"/> to retrieve all the available items.
+            NOTE: This method is used when the includes are performed using the <paramref name="query"/>! 
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="query">The query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.ToListAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}})">
+            <summary>
+            Gets all the data contained in the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> whose items we want to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.UpdateAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Action{``0},System.Func{`0,``0,System.Threading.Tasks.Task})">
+            <summary>
+            Retrieves the first data model from the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/> using the specified <paramref name="predicate"/> function
+            and uses the specified <paramref name="valuesUpdater"/> to update its values.
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item we want to update</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <param name="valuesUpdater">Updates the values of the already existing item</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.DeleteAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Func{`0,``0,System.Threading.Tasks.Task})">
+            <summary>
+            Deletes an item defined by the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item to delete</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.DeleteAsync``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Func{`0,``0,System.Threading.Tasks.Task})">
+            <summary>
+            Deletes an item defined by the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="query">The query</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.SetAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Collections.Generic.IEnumerable{``0},System.Func{`0,System.Collections.Generic.IEnumerable{``0},System.Threading.Tasks.Task})">
+            <summary>
+            Removes the items specified by the <paramref name="predicate"/> expression and adds the specified <paramref name="items"/>
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item to delete</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <param name="items">The items</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.ClearAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Func{`0,System.Collections.Generic.IEnumerable{``0},System.Threading.Tasks.Task})">
+            <summary>
+            Clear all the items of the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> whose items we want to clear</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage`1.ContainsAsync``1(System.Func{`0,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Checks whether there is an item in the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            that satisfies the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/></param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.BaseDataStorage">
+            <summary>
+            A standard <see cref="T:Atom.Relational.BaseDataStorage`1"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BaseDataStorage.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="dbContext">The database context</param>
+        </member>
+        <member name="T:Atom.Relational.StandardDataStorage`1">
+            <summary>
+            Data storage that contains multiple <see cref="T:Atom.Relational.IResetableDataStorage"/>s as properties that are reset when using
+            the <see cref="M:Atom.Relational.StandardDataStorage`1.ResetAsync"/> method. <see cref="T:System.Lazy`1"/> properties that initialize
+            <see cref="T:Atom.Relational.IResetableDataStorage"/>s are also included.
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+        </member>
+        <member name="M:Atom.Relational.StandardDataStorage`1.#ctor(`0)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="dbContext">The database context</param>
+        </member>
+        <member name="M:Atom.Relational.StandardDataStorage`1.ResetAsync">
+            <summary>
+            Resets the <see cref="P:Atom.Relational.BaseDataStorage`1.DbContext"/>.
+            NOTE: This is used to populate the tables of the <see cref="P:Atom.Relational.BaseDataStorage`1.DbContext"/>
+                  with their default values if any!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.ConventionalDataStorage`1">
+            <summary>
+            A <see cref="T:Atom.Relational.StandardDataStorage`1"/> that uses a <see cref="T:Atom.Relational.SelectableOptionsDbContext"/> as the type of its database context
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+        </member>
+        <member name="M:Atom.Relational.ConventionalDataStorage`1.#ctor(`0)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="dbContext">The database context</param>
+        </member>
+        <member name="M:Atom.Relational.ConventionalDataStorage`1.GetPropertyOptionsDataStorageAsync``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.String)">
+            <summary>
+            Creates and returns a data storage using the specified <paramref name="key"/> and uses the specified <paramref name="defaultProperties"/>
+            to initialize it if needed.
+            NOTE: This method should only be used by implementations related to <see cref="N:System.Reflection"/>!
+            </summary>
+            <typeparam name="T">The type of the model</typeparam>
+            <param name="key">
+            The key used for identifying the export point.
+            NOTE: When the key is set to <see cref="!:null"/> then full name of the <typeparamref name="T"/> is set as the key!
+            </param>
+            <param name="defaultProperties">The default properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.ConventionalDataStorage`1.UnsafeGetPropertyOptionsDataStorageAsync(System.Type,System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.String)">
+            <summary>
+            Creates and returns a data storage using the specified <paramref name="key"/> and uses the specified <paramref name="defaultProperties"/>
+            to initialize it if needed.
+            </summary>
+            <param name="type">The type that contains the <paramref name="defaultProperties"/></param>
+            <param name="key">
+            The key used for identifying the export point.
+            NOTE: When the key is set to <see cref="!:null"/> then full name of the <paramref name="type"/> is set as the key!
+            </param>
+            <param name="defaultProperties">The default properties</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.SelectableOptionsDbContext">
+            <summary>
+            A <see cref="T:Atom.Relational.StandardDbContext"/> that has pre-defined the property options models and relationships
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.SelectableOptionsDbContext.PropertyOptions">
+            <summary>
+            The property options
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.SelectableOptionsDbContext.LoadedOptions">
+            <summary>
+            The loaded property options.
+            NOTE: The loaded options are used for identifying where the <see cref="P:Atom.Relational.SelectableOptionsDbContext.PropertyOptions"/>
+                  of a model have been loaded at least once or not in order to initialize them only
+                  when needed!
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.SelectableOptionsDbContext.Formulas">
+            <summary>
+            The formulas
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.SelectableOptionsDbContext.FormulaShortcodes">
+            <summary>
+            The formula shortcodes
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.SelectableOptionsDbContext.FormulaShortcodeFilters">
+            <summary>
+            The formula shortcode filters
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.SelectableOptionsDbContext.FormulaShortcodeTranslators">
+            <summary>
+            the formula shortcode translators
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.SelectableOptionsDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+             Initializes a new instance of the Microsoft.EntityFrameworkCore.DbContext class
+             using the specified options. The Microsoft.EntityFrameworkCore.DbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)
+             method will still be called to allow further configuration of the options.
+            </summary>
+            <param name="options">The options for this context.</param>
+        </member>
+        <member name="M:Atom.Relational.SelectableOptionsDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+             Override this method to further configure the model that was discovered by convention
+             from the entity types exposed in Microsoft.EntityFrameworkCore.DbSet`1 properties
+             on your derived context. The resulting model may be cached and re-used for subsequent
+             instances of your derived context.
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Atom.Relational.PropertyOptionFormulaDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.FormulaDataModel`3"/> used by the <see cref="T:Atom.Relational.SelectableOptionsDbContext"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionFormulaDataModel.StorageId">
+            <summary>
+            The <see cref="P:Atom.Relational.PropertyOptionsDataStorage.Key"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionFormulaDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionFormulaDataModel.#ctor(System.String,Atom.Core.Formula)">
+            <summary>
+            Formula base constructor
+            </summary>
+            <param name="storageId">The <see cref="P:Atom.Relational.PropertyOptionsDataStorage.Key"/></param>
+            <param name="formula">The formula</param>
+        </member>
+        <member name="T:Atom.Relational.PropertyOptionFormulaPropertyShortcodeDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeFilterDataModel`3"/> used by the <see cref="T:Atom.Relational.SelectableOptionsDbContext"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionFormulaPropertyShortcodeDataModel.StorageId">
+            <summary>
+            The <see cref="P:Atom.Relational.PropertyOptionsDataStorage.Key"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionFormulaPropertyShortcodeDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionFormulaPropertyShortcodeDataModel.FromPropertyShortcode(System.String,Atom.Core.PropertyShortcode)">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Relational.PropertyOptionFormulaPropertyShortcodeDataModel"/> from the specified <paramref name="propertyShortcode"/>
+            using the specified <paramref name="storageId"/>
+            </summary>
+            <param name="storageId">The storage id</param>
+            <param name="propertyShortcode">The property shortcode</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.PropertyOptionFormulaPropertyShortcodeValueTranslatorDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeValueTranslatorDataModel`3"/> used by the <see cref="T:Atom.Relational.SelectableOptionsDbContext"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionFormulaPropertyShortcodeValueTranslatorDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.PropertyOptionFormulaPropertyShortcodeFilterDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeFilterDataModel`3"/> used by the <see cref="T:Atom.Relational.SelectableOptionsDbContext"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionFormulaPropertyShortcodeFilterDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.StandardDbContext">
+            <summary>
+            A <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/> that provides data fixes related to some database providers.
+            NOTE: While creating or updating <see cref="T:Atom.Core.IDateModifiable"/> models the <see cref="P:Atom.Core.IDateModifiable.DateModified"/> is automatically set to <see cref="P:System.DateTimeOffset.Now"/>!
+            NOTE: While creating <see cref="T:Atom.Core.IDateCreateable"/> models the <see cref="P:Atom.Core.IDateCreateable.DateCreated"/> is automatically set to <see cref="P:System.DateTimeOffset.Now"/>!
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.StandardDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions)">
+            <summary>
+             Initializes a new instance of the Microsoft.EntityFrameworkCore.DbContext class
+             using the specified options. The Microsoft.EntityFrameworkCore.DbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)
+             method will still be called to allow further configuration of the options.
+            </summary>
+            <param name="options">The options for this context.</param>
+        </member>
+        <member name="M:Atom.Relational.StandardDbContext.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Saves all changes made in this context to the database.
+            This method will automatically call Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges
+            to discover any changes to entity instances before saving to the underlying database.
+            This can be disabled via Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AutoDetectChangesEnabled.
+            Multiple active operations on the same context instance are not supported. Use
+            'await' to ensure that any asynchronous operations have completed before calling
+            another method on this context.
+            </summary>
+            <param name="cancellationToken">
+            A System.Threading.CancellationToken to observe while waiting for the task to
+            complete.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.StandardDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+             Override this method to further configure the model that was discovered by convention
+             from the entity types exposed in Microsoft.EntityFrameworkCore.DbSet`1 properties
+             on your derived context. The resulting model may be cached and re-used for subsequent
+             instances of your derived context.
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Atom.Relational.DbDataReaderExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Data.Common.DbDataReader"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DbDataReaderExtensions.GetDbNullableString(System.Data.Common.DbDataReader,System.String,System.String)">
+            <summary>
+            Gets a possibly nullable <see cref="T:System.String"/>
+            </summary>
+            <param name="reader">The reader</param>
+            <param name="name">The name of the column</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DbDataReaderExtensions.GetDbNullableInt(System.Data.Common.DbDataReader,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Gets a possibly nullable <see cref="T:System.Int32"/>
+            </summary>
+            <param name="reader">The reader</param>
+            <param name="name">The name of the column</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DbDataReaderExtensions.GetDbNullableDouble(System.Data.Common.DbDataReader,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets a possibly nullable <see cref="T:System.Double"/>
+            </summary>
+            <param name="reader">The reader</param>
+            <param name="name">The name of the column</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DbDataReaderExtensions.GetDbNullableShort(System.Data.Common.DbDataReader,System.String,System.Nullable{System.Int16})">
+            <summary>
+            Gets a possibly nullable <see cref="T:System.Int16"/>
+            </summary>
+            <param name="reader">The reader</param>
+            <param name="name">The name of the column</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DbDataReaderExtensions.GetDbNullableLong(System.Data.Common.DbDataReader,System.String,System.Nullable{System.Int64})">
+            <summary>
+            Gets a possibly nullable <see cref="T:System.Int64"/>
+            </summary>
+            <param name="reader">The reader</param>
+            <param name="name">The name of the column</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DbDataReaderExtensions.GetDbNullableUnsignedLong(System.Data.Common.DbDataReader,System.String,System.Nullable{System.UInt64})">
+            <summary>
+            Gets a possibly null <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="reader">The row</param>
+            <param name="name">The name of the column</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.DbDataReaderExtensions.GetDbNullableDecimal(System.Data.Common.DbDataReader,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            Gets a possibly nullable <see cref="T:System.Decimal"/>
+            </summary>
+            <param name="reader">The reader</param>
+            <param name="name">The name of the column</param>
+            <param name="fallBackValue">The fallback value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.FrameworkConstructionExtensions">
+            <summary>
+            Extension methods for the <see cref="T:Atom.Core.FrameworkConstruction"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.FrameworkConstructionExtensions.AddSQLiteClientDbContext``1(Atom.Core.FrameworkConstruction,System.String)">
+            <summary>
+            Adds a local SQLite database that can be used as a local data storage
+            </summary>
+            <typeparam name="TDbContext">The type of the db context</typeparam>
+            <param name="construction">The framework construction</param>
+            <param name="connectionString">
+            The SQLite connection string.
+            NOTE: The SQLite connection string is of the following format: DataSource={fileName}.db!
+            Ex.: DataSource=UserCredentials.db!
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.IDataStorage">
+            <summary>
+            Provides the standard abstractions for a data storage
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.IDataStorage.EnsureDataStorageAsync">
+            <summary>
+            Makes sure that the data storage exists.
+            Returns true if the database is created, false if it already existed.
+            Note: This method doesn't update the data storage based on the changes of the data models!
+                  If the data storage exists no action is taken, otherwise the data storage is getting created.  
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.IDataStorage.ClearDataStorageAsync">
+            <summary>
+            Clears the data storage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.IResetableDataStorage">
+            <summary>
+            Provides abstractions for a data storage that can be reset
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.IResetableDataStorage.ResetAsync">
+            <summary>
+            Resets the data storage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.OptionDataModel">
+            <summary>
+            Represents an option
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.OptionDataModel.Id">
+            <summary>
+            The id of the option
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.OptionDataModel.Name">
+            <summary>
+            The name of the option
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.OptionDataModel.Value">
+            <summary>
+            The value of the option
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.OptionDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.OptionDataModel.ToString">
+            <summary>
+            Returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.OptionsDataStorage`1">
+            <summary>
+            Data storage used for handling an option data model
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.OptionsDataStorage`1.mOptionProperties">
+            <summary>
+            The option properties of the type of the options model
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.OptionsDataStorage`1.mOptionNamePrefix">
+            <summary>
+            The prefix of the name that is set before every option name
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.OptionsDataStorage`1.mOptionTranslators">
+            <summary>
+            A set of predefined translators
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.OptionsDataStorage`1.DbContext">
+            <summary>
+            The database context
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.OptionsDataStorage`1.OptionsTable">
+            <summary>
+            The options table contained in the <see cref="P:Atom.Relational.OptionsDataStorage`1.DbContext"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.#ctor(Microsoft.EntityFrameworkCore.DbContext,Microsoft.EntityFrameworkCore.DbSet{Atom.Relational.OptionDataModel})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="dbContext">The database context</param>
+            <param name="optionsTable">The options table contained in the <see cref="P:Atom.Relational.OptionsDataStorage`1.DbContext"/></param>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.RegisterTranslator(Atom.Relational.OptionTranslator)">
+            <summary>
+            Register the specific translator to be used for encoding certain property values of the options model
+            
+            </summary>
+            <param name="optionTranslator">The option translator</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.ResetAsync">
+            <summary>
+            Resets the data storage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.CreateOptionsAsync">
+            <summary>
+            Gets the options from the database and creates an instance of type <typeparamref name="TClass"/>
+            using those option values
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.SaveOptionsAsync(`0)">
+            <summary>
+            Pushes the changes made to the specified <paramref name="model"/> to the data storage
+            </summary>
+            <param name="model">The options model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.SetOptionAsync``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
+            <summary>
+            Updates only the value of the property selected by the specified <paramref name="propertySelector"/>
+            </summary>
+            <typeparam name="TKey">The type of the value</typeparam>
+            <param name="propertySelector">Selects the property whose value should get updated</param>
+            <param name="value">The value to set</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.GetOptionAsync``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Gets the value of the property selected by the specified <paramref name="propertySelector"/>
+            </summary>
+            <typeparam name="TKey">The type of the property</typeparam>
+            <param name="propertySelector">Selects the property whose value to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.GetOptionName(System.String)">
+            <summary>
+            Gets the name of the option that stores the value of the property
+            with the specified <paramref name="propertyName"/>
+            </summary>
+            <param name="propertyName">The property name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.EncodeValue(System.Type,System.Object)">
+            <summary>
+            Encodes the specified <paramref name="value"/>
+            </summary>
+            <param name="valueType">The type of the value</param>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionsDataStorage`1.DecodeValue(System.Type,System.String)">
+            <summary>
+            Decodes the specified <paramref name="value"/>
+            </summary>
+            <param name="valueType">The type of the value</param>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.OptionTranslator">
+            <summary>
+            Provides abstractions for an option translator
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.OptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.OptionTranslator.CanHandle(System.Type)">
+            <summary>
+            Returns a flag indicating whether it can decode or not the specified <paramref name="type"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionTranslator.Encode(System.Object)">
+            <summary>
+            Creates and returns a string that represents the specified <paramref name="value"/>.
+            NOTE: The value can be <see cref="!:null"/>!
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionTranslator.Decode(System.String)">
+            <summary>
+            Creates and returns an object that represents the specified <paramref name="value"/>.
+            NOTE: The value can be <see cref="!:null"/>!
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.OptionTranslator`1">
+            <summary>
+            A type safe implementation of the <see cref="T:Atom.Relational.OptionTranslator"/>
+            </summary>
+            <typeparam name="T">The type of the option that will be decoded and encoded to a string</typeparam>
+        </member>
+        <member name="P:Atom.Relational.OptionTranslator`1.Encoder">
+            <summary>
+            Creates and returns a string from the specified <typeparamref name="T"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.OptionTranslator`1.Decoder">
+            <summary>
+            Creates and returns a <typeparamref name="T"/> from the specified <see cref="T:System.String"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.OptionTranslator`1.#ctor(System.Func{`0,System.String},System.Func{System.String,`0})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="encoder">Creates and returns a string from the specified <typeparamref name="T"/></param>
+            <param name="decoder">Creates and returns a <typeparamref name="T"/> from the specified <see cref="T:System.String"/></param>
+        </member>
+        <member name="M:Atom.Relational.OptionTranslator`1.CanHandle(System.Type)">
+            <summary>
+            Returns a flag indicating whether it can decode or not the specified <paramref name="type"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionTranslator`1.Encode(System.Object)">
+            <summary>
+            Creates and returns a string that represents the specified <paramref name="value"/>.
+            NOTE: The value can be <see cref="!:null"/>!
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.OptionTranslator`1.Decode(System.String)">
+            <summary>
+            Creates and returns an object that represents the specified <paramref name="value"/>.
+            NOTE: The value can be <see cref="!:null"/>!
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.SingletonOptionTranslator`2">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> that provides a single predefined <see cref="P:Atom.Relational.SingletonOptionTranslator`2.Instance"/>
+            </summary>
+            <typeparam name="TOptionTranslator">The type of the option translator</typeparam>
+            <typeparam name="T">The type of the option that will be decoded and encoded to a string</typeparam>
+        </member>
+        <member name="P:Atom.Relational.SingletonOptionTranslator`2.Instance">
+            <summary>
+            The single instance of the option translator
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.SingletonOptionTranslator`2.#ctor(System.Func{`1,System.String},System.Func{System.String,`1})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="encoder">Creates and returns a string from the specified <typeparamref name="T"/></param>
+            <param name="decoder">Creates and returns a <typeparamref name="T"/> from the specified <see cref="T:System.String"/></param>
+        </member>
+        <member name="T:Atom.Relational.StringOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.String"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.StringOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.CharOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Char"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.CharOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableCharOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:char?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableCharOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.SByteOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.SByte"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.SByteOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableSByteOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:sbyte?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableSByteOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.ByteOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Byte"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.ByteOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableByteOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:byte?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableByteOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.ShortOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Int16"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.ShortOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableShortOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:short?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableShortOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.UnsignedShortOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.UInt16"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.UnsignedShortOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableUnsignedShortOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:ushort?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableUnsignedShortOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.IntegerOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Int32"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.IntegerOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableIntegerOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:int?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableIntegerOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.UnsignedIntegerOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.UInt32"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.UnsignedIntegerOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableUnsignedIntegerOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:uint?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableUnsignedIntegerOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.LongOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Int64"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.LongOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableLongOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:long?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableLongOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.UnsignedLongOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.UInt64"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.UnsignedLongOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableUnsignedLongOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:ulong?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableUnsignedLongOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.FloatOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Single"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.FloatOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableFloatOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:float?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableFloatOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.DoubleOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Double"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DoubleOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableDoubleOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:double?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableDoubleOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.DecimalOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Decimal"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DecimalOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableDecimalOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:decimal?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableDecimalOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.BooleanOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.Boolean"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.BooleanOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableBooleanOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:bool?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableBooleanOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.DateTimeOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.DateTime"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DateTimeOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableDateTimeOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:DateTime?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableDateTimeOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.DateTimeOffsetOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.DateTimeOffset"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DateTimeOffsetOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableDateTimeOffsetOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:DateTimeOffset?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableDateTimeOffsetOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.TimeSpanOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:System.TimeSpan"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.TimeSpanOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableTimeSpanOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:TimeSpan?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableTimeSpanOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.PhoneNumberOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:Atom.Core.PhoneNumber"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PhoneNumberOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullablePhoneNumberOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:PhoneNumber?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullablePhoneNumberOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.DaySpanOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="T:Atom.Core.DaySpan"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.DaySpanOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.NullableDaySpanOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handing <see cref="!:DaySpan?"/> option values
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.NullableDaySpanOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.StringEnumerableOptionTranslator">
+            <summary>
+            A <see cref="T:Atom.Relational.OptionTranslator`1"/> used for handling <see cref="!:IEnumerable&lt;string&gt;"/> option values.
+            NOTE: "|" is used for separating the values!
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.StringEnumerableOptionTranslator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.PropertyBuilderExtensions">
+            <summary>
+            Extension methods for <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder`1"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyBuilderExtensions.HasPrecision(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.Decimal},System.Int32,System.Int32)">
+            <summary>
+            Sets a custom decimal precision
+            </summary>
+            <param name="builder">The property builder</param>
+            <param name="integerLength">The integer part length</param>
+            <param name="decimalsLength">The decimals part length</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyBuilderExtensions.HasPrecision(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{System.Nullable{System.Decimal}},System.Int32,System.Int32)">
+            <summary>
+            Sets a custom nullable decimal precision
+            </summary>
+            <param name="builder">The property builder</param>
+            <param name="integerLength">The integer part length</param>
+            <param name="decimalsLength">The decimals part length</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.LoadedOptionsDataModel">
+            <summary>
+            Maps the property options that are loaded at least once
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.LoadedOptionsDataModel.Id">
+            <summary>
+            The id
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.LoadedOptionsDataModel.Parent">
+            <summary>
+            The parent
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.LoadedOptionsDataModel.Date">
+            <summary>
+            The date the options were loaded
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.LoadedOptionsDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.PropertyOptionDataModel">
+            <summary>
+            Represents a property option
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionDataModel.Id">
+            <summary>
+            The id of the option
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionDataModel.Parent">
+            <summary>
+            The parent
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionDataModel.PropertyName">
+            <summary>
+            The name of the property
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionDataModel.Order">
+            <summary>
+            The order
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionDataModel.ToString">
+            <summary>
+            Returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.PropertyOptionsDataStorage">
+            <summary>
+            Data storage for saving property options
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionsDataStorage.Type">
+            <summary>
+            The type that contains the saved properties
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionsDataStorage.Key">
+            <summary>
+            The key for identifying the related data
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionsDataStorage.DbContext">
+            <summary>
+            The db context
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionsDataStorage.DefaultPropertyOptions">
+            <summary>
+            The default property options
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionsDataStorage.ShortcodesQuery">
+            <summary>
+            The shortcodes query
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.PropertyOptionsDataStorage.FormulasQuery">
+            <summary>
+            The formulas query
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.#ctor(System.Type,Atom.Relational.SelectableOptionsDbContext,System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="type">The type that contains the saved properties</param>
+            <param name="dbContext">The database context</param>
+            <param name="key">
+            The key used for identifying the export point.
+            NOTE: When the key is set to <see cref="!:null"/> then full name of the <paramref name="type"/> is set as the key!
+            </param>
+            <param name="defaultProperties">The default properties</param>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.ResetAsync">
+            <summary>
+            Resets both the preview options as well as the export options
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.GetOptionsAsync">
+            <summary>
+            Gets all the options.
+            NOTE: This methods returns both the active and the inactive formulas!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.SetOptionsAsync(Atom.Core.PreviewOptionsDataModel)">
+            <summary>
+            Sets the specified <paramref name="options"/>
+            </summary>
+            <param name="options">The options</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.IsInitializedAsync">
+            <summary>
+            Checks whether the options have already been loaded or not
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.GetPropertiesAsync">
+            <summary>
+            Gets the properties
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.SetPropertiesAsync(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo})">
+            <summary>
+            Sets the specified <paramref name="properties"/>
+            </summary>
+            <param name="properties">The options to save</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.AddFormulaAsync(Atom.Core.Formula)">
+            <summary>
+            Adds the specified <paramref name="formula"/>
+            </summary>
+            <param name="formula">The formula</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.GetFormulaAsync(System.String)">
+            <summary>
+            Gets the formula with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.SetFormulaStatusAsync(System.String,System.Boolean)">
+            <summary>
+            Sets the <see cref="P:Atom.Core.Formula.IsActive"/> flag of the formal with the specified <paramref name="id"/>
+            to the specified <paramref name="status"/>
+            </summary>
+            <param name="id">The id</param>
+            <param name="status">The status</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.GetFormulasAsync">
+            <summary>
+            Gets all the formulas.
+            ΝΟΤE: The shortcodes of the formula are not retrieved by this method!
+                  Use the <see cref="M:Atom.Relational.PropertyOptionsDataStorage.GetShortcodesAsync(System.String)"/> method to retrieve them!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.UpdateFormulaAsync(Atom.Core.Formula)">
+            <summary>
+            Updates the specified <paramref name="formula"/>
+            </summary>
+            <param name="formula">The formula</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.DeleteFormulaAsync(System.String)">
+            <summary>
+            Deletes the formula with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.GetShortcodesAsync(System.String)">
+            <summary>
+            Gets all the formula shortcodes
+            </summary>
+            <param name="parentPath">
+            Limit the results using a specified parent path.
+            NOTE: By setting this to <see cref="!:null"/> all the shortcodes are retrieved!
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.AddShortcodeAsync(Atom.Relational.PropertyOptionFormulaPropertyShortcodeDataModel)">
+            <summary>
+            Adds the specified <paramref name="model"/>
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage.DeleteShortcodeAsync(System.String)">
+            <summary>
+            Removes the custom shortcode with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id of the custom shortcode to remove</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.PropertyOptionsDataStorage`1">
+            <summary>
+            Data storage for saving property options that provides type safety
+            </summary>
+            <typeparam name="T">The type of the class which properties are used</typeparam>
+        </member>
+        <member name="M:Atom.Relational.PropertyOptionsDataStorage`1.#ctor(Atom.Relational.SelectableOptionsDbContext,System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="dbContext">The db context</param>
+            <param name="key">
+            The key used for identifying the export point.
+            NOTE: When the key is set to <see cref="!:null"/> then full name of the <typeparamref name="T"/> is set as the key!
+            </param>
+            <param name="defaultProperties">The default properties</param>
+        </member>
+        <member name="T:Atom.Relational.RelationalConstants">
+            <summary>
+            Constants related to the database providers
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.RelationalConstants.SQLiteProviderName">
+            <summary>
+            The SQLite provider name
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.RelationalConstants.MySQLProviderName">
+            <summary>
+            The MySQL provider name
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.RelationalConstants.SQLServerProviderName">
+            <summary>
+            The SQLServer provider name
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.RelationalConstants.PostgreSQLProviderName">
+            <summary>
+            The PostgreSQL provider name
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.RelationalConstants.DefaultSQLServerPort">
+            <summary>
+            The default SQLServer port
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.RelationalConstants.DefaultMySQLServerPort">
+            <summary>
+            The default MySQL port
+            </summary>
+        </member>
+        <member name="F:Atom.Relational.RelationalConstants.DefaultPostgreServerPort">
+            <summary>
+            The default PostgreSQL port
+            </summary>
+        </member>
+        <member name="T:Atom.Relational.RelationalDI">
+            <summary>
+            The relational services that should be available anywhere on the application
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.RelationalDI.GetDBContext``1">
+            <summary>
+            Gets the requested db context from the services
+            </summary>
+            <typeparam name="TDbContext">The type of the db context we want to get</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Relational.RelationalHelpers">
+            <summary>
+            Helper methods related to relational context
+            </summary>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.AddAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},``1,System.Func{``0,``1,System.Threading.Tasks.Task})">
+            <summary>
+            Adds the specified <paramref name="item"/> to the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> where the item will be added</param>
+            <param name="item">The item to add</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.AddRangeAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},System.Collections.Generic.IEnumerable{``1},System.Func{``0,System.Collections.Generic.IEnumerable{``1},System.Threading.Tasks.Task})">
+            <summary>
+            Adds the specified <paramref name="items"/> to the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> where the item will be added</param>
+            <param name="items">The items to add</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.FirstAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}})">
+            <summary>
+            Gets the first item of the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the <paramref name="setSelector"/> using the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item we want to retrieve</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.FirstAsync``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Uses the specified <paramref name="query"/> to retrieve the first item using the specified <paramref name="predicate"/> function.
+            NOTE: This method is used when the includes are performed using the <paramref name="query"/>!
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="query">The query</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.FirstOrDefaultAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}})">
+            <summary>
+            Gets the first item if any of the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the <paramref name="setSelector"/> using the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item we want to retrieve</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.FirstOrDefaultAsync``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Uses the specified <paramref name="query"/> to retrieve the first item if any using the specified <paramref name="predicate"/> function.
+            NOTE: This method is used when the includes are performed using the <paramref name="query"/>!
+            </summary>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="query">The query</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.WhereAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}})">
+            <summary>
+            Uses the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the <paramref name="setSelector"/> to retrieve the items using the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the items we want to retrieve</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.WhereAsync``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Uses the specified <paramref name="query"/> to retrieve the items using the specified <paramref name="predicate"/> function.
+            NOTE: This method is used when the includes are performed using the <paramref name="query"/>! 
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="query">The query</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.ToListAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}})">
+            <summary>
+            Gets all the data contained in the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> whose items we want to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.ToListAsync``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Uses the specified <paramref name="query"/> to retrieve all the available items.
+            NOTE: This method is used when the includes are performed using the <paramref name="query"/>! 
+            </summary>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="query">The query</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.UpdateAsync``2(``1,System.Func{``1,Microsoft.EntityFrameworkCore.DbSet{``0}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Action{``0},System.Func{``1,``0,System.Threading.Tasks.Task})">
+            <summary>
+            Retrieves the first data model from the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/> using the specified <paramref name="predicate"/> function
+            and uses the specified <paramref name="valuesUpdater"/> to update its values.
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item we want to update</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <param name="valuesUpdater">Updates the values of the already existing item</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.DeleteAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}},System.Func{``0,``1,System.Threading.Tasks.Task})">
+            <summary>
+            Deletes an item defined by the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item to delete</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.DeleteAsync``2(``0,System.Linq.IQueryable{``1},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}},System.Func{``0,``1,System.Threading.Tasks.Task})">
+            <summary>
+            Deletes an item defined by the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the item</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="query">The query</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.SetAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}},System.Collections.Generic.IEnumerable{``1},System.Func{``0,System.Collections.Generic.IEnumerable{``1},System.Threading.Tasks.Task})">
+            <summary>
+            Removes the items specified by the <paramref name="predicate"/> expression and adds the specified <paramref name="items"/>
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> that contains the item to delete</param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <param name="items">The items</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.ClearAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},System.Func{``0,System.Collections.Generic.IEnumerable{``1},System.Threading.Tasks.Task})">
+            <summary>
+            Clear all the items of the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> whose items we want to clear</param>
+            <param name="onCompleted">Handles the successful completion of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.ContainsAsync``2(``0,System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}},System.Linq.Expressions.Expression{System.Func{``1,System.Boolean}})">
+            <summary>
+            Checks whether there is an item in the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> provided by the specified <paramref name="setSelector"/>
+            that satisfies the specified <paramref name="predicate"/> function
+            </summary>
+            <typeparam name="TDbContext">The type of the database context</typeparam>
+            <typeparam name="T">The type of the items</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="setSelector">Selects the <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/></param>
+            <param name="predicate">A function to test each element for a condition</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.GetPropertyOptionsDataStorageAsync``1(Atom.Relational.SelectableOptionsDbContext,System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.String)">
+            <summary>
+            Creates and returns a data storage using the specified <paramref name="key"/> and uses the specified <paramref name="defaultProperties"/>
+            to initialize it if needed.
+            </summary>
+            <typeparam name="T">The type of the model</typeparam>
+            <param name="dbContext">The database context</param>
+            <param name="key">
+            The key used for identifying the export point.
+            NOTE: When the key is set to <see cref="!:null"/> then full name of the <typeparamref name="T"/> is set as the key!
+            </param>
+            <param name="defaultProperties">The default properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.UnsafeGetPropertyOptionsDataStorageAsync(System.Type,Atom.Relational.SelectableOptionsDbContext,System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.String)">
+            <summary>
+            Creates and returns a data storage using the specified <paramref name="key"/> and uses the specified <paramref name="defaultProperties"/>
+            to initialize it if needed.
+            </summary>
+            <param name="type">The type that contains the <paramref name="defaultProperties"/></param>
+            <param name="dbContext">The database context</param>
+            <param name="key">
+            The key used for identifying the export point.
+            NOTE: When the key is set to <see cref="!:null"/> then full name of the <paramref name="type"/> is set as the key!
+            </param>
+            <param name="defaultProperties">The default properties</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.RelationalHelpers.CreateCustomKey``1(System.String)">
+            <summary>
+            Creates and returns a <see cref="T:System.String"/> using the specified <paramref name="prefix"/> and the full type name of the
+            specified <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T">The type</typeparam>
+            <param name="prefix">The prefix</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

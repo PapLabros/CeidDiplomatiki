@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.Controls.Relational.Providers</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage">
+            <summary>
+            The client data storage options page
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.Options">
+            <summary>
+            The existing database options
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.FileName">
+            <summary>
+            The directory path as well as the xml name of the file
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.ContentGrid">
+            <summary>
+            The grid that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.ContentScrollViewer">
+            <summary>
+            The scroll viewer that contains the <see cref="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.ContentSection"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.ContentSection">
+            <summary>
+            The section that contains the <see cref="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.OptionsContainer"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.OptionsContainer">
+            <summary>
+            The options container
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.SaveButton">
+            <summary>
+            The save button
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="fileName">The directory path as well as the XML name of the file</param>
+            <param name="directoryPath">The directory path of the default directory where the SQLite database is stored</param>
+            <param name="databaseName">The default database name used when generating the options file</param>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.SelectedProvider">
+            <summary>
+            Gets the selected database provider
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.Show(Atom.Relational.SQLDatabaseProvider)">
+            <summary>
+            Shows the component that presents the options of the specified <paramref name="provider"/>
+            </summary>
+            <param name="provider">The provider</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPagesContainerPage">
+            <summary>
+            A page that contains multiple <see cref="T:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPagesContainerPage.Presenter">
+            <summary>
+            The presenter that contain the multiple <see cref="T:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage"/>s
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPagesContainerPage.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPagesContainerPage.Add(System.String,Atom.Core.VectorSource,System.String,System.String,System.String)">
+            <summary>
+            Creates and adds a <see cref="T:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPage"/> with the specified <paramref name="fileName"/>
+            </summary>
+            <param name="vectorSource">The vector source</param>
+            <param name="text">The text</param>
+            <param name="directoryPath">The directory path of the default directory where the SQLite database is stored</param>
+            <param name="fileName">The directory path as well as the xml name of the file</param>
+            <param name="databaseName">The default database name used when generating the options file</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.ClientDataStorageOptionsPagesContainerPage.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.MySQLOptionsComponent">
+            <summary>
+            Options component for a MySQL database
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.MySQLOptionsComponent.#ctor(Atom.Relational.Providers.MySQLOptionsDataModel)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.MySQLOptionsComponent.CreateForm">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.OptionsForm"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.MySQLOptionsComponent.IsConnectionValidAsync(Atom.Relational.Providers.MySQLOptionsDataModel,System.String)">
+            <summary>
+            Checks whether the specified valid <paramref name="connectionString"/> contained in the specified 
+            <paramref name="options"/> can open a connection or not
+            </summary>
+            <param name="options">The options</param>
+            <param name="connectionString">The connection string</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.MySQLOptionsComponent.FormatValidConnectionString(System.String)">
+            <summary>
+            Further formats the already valid connection string.
+            Ex. Remove the MySQL default port connection string part.
+            </summary>
+            <param name="connectionString">The connection string</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.PostgreSQLOptionsComponent">
+            <summary>
+            Options component for a PostgreSQL database
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.PostgreSQLOptionsComponent.#ctor(Atom.Relational.Providers.PostgreSQLOptionsDataModel)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="options">The options</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.PostgreSQLOptionsComponent.CreateForm">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.OptionsForm"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.PostgreSQLOptionsComponent.IsConnectionValidAsync(Atom.Relational.Providers.PostgreSQLOptionsDataModel,System.String)">
+            <summary>
+            Checks whether the specified valid <paramref name="connectionString"/> contained in the specified 
+            <paramref name="options"/> can open a connection or not
+            </summary>
+            <param name="options">The options</param>
+            <param name="connectionString">The connection string</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.SQLiteOptionsComponent">
+            <summary>
+            Options component for an SQLite database
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.SQLiteOptionsComponent.#ctor(Atom.Relational.Providers.SQLiteOptionsDataModel)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.SQLiteOptionsComponent.CreateForm">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.OptionsForm"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.SQLiteOptionsComponent.IsConnectionValidAsync(Atom.Relational.Providers.SQLiteOptionsDataModel,System.String)">
+            <summary>
+            Checks whether the specified <paramref name="connectionString"/> contained in the specified <paramref name="options"/> is valid or not
+            </summary>
+            <param name="options">The options</param>
+            <param name="connectionString">The connection string</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.SQLServerOptionsComponent">
+            <summary>
+            Options component for SQLServer database
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.SQLServerOptionsComponent.#ctor(Atom.Relational.Providers.SQLServerOptionsDataModel)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.SQLServerOptionsComponent.CreateForm">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Relational.BaseDatabaseOptionsComponent`1.OptionsForm"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.SQLServerOptionsComponent.IsConnectionValidAsync(Atom.Relational.Providers.SQLServerOptionsDataModel,System.String)">
+            <summary>
+            Checks whether the specified <paramref name="connectionString"/> contained in the specified <paramref name="options"/> is valid or not
+            </summary>
+            <param name="options">The options</param>
+            <param name="connectionString">The connection string</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.DatabaseProviderConstants">
+            <summary>
+            Constants related to the database providers
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Relational.Providers.DatabaseProviderConstants.DatabaseProviderOptionsDefaultFileName">
+            <summary>
+            The default name of the xml file that contains the information related to the selected database provider
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.DatabaseProviderHelpers">
+            <summary>
+            The default relational services that should be available anywhere in the app
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.DatabaseProviderHelpers.SaveDatabaseProviderOptions(Atom.Relational.Providers.DatabaseProviderOptionsDataModel,System.String)">
+            <summary>
+            Saves the specified <paramref name="options"/>
+            </summary>
+            <param name="options">The options</param>
+            <param name="fileName">The directory path as well as the XML name of the file</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.DatabaseProviderHelpers.GetDatabaseProviderOptions(System.String,System.String,System.String)">
+            <summary>
+            Gets the database provider options.
+            NOTE: If the options haven't yet been initialized, then they get initialized using the default values!
+            </summary>
+            <param name="fileName">The directory path as well as the XML name of the file</param>
+            <param name="directoryPath">The directory path of the default directory where the SQLite database is stored</param>
+            <param name="databaseName">The default database name</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Relational.Providers.IServiceCollectionExtensions">
+            <summary>
+            Extension methods for <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Relational.Providers.IServiceCollectionExtensions.AddDefaultDbContext``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Func{System.String},System.Func{System.String},System.Func{System.String})">
+            <summary>
+            Injects the db context to the service collection using the selected database provider
+            </summary>
+            <typeparam name="TDbContext">The type of the context</typeparam>
+            <param name="services">The service collection</param>
+            <param name="optionsFileNameRetriever">The options file name</param>
+            <param name="directoryPathRetriever">The directory path to be used only when the SQLite is the selected database provider or when initializing the default database</param>
+            <param name="databaseNameRetriever">The default database name used when generating the database without the .db extension</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
