@@ -164,6 +164,11 @@
             Default constructor
             </summary>
         </member>
+        <member name="T:Atom.Web.StandardPolicyAttribute">
+            <summary>
+            Specifies that the policy requires a claim of the same type name
+            </summary>
+        </member>
         <member name="T:Atom.Web.ApplicationNameAttribute">
             <summary>
             Validation attribute used for ensuring that a value of a property is 
@@ -323,6 +328,21 @@
             <param name="validationContext">The context information about the validation operation.</param>
             <returns></returns>
         </member>
+        <member name="T:Atom.Web.HttpContentType">
+            <summary>
+            Provides enumeration for the HTTP request content type
+            </summary>
+        </member>
+        <member name="F:Atom.Web.HttpContentType.JsonBody">
+            <summary>
+            The raw Json body option
+            </summary>
+        </member>
+        <member name="F:Atom.Web.HttpContentType.FormData">
+            <summary>
+            The form-data body option
+            </summary>
+        </member>
         <member name="T:Atom.Web.OrderBy">
             <summary>
             Provides enumeration over the order by options
@@ -385,6 +405,28 @@
         <member name="T:Atom.Web.HeaderConstants">
             <summary>
             Constants related to headers
+            </summary>
+        </member>
+        <member name="T:Atom.Web.IImageableResponse">
+            <summary>
+            Provides abstractions for a response that provides url for
+            accessing a small, a normal and a large image that represents
+            the response
+            </summary>
+        </member>
+        <member name="P:Atom.Web.IImageableResponse.SmallImageUrl">
+            <summary>
+            The small image url
+            </summary>
+        </member>
+        <member name="P:Atom.Web.IImageableResponse.ImageUrl">
+            <summary>
+            The image url
+            </summary>
+        </member>
+        <member name="P:Atom.Web.IImageableResponse.LargeImageUrl">
+            <summary>
+            The large image url
             </summary>
         </member>
         <member name="T:Atom.Web.QueryConstants">
@@ -680,6 +722,11 @@
             The HTTP client that is used for sending the HTTP requests
             NOTE: HTTP client is recommended to be injected as a Singleton in DI
                   https://stackoverflow.com/questions/4015324/how-to-make-http-post-web-request
+            </summary>
+        </member>
+        <member name="P:Atom.Web.WebRequestsClient`1.RequestBodyType">
+            <summary>
+            The type for the request body
             </summary>
         </member>
         <member name="M:Atom.Web.WebRequestsClient`1.#ctor">
@@ -1048,6 +1095,13 @@
             <param name="content">The content</param>
             <returns></returns>
         </member>
+        <member name="M:Atom.Web.WebRequestsClient`1.CreateFormDataContent(System.Object)">
+            <summary>
+            Creates the form-data, using the non null value in the <paramref name="content"/>
+            </summary>
+            <param name="content">The form-data content</param>
+            <returns></returns>
+        </member>
         <member name="M:Atom.Web.WebRequestsClient`1.SetAuthorizationHeader(`0)">
             <summary>
             Sets the specified <paramref name="authentication"/> if any to the <see cref="P:Atom.Web.WebRequestsClient`1.Client"/>
@@ -1059,6 +1113,13 @@
             Attempts to parse the error message contained in the <paramref name="rawServerResponse"/>
             </summary>
             <param name="rawServerResponse">The server response</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Web.WebRequestsClient`1.CreateHttpContent(System.Object)">
+            <summary>
+            Creates the <paramref name="content"/> for 
+            </summary>
+            <param name="content">The request body content</param>
             <returns></returns>
         </member>
         <member name="T:Atom.Web.WebRequestsClient">

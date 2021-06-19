@@ -39,6 +39,18 @@
             Default constructor
             </summary>
         </member>
+        <member name="M:Atom.Relational.Providers.DatabaseProviderOptionsDataModel.GetDatabaseName">
+            <summary>
+            Gets the database name based on the selected <see cref="P:Atom.Relational.Providers.DatabaseProviderOptionsDataModel.Provider"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Providers.DatabaseProviderOptionsDataModel.GetConnectionString">
+            <summary>
+            Gets the connection string based on the selected <see cref="P:Atom.Relational.Providers.DatabaseProviderOptionsDataModel.Provider"/>
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Relational.Providers.MySQLOptionsDataModel">
             <summary>
             Connection information for an MySQL database

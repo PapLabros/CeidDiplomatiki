@@ -264,6 +264,21 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Atom.Relational.Analyzers.MySqlDatabaseAnalyzer.GetColumnDbProviderDataType(System.String,System.String)">
+            <summary>
+            Gets the database provider data type for the column <paramref name="columnName"/> in the table <paramref name="tableName"/>
+            </summary>
+            <param name="tableName">The table name</param>
+            <param name="columnName">The column name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySqlDatabaseAnalyzer.GetNextAutoIncrementValue(System.String)">
+            <summary>
+            Gets the next auto increment value for the primary key in the table <paramref name="tableName"/>
+            </summary>
+            <param name="tableName">The table name</param>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Relational.Analyzers.PostgreSQLDatabaseAnalyzer">
             <summary>
             The PostgreSQL implementation of the <see cref="T:Atom.Relational.Analyzers.BaseDatabaseAnalyzer`1"/>
@@ -390,12 +405,28 @@
             <param name="columnName">The column name</param>
             <returns></returns>
         </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLDatabaseAnalyzer.GetColumnDbProviderDataType(System.String,System.String)">
+            <summary>
+            Gets the database provider data type for the column <paramref name="columnName"/> in the table <paramref name="tableName"/>
+            </summary>
+            <param name="tableName">The table name</param>
+            <param name="columnName">The column name</param>
+            <returns></returns>
+        </member>
         <member name="M:Atom.Relational.Analyzers.PostgreSQLDatabaseAnalyzer.GetReferencedKeyValues(System.String,System.String,System.String)">
             <summary>
             Gets a referenced values for the foreign key 
             </summary>
             <param name="tableName">The table name</param>
             <param name="foreignKeyName">The foreign key name</param>
+            <param name="columnName">The column name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLDatabaseAnalyzer.GetNextAutoIncrementValue(System.String,System.String)">
+            <summary>
+            Gets the next auto increment value for the primary key in the table <paramref name="tableName"/>
+            </summary>
+            <param name="tableName">The table name</param>
             <param name="columnName">The column name</param>
             <returns></returns>
         </member>
@@ -463,12 +494,33 @@
             <param name="tableName">The name of the table that contains the foreign key</param>
             <returns></returns>
         </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteDatabaseAnalyzer.GetRestrictions">
+            <summary>
+            Gets the restrictions from the server with the specified established connection
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Atom.Relational.Analyzers.SQLiteDatabaseAnalyzer.IsPrimaryKeyColumn(System.String,System.String)">
             <summary>
             Check if the column is primary key
             </summary>
             <param name="tableName">The table name</param>
             <param name="columnName">The column name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteDatabaseAnalyzer.GetColumnDbProviderDataType(System.String,System.String)">
+            <summary>
+            Gets the database provider data type for the column <paramref name="columnName"/> in the table <paramref name="tableName"/>
+            </summary>
+            <param name="tableName">The table name</param>
+            <param name="columnName">The column name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteDatabaseAnalyzer.GetNextAutoIncrementValue(System.String)">
+            <summary>
+            Gets the next auto increment value for the primary key in the table <paramref name="tableName"/>
+            </summary>
+            <param name="tableName">The table name</param>
             <returns></returns>
         </member>
         <member name="T:Atom.Relational.Analyzers.SQLServerDatabaseAnalyzer">
@@ -642,6 +694,21 @@
             </summary>
             <param name="tableName">The table name</param>
             <param name="columnName">The column name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerDatabaseAnalyzer.GetColumnDbProviderDataType(System.String,System.String)">
+            <summary>
+            Gets the database provider data type for the column <paramref name="columnName"/> in the table <paramref name="tableName"/>
+            </summary>
+            <param name="tableName">The table name</param>
+            <param name="columnName">The column name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerDatabaseAnalyzer.GetNextAutoIncrementValue(System.String)">
+            <summary>
+            Gets the next auto increment value for the primary key in the table <paramref name="tableName"/>
+            </summary>
+            <param name="tableName">The table name</param>
             <returns></returns>
         </member>
         <member name="T:Atom.Relational.Analyzers.ReferencedKeyValues">
@@ -997,7 +1064,12 @@
         </member>
         <member name="P:Atom.Relational.Analyzers.IDbProviderColumn.SQLTypeName">
             <summary>
-            The SQL data type
+            The SQL data name
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.Analyzers.IDbProviderColumn.DbProviderSQLType">
+            <summary>
+            The database provider SQL data type
             </summary>
         </member>
         <member name="P:Atom.Relational.Analyzers.IDbProviderColumn.IsPrimaryKey">
@@ -1018,6 +1090,11 @@
         <member name="P:Atom.Relational.Analyzers.IDbProviderColumn.IsAutoIncrement">
             <summary>
             A flag indicating whether the value is auto increment or not.
+            </summary>
+        </member>
+        <member name="P:Atom.Relational.Analyzers.IDbProviderColumn.NextAutoIncrementValue">
+            <summary>
+            The column value that will be used when the next row is inserted if <see cref="P:Atom.Relational.Analyzers.IDbProviderColumn.IsAutoIncrement"/> is true.
             </summary>
         </member>
         <member name="T:Atom.Relational.Analyzers.IDbProviderDatabase">
@@ -1078,17 +1155,19 @@
         <member name="P:Atom.Relational.Analyzers.IDbProviderForeignKeyColumn.ReferencedTableSchema">
             <summary>
             Schema that contains the referenced table.
+            The referenced table usually contains the primary key column.
             </summary>
         </member>
         <member name="P:Atom.Relational.Analyzers.IDbProviderForeignKeyColumn.ReferencedTableName">
             <summary>
             The table that contains the referenced column.
+            Usually the table that contains the primary key column.
             </summary>
         </member>
         <member name="P:Atom.Relational.Analyzers.IDbProviderForeignKeyColumn.ReferencedColumnName">
             <summary>
             Referenced column.
-            NOTE: The referenced column is usually a primary key column!
+            Usually a primary key column.
             </summary>
         </member>
         <member name="T:Atom.Relational.Analyzers.IDbProviderIndexColumn">
@@ -1261,6 +1340,11 @@
             Default value of the column
             </summary>
         </member>
+        <member name="P:Atom.Relational.Analyzers.MySQLProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#DbProviderSQLType">
+            <summary>
+            The database provider SQL data type
+            </summary>
+        </member>
         <member name="P:Atom.Relational.Analyzers.MySQLProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#DataType">
             <summary>
             System-supplied data type.
@@ -1291,6 +1375,11 @@
             Column identification number.
             </summary>
         </member>
+        <member name="P:Atom.Relational.Analyzers.MySQLProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#NextAutoIncrementValue">
+            <summary>
+            The column value that will be used when the next row is inserted if <see cref="P:Atom.Relational.Analyzers.IDbProviderColumn.IsAutoIncrement"/> is true.
+            </summary>
+        </member>
         <member name="M:Atom.Relational.Analyzers.MySQLProviderColumn.#ctor(System.Data.DataRow)">
             <summary>
             Default constructor
@@ -1300,6 +1389,26 @@
         <member name="M:Atom.Relational.Analyzers.MySQLProviderColumn.ToString">
             <summary>
             Returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderColumn.Equals(Atom.Relational.Analyzers.IDbProviderColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -1326,6 +1435,26 @@
         <member name="M:Atom.Relational.Analyzers.MySQLProviderDatabase.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.MySQLProviderDatabase"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderDatabase.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderDatabase.Equals(Atom.Relational.Analyzers.IDbProviderDatabase)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderDatabase.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -1412,6 +1541,26 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderForeignKeyColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderForeignKeyColumn.Equals(Atom.Relational.Analyzers.IDbProviderForeignKeyColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderForeignKeyColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Relational.Analyzers.MySQLProviderIndex">
             <summary>
             Represents a MySQL index.
@@ -1474,6 +1623,26 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderIndexColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderIndexColumn.Equals(Atom.Relational.Analyzers.IDbProviderIndexColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.MySQLProviderIndexColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Relational.Analyzers.MySQLProviderTable">
             <summary>
             Represents a MySQL table
@@ -1521,7 +1690,7 @@
             <summary>
             Indicates whether the current object is equal to another object of the same type.
             </summary>
-            <param name="dbProviderTable">An object to compare with this object.</param>
+            <param name="other">An object to compare with this object.</param>
             <returns></returns>
         </member>
         <member name="M:Atom.Relational.Analyzers.MySQLProviderTable.GetHashCode">
@@ -1657,6 +1826,11 @@
             Default value of the column
             </summary>
         </member>
+        <member name="P:Atom.Relational.Analyzers.PostgreSQLProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#DbProviderSQLType">
+            <summary>
+            The database provider SQL data type
+            </summary>
+        </member>
         <member name="P:Atom.Relational.Analyzers.PostgreSQLProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#DataType">
             <summary>
             System-supplied data type.
@@ -1682,6 +1856,11 @@
             A flag indicating whether the value is auto increment or not.
             </summary>
         </member>
+        <member name="P:Atom.Relational.Analyzers.PostgreSQLProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#NextAutoIncrementValue">
+            <summary>
+            The column value that will be used when the next row is inserted if <see cref="P:Atom.Relational.Analyzers.IDbProviderColumn.IsAutoIncrement"/> is true.
+            </summary>
+        </member>
         <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderColumn.#ctor(System.Data.DataRow)">
             <summary>
             Default constructor
@@ -1691,6 +1870,26 @@
         <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderColumn.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.PostgreSQLProviderColumn"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderColumn.Equals(Atom.Relational.Analyzers.IDbProviderColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -1728,6 +1927,26 @@
         <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderDatabase.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.PostgreSQLProviderDatabase"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderDatabase.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderDatabase.Equals(Atom.Relational.Analyzers.IDbProviderDatabase)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderDatabase.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -1867,6 +2086,26 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderForeignKeyColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderForeignKeyColumn.Equals(Atom.Relational.Analyzers.IDbProviderForeignKeyColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderForeignKeyColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Relational.Analyzers.PostgreSQLProviderIndex">
             <summary>
             Represents a PostgreSQL provider index
@@ -1890,11 +2129,6 @@
         <member name="P:Atom.Relational.Analyzers.PostgreSQLProviderIndex.IndexName">
             <summary>
             The index name
-            </summary>
-        </member>
-        <member name="P:Atom.Relational.Analyzers.PostgreSQLProviderIndex.TypeDescription">
-            <summary>
-            The type description
             </summary>
         </member>
         <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderIndex.#ctor(System.Data.DataRow)">
@@ -1968,6 +2202,26 @@
         <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderIndexColumn.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.PostgreSQLProviderIndexColumn"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderIndexColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderIndexColumn.Equals(Atom.Relational.Analyzers.IDbProviderIndexColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderIndexColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -2051,7 +2305,7 @@
             <summary>
             Indicates whether the current object is equal to another object of the same type.
             </summary>
-            <param name="dbProviderTable">An object to compare with this object.</param>
+            <param name="other">An object to compare with this object.</param>
             <returns></returns>
         </member>
         <member name="M:Atom.Relational.Analyzers.PostgreSQLProviderTable.GetHashCode">
@@ -2251,6 +2505,11 @@
             Default value of the column
             </summary>
         </member>
+        <member name="P:Atom.Relational.Analyzers.SQLiteProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#DbProviderSQLType">
+            <summary>
+            The database provider SQL data type
+            </summary>
+        </member>
         <member name="P:Atom.Relational.Analyzers.SQLiteProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#DataType">
             <summary>
             System-supplied data type.
@@ -2276,9 +2535,9 @@
             A flag indicating whether the value is auto increment or not.
             </summary>
         </member>
-        <member name="P:Atom.Relational.Analyzers.SQLiteProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#OrdinalPosition">
+        <member name="P:Atom.Relational.Analyzers.SQLiteProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#NextAutoIncrementValue">
             <summary>
-            Column identification number.
+            The column value that will be used when the next row is inserted if <see cref="P:Atom.Relational.Analyzers.SQLiteProviderColumn.IsAutoIncrement"/> is true.
             </summary>
         </member>
         <member name="M:Atom.Relational.Analyzers.SQLiteProviderColumn.#ctor(System.Data.DataRow)">
@@ -2290,6 +2549,26 @@
         <member name="M:Atom.Relational.Analyzers.SQLiteProviderColumn.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.SQLiteProviderColumn"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderColumn.Equals(Atom.Relational.Analyzers.IDbProviderColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -2316,6 +2595,26 @@
         <member name="M:Atom.Relational.Analyzers.SQLiteProviderDatabase.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.SQLiteProviderDatabase"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderDatabase.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderDatabase.Equals(Atom.Relational.Analyzers.IDbProviderDatabase)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderDatabase.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -2387,6 +2686,26 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderForeignKey.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderForeignKey.Equals(Atom.Relational.Analyzers.IDbProviderForeignKeyColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderForeignKey.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Relational.Analyzers.SQLiteProviderIndexColumn">
             <summary>
             Represents an SQLite  index column
@@ -2431,6 +2750,26 @@
         <member name="M:Atom.Relational.Analyzers.SQLiteProviderIndexColumn.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.SQLiteProviderIndexColumn"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderIndexColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderIndexColumn.Equals(Atom.Relational.Analyzers.IDbProviderIndexColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLiteProviderIndexColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -2482,7 +2821,7 @@
             <summary>
             Indicates whether the current object is equal to another object of the same type.
             </summary>
-            <param name="dbProviderTable">An object to compare with this object.</param>
+            <param name="other">An object to compare with this object.</param>
             <returns></returns>
         </member>
         <member name="M:Atom.Relational.Analyzers.SQLiteProviderTable.GetHashCode">
@@ -2605,6 +2944,11 @@
             Default value of the column
             </summary>
         </member>
+        <member name="P:Atom.Relational.Analyzers.SQLServerProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#DbProviderSQLType">
+            <summary>
+            The database provider SQL data type
+            </summary>
+        </member>
         <member name="P:Atom.Relational.Analyzers.SQLServerProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#DataType">
             <summary>
             System-supplied data type.
@@ -2630,6 +2974,11 @@
             A flag indicating whether the value is auto increment or not.
             </summary>
         </member>
+        <member name="P:Atom.Relational.Analyzers.SQLServerProviderColumn.Atom#Relational#Analyzers#IDbProviderColumn#NextAutoIncrementValue">
+            <summary>
+            The column value that will be used when the next row is inserted if <see cref="P:Atom.Relational.Analyzers.IDbProviderColumn.IsAutoIncrement"/> is true.
+            </summary>
+        </member>
         <member name="M:Atom.Relational.Analyzers.SQLServerProviderColumn.#ctor(System.Data.DataRow)">
             <summary>
             Default constructor
@@ -2639,6 +2988,26 @@
         <member name="M:Atom.Relational.Analyzers.SQLServerProviderColumn.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.SQLiteProviderColumn"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderColumn.Equals(Atom.Relational.Analyzers.IDbProviderColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -2676,6 +3045,26 @@
         <member name="M:Atom.Relational.Analyzers.SQLServerProviderDatabase.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.SQLiteProviderDatabase"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderDatabase.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderDatabase.Equals(Atom.Relational.Analyzers.IDbProviderDatabase)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderDatabase.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -2933,6 +3322,26 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderForeignKeyColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderForeignKeyColumn.Equals(Atom.Relational.Analyzers.IDbProviderForeignKeyColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderForeignKeyColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Relational.Analyzers.SQLServerProviderIndex">
             <summary>
             Represents a SQL Server index
@@ -3049,6 +3458,26 @@
         <member name="M:Atom.Relational.Analyzers.SQLServerProviderIndexColumn.ToString">
             <summary>
             Creates and returns a string representation of <see cref="T:Atom.Relational.Analyzers.SQLServerProviderIndexColumn"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderIndexColumn.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderIndexColumn.Equals(Atom.Relational.Analyzers.IDbProviderIndexColumn)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Relational.Analyzers.SQLServerProviderIndexColumn.GetHashCode">
+            <summary>
+            Serves as the default hash function.
             </summary>
             <returns></returns>
         </member>
@@ -3328,7 +3757,7 @@
             <summary>
             Indicates whether the current object is equal to another object of the same type.
             </summary>
-            <param name="dbProviderTable">An object to compare with this object.</param>
+            <param name="other">An object to compare with this object.</param>
             <returns></returns>
         </member>
         <member name="M:Atom.Relational.Analyzers.SQLServerProviderTable.GetHashCode">

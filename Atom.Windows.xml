@@ -28,7 +28,7 @@
             <param name="animationEndingVisibility">The visibility of the <paramref name="element"/> after the finish of the animation</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeInAsync(System.Windows.FrameworkElement,System.Boolean,System.Single,System.Double,System.Double)">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeInAsync(System.Windows.FrameworkElement,System.Boolean,System.Single,System.Double,System.Double,System.Double,System.Boolean)">
             <summary>
             Scales and fades in the specified <paramref name="element"/>
             </summary>
@@ -36,16 +36,28 @@
             <param name="firstLoad">A flag indicating if its the first load</param>
             <param name="duration">The duration of the animation</param>
             <param name="startingScaleFactor">The starting scale factor</param>
+            <param name="endingScaleFactor">The ending scale factor</param>
             <param name="toOpacity">The opacity to animate to</param>
+            <param name="renderTransform">
+            A flag indicating whether render transform should be used or not.
+            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
+            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
+            </param>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeOutAsync(System.Windows.FrameworkElement,System.Single,System.Double,System.Windows.Visibility)">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeOutAsync(System.Windows.FrameworkElement,System.Single,System.Double,System.Double,System.Windows.Visibility,System.Boolean)">
             <summary>
             Scales and fades out the specified <paramref name="element"/>
             </summary>
             <param name="element">The element to animate</param>
             <param name="duration">The duration of the animation</param>
             <param name="endingScaleFactor">The ending scale factor</param>
+            <param name="startingScaleFactor">The starting scale factor</param>
             <param name="animationEndingVisibility">The visibility of the <paramref name="element"/> after the finish of the animation</param>
+            <param name="renderTransform">
+            A flag indicating whether render transform should be used or not.
+            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
+            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
+            </param>
             <returns></returns>
         </member>
         <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.SlideAndFadeInAsync(System.Windows.FrameworkElement,Atom.Core.Direction,System.Boolean,System.Single,System.Boolean,System.Int32)">
@@ -167,7 +179,7 @@
             <param name="animateFromLocation">The custom value to animate from</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleXAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleXAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
             <summary>
             Scales the width of an element
             </summary>
@@ -176,9 +188,14 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
             <param name="animateFromWidthScaleFactor">The multiplier factor of the width to animate from</param>
+            <param name="renderTransform">
+            A flag indicating whether render transform should be used or not.
+            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
+            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
+            </param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleYAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleYAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
             <summary>
             Scales the height of an element
             </summary>
@@ -187,9 +204,14 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
             <param name="animateFromHeightScaleFactor">The multiplier factor of the height to animate from</param>
+            <param name="renderTransform">
+            A flag indicating whether render transform should be used or not.
+            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
+            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
+            </param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
             <summary>
             Scales the width and the height of an element
             </summary>
@@ -198,6 +220,11 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
             <param name="animateFromScaleFactor">The multiplier factor of the width and the height to animate from</param>
+            <param name="renderTransform">
+            A flag indicating whether render transform should be used or not.
+            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
+            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
+            </param>
             <returns></returns>
         </member>
         <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ChangeThicknessAsync(System.Windows.FrameworkElement,Atom.Core.Controls.ThicknessAnimationTargetProperty,System.Double[],System.Single,System.Boolean,System.Double[])">
@@ -385,7 +412,7 @@
             <param name="animateFrom">A flag indicating if we want to start from a specific canvas top value</param>
             <param name="animateFromCanvasTop">The canvas top value to start from</param>
         </member>
-        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleXAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleXAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
             <summary>
             Adds a width scale animation to the storyboard
             </summary>
@@ -394,8 +421,13 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating if we want to start from a specific scale x value</param>
             <param name="animateFromWidthScaleFactor">The multiplier factor of the width to animate from</param>
+            <param name="renderTransform">
+            A flag indicating whether render transform should be used or not.
+            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
+            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
+            </param>
         </member>
-        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleYAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
+        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleYAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
             <summary>
             Adds a height scale animation to the storyboard
             </summary>
@@ -404,6 +436,11 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating if we want to start from a specific angle</param>
             <param name="animateFromheightScaleFactor">The multiplier factor of the height to animate from</param>
+            <param name="renderTransform">
+            A flag indicating whether render transform should be used or not.
+            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
+            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
+            </param>
         </member>
         <member name="M:Atom.Windows.StoryboardExtensions.AddThicknessAnimation(System.Windows.Media.Animation.Storyboard,Atom.Core.Controls.ThicknessAnimationTargetProperty,System.Double[],System.Single,System.Boolean,System.Double[])">
             <summary>

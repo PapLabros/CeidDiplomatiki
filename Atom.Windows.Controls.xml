@@ -1907,6 +1907,77 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Atom.Windows.Controls.ImageButton">
+            <summary>
+            An image button
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.ImageButton.ContentBorder">
+            <summary>
+            The border that contains the <see cref="P:Atom.Windows.Controls.ImageButton.ContentStackPanel"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.ImageButton.ContentStackPanel">
+            <summary>
+            The stack panel that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.ImageButton.Image">
+            <summary>
+            The image
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.ImageButton.TitleTextBlock">
+            <summary>
+            The title text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.ImageButton.DescriptionTextBlock">
+            <summary>
+            The description text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.ImageButton.ImageSource">
+            <summary>
+            The image source
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.ImageButton.ImageSourceProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.ImageButton.ImageSource"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.ImageButton.Title">
+            <summary>
+            The title
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.ImageButton.TitleProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.ImageButton.Title"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.ImageButton.Description">
+            <summary>
+            The description
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.ImageButton.DescriptionProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.ImageButton.Description"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.ImageButton.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.ImageButton.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Windows.Controls.InformationalButton">
             <summary>
             A <see cref="T:Atom.Windows.Controls.IconAndTextButton`1"/> that contains an extra layer of text information
@@ -2616,6 +2687,11 @@
         <member name="P:Atom.Windows.Controls.DataForm`2.FormInputs">
             <summary>
             The form inputs
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.DataForm`2.Properties">
+            <summary>
+            The properties of the model that have a form input shown for
             </summary>
         </member>
         <member name="P:Atom.Windows.Controls.DataForm`2.Mapper">
@@ -8025,6 +8101,46 @@
             </summary>
             <param name="value">The value to set at the input</param>
         </member>
+        <member name="T:Atom.Windows.Controls.PointInputFormInputContainer">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.StandardFormInputContainer`1"/> that uses a <see cref="T:Atom.Windows.Controls.PointInput"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInputFormInputContainer.Configure">
+            <summary>
+            Configures the input
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInputFormInputContainer.#ctor(Atom.Windows.Controls.BaseFormInput,System.Action{Atom.Windows.Controls.PointInput})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="formInput">The form input that contains this input container</param>
+            <param name="configure">Configures the input</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInputFormInputContainer.ClearValue">
+            <summary>
+            Clears the inserted value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInputFormInputContainer.CreateInputControl">
+            <summary>
+            Creates and returns the input element of the appropriate type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInputFormInputContainer.GetValueCore">
+            <summary>
+            Gets the value of the input internally
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInputFormInputContainer.SetValueCore(System.Object)">
+            <summary>
+            Sets the value to the input internally
+            </summary>
+            <param name="value">The value to set at the input</param>
+        </member>
         <member name="T:Atom.Windows.Controls.PricingOptionFormInputContainer">
             <summary>
             A <see cref="T:Atom.Windows.Controls.BaseFormInputContainer"/> that contains a <see cref="T:Atom.Windows.Controls.PricingOptionInput"/>
@@ -8117,6 +8233,11 @@
             <typeparam name="TSearchMenuInput">The type of the menu search input</typeparam>
             <typeparam name="TItem">The type of the items</typeparam>
             <typeparam name="TElement">The derivatives of the <see cref="T:Atom.Windows.Controls.BackgroundControl"/>, that are linked with the <typeparamref name="TItem"/>s.</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseSearchFormInputContainer`3.Model">
+            <summary>
+            The selected model
+            </summary>
         </member>
         <member name="M:Atom.Windows.Controls.BaseSearchFormInputContainer`3.#ctor(Atom.Windows.Controls.BaseFormInput)">
             <summary>
@@ -8407,6 +8528,46 @@
             Creates and returns the input element
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.SizeInputFormInputContainer">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.StandardFormInputContainer`1"/> that uses a <see cref="T:Atom.Windows.Controls.PointInput"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInputFormInputContainer.Configure">
+            <summary>
+            Configures the input
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInputFormInputContainer.#ctor(Atom.Windows.Controls.BaseFormInput,System.Action{Atom.Windows.Controls.SizeInput})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="formInput">The form input that contains this input container</param>
+            <param name="configure">Configures the input</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInputFormInputContainer.ClearValue">
+            <summary>
+            Clears the inserted value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInputFormInputContainer.CreateInputControl">
+            <summary>
+            Creates and returns the input element of the appropriate type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInputFormInputContainer.GetValueCore">
+            <summary>
+            Gets the value of the input internally
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInputFormInputContainer.SetValueCore(System.Object)">
+            <summary>
+            Sets the value to the input internally
+            </summary>
+            <param name="value">The value to set at the input</param>
         </member>
         <member name="T:Atom.Windows.Controls.ByteFormInputContainer">
             <summary>
@@ -9157,6 +9318,72 @@
             </summary>
             <param name="value">The value to set at the input</param>
         </member>
+        <member name="T:Atom.Windows.Controls.BaseUIStructFormInputContainer`2">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.StandardFormInputContainer`1"/> that's that base for the UI struct form input containers
+            </summary>
+            <typeparam name="TUIStructInput">The type of the UI struct input</typeparam>
+            <typeparam name="TValue">The type of the value</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructFormInputContainer`2.Configure">
+            <summary>
+            Action that configures the input
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructFormInputContainer`2.#ctor(Atom.Windows.Controls.BaseFormInput,System.Action{`0})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="formInput">The form input that contains this input container</param>
+            <param name="configure">Action that configures the input</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructFormInputContainer`2.ClearValue">
+            <summary>
+            Clears the inserted value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructFormInputContainer`2.CreateInputControl">
+            <summary>
+            Creates and returns the input element of the appropriate type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructFormInputContainer`2.GetValueCore">
+            <summary>
+            Gets the value of the input internally
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructFormInputContainer`2.SetValueCore(System.Object)">
+            <summary>
+            Sets the value to the input internally
+            </summary>
+            <param name="value">The value to set at the input</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.CornerRadiusFormInputContainer">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseUIStructFormInputContainer`2"/> that uses a <see cref="T:Atom.Windows.Controls.CornerRadiusInput"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusFormInputContainer.#ctor(Atom.Windows.Controls.BaseFormInput,System.Action{Atom.Windows.Controls.CornerRadiusInput})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="formInput">The form input that contains this input container</param>
+            <param name="configure">Action that configures the input</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.ThicknessFormInputContainer">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseUIStructFormInputContainer`2"/> that uses a <see cref="T:Atom.Windows.Controls.ThicknessInput"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessFormInputContainer.#ctor(Atom.Windows.Controls.BaseFormInput,System.Action{Atom.Windows.Controls.ThicknessInput})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="formInput">The form input that contains this input container</param>
+            <param name="configure">Action that configures the input</param>
+        </member>
         <member name="T:Atom.Windows.Controls.UriFormInputContainer">
             <summary>
             A <see cref="T:Atom.Windows.Controls.StandardFormInputContainer`1"/> used for inserting a <see cref="T:System.Uri"/> value
@@ -9864,6 +10091,39 @@
             </summary>
             <param name="values">The values</param>
         </member>
+        <member name="T:Atom.Windows.Controls.StandardOptionsFormInput`2">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.StandardOptionsFormInput`1"/> that provides type safety for the option form input containers
+            </summary>
+            <typeparam name="TFormInputContainer">The type of the form input containers</typeparam>
+            <typeparam name="TOption">The type of the option</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.StandardOptionsFormInput`2.Items">
+            <summary>
+            The items
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.StandardOptionsFormInput`2.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Collections.Generic.IEnumerable{`1},System.Func{`1,System.String})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="options">The available options</param>
+            <param name="translator">The optional translator</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.StandardOptionsFormInput`2.CreateInputContainerCore(`1)">
+            <summary>
+            Creates and returns the input element container of type <see cref="T:Atom.Windows.Controls.BaseOptionFormInputContainer`1"/>
+            </summary>
+            <param name="option">The option</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.StandardOptionsFormInput`2.CreateInputContainerInternal(`1)">
+            <summary>
+            Creates and returns the input element container of type <see cref="T:Atom.Windows.Controls.BaseOptionFormInputContainer`1"/>
+            </summary>
+            <param name="option">The option</param>
+        </member>
         <member name="T:Atom.Windows.Controls.EnumOptionsFormInput`1">
             <summary>
             The base for all the enum option form inputs
@@ -9893,6 +10153,47 @@
             that contains the value
             </summary>
             <param name="values">The values</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.EnumOptionsFormInput`2">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.EnumOptionsFormInput`1"/> that provides type safety for the form input containers
+            </summary>
+            <typeparam name="TFormInputContainer">The type of the form input container</typeparam>
+            <typeparam name="TEnumValue">The type of the enum value</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.EnumOptionsFormInput`2.Items">
+            <summary>
+            The items
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.EnumOptionsFormInput`2.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Func{`1,System.String})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="translator">The optional translator</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.EnumOptionsFormInput`2.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Collections.Generic.IEnumerable{`1},System.Func{`1,System.String})">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="availableOptions">The available options</param>
+            <param name="translator">The optional translator</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.EnumOptionsFormInput`2.CreateInputContainerCore(`1)">
+            <summary>
+            Creates and returns the input element container of type <see cref="T:Atom.Windows.Controls.BaseOptionFormInputContainer`1"/>
+            </summary>
+            <param name="option">The option</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.EnumOptionsFormInput`2.CreateInputContainerInternal(`1)">
+            <summary>
+            Creates and returns the input element container of type <see cref="T:Atom.Windows.Controls.BaseOptionFormInputContainer`1"/>
+            </summary>
+            <param name="option">The option</param>
         </member>
         <member name="T:Atom.Windows.Controls.CheckBoxFormInput">
             <summary>
@@ -11351,7 +11652,7 @@
             <param name="availableOptions">The available options</param>
             <param name="translator">The optional translator</param>
         </member>
-        <member name="M:Atom.Windows.Controls.CheckBoxOptionsFormInput`1.CreateInputContainerCore(`0)">
+        <member name="M:Atom.Windows.Controls.CheckBoxOptionsFormInput`1.CreateInputContainerInternal(`0)">
             <summary>
             Creates and returns the input element container of type <see cref="T:Atom.Windows.Controls.BaseOptionFormInputContainer`1"/>
             </summary>
@@ -11380,7 +11681,7 @@
             <param name="availableOptions">The available options</param>
             <param name="translator">The optional translator</param>
         </member>
-        <member name="M:Atom.Windows.Controls.CheckBoxEnumOptionsFormInput`1.CreateInputContainerCore(`0)">
+        <member name="M:Atom.Windows.Controls.CheckBoxEnumOptionsFormInput`1.CreateInputContainerInternal(`0)">
             <summary>
             Creates and returns the input element container of type <see cref="T:Atom.Windows.Controls.BaseOptionFormInputContainer`1"/>
             </summary>
@@ -11405,7 +11706,7 @@
             <param name="options">The available options</param>
             <param name="translator">The optional translator</param>
         </member>
-        <member name="M:Atom.Windows.Controls.DropDownMenuOptionsFormInput`1.CreateInputContainerCore(`0)">
+        <member name="M:Atom.Windows.Controls.DropDownMenuOptionsFormInput`1.CreateInputContainerInternal(`0)">
             <summary>
             Creates and returns the input element container of type <see cref="T:Atom.Windows.Controls.BaseOptionFormInputContainer`1"/>
             </summary>
@@ -11452,7 +11753,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.Controls.DropDownMenuEnumOptionsFormInput`1.CreateInputContainerCore(`0)">
+        <member name="M:Atom.Windows.Controls.DropDownMenuEnumOptionsFormInput`1.CreateInputContainerInternal(`0)">
             <summary>
             Creates and returns the input element container of type <see cref="T:Atom.Windows.Controls.BaseOptionFormInputContainer`1"/>
             </summary>
@@ -11656,6 +11957,30 @@
             </summary>
             <param name="args">The creation args</param>
         </member>
+        <member name="T:Atom.Windows.Controls.PointInputFormInput">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseFormInput"/> that contains multiple <see cref="T:Atom.Windows.Controls.PointInputFormInputContainer"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInputFormInput.Configure">
+            <summary>
+            Configures the input
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInputFormInput.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Action{Atom.Windows.Controls.PointInput})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="configure">Configures the input</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInputFormInput.CreateFormInputContainerCore(System.Object)">
+            <summary>
+            Creates and returns the input element container
+            </summary>
+            <param name="args">The creation args</param>
+        </member>
         <member name="T:Atom.Windows.Controls.PricingOptionFormInput">
             <summary>
             A <see cref="T:Atom.Windows.Controls.BaseFormInput`1"/> that contains multiple <see cref="T:Atom.Windows.Controls.PricingOptionFormInputContainer"/>s
@@ -11720,18 +12045,6 @@
             <param name="form">The form that contains the form input</param>
             <param name="propertyInfo">The property info of the property that the form manipulates</param>
         </member>
-        <member name="M:Atom.Windows.Controls.BaseSearchFormInput`4.CreateFormInputContainer(System.Object)">
-            <summary>
-            Creates and returns the input element container
-            </summary>
-            <param name="args">The creation args</param>
-        </member>
-        <member name="M:Atom.Windows.Controls.BaseSearchFormInput`4.CreateInputContainerCore(System.Object)">
-            <summary>
-            Creates and returns the input element container
-            </summary>
-            <param name="args">The creation args</param>
-        </member>
         <member name="T:Atom.Windows.Controls.ImageSearchFormInput`1">
             <summary>
             A <see cref="T:Atom.Windows.Controls.BaseSearchFormInput`4"/> that contains multiple <see cref="T:Atom.Windows.Controls.ImageSearchFormInputContainer`1"/>s
@@ -11781,7 +12094,7 @@
             from the selected item that is the image source for the image of the drop down button
             </param>
         </member>
-        <member name="M:Atom.Windows.Controls.ImageSearchFormInput`1.CreateInputContainerCore(System.Object)">
+        <member name="M:Atom.Windows.Controls.ImageSearchFormInput`1.CreateFormInputContainerCore(System.Object)">
             <summary>
             Creates and returns the input element container
             </summary>
@@ -11826,7 +12139,7 @@
             from the selected item to be presented in the drop down button
             </param>
         </member>
-        <member name="M:Atom.Windows.Controls.SearchFormInput`1.CreateInputContainerCore(System.Object)">
+        <member name="M:Atom.Windows.Controls.SearchFormInput`1.CreateFormInputContainerCore(System.Object)">
             <summary>
             Creates and returns the input element container
             </summary>
@@ -11908,6 +12221,30 @@
             <param name="shortcodes">The shortcodes</param>
         </member>
         <member name="M:Atom.Windows.Controls.ShortcodesTextInputFormInput.CreateFormInputContainerCore(System.Object)">
+            <summary>
+            Creates and returns the input element container
+            </summary>
+            <param name="args">The creation args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.SizeInputFormInput">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseFormInput"/> that contains multiple <see cref="T:Atom.Windows.Controls.SizeInputFormInputContainer"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInputFormInput.Configure">
+            <summary>
+            Configures the input
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInputFormInput.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Action{Atom.Windows.Controls.SizeInput})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="configure">Configures the input</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInputFormInput.CreateFormInputContainerCore(System.Object)">
             <summary>
             Creates and returns the input element container
             </summary>
@@ -12388,6 +12725,77 @@
             Creates and returns the input element container
             </summary>
             <param name="args">The creation args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.BaseUIStructFormInput`3">
+            <summary>
+            The base for the UI struct form inputs
+            </summary>
+            <typeparam name="TFormInputContainer">The type of the form input container</typeparam>
+            <typeparam name="TUIStructInput">The type of the UI struct input</typeparam>
+            <typeparam name="TValue">The type of the value</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructFormInput`3.Configure">
+            <summary>
+            Action that configures the input
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructFormInput`3.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Action{`1})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="configure">Action that configures the input</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructFormInput`3.CreateFormInputContainerCore(System.Object)">
+            <summary>
+            Creates and returns the input element container
+            </summary>
+            <param name="args">The creation args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructFormInput`3.CreateFormInputContainerInternal(System.Action{`1})">
+            <summary>
+            Creates and returns the input element container
+            </summary>
+            <param name="configure">Action that configures the input</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.CornerRadiusFormInput">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseUIStructInput`1"/> that contains multiple <see cref="T:Atom.Windows.Controls.CornerRadiusFormInputContainer"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusFormInput.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Action{Atom.Windows.Controls.CornerRadiusInput})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="configure">Action that configures the input</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusFormInput.CreateFormInputContainerInternal(System.Action{Atom.Windows.Controls.CornerRadiusInput})">
+            <summary>
+            Creates and returns the input element container
+            </summary>
+            <param name="configure">Action that configures the input</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.ThicknessFormInput">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseUIStructInput`1"/> that contains multiple <see cref="T:Atom.Windows.Controls.ThicknessFormInputContainer"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessFormInput.#ctor(Atom.Windows.Controls.IDataForm,System.Reflection.PropertyInfo,System.Action{Atom.Windows.Controls.ThicknessInput})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="form">The form that contains the form input</param>
+            <param name="propertyInfo">The property info of the property that the form manipulates</param>
+            <param name="configure">Action that configures the input</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessFormInput.CreateFormInputContainerInternal(System.Action{Atom.Windows.Controls.ThicknessInput})">
+            <summary>
+            Creates and returns the input element container
+            </summary>
+            <param name="configure">Action that configures the input</param>
         </member>
         <member name="T:Atom.Windows.Controls.UriFormInput">
             <summary>
@@ -17415,12 +17823,6 @@
             Handles the change of the <see cref="P:Atom.Windows.Controls.Tile`1.Title"/>
             </summary>
             <param name="e">Event args</param>
-        </member>
-        <member name="T:Atom.Windows.Controls.ClippingBorder">
-            <Remarks>
-            As a side effect ClippingBorder will suppress any data binding or animation of 
-            its children UIElement.Clip property until the child is removed from ClippingBorder
-            </Remarks>
         </member>
         <member name="T:Atom.Windows.Controls.TilesPresenter`2">
             <summary>
@@ -23057,6 +23459,29 @@
             based on the <see cref="P:Atom.Windows.Controls.BubbleContent.PointerOffsetCondition"/>
             </summary>
         </member>
+        <member name="T:Atom.Windows.Controls.ClippingBorder">
+            <Remarks>
+            As a side effect ClippingBorder will suppress any data binding or animation of 
+            its children UIElement.Clip property until the child is removed from ClippingBorder
+            </Remarks>
+        </member>
+        <member name="P:Atom.Windows.Controls.ClippingBorder.Child">
+            <summary>
+            Gets or sets the single child element of a <see cref="T:System.Windows.Controls.Decorator"/>.
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.ClippingBorder.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.ClippingBorder.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            Draws the contents of a <see cref="T:System.Windows.Media.DrawingContext"/> object during the
+            render pass of a <see cref="T:System.Windows.Controls.Border"/>.
+            </summary>
+            <param name="dc"></param>
+        </member>
         <member name="T:Atom.Windows.Controls.DaySpanPresenter">
             <summary>
             The graphical representation of a <see cref="T:Atom.Core.DaySpan"/>
@@ -25147,6 +25572,97 @@
             <summary>
             Default constructor
             </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.StatusComponent">
+            <summary>
+            Component used for presenting a status
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.StatusColor">
+            <summary>
+            The color of the status label
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.Title">
+            <summary>
+            The title
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.Description">
+            <summary>
+            The description
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.StatusText">
+            <summary>
+            The text of the status label
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.IsLoading">
+            <summary>
+            A flag indicating whether the loading indicator should be visible or not
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.ImageSource">
+            <summary>
+            The image source
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.ContentBorder">
+            <summary>
+            The border that contains the <see cref="P:Atom.Windows.Controls.StatusComponent.ContentGrid"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.ContentGrid">
+            <summary>
+            The grid that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.Image">
+            <summary>
+            The image
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.TitleTextBlock">
+            <summary>
+            The title text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.DescriptionTextBlock">
+            <summary>
+            The description text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.StatusBorder">
+            <summary>
+            The border that contains the <see cref="P:Atom.Windows.Controls.StatusComponent.StatusStackPanel"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.StatusStackPanel">
+            <summary>
+            The stack panel that contains the <see cref="P:Atom.Windows.Controls.StatusComponent.StatusLoadingIcon"/> and the <see cref="P:Atom.Windows.Controls.StatusComponent.StatusTextBlock"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.StatusLoadingIcon">
+            <summary>
+            The status loading icon
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.StatusComponent.StatusTextBlock">
+            <summary>
+            The status text block
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.StatusComponent.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.StatusComponent.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Atom.Windows.Controls.DialogOverlayContainer`1">
             <summary>
@@ -27834,6 +28350,12 @@
             Default constructor
             </summary>
         </member>
+        <member name="M:Atom.Windows.Controls.WrapPanelCollapsibleVerticalMenu`2.#ctor(System.Func{`0,`1})">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="linker">Creates or extracts the <typeparamref name="TElement"/> from the related <typeparamref name="TItem"/></param>
+        </member>
         <member name="M:Atom.Windows.Controls.WrapPanelCollapsibleVerticalMenu`2.OnItemsContainerCreated(System.Windows.Controls.WrapPanel)">
             <summary>
             Handles the creation of the <see cref="P:Atom.Windows.Controls.BasePanelItemsControl`3.ItemsContainer"/>
@@ -27880,7 +28402,7 @@
         </member>
         <member name="M:Atom.Windows.Controls.ColorPicker.CreateContent">
             <summary>
-            Creates and returns the element that will be used as the <see cref="P:Atom.Windows.Controls.DropDownButton`1.Content"/> of the dropdown
+            Creates and returns the element that will be used as the <see cref="P:Atom.Windows.Controls.DropDownButton`1.Content"/> of the drop down
             </summary>
             <returns></returns>
         </member>
@@ -32385,6 +32907,94 @@
             Creates and adds the required GUI elements
             </summary>
         </member>
+        <member name="T:Atom.Windows.Controls.PointInput">
+            <summary>
+            Input used for inserting a <see cref="T:System.Windows.Point"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInput.SuppressValueChangedEvent">
+            <summary>
+            If true then the <see cref="E:Atom.Windows.Controls.PointInput.ValueChanged"/> event is suppressed
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInput.ContentGrid">
+            <summary>
+            The grid that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInput.XTextBlock">
+            <summary>
+            The X text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInput.XTextInput">
+            <summary>
+            The X text input
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInput.YTextBlock">
+            <summary>
+            The Y text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInput.YTextInput">
+            <summary>
+            The Y text input
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInput.Value">
+            <summary>
+            The point
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PointInput.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.PointInput.Value"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInput.OnValuePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.PointInput.Value"/> property changes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PointInput.InputFormatter">
+            <summary>
+            The input formatter that formats the input of the user
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PointInput.InputFormatterProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.PointInput.InputFormatter"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInput.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInput.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInput.OnValueChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.PointInput.Value"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PointInput.OnValueChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.PointInput.Value"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="E:Atom.Windows.Controls.PointInput.ValueChanged">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.PointInput.Value"/> property changes
+            </summary>
+        </member>
         <member name="T:Atom.Windows.Controls.PricingOptionInput">
             <summary>
             Input control used for updating the values of a <see cref="T:Atom.Core.PricingOptionDataModel"/>
@@ -33553,6 +34163,94 @@
         <member name="E:Atom.Windows.Controls.SearchMenuInputTextInput.IsInPreviewChanged">
             <summary>
             Fires every time the <see cref="P:Atom.Windows.Controls.SearchMenuInputTextInput.IsInPreview"/> property changes
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.SizeInput">
+            <summary>
+            Input used for inserting a <see cref="T:System.Windows.Size"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInput.SuppressValueChangedEvent">
+            <summary>
+            If true then the <see cref="E:Atom.Windows.Controls.SizeInput.ValueChanged"/> event is suppressed
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInput.ContentGrid">
+            <summary>
+            The grid that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInput.WidthTextBlock">
+            <summary>
+            The width text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInput.WidthTextInput">
+            <summary>
+            The width text input
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInput.HeightTextBlock">
+            <summary>
+            The height text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInput.HeightTextInput">
+            <summary>
+            The height text input
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInput.Value">
+            <summary>
+            The size
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.SizeInput.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.SizeInput.Value"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInput.OnValuePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.SizeInput.Value"/> property changes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.SizeInput.InputFormatter">
+            <summary>
+            The input formatter that formats the input of the user
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.SizeInput.InputFormatterProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.SizeInput.InputFormatter"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInput.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInput.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInput.OnValueChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.PointInput.Value"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.SizeInput.OnValueChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.PointInput.Value"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="E:Atom.Windows.Controls.SizeInput.ValueChanged">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.SizeInput.Value"/> property changes
             </summary>
         </member>
         <member name="T:Atom.Windows.Controls.TimeInput">
@@ -35057,6 +35755,328 @@
             Handles the change of the <see cref="P:Atom.Windows.Controls.TextInput.AcceptsReturn"/> property internally
             </summary>
             <param name="e">Event args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.BaseUIStructInput`1">
+            <summary>
+            The base for all the UI structs inputs
+            </summary>
+            <typeparam name="TValue">The type of the value</typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.SuppressValueChangedEvent">
+            <summary>
+            If true then the <see cref="E:Atom.Windows.Controls.BaseUIStructInput`1.ValueChanged"/> event is suppressed
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.ContentGrid">
+            <summary>
+            The grid that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon1">
+            <summary>
+            The icon 1
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.TextInput1">
+            <summary>
+            The text input 1
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon2">
+            <summary>
+            The icon 2
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.TextInput2">
+            <summary>
+            The text input 2
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon3">
+            <summary>
+            The icon 3
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.TextInput3">
+            <summary>
+            The text input 3
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon4">
+            <summary>
+            The icon 4
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.TextInput4">
+            <summary>
+            The text input 4
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.Value">
+            <summary>
+            The value
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.BaseUIStructInput`1.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Value"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.OnValuePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Value"/> property changes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.BaseUIStructInput`1.InputFormatter">
+            <summary>
+            The input formatter that formats the input of the user
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.BaseUIStructInput`1.InputFormatterProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.InputFormatter"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.GetIcon1Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon1"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.GetIcon2Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon2"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.GetIcon3Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon3"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.GetIcon4Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon4"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.CreateValue(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates and returns a value using the specified values
+            </summary>
+            <param name="value1">The value 1</param>
+            <param name="value2">The value 2</param>
+            <param name="value3">The value 3</param>
+            <param name="value4">The value 4</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.GetValue1(`0)">
+            <summary>
+            Gets the value 1 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.GetValue2(`0)">
+            <summary>
+            Gets the value 2 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.GetValue3(`0)">
+            <summary>
+            Gets the value 3 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.GetValue4(`0)">
+            <summary>
+            Gets the value 4 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.OnValueChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Value"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.OnValueChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Value"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.CreateIcon(Atom.Core.VectorSource)">
+            <summary>
+            Creates and returns a personalized vector icon
+            </summary>
+            <param name="vectorSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.BaseUIStructInput`1.CreateTextInput(System.Double)">
+            <summary>
+            Creates and returns a personalized text input
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:Atom.Windows.Controls.BaseUIStructInput`1.ValueChanged">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Value"/> property changes
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.CornerRadiusInput">
+            <summary>
+            Input used for inserting a <see cref="T:System.Windows.CornerRadius"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.CreateValue(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates and returns a value using the specified values
+            </summary>
+            <param name="value1">The value 1</param>
+            <param name="value2">The value 2</param>
+            <param name="value3">The value 3</param>
+            <param name="value4">The value 4</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.GetIcon1Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon1"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.GetIcon2Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon2"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.GetIcon3Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon3"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.GetIcon4Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon4"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.GetValue1(System.Windows.CornerRadius)">
+            <summary>
+            Gets the value 1 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.GetValue2(System.Windows.CornerRadius)">
+            <summary>
+            Gets the value 2 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.GetValue3(System.Windows.CornerRadius)">
+            <summary>
+            Gets the value 3 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.CornerRadiusInput.GetValue4(System.Windows.CornerRadius)">
+            <summary>
+            Gets the value 4 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.ThicknessInput">
+            <summary>
+            Input used for inserting a <see cref="T:System.Windows.Thickness"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.CreateValue(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Creates and returns a value using the specified values
+            </summary>
+            <param name="value1">The value 1</param>
+            <param name="value2">The value 2</param>
+            <param name="value3">The value 3</param>
+            <param name="value4">The value 4</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.GetIcon1Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon1"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.GetIcon2Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon2"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.GetIcon3Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon3"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.GetIcon4Source">
+            <summary>
+            Gets the vector source for the <see cref="P:Atom.Windows.Controls.BaseUIStructInput`1.Icon4"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.GetValue1(System.Windows.Thickness)">
+            <summary>
+            Gets the value 1 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.GetValue2(System.Windows.Thickness)">
+            <summary>
+            Gets the value 2 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.GetValue3(System.Windows.Thickness)">
+            <summary>
+            Gets the value 3 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.ThicknessInput.GetValue4(System.Windows.Thickness)">
+            <summary>
+            Gets the value 4 from the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
         </member>
         <member name="T:Atom.Windows.Controls.VersionInput">
             <summary>
@@ -37720,18 +38740,11 @@
             Default constructor
             </summary>
         </member>
-        <member name="M:Atom.Windows.Controls.SeparatedStackPanelSelectionItemsControl`2.#ctor(System.Func{`0,`1},System.Func{`0,System.String},System.Func{`0,System.String})">
+        <member name="M:Atom.Windows.Controls.SeparatedStackPanelSelectionItemsControl`2.#ctor(System.Func{`0,`1})">
             <summary>
             Standard constructor
             </summary>
             <param name="linker">Creates or extracts the <typeparamref name="TElement"/> from the related <typeparamref name="TItem"/></param>
-            <param name="categoryIdGetter">
-            Gets the id of the category where the item should get placed
-            NOTE: If the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryIdGetter"/> is not set then the
-                  the values returned by the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryNameGetter"/>
-                  are used as the ids.
-            </param>
-            <param name="categoryNameGetter">Gets the name of the category where the item should get placed</param>
         </member>
         <member name="M:Atom.Windows.Controls.SeparatedStackPanelSelectionItemsControl`2.CreateInnerItemsControl">
             <summary>
@@ -37770,18 +38783,11 @@
             Default constructor
             </summary>
         </member>
-        <member name="M:Atom.Windows.Controls.StackPanelSelectionItemsControl`2.#ctor(System.Func{`0,`1},System.Func{`0,System.String},System.Func{`0,System.String})">
+        <member name="M:Atom.Windows.Controls.StackPanelSelectionItemsControl`2.#ctor(System.Func{`0,`1})">
             <summary>
             Standard constructor
             </summary>
             <param name="linker">Creates or extracts the <typeparamref name="TElement"/> from the related <typeparamref name="TItem"/></param>
-            <param name="categoryIdGetter">
-            Gets the id of the category where the item should get placed
-            NOTE: If the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryIdGetter"/> is not set then the
-                  the values returned by the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryNameGetter"/>
-                  are used as the ids.
-            </param>
-            <param name="categoryNameGetter">Gets the name of the category where the item should get placed</param>
         </member>
         <member name="M:Atom.Windows.Controls.StackPanelSelectionItemsControl`2.CreateInnerItemsControl">
             <summary>
@@ -37829,18 +38835,11 @@
             Default constructor
             </summary>
         </member>
-        <member name="M:Atom.Windows.Controls.UniformGridSelectionItemsControl`2.#ctor(System.Func{`0,`1},System.Func{`0,System.String},System.Func{`0,System.String})">
+        <member name="M:Atom.Windows.Controls.UniformGridSelectionItemsControl`2.#ctor(System.Func{`0,`1})">
             <summary>
             Standard constructor
             </summary>
             <param name="linker">Creates or extracts the <typeparamref name="TElement"/> from the related <typeparamref name="TItem"/></param>
-            <param name="categoryIdGetter">
-            Gets the id of the category where the item should get placed
-            NOTE: If the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryIdGetter"/> is not set then the
-                  the values returned by the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryNameGetter"/>
-                  are used as the ids.
-            </param>
-            <param name="categoryNameGetter">Gets the name of the category where the item should get placed</param>
         </member>
         <member name="M:Atom.Windows.Controls.UniformGridSelectionItemsControl`2.CreateInnerItemsControl">
             <summary>
@@ -37879,18 +38878,11 @@
             Default constructor
             </summary>
         </member>
-        <member name="M:Atom.Windows.Controls.WrapPanelSelectionItemsControl`2.#ctor(System.Func{`0,`1},System.Func{`0,System.String},System.Func{`0,System.String})">
+        <member name="M:Atom.Windows.Controls.WrapPanelSelectionItemsControl`2.#ctor(System.Func{`0,`1})">
             <summary>
             Standard constructor
             </summary>
             <param name="linker">Creates or extracts the <typeparamref name="TElement"/> from the related <typeparamref name="TItem"/></param>
-            <param name="categoryIdGetter">
-            Gets the id of the category where the item should get placed
-            NOTE: If the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryIdGetter"/> is not set then the
-                  the values returned by the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryNameGetter"/>
-                  are used as the ids.
-            </param>
-            <param name="categoryNameGetter">Gets the name of the category where the item should get placed</param>
         </member>
         <member name="M:Atom.Windows.Controls.WrapPanelSelectionItemsControl`2.CreateInnerItemsControl">
             <summary>
@@ -38065,18 +39057,11 @@
             Default constructor
             </summary>
         </member>
-        <member name="M:Atom.Windows.Controls.StackPanelSelectItemsControl`2.#ctor(System.Func{`0,`1},System.Func{`0,System.String},System.Func{`0,System.String})">
+        <member name="M:Atom.Windows.Controls.StackPanelSelectItemsControl`2.#ctor(System.Func{`0,`1})">
             <summary>
             Standard constructor
             </summary>
             <param name="linker">Creates or extracts the <typeparamref name="TElement"/> from the related <typeparamref name="TItem"/></param>
-            <param name="categoryIdGetter">
-            Gets the id of the category where the item should get placed
-            NOTE: If the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryIdGetter"/> is not set then the
-                  the values returned by the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.CategoryNameGetter"/>
-                  are used as the ids.
-            </param>
-            <param name="categoryNameGetter">Gets the name of the category where the item should get placed</param>
         </member>
         <member name="M:Atom.Windows.Controls.StackPanelSelectItemsControl`2.CreateInnerItemsControl">
             <summary>
@@ -38172,6 +39157,62 @@
             <param name="itemsControl">The items control</param>
             <param name="categoryName">The name of the category</param>
         </member>
+        <member name="T:Atom.Windows.Controls.UniformGridSelectItemsControl`2">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseSelectItemsControl`3"/> that uses a <see cref="T:Atom.Windows.Controls.UniformGridItemsControl`2"/> as the type of the
+            inner item controls
+            </summary>
+            <typeparam name="TItem">
+            The type of the items.
+            </typeparam>
+            <typeparam name="TElement">
+            The derivatives of the <see cref="T:System.Windows.FrameworkElement"/>, that are linked with the <typeparamref name="TItem"/>s.
+            </typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.UniformGridSelectItemsControl`2.Columns">
+            <summary>
+            The number of columns of the uniform grid
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.UniformGridSelectItemsControl`2.ColumnsProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.UniformGridSelectItemsControl`2.Columns"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.UniformGridSelectItemsControl`2.Rows">
+            <summary>
+            The number of rows of the uniform grid
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.UniformGridSelectItemsControl`2.RowsProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.UniformGridSelectItemsControl`2.Rows"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.UniformGridSelectItemsControl`2.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.UniformGridSelectItemsControl`2.#ctor(System.Func{`0,`1})">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="linker">Creates or extracts the <typeparamref name="TElement"/> from the related <typeparamref name="TItem"/></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.UniformGridSelectItemsControl`2.CreateInnerItemsControl">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.IItemsControl`1"/> that is placed in the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.MainItemsControl"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.UniformGridSelectItemsControl`2.SetCategoryName(Atom.Windows.Controls.UniformGridItemsControl{`1},System.String)">
+            <summary>
+            Sets the <paramref name="categoryName"/> to the <paramref name="itemsControl"/>
+            </summary>
+            <param name="itemsControl">The items control</param>
+            <param name="categoryName">The name of the category</param>
+        </member>
         <member name="T:Atom.Windows.Controls.WrapPanelCollapsibleVerticalMenuSelectItemsControl`2">
             <summary>
             A <see cref="T:Atom.Windows.Controls.BaseSelectItemsControl`3"/> that uses a <see cref="T:Atom.Windows.Controls.WrapPanelCollapsibleVerticalMenu`1"/> as the type of the
@@ -38249,6 +39290,53 @@
             <returns></returns>
         </member>
         <member name="M:Atom.Windows.Controls.WrapPanelCollapsibleVerticalMenuSelectItemsControl`2.SetCategoryName(Atom.Windows.Controls.WrapPanelCollapsibleVerticalMenu{`1},System.String)">
+            <summary>
+            Sets the <paramref name="categoryName"/> to the <paramref name="itemsControl"/>
+            </summary>
+            <param name="itemsControl">The items control</param>
+            <param name="categoryName">The name of the category</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.WrapPanelSelectItemsControl`2">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.BaseSelectItemsControl`3"/> that uses a <see cref="T:Atom.Windows.Controls.WrapPanelItemsControl`2"/> as the type of the
+            inner item controls
+            </summary>
+            <typeparam name="TItem">
+            The type of the items.
+            </typeparam>
+            <typeparam name="TElement">
+            The derivatives of the <see cref="T:System.Windows.FrameworkElement"/>, that are linked with the <typeparamref name="TItem"/>s.
+            </typeparam>
+        </member>
+        <member name="P:Atom.Windows.Controls.WrapPanelSelectItemsControl`2.Orientation">
+            <summary>
+            The orientation.
+            NOTE: The default value is <see cref="F:System.Windows.Controls.Orientation.Horizontal"/>!
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.WrapPanelSelectItemsControl`2.OrientationProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.WrapPanelSelectItemsControl`2.Orientation"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.WrapPanelSelectItemsControl`2.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.WrapPanelSelectItemsControl`2.#ctor(System.Func{`0,`1})">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="linker">Creates or extracts the <typeparamref name="TElement"/> from the related <typeparamref name="TItem"/></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.WrapPanelSelectItemsControl`2.CreateInnerItemsControl">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.IItemsControl`1"/> that is placed in the <see cref="P:Atom.Windows.Controls.BaseCategorizingItemsControl`3.MainItemsControl"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.WrapPanelSelectItemsControl`2.SetCategoryName(Atom.Windows.Controls.WrapPanelItemsControl{`1},System.String)">
             <summary>
             Sets the <paramref name="categoryName"/> to the <paramref name="itemsControl"/>
             </summary>
@@ -42345,11 +43433,11 @@
             <summary>
             Handles the change of the <see cref="P:Atom.Windows.Controls.BaseStateControl.Value"/> property internally
             </summary>
-            <param name="e">The new value</param>
+            <param name="e">Event args</param>
         </member>
         <member name="E:Atom.Windows.Controls.BaseStateControl.ValueChanged">
             <summary>
-            
+            Fires every time the <see cref="P:Atom.Windows.Controls.BaseStateControl.Value"/> property changes
             </summary>
         </member>
         <member name="T:Atom.Windows.Controls.StandardStateControl">
@@ -43076,7 +44164,7 @@
         </member>
         <member name="T:Atom.Windows.Controls.ControlsFactory">
             <summary>
-            Creates and returns standard personalized controls
+            Creates and returns standardly personalized controls
             </summary>
         </member>
         <member name="M:Atom.Windows.Controls.ControlsFactory.ToCircularControl(Atom.Windows.Controls.BorderControl,System.Double,System.Boolean)">
@@ -44131,6 +45219,36 @@
             <summary>
             If the window resizes to a special position (docked or maximized)
             this will update all required property change events to set the borders and radius values
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>

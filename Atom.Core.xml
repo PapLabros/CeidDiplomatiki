@@ -173,6 +173,17 @@
             </summary>
             <param name="name">The name</param>
         </member>
+        <member name="T:Atom.Core.RecalculationAttribute">
+            <summary>
+            The attribute that forces the recalculation for the computed properties.
+            NOTE: If the property is not computed, then the attribute is ignored.
+            </summary>
+        </member>
+        <member name="M:Atom.Core.RecalculationAttribute.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
         <member name="T:Atom.Core.RenameAttribute">
             <summary>
             The attribute that contains meta data related to a rename.
@@ -1654,7 +1665,7 @@
             The value
             </summary>
         </member>
-        <member name="P:Atom.Core.OptionSelectorRuleDataModel`2.Selector">
+        <member name="P:Atom.Core.OptionSelectorRuleDataModel`2.OptionSelector">
             <summary>
             The option selector retrieved using the <see cref="P:Atom.Core.OptionSelectorRuleDataModel`2.OptionSelectorId"/>
             </summary>
@@ -3580,6 +3591,16 @@
             Extension methods related to data models
             </summary>
         </member>
+        <member name="F:Atom.Core.CoreDataModelExtensions.SexMaleColor">
+            <summary>
+            The color that represents the <see cref="F:Atom.Core.Sex.Male"/>
+            </summary>
+        </member>
+        <member name="F:Atom.Core.CoreDataModelExtensions.SexFemaleColor">
+            <summary>
+            The color that represents the <see cref="F:Atom.Core.Sex.Female"/>
+            </summary>
+        </member>
         <member name="M:Atom.Core.CoreDataModelExtensions.ToLocalizedString(Atom.Core.Sex)">
             <summary>
             Returns a localized string that represents the specified <paramref name="sex"/>
@@ -3590,6 +3611,13 @@
         <member name="M:Atom.Core.CoreDataModelExtensions.ToColorHex(Atom.Core.Sex)">
             <summary>
             Returns the color hex value that represents the specified <paramref name="sex"/>
+            </summary>
+            <param name="sex">The sex</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.CoreDataModelExtensions.ToVectorSource(Atom.Core.Sex)">
+            <summary>
+            Returns the <see cref="T:Atom.Core.VectorSource"/> that represents the specified <paramref name="sex"/>
             </summary>
             <param name="sex">The sex</param>
             <returns></returns>
@@ -5515,6 +5543,26 @@
             <param name="key">The key to search for a value</param>
             <returns></returns>
         </member>
+        <member name="M:Atom.Core.DictionariesExtensions.IndexOf``2(System.Collections.Generic.Dictionary{``0,``1},``1)">
+            <summary>
+            Gets the index of the specified <paramref name="value"/>
+            </summary>
+            <typeparam name="TKey">The type of the key</typeparam>
+            <typeparam name="TValue">The type of the value</typeparam>
+            <param name="dictionary">The dictionary</param>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.DictionariesExtensions.IndexOf``2(System.Collections.Generic.Dictionary{``0,``1},``0)">
+            <summary>
+            Gets the index of the specified <paramref name="key"/>
+            </summary>
+            <typeparam name="TKey">The type of the key</typeparam>
+            <typeparam name="TValue">The type of the value</typeparam>
+            <param name="dictionary">The dictionary</param>
+            <param name="key">The key</param>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Core.DefaultApplicationEnvironment">
             <summary>
             The default implementation of the <see cref="T:Atom.Core.IApplicationEnvironment"/>
@@ -6068,22 +6116,6 @@
             </summary>
             <param name="d">The double</param>
             <param name="separator">The separator</param>
-            <returns></returns>
-        </member>
-        <member name="T:Atom.Core.EconomicHelpers">
-            <summary>
-            Helper methods related to economics
-            </summary>
-        </member>
-        <member name="M:Atom.Core.EconomicHelpers.CalculateTax(System.Decimal,System.Decimal)">
-            <summary>
-            Calculates the tax amount of the specified <paramref name="total"/> using the specified <paramref name="taxRate"/>.
-            </summary>
-            <param name="total">The total amount inducing the tax.</param>
-            <param name="taxRate">
-            The tax rate.
-            Ex. 24.
-            </param>
             <returns></returns>
         </member>
         <member name="T:Atom.Core.EnumHelpers">
@@ -6670,6 +6702,19 @@
             </summary>
             <param name="inputString">The input string</param>
             <param name="value">The value that is returned</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Core.GuidExtensions">
+            <summary>
+            Extensions methods for <see cref="T:System.Guid"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Core.GuidExtensions.ToNormalizedString(System.Guid)">
+            <summary>
+            Returns a string that represents the specified <paramref name="guid"/>
+            that contains only alphanumeric characters
+            </summary>
+            <param name="guid">The guid</param>
             <returns></returns>
         </member>
         <member name="T:Atom.Core.CoreHardwareHelpers">
@@ -9922,6 +9967,13 @@
             <param name="s">The string</param>
             <returns></returns>
         </member>
+        <member name="M:Atom.Core.StringHelpers.ExtractVersion(System.String)">
+            <summary>
+            Extracts the <see cref="T:System.Version"/> from the specified <paramref name="s"/>
+            </summary>
+            <param name="s">The version string</param>
+            <returns></returns>
+        </member>
         <member name="T:Atom.Core.BaseTaskManager">
             <summary>
             Handles anything to do with Tasks
@@ -10104,27 +10156,6 @@
             of it trying to rejoin the current thread.
             </summary>
             <param name="taskDelegate">The task to run</param>
-        </member>
-        <member name="T:Atom.Core.TaxHelpers">
-            <summary>
-            Helper methods related to taxes
-            </summary>
-        </member>
-        <member name="M:Atom.Core.TaxHelpers.CalculateTaxes(System.Decimal,System.Decimal,System.Decimal@,System.Decimal@)">
-            <summary>
-            Applies the specified <paramref name="taxRate"/> to the specified <paramref name="total"/> to calculate the <paramref name="clearAmount"/> and the <paramref name="taxAmount"/>
-            </summary>
-            <param name="total">
-            The total amount.
-            NOTE: That's the actual amount that's getting paid!
-            </param>
-            <param name="taxRate">
-            The tax rate.
-            NOTE: It's not in a percentage representation!
-                  Ex: 6% VAT -> 6.
-            </param>
-            <param name="clearAmount">The clear amount</param>
-            <param name="taxAmount">The tax amount</param>
         </member>
         <member name="T:Atom.Core.Translator`1">
             <summary>
@@ -10955,6 +10986,24 @@
             Checks whether the specified <paramref name="type"/> has a parameterless constructor or not
             </summary>
             <param name="type">The type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.TypeExtensions.GetPrivateFields(System.Type)">
+            <summary>
+            Gets the private fields that are declared in the specified <paramref name="type"/>
+            and at its base types
+            </summary>
+            <param name="type">The type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.TypeExtensions.GetPrivateField(System.Type,System.String)">
+            <summary>
+            Gets the private field with the specified <paramref name="name"/>
+            that is declared at the specified <paramref name="type"/> or at
+            one of its base types
+            </summary>
+            <param name="type">The type</param>
+            <param name="name">The name</param>
             <returns></returns>
         </member>
         <member name="T:Atom.Core.TypeHelpers">

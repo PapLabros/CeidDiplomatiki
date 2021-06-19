@@ -853,7 +853,7 @@
              on your derived context. The resulting model may be cached and re-used for subsequent
              instances of your derived context.
             </summary>
-            <param name="modelBuilder"></param>
+            <param name="modelBuilder">The model builder</param>
         </member>
         <member name="T:Atom.Relational.DbDataReaderExtensions">
             <summary>
