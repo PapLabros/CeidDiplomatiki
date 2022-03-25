@@ -1,5 +1,5 @@
 ﻿using Atom.Core;
-using Atom.Relational.Analyzers;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CeidDiplomatiki
@@ -18,20 +18,6 @@ namespace CeidDiplomatiki
         {
             // Add the manager
             construction.Services.AddSingleton<CeidDiplomatikiManager>(provider => new CeidDiplomatikiManager(CeidDiplomatikiDI.GetOptionsFileName));
-
-            // Return for chaining
-            return construction;
-        }
-
-        /// <summary>
-        /// Adds the database analyzers in the framework construction
-        /// </summary>
-        /// <param name="construction"></param>
-        /// <returns></returns>
-        public static FrameworkConstruction AddDatabaseAnalyzers(this FrameworkConstruction construction)
-        {
-            construction.Services.AddSingleton<MySqlDatabaseAnalyzer>();
-            construction.Services.AddSingleton<SQLiteDatabaseAnalyzer>();
 
             // Return for chaining
             return construction;

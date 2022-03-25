@@ -27,12 +27,12 @@
             <param name="content">The element of the tab</param>
             <param name="closable">Defines whether this tab can be closed or not</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlApplicationPage.Add(System.String,Atom.Core.VectorSource,System.Windows.UIElement,System.Boolean)">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlApplicationPage.Add(System.String,System.String,System.Windows.UIElement,System.Boolean)">
             <summary>
             Adds the specified <paramref name="content"/> to the <see cref="T:Atom.Windows.Controls.TabControl.TabControlHost"/>
             </summary>
             <param name="tabName">The text of the tab</param>
-            <param name="vectorSource">The vector source of the icon of the tab</param>
+            <param name="pathData">The path data of the icon of the tab</param>
             <param name="content">The body of the tab</param>
             <param name="closable">Defines whether this tab can be closed or not</param>
         </member>
@@ -157,14 +157,14 @@
             Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.Pinned"/> dependency property
             </summary>
         </member>
-        <member name="P:Atom.Windows.Controls.TabControl.Tab.VectorSource">
+        <member name="P:Atom.Windows.Controls.TabControl.Tab.PathData">
             <summary>
-            The vector source
+            The path data of the icon of the tab
             </summary>
         </member>
-        <member name="F:Atom.Windows.Controls.TabControl.Tab.VectorSourceProperty">
+        <member name="F:Atom.Windows.Controls.TabControl.Tab.PathDataProperty">
             <summary>
-            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.VectorSource"/> dependency property
+            Identifies the <see cref="P:Atom.Windows.Controls.TabControl.Tab.PathData"/> dependency property
             </summary>
         </member>
         <member name="P:Atom.Windows.Controls.TabControl.Tab.Closable">
@@ -533,7 +533,7 @@
                 correctly set
             </remarks>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Add(System.String,System.Windows.UIElement,System.Boolean,System.Object,System.Action{System.Windows.UIElement})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Add(System.String,System.Windows.UIElement,System.Boolean,System.Object)">
             <summary>
             Adds a tab to the tab control
             </summary>
@@ -544,21 +544,19 @@
             The key that is used for keeping track this content.
             NOTE: If this is set to <see cref="!:null"/> then the content we do not keep track of the content
             </param>
-            <param name="onClose">Handles the close of the tab</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Add(System.String,Atom.Core.VectorSource,System.Windows.UIElement,System.Boolean,System.Object,System.Action{System.Windows.UIElement})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.Add(System.String,System.String,System.Windows.UIElement,System.Boolean,System.Object)">
             <summary>
             Adds a tab to the tab control
             </summary>
             <param name="text">The text of the tab</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data of the icon of the tab</param>
             <param name="content">The body of the tab</param>
             <param name="closable">Defines whether this tab can be closed or not</param>
             <param name="registerKey">
             The key that is used for keeping track this content.
             NOTE: If this is set to <see cref="!:null"/> then the content we do not keep track of the content
             </param>
-            <param name="onClose">Handles the close of the tab</param>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControl.SelectTab(System.Int32)">
             <summary>
@@ -587,23 +585,22 @@
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControl.Remove(Atom.Windows.Controls.TabControl.Tab)">
             <summary>
-            Removes the specified <paramref name="tab"/> and closes the parent if needed
+            Removes the tab and closes the parent if needed
             </summary>
             <param name="tab"></param>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControl.Remove(Atom.Windows.Controls.TabControl.Tab,System.Boolean)">
             <summary>
-            Removes the specified <paramref name="tab"/> and closes the parent if needed
+            Removes the tab and closes the parent if needed
             </summary>
-            <param name="tab">The tab we want to remove</param>
+            <param name="tabToRemove">The tab we want to remove</param>
             <param name="closeIfMain">If this is set to true, after the removal of this tab, if it was the last of the parent, the parent will get closed</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControl.CloseTabAsync(Atom.Windows.Controls.TabControl.Tab,System.Boolean)">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControl.CloseTab(Atom.Windows.Controls.TabControl.Tab)">
             <summary>
-            Closes the specified <paramref name="tab"/>
+            Closes the tab if it is possible
             </summary>
-            <param name="tab">The tab we want to close and remove</param>
-            <param name="forceClose">A flag indicating whether a transitional dialog should be shown or not when a dialog has been set</param>
+            <param name="tabToClose">The tab we want to close and remove</param>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControl.CreateBaseGUIElement">
             <summary>
@@ -643,7 +640,7 @@
             Default constructor
             </summary>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.Add(System.String,System.Windows.UIElement,System.Boolean,System.Object,System.Action{System.Windows.UIElement})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.Add(System.String,System.Windows.UIElement,System.Boolean,System.Object)">
             <summary>
             Adds a tab to the first tab control and creates it if none is found
             </summary>
@@ -654,21 +651,19 @@
             The key that is used for keeping track this content.
             NOTE: If this is set to <see cref="!:null"/> then the content we do not keep track of the content
             </param>
-            <param name="onClose">Handles the close of the tab</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.Add(System.String,Atom.Core.VectorSource,System.Windows.UIElement,System.Boolean,System.Object,System.Action{System.Windows.UIElement})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.Add(System.String,System.String,System.Windows.UIElement,System.Boolean,System.Object)">
             <summary>
             Adds a tab to the first tab control and creates it if none is found
             </summary>
             <param name="tabName">The text of the tab</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data of the icon of the tab</param>
             <param name="content">The body of the tab</param>
             <param name="closable">Defines whether this tab can be closed or not</param>
             <param name="registerKey">
             The key that is used for keeping track this content.
             NOTE: If this is set to <see cref="!:null"/> then the content we do not keep track of the content
             </param>
-            <param name="onClose">Handles the close of the tab</param>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControlHost.Move(Atom.Windows.Controls.TabControl.TabControl,System.Int32)">
             <summary>
@@ -804,59 +799,55 @@
             <param name="parent">The parent we want to close</param>
             <param name="closeIfMain">If this is set to true, this function will close the parent even if it is the main one!</param>
         </member>
-        <member name="P:Atom.Windows.Controls.TabControl.TabControlManager.TrackMapper">
+        <member name="F:Atom.Windows.Controls.TabControl.TabControlManager.mTrackMapper">
             <summary>
             Mapper that is used for keeping track of specific tabs
             </summary>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(Atom.Windows.Controls.TabControl.TabControlHost,System.String,Atom.Core.VectorSource,System.Func{System.Windows.UIElement},System.Object,System.Boolean,System.Action{System.Windows.UIElement})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(Atom.Windows.Controls.TabControl.TabControlHost,System.String,System.String,System.Func{System.Windows.UIElement},System.Object,System.Boolean)">
             <summary>
             Opens the element provided by the <paramref name="implementationFactory"/> to a new tab and registers it using the <paramref name="key"/>
             </summary>
             <param name="tabControlHost">The host that the tab will be placed into</param>
             <param name="text">The text of the tab</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data of the icon of the tab</param>
             <param name="implementationFactory">The implementation factory that provides the element</param>
             <param name="key">The key that will be used for registering the element</param>
             <param name="closable">A flag indicating whether this tab can be closed or not</param>
-            <param name="onClose">Handles the close of the tab</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(Atom.Windows.Controls.TabControl.TabControl,System.String,Atom.Core.VectorSource,System.Func{System.Windows.UIElement},System.Object,System.Boolean,System.Action{System.Windows.UIElement})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(Atom.Windows.Controls.TabControl.TabControl,System.String,System.String,System.Func{System.Windows.UIElement},System.Object,System.Boolean)">
             <summary>
             Opens the element provided by the <paramref name="implementationFactory"/> to a new tab and registers it using the <paramref name="key"/>
             </summary>
             <param name="tabControl">The tab control that the tab will be placed into</param>
             <param name="text">The text of the tab</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data of the icon of the tab</param>
             <param name="implementationFactory">The implementation factory that provides the element</param>
             <param name="key">The key that will be used for registering the element</param>
             <param name="closable">A flag indicating whether this tab can be closed or not</param>
-            <param name="onClose">Handles the close of the tab</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(System.Windows.UIElement,System.String,Atom.Core.VectorSource,System.Func{System.Windows.UIElement},System.Object,System.Boolean,System.Action{System.Windows.UIElement})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(System.Windows.UIElement,System.String,System.String,System.Func{System.Windows.UIElement},System.Object,System.Boolean)">
             <summary>
             Opens the element provided by the <paramref name="implementationFactory"/> to a new tab and registers it using the <paramref name="key"/>
             </summary>
             <param name="element">The element used for finding the tab control that the tab will be placed into</param>
             <param name="text">The text of the tab</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data of the icon of the tab</param>
             <param name="implementationFactory">The implementation factory that provides the element</param>
             <param name="key">The key that will be used for registering the element</param>
             <param name="closable">A flag indicating whether this tab can be closed or not</param>
-            <param name="onClose">Handles the close of the tab</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(System.String,Atom.Core.VectorSource,System.Func{System.Windows.UIElement},System.Object,System.Boolean,System.Action{System.Windows.UIElement})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Open(System.String,System.String,System.Func{System.Windows.UIElement},System.Object,System.Boolean)">
             <summary>
             Opens the element provided by the <paramref name="implementationFactory"/> to a new tab and registers it using the <paramref name="key"/>.
             NOTE: This method will used the first of the <see cref="P:Atom.Windows.Controls.TabControl.TabControlManager.ActiveTab"/>s to determine the parent of the element provided by the <paramref name="implementationFactory"/>!
             NOTE: If no active tab is found, then the tab is created at the first tab control of the first tab control host of the first tab control host container!
             </summary>
             <param name="text">The text of the tab</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data of the icon of the tab</param>
             <param name="implementationFactory">The implementation factory that provides the element</param>
             <param name="key">The key that will be used for registering the element</param>
             <param name="closable">A flag indicating whether this tab can be closed or not</param>
-            <param name="onClose">Handles the close of the tab</param>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Register(System.Object,System.Windows.UIElement)">
             <summary>
@@ -865,7 +856,7 @@
             <param name="key">The identifier key</param>
             <param name="element">The element</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.Unregister(System.Object)">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlManager.UnRegister(System.Object)">
             <summary>
             Unregisters the element with the specified <paramref name="key"/>
             </summary>
@@ -1279,42 +1270,28 @@
             Default constructor
             </summary>
         </member>
-        <member name="P:Atom.Windows.Controls.TabControl.TabControlDialogManager.Mapper">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.OpenAsync(System.Windows.UIElement,System.String,System.String,System.Func{System.Windows.UIElement},System.Object,System.Boolean)">
             <summary>
-            Mapper that tracks all the registered keys along with their related elements
-            </summary>
-        </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.OpenAsync``1(System.Windows.UIElement,System.String,Atom.Core.VectorSource,System.Func{``0},System.Object,System.Boolean,System.Action{``0})">
-            <summary>
-            Shows the element provided by the <paramref name="implementationFactory"/> to a new dialog and registers it using the <paramref name="key"/>
+            Opens the element provided by the <paramref name="implementationFactory"/> to a new dialog and registers it using the <paramref name="key"/>
             </summary>
             <param name="element">The element used for finding the parent that the element provided by the <paramref name="implementationFactory"/> will be placed into</param>
             <param name="text">The text of the dialog</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data of the icon of the dialog</param>
             <param name="implementationFactory">The implementation factory that provides the element</param>
             <param name="key">The key that will be used for registering the element</param>
             <param name="closable">A flag indicating whether this tab can be closed or not</param>
-            <param name="onClose">Handles the close of the dialog</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.OpenAsync``1(System.String,Atom.Core.VectorSource,System.Func{``0},System.Object,System.Boolean,System.Action{``0})">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.OpenAsync(System.String,System.String,System.Func{System.Windows.UIElement},System.Object,System.Boolean)">
             <summary>
-            Shows the element provided by the <paramref name="implementationFactory"/> to a new dialog and registers it using the <paramref name="key"/>.
+            Opens the element provided by the <paramref name="implementationFactory"/> to a new dialog and registers it using the <paramref name="key"/>.
             NOTE: This method should only be used when unable to find a <see cref="T:System.Windows.UIElement"/> to determine the parent of the element!
-                  Otherwise, the <see cref="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.OpenAsync``1(System.Windows.UIElement,System.String,Atom.Core.VectorSource,System.Func{``0},System.Object,System.Boolean,System.Action{``0})"/> should be used!
+                  Otherwise, the <see cref="M:Atom.Windows.Controls.IWindowsDialogManager.OpenAsync(System.Windows.UIElement,System.String,System.String,System.Func{System.Windows.UIElement},System.Object,System.Boolean)"/> should be used!
             </summary>
             <param name="text">The text of the dialog</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data of the icon of the dialog</param>
             <param name="implementationFactory">The implementation factory that provides the element</param>
             <param name="key">The key that will be used for registering the element</param>
             <param name="closable">A flag indicating whether this tab can be closed or not</param>
-            <param name="onClose">Handles the close of the dialog</param>
-        </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.CloseAsync(System.Object)">
-            <summary>
-            Closes the dialog with the specified <paramref name="key"/>
-            </summary>
-            <param name="key">The key of the dialog</param>
-            <returns></returns>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.IsRegistered(System.Object)">
             <summary>
@@ -1392,13 +1369,14 @@
             <param name="element">The element</param>
             <param name="closable">A flag indicating the closable state of the parent of the <paramref name="element"/></param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.ShowContentAsync(System.Windows.FrameworkElement,System.Windows.UIElement,Atom.Windows.Controls.BubblesPresenterArgs)">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.ShowContentAsync(System.Windows.FrameworkElement,System.Windows.UIElement,Atom.Windows.Controls.PreferredPlacement,System.Action{System.Windows.UIElement})">
             <summary>
             Shows the specified <paramref name="content"/> element relative to the specified <paramref name="relativeTo"/> element
             </summary>
             <param name="relativeTo">The element that the <paramref name="content"/> element should be shown relative to</param>
             <param name="content">The content to show</param>
-            <param name="args">The args</param>
+            <param name="preferredPlacement">The preferred position relative to <paramref name="relativeTo"/> element</param>
+            <param name="onContentHide">Action that gets executed when the <paramref name="content"/> gets hidden</param>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.HideContentAsync(System.Windows.UIElement)">
             <summary>
@@ -1406,7 +1384,7 @@
             </summary>
             <param name="content">The content that is shown and should get hidden</param>
         </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.SwapContentAsync(System.Windows.FrameworkElement,System.Windows.UIElement,System.Windows.UIElement,Atom.Windows.Controls.BubblesPresenterArgs)">
+        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.SwapContentAsync(System.Windows.FrameworkElement,System.Windows.UIElement,System.Windows.UIElement,Atom.Windows.Controls.PreferredPlacement,System.Action{System.Windows.UIElement})">
             <summary>
             Hides the specified <paramref name="oldContent"/> and shows the specified <paramref name="content"/> at its place 
             relative to the specified <paramref name="relativeTo"/> element
@@ -1414,25 +1392,19 @@
             <param name="relativeTo">The element that the <paramref name="content"/> element should be shown relative to</param>
             <param name="content">The content to show</param>
             <param name="oldContent">The content that is shown and should get hidden</param>
-            <param name="args">The args</param>
-        </member>
-        <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.IsAnyContentBeingPresented(System.Windows.UIElement)">
-            <summary>
-            A flag indicating whether there is any content that is being presented to the container that contains the specified <paramref name="element"/>
-            </summary>
-            <param name="element">One of the elements that are contained in the container that we want to check</param>
-            <returns></returns>
+            <param name="preferredPlacement">The preferred position relative to <paramref name="relativeTo"/> element</param>
+            <param name="onContentHide">Action that gets executed when the <paramref name="content"/> gets hidden</param>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.HideAllContentAsync(System.Windows.UIElement)">
             <summary>
-            Hides all the contents are presented in the container that contains the <paramref name="element"/>
+            Hides all the contents are presented in the container that contains the <paramref name="content"/> element
             </summary>
-            <param name="element">One of the elements that are contained in the container we want everything to get hidden</param>
+            <param name="content">One of the elements that are contained in the container we want everything to get hidden</param>
             <returns></returns>
         </member>
         <member name="M:Atom.Windows.Controls.TabControl.TabControlDialogManager.IsContentBeingPresented(System.Windows.UIElement)">
             <summary>
-            Checks if the specified <paramref name="content"/> is being presented
+            Checks if the specified<paramref name="content"/> is being presented
             </summary>
             <param name="content">The content to check if its being presented</param>
             <returns></returns>

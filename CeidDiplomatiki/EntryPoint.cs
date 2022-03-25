@@ -1,14 +1,14 @@
 ﻿using Atom.Core;
+using Atom.PlugIns;
 using Atom.Windows;
 using Atom.Windows.Controls;
 using Atom.Windows.Controls.TabControl;
-
-using Newtonsoft.Json;
+using Atom.Windows.PlugIns;
+using Atom.Windows.PlugIns.Billing;
+using Atom.Windows.PlugIns.Communications;
+using Atom.Windows.PlugIns.Data;
 
 using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -28,11 +28,11 @@ namespace CeidDiplomatiki
             // Initialize the DI
             var construction = Framework.Construct<DefaultFrameworkConstruction>()
                      .AddControlManager()
+                     .AddTaskManager()
                      .AddDialogManager()
-                     .AddDefaultApplicationEnvironment("CeidDiplomatiki", "EN")
-                     .AddCeidDiplomatikiManager()
-                     .AddDatabaseAnalyzers();
-
+                     .AddDefaultDirectoriesProvider(ApplicationConstants.omniView)
+                     .AddCeidDiplomatikiManager();
+         
             // Build the framework using the injected services
             Framework.Construction.Build();
 
@@ -63,6 +63,11 @@ namespace CeidDiplomatiki
         {
             // Initialize the manager
             await CeidDiplomatikiDI.GetCeidDiplomatikiManager.InitializeAsync();
+
+            // Get the registered plug ins
+            foreach (var plugIn in DI.GetServices<IPlugIn>())
+                // Handle the application initialization
+                await plugIn.OnApplicationStartedAsync();
         }
     }
 }

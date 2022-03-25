@@ -1,0 +1,910 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Billing</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Billing.BillingExtensions">
+            <summary>
+            Extension methods related to the billing plug in
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.BillingExtensions.ToLocalizedString(Atom.Billing.ReceiptType)">
+            <summary>
+            Returns a localized string that represents the specified <paramref name="type"/>
+            Localization
+            </summary>
+            <param name="type">The receipt type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Billing.BillingExtensions.ToColorHex(Atom.Billing.ReceiptType)">
+            <summary>
+            Returns a the hex value of a color that represents the specified <paramref name="type"/>
+            </summary>
+            <param name="type">The receipt type</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Billing.BillingExtensions.ToLocalizedString(Atom.Billing.IssueAction)">
+            <summary>
+            Returns a localized string that represents the specified <paramref name="action"/>
+            Localization
+            </summary>
+            <param name="action">The receipt type</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Billing.BillingFilterArgs">
+            <summary>
+            Arguments used for filtering billing receipts
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingFilterArgs.After">
+            <summary>
+            Limit the results using a later <see cref="P:Atom.Billing.ReceiptHistoryDataModel.DateIssued"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingFilterArgs.Before">
+            <summary>
+            Limit the results using an earlier <see cref="P:Atom.Billing.ReceiptHistoryDataModel.DateIssued"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingFilterArgs.Points">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Billing.ReceiptHistoryDataModel.PointId"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingFilterArgs.Options">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Billing.ReceiptHistoryDataModel.OptionId"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingFilterArgs.Receivers">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Billing.ReceiptHistoryDataModel.ReceiverId"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingFilterArgs.Operations">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Billing.ReceiptHistoryDataModel.OperationId"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingFilterArgs.Issuers">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Billing.ReceiptHistoryDataModel.IssuerId"/>s
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.BillingFilterArgs.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Billing.BillingHelpers">
+            <summary>
+            Helper methods related to billing
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.BillingHelpers.IdentifiersCategoryName">
+            <summary>
+            The name of the identifiers category
+            Localization
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.BillingHelpers.MainCategoryName">
+            <summary>
+            The name of the main category
+            Localization
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.BillingHelpers.DatesCategoryName">
+            <summary>
+            The name of the dates category
+            Localization
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.BillingHelpers.PricesCategoryName">
+            <summary>
+            The name of the prices category
+            Localization
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.BillingHelpers.MiscCategoryName">
+            <summary>
+            The name of the misc category
+            Localization
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingHelpers.ReceiptHistoryDataModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingHelpers.DefaultReceiptHistoryDataModelProperties">
+            <summary>
+            Gets the default properties of the <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/>.
+            NOTE: The values of these properties are the most commonly used values of the model!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.BillingHelpers.ReceiptHistoryDataModelTranslator">
+            <summary>
+            Gets the <see cref="T:Atom.Core.Translator`1"/> required for translating the 
+            values of a <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Billing.ReceiptCouponDataModel">
+            <summary>
+            Represents a coupon
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.Code">
+            <summary>
+            Coupon code.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.DiscountRate">
+            <summary>
+            Discount total.
+            Ex. 10
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.IncludesProducts">
+            <summary>
+            A flag indicating whether the coupon is applied on specific products
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.ExcludesProducts">
+            <summary>
+            A flag indicating whether the coupon isn't applied on specific products
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.IncludedProducts">
+            <summary>
+            The ids of the products that the coupon is applied on.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.ExcludedProducts">
+            <summary>
+            The ids of the products that the coupon isn't applied on
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.TaxId">
+            <summary>
+            The id of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.TaxName">
+            <summary>
+            The name of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.TaxRateCode">
+            <summary>
+            The rate code.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.TaxRate">
+            <summary>
+            The tax rate.
+            Ex. 24.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.HasTax">
+            <summary>
+            A flag indicating whether there is a <see cref="P:Atom.Billing.ReceiptCouponDataModel.Tax"/> applied to this product
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptCouponDataModel.Tax">
+            <summary>
+            The tax.
+            NOTE: This is created using the <see cref="P:Atom.Billing.ReceiptCouponDataModel.TaxId"/>, the <see cref="P:Atom.Billing.ReceiptCouponDataModel.TaxName"/>, the <see cref="P:Atom.Billing.ReceiptCouponDataModel.TaxRateCode"/> and the <see cref="P:Atom.Billing.ReceiptCouponDataModel.TaxRate"/> if any!
+            NOTE: <see cref="!:null"/> is returned if a tax is not set!
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptCouponDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Billing.ReceiptDataModel">
+            <summary>
+            Represents a receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.DateCreated">
+            <summary>
+            The date the receipt was created.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.CouponDiscountTotal">
+            <summary>
+            Total discount amount.
+            NOTE: This calculated using the <see cref="P:Atom.Billing.ReceiptDataModel.Products"/> and the <see cref="P:Atom.Billing.ReceiptDataModel.Coupons"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.CouponDiscountTotalTax">
+            <summary>
+            Total discount tax amount.
+            NOTE: This calculated using the <see cref="P:Atom.Billing.ReceiptDataModel.Products"/> and the <see cref="P:Atom.Billing.ReceiptDataModel.Coupons"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.ShippingTotal">
+            <summary>
+            Total shipping amount.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptDataModel.Shippings"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.ShippingTotalTax">
+            <summary>
+            Total shipping total tax amount.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptDataModel.Shippings"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.ProductsTotal">
+            <summary>
+            Total products amount.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptDataModel.Products"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.ProductsTotalTax">
+            <summary>
+            Total products tax amount.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptDataModel.Products"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.FeesTotal">
+            <summary>
+            Total fees amount.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptDataModel.Fees"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.FeesTotalTax">
+            <summary>
+            Total fees tax amount.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptDataModel.Fees"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.Total">
+            <summary>
+            Grand total.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.TotalTax">
+            <summary>
+            Sum of all taxes.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.CustomerId">
+            <summary>
+            The id of the customer if any.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.CustomerNote">
+            <summary>
+            Note left by customer during checkout.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.PaymentMethodId">
+            <summary>
+            The id of the payment method if any
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.PaymentMethodName">
+            <summary>
+            The name of the payment method if any
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.TransactionId">
+            <summary>
+            The id of the transaction if any
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.DatePaid">
+            <summary>
+            The date the payment occurred.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.Products">
+            <summary>
+            The products.
+            NOTE: At least one product must be set
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.Taxes">
+            <summary>
+            The taxes.
+            NOTE: These are retrieved using the <see cref="P:Atom.Billing.ReceiptDataModel.Products"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.Shippings">
+            <summary>
+            The shipping options.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.Fees">
+            <summary>
+            The fees.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptDataModel.Coupons">
+            <summary>
+            The coupons
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptDataModel.#ctor(System.Collections.Generic.IEnumerable{Atom.Billing.ReceiptProductDataModel},System.Collections.Generic.IEnumerable{Atom.Billing.ReceiptShippingDataModel},System.Collections.Generic.IEnumerable{Atom.Billing.ReceiptFeeDataModel},System.Collections.Generic.IEnumerable{Atom.Billing.ReceiptCouponDataModel})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="products">
+            The products.
+            NOTE: At least one product must be set
+            </param>
+            <param name="shippings">The shipping options.</param>
+            <param name="fees">The fees.</param>
+            <param name="coupons">The coupons.</param>
+        </member>
+        <member name="T:Atom.Billing.ReceiptFeeDataModel">
+            <summary>
+            Represents a fee
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptFeeDataModel.Total">
+            <summary>
+            The total fee cost
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptFeeDataModel.TotalTax">
+            <summary>
+            The total fee tax cost.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptFeeDataModel.TaxRate"/> and the <see cref="P:Atom.Billing.ReceiptFeeDataModel.Total"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptFeeDataModel.TaxId">
+            <summary>
+            The id of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptFeeDataModel.TaxName">
+            <summary>
+            The name of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptFeeDataModel.TaxRateCode">
+            <summary>
+            The rate code.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptFeeDataModel.TaxRate">
+            <summary>
+            The tax rate.
+            Ex. 24.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptFeeDataModel.HasTax">
+            <summary>
+            A flag indicating whether there is a <see cref="P:Atom.Billing.ReceiptFeeDataModel.Tax"/> applied to this product
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptFeeDataModel.Tax">
+            <summary>
+            The tax.
+            NOTE: This is created using the <see cref="P:Atom.Billing.ReceiptFeeDataModel.TaxId"/>, the <see cref="P:Atom.Billing.ReceiptFeeDataModel.TaxName"/>, the <see cref="P:Atom.Billing.ReceiptFeeDataModel.TaxRateCode"/> and the <see cref="P:Atom.Billing.ReceiptFeeDataModel.TaxRate"/> if any!
+            NOTE: <see cref="!:null"/> is returned if a tax is not set!
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptFeeDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Billing.ReceiptHistoryDataModel">
+            <summary>
+            Represents a saved receipt.
+            NOTE: This class is sealed. Any additional information should be stored as a key pair value in the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.MetaData"/> property!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.Id">
+            <summary>
+            The id of the history model
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.ReceiptId">
+            <summary>
+            The id of the receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.ReceiptNumber">
+            <summary>
+            The number of the receipt.
+            NOTE: This is usually generated using an enumerator!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.PointId">
+            <summary>
+            The id of the entry point
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.OptionId">
+            <summary>
+            The id of the option contained in the receipt point
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.OptionName">
+            <summary>
+            The name of the option
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.ReceiverId">
+            <summary>
+            The receiver id if any.
+            Ex. The id of the customer that this receipt was issued for.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.Receiver">
+            <summary>
+            The name of the receiver
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.OperationId">
+            <summary>
+            The id of a operation if any.
+            Ex. The id of an order or the id of a subscription purchase.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.Operation">
+            <summary>
+            A custom identifier for the operation.
+            Ex. Order 1313, Subscription Purchase
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.IssuerId">
+            <summary>
+            The id of the issuer
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.Issuer">
+            <summary>
+            The name of the issuer
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.CancelledReceiptId">
+            <summary>
+            The id of the receipt that was cancelled or returned by this receipt.
+            NOTE: This applies only to the receipt with <see cref="P:Atom.Billing.ReceiptHistoryDataModel.ReceiptType"/> <see cref="F:Atom.Billing.ReceiptType.Cancellation"/> and <see cref="F:Atom.Billing.ReceiptType.Return"/>
+                  and is essentially the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.Id"/> of the receipt that was cancelled!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.CancelledReceiptNumber">
+            <summary>
+            The number of the receipt that was cancelled or returned by this receipt.
+            NOTE: This applies only to the receipt with <see cref="P:Atom.Billing.ReceiptHistoryDataModel.ReceiptType"/> <see cref="F:Atom.Billing.ReceiptType.Cancellation"/> and <see cref="F:Atom.Billing.ReceiptType.Return"/>
+                  and is essentially the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.ReceiptNumber"/> of the receipt that was cancelled!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.ReceiptType">
+            <summary>
+            The type of the receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.DateIssued">
+            <summary>
+            The date and time the receipt was issued
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.IssueAction">
+            <summary>
+            The issue action of the receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.Total">
+            <summary>
+            The total amount of the receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.TotalTax">
+            <summary>
+            The total tax amount of the receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.TotalPaid">
+            <summary>
+            The amount that was paid
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.Rate">
+            <summary>
+            The vat rate
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.DateStart">
+            <summary>
+            The <see cref="P:Atom.Billing.ReceiptHistoryDataModel.DateStart"/> and the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.DateEnd"/> define the time span which the receipt is valid
+            and can be cancelled or returned
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.DateEnd">
+            <summary>
+            The <see cref="P:Atom.Billing.ReceiptHistoryDataModel.DateStart"/> and the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.DateEnd"/> define the time span which the receipt is active
+            and can be cancelled or returned
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.Note">
+            <summary>
+            Note related to the receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.MacAddress">
+            <summary>
+            The mac address of the machine that the receipt was issued
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.MachineName">
+            <summary>
+            The name of the machine that the receipt was issued
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.BackUpFilePath">
+            <summary>
+            The file path of the back up file of the receipt if any.
+            NOTE: This is used for reprinting the receipt!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.ReprintAvailable">
+            <summary>
+            A flag indicating whether this receipt can be reprinted
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.CancelledReceipt">
+            <summary>
+            The target receipt targeted by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.CancelledReceipt"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.MetaData">
+            <summary>
+            Meta data related to this receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryDataModel.CancelledReceipts">
+            <summary>
+            The target receipts targeted by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.CancelledReceiptId"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptHistoryDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptHistoryDataModel.#ctor(System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="transactionId">
+            The id of a transaction if any.
+            Ex. The id of an order or the id of a subscription purchase.
+            </param>
+        </member>
+        <member name="T:Atom.Billing.ReceiptHistoryMetaDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.MetaDataModel"/> used by <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/>s for storing extra information related to a receipt
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryMetaDataModel.ReceiptHistoryId">
+            <summary>
+            The <see cref="P:Atom.Billing.ReceiptHistoryDataModel.Id"/> of a <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptHistoryMetaDataModel.ReceiptHistory">
+            <summary>
+            The receipt history data model that contains this receipt history meta data model
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptHistoryMetaDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptHistoryMetaDataModel.#ctor(System.String,System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="key">They key</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="T:Atom.Billing.ReceiptProductDataModel">
+            <summary>
+            Represents a receipt product
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.ReceiptProductDataModel.mTotal">
+            <summary>
+            The member of the <see cref="P:Atom.Billing.ReceiptProductDataModel.CustomTotal"/> property
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.Id">
+            <summary>
+            The id of the product.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.Name">
+            <summary>
+            The name of the product.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.Quantity">
+            <summary>
+            The quantity.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.Price">
+            <summary>
+            The price of a single product.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.CustomPrice">
+            <summary>
+            The custom price a single product.
+            NOTE: A custom price can be set by setting the <see cref="P:Atom.Billing.ReceiptProductDataModel.CustomTotal"/> property!
+            NOTE: The custom price is calculated by dividing the <see cref="P:Atom.Billing.ReceiptProductDataModel.CustomTotal"/> with the <see cref="P:Atom.Billing.ReceiptProductDataModel.Quantity"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.ActualTotal">
+            <summary>
+            The total price of all the products with out any discounts applied.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.ActualTotalTax">
+            <summary>
+            The <see cref="P:Atom.Billing.ReceiptProductDataModel.ActualTotal"/> tax of all the products with out any discounts applied.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptProductDataModel.TaxRate"/> and the <see cref="P:Atom.Billing.ReceiptProductDataModel.ActualTotal"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.CustomTotal">
+            <summary>
+            The total price of all the products with discounts applied.
+            NOTE: The custom total is the actual price paid by the customer!
+            NOTE: The discounts are a custom value that is selected by the user!
+            NOTE: If this isn't set at least one then <see cref="P:Atom.Billing.ReceiptProductDataModel.ActualTotal"/> is returned
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.CustomTotalTax">
+            <summary>
+            The <see cref="P:Atom.Billing.ReceiptProductDataModel.CustomTotal"/> tax of all the products with discounts applied.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptProductDataModel.TaxRate"/> and the <see cref="P:Atom.Billing.ReceiptProductDataModel.CustomTotal"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.DiscountTotal">
+            <summary>
+            Discount total.
+            NOTE: This is calculated by subtracting the <see cref="P:Atom.Billing.ReceiptProductDataModel.CustomTotal"/> from the <see cref="P:Atom.Billing.ReceiptProductDataModel.ActualTotal"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.DiscountTotalTax">
+            <summary>
+            Discount total tax.
+            NOTE: This is calculated by subtracting the <see cref="P:Atom.Billing.ReceiptProductDataModel.CustomTotalTax"/> from the <see cref="P:Atom.Billing.ReceiptProductDataModel.ActualTotalTax"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.TaxId">
+            <summary>
+            The id of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.TaxName">
+            <summary>
+            The name of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.TaxRateCode">
+            <summary>
+            The rate code.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.TaxRate">
+            <summary>
+            The tax rate.
+            Ex. 24.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.HasTax">
+            <summary>
+            A flag indicating whether there is a <see cref="P:Atom.Billing.ReceiptProductDataModel.Tax"/> applied to this product
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptProductDataModel.Tax">
+            <summary>
+            The tax.
+            NOTE: This is created using the <see cref="P:Atom.Billing.ReceiptProductDataModel.TaxId"/>, the <see cref="P:Atom.Billing.ReceiptProductDataModel.TaxName"/>, the <see cref="P:Atom.Billing.ReceiptProductDataModel.TaxRateCode"/> and the <see cref="P:Atom.Billing.ReceiptProductDataModel.TaxRate"/> if any!
+            NOTE: <see cref="!:null"/> is returned if a tax is not set!
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptProductDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Billing.ReceiptShippingDataModel">
+            <summary>
+            Represents a shipping option
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.Name">
+            <summary>
+            Shipping method name.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.ShippingMethodId">
+            <summary>
+            The shipping method id.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.Total">
+            <summary>
+            The shipping cost.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.TotalTax">
+            <summary>
+            The shipping tax cost.
+            NOTE: This is calculated using the <see cref="P:Atom.Billing.ReceiptShippingDataModel.Tax"/> and the <see cref="P:Atom.Billing.ReceiptShippingDataModel.Total"/>!
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.TaxId">
+            <summary>
+            The id of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.TaxName">
+            <summary>
+            The name of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.TaxRateCode">
+            <summary>
+            The rate code.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.TaxRate">
+            <summary>
+            The tax rate.
+            Ex. 24.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.HasTax">
+            <summary>
+            A flag indicating whether there is a <see cref="P:Atom.Billing.ReceiptShippingDataModel.Tax"/> applied to this product
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptShippingDataModel.Tax">
+            <summary>
+            The tax.
+            NOTE: This is created using the <see cref="P:Atom.Billing.ReceiptShippingDataModel.TaxId"/>, the <see cref="P:Atom.Billing.ReceiptShippingDataModel.TaxName"/>, the <see cref="P:Atom.Billing.ReceiptShippingDataModel.TaxRateCode"/> and the <see cref="P:Atom.Billing.ReceiptShippingDataModel.TaxRate"/> if any!
+            NOTE: <see cref="!:null"/> is returned if a tax is not set!
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptShippingDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Billing.ReceiptTaxDataModel">
+            <summary>
+            Represents a tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptTaxDataModel.Id">
+            <summary>
+            Tax id.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptTaxDataModel.Name">
+            <summary>
+            Tax name.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptTaxDataModel.RateCode">
+            <summary>
+            Tax rate code.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ReceiptTaxDataModel.Rate">
+            <summary>
+            Tax rate.
+            Ex. 24.
+            </summary>
+        </member>
+        <member name="M:Atom.Billing.ReceiptTaxDataModel.#ctor(System.String,System.String,System.String,System.Decimal)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="id">Tax id.</param>
+            <param name="name">Tax name.</param>
+            <param name="rateCode">Tax rate code.</param>
+            <param name="rate">
+            Tax rate.
+            Ex. 24.
+            </param>
+        </member>
+        <member name="M:Atom.Billing.ReceiptTaxDataModel.Equals(Atom.Billing.ReceiptTaxDataModel)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Billing.IssueAction">
+            <summary>
+            The issue action
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.IssueAction.Print">
+            <summary>
+            Action that prints the receipt
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.IssueAction.FileGeneration">
+            <summary>
+            Action that generates a file for the receipt
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.IssueAction.None">
+            <summary>
+            No issuing action
+            </summary>
+        </member>
+        <member name="T:Atom.Billing.ReceiptType">
+            <summary>
+            The type of the receipt
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.ReceiptType.Standard">
+            <summary>
+            A standard receipt
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.ReceiptType.Cancellation">
+            <summary>
+            Receipt that fully cancels another receipt
+            </summary>
+        </member>
+        <member name="F:Atom.Billing.ReceiptType.Return">
+            <summary>
+            Receipt that partially cancels another receipt, based on the products usage time
+            </summary>
+        </member>
+        <member name="T:Atom.Billing.ITaxable">
+            <summary>
+            Provides abstractions for a taxable item
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ITaxable.TaxId">
+            <summary>
+            The id of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ITaxable.TaxName">
+            <summary>
+            The name of the tax.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ITaxable.TaxRateCode">
+            <summary>
+            The rate code.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ITaxable.TaxRate">
+            <summary>
+            The tax rate.
+            Ex. 24.
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ITaxable.HasTax">
+            <summary>
+            A flag indicating whether there is a <see cref="P:Atom.Billing.ITaxable.Tax"/> applied to this product
+            </summary>
+        </member>
+        <member name="P:Atom.Billing.ITaxable.Tax">
+            <summary>
+            The tax.
+            NOTE: This is created using the <see cref="P:Atom.Billing.ITaxable.TaxId"/>, the <see cref="P:Atom.Billing.ITaxable.TaxName"/>, the <see cref="P:Atom.Billing.ITaxable.TaxRateCode"/> and the <see cref="P:Atom.Billing.ITaxable.TaxRate"/> if any!
+            NOTE: <see cref="!:null"/> is returned if a tax is not set!
+            </summary>
+        </member>
+    </members>
+</doc>

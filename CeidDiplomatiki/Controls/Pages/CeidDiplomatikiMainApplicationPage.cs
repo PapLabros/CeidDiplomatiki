@@ -2,7 +2,6 @@
 using Atom.Windows;
 using Atom.Windows.Controls;
 using Atom.Windows.Controls.TabControl;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +12,7 @@ namespace CeidDiplomatiki
     /// <summary>
     /// The main application page
     /// </summary>
-#pragma warning disable IDE1006 // Naming Styles
     public class CeidDiplomatikiMainApplicationPage : TabControlApplicationPage, ICeidDiplomatikiMainPageBuilder
-#pragma warning restore IDE1006 // Naming Styles
     {
         #region Private Members
 
@@ -87,7 +84,7 @@ namespace CeidDiplomatiki
                     var button = new MenuButton()
                     {
                         Text = rootPageMap.Name,
-                        VectorSource = rootPageMap.PathData,
+                        PathData = rootPageMap.PathData,
                         BackColor = rootPageMap.Color.ToColor(),
                         ForeColor = rootPageMap.Color.ToColor().DarkOrWhite(),
                         IsEnabled = !(rootPageMap.Presenter == null && rootPageMap.Pages.Count == 0)

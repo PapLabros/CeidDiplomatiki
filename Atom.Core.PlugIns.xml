@@ -1,0 +1,636 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Core.PlugIns</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Core.PlugIns.CorePlugInHelpers">
+            <summary>
+            Helper methods related to plug ins
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.EmbeddedPlugInResponseModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.EmbeddedPlugInResponseModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.EmbeddedPlugInResponseModelTranslator">
+            <summary>
+            Gets the <see cref="T:Atom.Core.Translator`1"/> for a <see cref="T:Atom.Web.PlugIns.EmbeddedPlugInResponseModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInResponseModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.PlugInResponseModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInResponseModelTranslator">
+            <summary>
+            Gets the <see cref="T:Atom.Core.Translator`1"/> for a <see cref="T:Atom.Web.PlugIns.PlugInResponseModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInRequestModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.PlugInRequestModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.EmbeddedPlugInVersionResponseModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.EmbeddedPlugInVersionResponseModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.EmbeddedPlugInVersionResponseModelTranslator">
+            <summary>
+            Gets the <see cref="T:Atom.Core.Translator`1"/> for a <see cref="T:Atom.Web.PlugIns.PlugInVersionResponseModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInVersionResponseModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.PlugInVersionResponseModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInVersionResponseModelTranslator">
+            <summary>
+            Gets the <see cref="T:Atom.Core.Translator`1"/> for a <see cref="T:Atom.Web.PlugIns.PlugInVersionResponseModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInVersionRequestModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.PlugInVersionRequestModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInRequestRequestModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.PlugInRequestRequestModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInRequestResponseModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.PlugInRequestResponseModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.PlugInRequestResponseModelTranslator">
+            <summary>
+            Gets the <see cref="T:Atom.Core.Translator`1"/> for a <see cref="T:Atom.Web.PlugIns.PlugInRequestResponseModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.CompanyPlugInResponseModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Web.PlugIns.CompanyPlugInResponseModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.CorePlugInHelpers.CompanyPlugInResponseModelTranslator">
+            <summary>
+            Gets the <see cref="T:Atom.Core.Translator`1"/> for a <see cref="T:Atom.Web.PlugIns.CompanyPlugInResponseModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Core.PlugIns.PlugInsDI">
+            <summary>
+            The default plug in services that should be available every where in the application
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.PlugInsDI.Client">
+            <summary>
+            The plug ins client
+            </summary>
+        </member>
+        <member name="T:Atom.Core.PlugIns.FrameworkConstructionExtensions">
+            <summary>
+            Extension methods for <see cref="T:Atom.Core.FrameworkConstruction"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Core.PlugIns.FrameworkConstructionExtensions.AddDefaultPlugInsClient(Atom.Core.FrameworkConstruction)">
+            <summary>
+            Adds the default plug ins client
+            </summary>
+            <param name="construction">The framework construction</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Core.PlugIns.IPlugInsClient">
+            <summary>
+            Provides abstractions for a plug ins client
+            </summary>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.AddPlugInAsync(Atom.Web.PlugIns.PlugInRequestModel,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds a plug in
+            </summary>
+            <param name="model">The model</param>
+            <param name="image">The image</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetPlugInsAsync(Atom.Web.PlugIns.PlugInAPIArgs)">
+            <summary>
+            Gets the plug ins using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetPlugInAsync(System.String)">
+            <summary>
+            Gets the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.UpdatePlugInAsync(System.String,Atom.Web.PlugIns.PlugInRequestModel,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Updates the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="model">The model</param>
+            <param name="image">The image</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.UpdatePlugInAsync(System.String,Atom.Web.PlugIns.PlugInRequestModel)">
+            <summary>
+            Updates the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.UpdatePlugInAsync(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Updates the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="image">The image</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.DeletePlugInAsync(System.String)">
+            <summary>
+            Deletes the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.AddPlugInVersionAsync(System.String,Atom.Web.PlugIns.PlugInVersionRequestModel,System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Http.IFormFile},System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Http.IFormFile})">
+            <summary>
+            Adds a plug in version
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="model">The model</param>
+            <param name="assets">The assets</param>
+            <param name="languagePacks">The language packs</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.AddPlugInVersionAssetAsync(System.String,System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds the specified <paramref name="asset"/> to the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="asset">The asset</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetPlugInVersionAssetsAsync(System.String,System.String)">
+            <summary>
+            Gets the assets of the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.DeletePlugInVersionAssetAsync(System.String,System.String,System.String)">
+            <summary>
+            Deletes the asset with the specified <paramref name="fileName"/> from the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="fileName">The file name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.DownloadPlugInVersionAssetAsync(System.String,System.String,System.String)">
+            <summary>
+            Downloads the asset with the specified <paramref name="fileName"/> from the plug in version with the specified <paramref name="plugInVersionId"/>.
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="fileName">The file name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.AddPlugInVersionLanguagePackAsync(System.String,System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds the specified <paramref name="languagePack"/> to the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="languagePack">The language pack</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetPlugInVersionLanguagePacksAsync(System.String,System.String)">
+            <summary>
+            Gets the language packs of the plug in version wit the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.DeletePlugInVersionLanguagePackAsync(System.String,System.String,System.String)">
+            <summary>
+            Deletes the language pack with the specified <paramref name="fileName"/> from the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="fileName">The file name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetCompanyPlugInRequestsAsync(System.String,Atom.Web.StandardAPIArgs)">
+            <summary>
+            Gets the plug in requests
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetCompanyPlugInRequestAsync(System.String,System.String)">
+            <summary>
+            Gets the plug in request with the specified <paramref name="plugInRequestId"/>
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="plugInRequestId">The plug in request id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.AddCompanyPlugInRequestAsync(System.String,Atom.Web.PlugIns.PlugInRequestRequestModel)">
+            <summary>
+            Adds a plug in request
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.DeleteCompanyPlugInRequestAsync(System.String,System.String)">
+            <summary>
+            Deletes the plug in request with the specified <paramref name="plugInRequestId"/>
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="plugInRequestId">The plug in request id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetCompanyPlugInsAsync(System.String,Atom.Web.StandardAPIArgs)">
+            <summary>
+            Gets the company plug ins
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetCompanyPlugInAsync(System.String,System.String)">
+            <summary>
+            Gets the company plug in with the specified <paramref name="companyPlugInId"/>
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="companyPlugInId">The company plug in id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.AddPlugInCategory(Atom.Web.Abstractions.CategoryRequestModel)">
+            <summary>
+            Adds a plug in category
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetPlugInCategoriesAsync(Atom.Web.StandardAPIArgs)">
+            <summary>
+            Gets the plug in categories using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetPlugInCategoryAsync(System.String)">
+            <summary>
+            Gets the plug in category with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.UpdatePlugInCategoryAsync(System.String,Atom.Web.Abstractions.CategoryRequestModel)">
+            <summary>
+            Updates the plug in category with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.DeletePlugInCategoryAsync(System.String)">
+            <summary>
+            Deletes the plug in category with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.AddPlugInLabel(Atom.Web.Abstractions.LabelRequestModel)">
+            <summary>
+            Adds a plug in label
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetPlugInLabelsAsync(Atom.Web.StandardAPIArgs)">
+            <summary>
+            Gets the plug in labels using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.GetPlugInLabelAsync(System.String)">
+            <summary>
+            Gets the plug in label with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.UpdatePlugInLabelAsync(System.String,Atom.Web.Abstractions.LabelRequestModel)">
+            <summary>
+            Updates the plug in label with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.IPlugInsClient.DeletePlugInLabelAsync(System.String)">
+            <summary>
+            Deletes the plug in label with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Core.PlugIns.PlugInsClient">
+            <summary>
+            Represents an agent that's able to manipulate the Atom plug ins
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.PlugInsClient.Credentials">
+            <summary>
+            The credentials of the logged in user
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.PlugInsClient.Token">
+            <summary>
+            The Jwt token that is sent with each request
+            </summary>
+        </member>
+        <member name="P:Atom.Core.PlugIns.PlugInsClient.UserId">
+            <summary>
+            The id of the connected user
+            </summary>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.AddPlugInAsync(Atom.Web.PlugIns.PlugInRequestModel,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds a plug in
+            </summary>
+            <param name="model">The model</param>
+            <param name="image">The image</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetPlugInsAsync(Atom.Web.PlugIns.PlugInAPIArgs)">
+            <summary>
+            Gets the plug ins using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetPlugInAsync(System.String)">
+            <summary>
+            Gets the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.UpdatePlugInAsync(System.String,Atom.Web.PlugIns.PlugInRequestModel,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Updates the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="model">The model</param>
+            <param name="image">The image</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.UpdatePlugInAsync(System.String,Atom.Web.PlugIns.PlugInRequestModel)">
+            <summary>
+            Updates the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.UpdatePlugInAsync(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Updates the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="image">The image</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.DeletePlugInAsync(System.String)">
+            <summary>
+            Deletes the plug in with the specified <paramref name="plugInId"/>
+            </summary>
+            <param name="plugInId">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.AddPlugInVersionAsync(System.String,Atom.Web.PlugIns.PlugInVersionRequestModel,System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Http.IFormFile},System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Http.IFormFile})">
+            <summary>
+            Adds a plug in version
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="model">The model</param>
+            <param name="assets">The assets</param>
+            <param name="languagePacks">The language packs</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.AddPlugInVersionAssetAsync(System.String,System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds the specified <paramref name="asset"/> to the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="asset">The asset</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetPlugInVersionAssetsAsync(System.String,System.String)">
+            <summary>
+            Gets the assets of the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.DeletePlugInVersionAssetAsync(System.String,System.String,System.String)">
+            <summary>
+            Deletes the asset with the specified <paramref name="fileName"/> from the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="fileName">The file name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.DownloadPlugInVersionAssetAsync(System.String,System.String,System.String)">
+            <summary>
+            Downloads the asset with the specified <paramref name="fileName"/> from the plug in version with the specified <paramref name="plugInVersionId"/>.
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="fileName">The file name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.AddPlugInVersionLanguagePackAsync(System.String,System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Adds the specified <paramref name="languagePack"/> to the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="languagePack">The language pack</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetPlugInVersionLanguagePacksAsync(System.String,System.String)">
+            <summary>
+            Gets the language packs of the plug in version wit the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.DeletePlugInVersionLanguagePackAsync(System.String,System.String,System.String)">
+            <summary>
+            Deletes the language pack with the specified <paramref name="fileName"/> from the plug in version with the specified <paramref name="plugInVersionId"/>
+            </summary>
+            <param name="plugInId">The plug in id</param>
+            <param name="plugInVersionId">The plug in version id</param>
+            <param name="fileName">The file name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetCompanyPlugInRequestsAsync(System.String,Atom.Web.StandardAPIArgs)">
+            <summary>
+            Gets the plug in requests
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetCompanyPlugInRequestAsync(System.String,System.String)">
+            <summary>
+            Gets the plug in request with the specified <paramref name="plugInRequestId"/>
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="plugInRequestId">The plug in request id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.AddCompanyPlugInRequestAsync(System.String,Atom.Web.PlugIns.PlugInRequestRequestModel)">
+            <summary>
+            Adds a plug in request
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.DeleteCompanyPlugInRequestAsync(System.String,System.String)">
+            <summary>
+            Deletes the plug in request with the specified <paramref name="plugInRequestId"/>
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="plugInRequestId">The plug in request id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetCompanyPlugInsAsync(System.String,Atom.Web.StandardAPIArgs)">
+            <summary>
+            Gets the company plug ins
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetCompanyPlugInAsync(System.String,System.String)">
+            <summary>
+            Gets the company plug in with the specified <paramref name="companyPlugInId"/>
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="companyPlugInId">The company plug in id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.AddPlugInCategory(Atom.Web.Abstractions.CategoryRequestModel)">
+            <summary>
+            Adds a plug in category
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetPlugInCategoriesAsync(Atom.Web.StandardAPIArgs)">
+            <summary>
+            Gets the plug in categories using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetPlugInCategoryAsync(System.String)">
+            <summary>
+            Gets the plug in category with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.UpdatePlugInCategoryAsync(System.String,Atom.Web.Abstractions.CategoryRequestModel)">
+            <summary>
+            Updates the plug in category with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.DeletePlugInCategoryAsync(System.String)">
+            <summary>
+            Deletes the plug in category with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.AddPlugInLabel(Atom.Web.Abstractions.LabelRequestModel)">
+            <summary>
+            Adds a plug in label
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetPlugInLabelsAsync(Atom.Web.StandardAPIArgs)">
+            <summary>
+            Gets the plug in labels using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.GetPlugInLabelAsync(System.String)">
+            <summary>
+            Gets the plug in label with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.UpdatePlugInLabelAsync(System.String,Atom.Web.Abstractions.LabelRequestModel)">
+            <summary>
+            Updates the plug in label with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.PlugIns.PlugInsClient.DeletePlugInLabelAsync(System.String)">
+            <summary>
+            Deletes the plug in label with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

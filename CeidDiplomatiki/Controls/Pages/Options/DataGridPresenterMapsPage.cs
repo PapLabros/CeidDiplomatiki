@@ -1,5 +1,4 @@
 ﻿using Atom.Core;
-using Atom.Relational.Analyzers;
 using Atom.Windows;
 using Atom.Windows.Controls;
 
@@ -10,14 +9,14 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {
     /// <summary>
     /// The data grid presenter maps page
     /// </summary>
-    public class DataGridPresenterMapsPage : BaseFullyInitializableDataPresenterPage<DataGridPresenterMap>
+    public class DataGridPresenterMapsPage : ConventionalBaseDataPresenterPage<DataGridPresenterMap>
     {
         #region Public Properties
 
@@ -77,15 +76,17 @@ namespace CeidDiplomatiki
         /// <returns></returns>
         protected override IDataPresenter<DataGridPresenterMap> CreateDataPresenter()
         {
-            var collapsibleDataGrid = new CollapsibleDataGrid<DataGridPresenterMap>() { Mapper = CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value }
+            return new CollapsibleDataGrid<DataGridPresenterMap>() { Mapper = CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value }
                 .ShowData(x => x.Name)
                 .ShowData(x => x.Description)
                 .ShowData(x => x.DataGrids)
 
-                .SetColorUIElement(x => x.Color)
-                .SetDataPresenterSubElement(x => x.DataGrids, model => model.DataGrids.Count().ToString("grid", "grids", "No grids"), (model) =>
+                .SetComponentBackColorSetter((model, index) => model.Color.ToColor())
+                .SetComponentForeColorSetter((model, index) => model.Color.ToColor().DarkOrWhite())
+
+                .SetDataPresenterSubElement(x => x.DataGrids, model => model.DataGrids.Count().ToString("grid", "grids", "No grids"), (model) => 
                 {
-                    var dataGrid = new CollapsibleDataGrid<DataGridMap>() { Translator = CeidDiplomatikiDataModelHelpers.DataGridMapTranslator.Value, Mapper = CeidDiplomatikiDataModelHelpers.DataGridMapMapper.Value }
+                    return new CollapsibleDataGrid<DataGridMap>() { Translator = CeidDiplomatikiDataModelHelpers.DataGridMapTranslator.Value, Mapper = CeidDiplomatikiDataModelHelpers.DataGridMapMapper.Value }
                         .ShowData(x => x.Type)
                         .ShowData(x => x.AllowAdd)
                         .ShowData(x => x.AllowEdit)
@@ -98,8 +99,8 @@ namespace CeidDiplomatiki
                         .SetBooleanUIElement(x => x.AllowEdit)
                         .SetBooleanUIElement(x => x.AllowDelete)
 
-                        .SetCustomUIElement(x => x.DateColumn,
-                                            (grid, row, model) =>
+                        .SetCustomUIElement(x => x.DateColumn, 
+                                            (grid, row, model) => 
                                             {
                                                 return new TextButton()
                                                 {
@@ -144,11 +145,11 @@ namespace CeidDiplomatiki
                                                     presenterImplementationFactory: model =>
                                                     {
                                                         return new DataGrid<PropertyInfo>()
-                                                            .ShowData(x => x.Name, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.ColumnName));
+                                                            .ShowData(x => x.Name, "Column name");
                                                     },
                                                     optionButtonConfiguration: (p, m, b) =>
                                                     {
-                                                        b.VectorSource = IconPaths.EditPath;
+                                                        b.PathData = IconPaths.EditPath;
 
                                                         b.Command = new RelayCommand(async () =>
                                                         {
@@ -161,7 +162,7 @@ namespace CeidDiplomatiki
                                                                 form.ShowOption(column, column.Name, null, null, m.Columns.Any(x => x.Equals(column)));
 
                                                             // Show the dialog
-                                                            var dialogResult = await DialogHelpers.ShowSelectMultipleDialogAsync(this, "Columns selection", null, form);
+                                                            var dialogResult = await DialogHelpers.ShowOptionsSelectionDialogAsync(this, "Columns selection", null, form);
 
                                                             // If we didn't get positive feedback...
                                                             if (!dialogResult.Feedback)
@@ -197,11 +198,11 @@ namespace CeidDiplomatiki
                                                     presenterImplementationFactory: model =>
                                                      {
                                                          return new DataGrid<PropertyInfo>()
-                                                             .ShowData(x => x.Name, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.ColumnName));
+                                                             .ShowData(x => x.Name, "Column name");
                                                      },
                                                     optionButtonConfiguration: (p, m, b) =>
                                                      {
-                                                         b.VectorSource = IconPaths.EditPath;
+                                                         b.PathData = IconPaths.EditPath;
 
                                                          b.Command = new RelayCommand(async () =>
                                                          {
@@ -214,7 +215,7 @@ namespace CeidDiplomatiki
                                                                  form.ShowOption(column, column.Name, null, null, m.SearchColumns.Any(x => x.Equals(column)));
 
                                                              // Show the dialog
-                                                             var dialogResult = await DialogHelpers.ShowSelectMultipleDialogAsync(this, "Search columns selection", null, form);
+                                                             var dialogResult = await DialogHelpers.ShowOptionsSelectionDialogAsync(this, "Search columns selection", null, form);
 
                                                              // If we didn't get positive feedback...
                                                              if (!dialogResult.Feedback)
@@ -244,31 +245,25 @@ namespace CeidDiplomatiki
 
                                                              DataPresenter.Update(model);
                                                          });
-                                                     });
-                    dataGrid.ConfigureOptions((container, grid, row, model) =>
-                    {
-                        container.AddEditOption("Data grid modification", null, () =>
-                          {
-                              return new DataForm<DataGridMap>() { Mapper = CeidDiplomatikiDataModelHelpers.DataGridMapMapper.Value }
-                                  .ShowInput(x => x.AllowAdd)
-                                  .ShowInput(x => x.AllowEdit)
-                                  .ShowInput(x => x.AllowDelete);
-                          }, async model => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync());
-                    });
+                                                     })
+                        
+                        .SetEditOption(() => 
+                        {
+                            return new DataForm<DataGridMap>() { Mapper = CeidDiplomatikiDataModelHelpers.DataGridMapMapper.Value }
+                                .ShowInput(x => x.AllowAdd)
+                                .ShowInput(x => x.AllowEdit)
+                                .ShowInput(x => x.AllowDelete);
+                        }, "Data grid modification", null, async model => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync());
+                })
 
-                    return dataGrid;
-                });
-
-            collapsibleDataGrid.ConfigureOptions((container, grid, row, model) =>
-            {
-                container.AddEditOption("Data grid presenter modification", null, () =>
-                  {
-                      return new DataForm<DataGridPresenterMap>() { Mapper = CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value }
-                          .ShowInput(x => x.Name, settings => settings.IsRequired = true)
-                          .ShowInput(x => x.Description)
-                          .ShowStringColorInput(x => x.Color);
-                  }, async model => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync());
-                container.AddDeleteOption("Data grid presenter deletion", null, async model =>
+                .SetEditOption(() => 
+                {
+                    return new DataForm<DataGridPresenterMap>() { Mapper = CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value }
+                        .ShowInput(x => x.Name, null, true)
+                        .ShowInput(x => x.Description)
+                        .ShowStringColorFormInput(x => x.Color);
+                }, "Data grid presenter modification", null, async model => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync())
+                .SetDeleteOption("Data grid presenter deletion", null, async model => 
                 {
                     // Get the manager
                     var manager = CeidDiplomatikiDI.GetCeidDiplomatikiManager;
@@ -279,9 +274,6 @@ namespace CeidDiplomatiki
                     // Save the changes
                     return await manager.SaveChangesAsync();
                 });
-            });
-
-            return collapsibleDataGrid;
         }
 
         #endregion
@@ -300,9 +292,9 @@ namespace CeidDiplomatiki
             {
                 // Create the form
                 var form = new DataForm<DataGridPresenterMap>(new DataGridPresenterMap(QueryMap)) { Mapper = CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value }
-                    .ShowInput(x => x.Name, settings => { settings.Name = CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value.GetTitle(x => x.Name); settings.IsRequired = true; })
-                    .ShowInput(x => x.Description, settings => settings.Name = CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value.GetTitle(x => x.Description))
-                    .ShowStringColorInput(x => x.Color, settings => settings.Name = CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value.GetTitle(x => x.Color));
+                    .ShowInput(x => x.Name, CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value.GetTitle(x => x.Name), true)
+                    .ShowInput(x => x.Description, CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value.GetTitle(x => x.Description))
+                    .ShowStringColorFormInput(x => x.Color, CeidDiplomatikiDataModelHelpers.DataGridPresenterMapMapper.Value.GetTitle(x => x.Color));
 
                 // Show an add dialog
                 var dialogResult = await DialogHelpers.ShowConventionalAddDialogAsync(this, "Data grid creation", null, form);

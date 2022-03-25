@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {

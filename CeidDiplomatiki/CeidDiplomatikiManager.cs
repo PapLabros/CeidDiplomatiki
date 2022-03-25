@@ -1,6 +1,5 @@
 ﻿using Atom.Core;
-using Atom.Relational;
-using Atom.Relational.Providers;
+using Atom.Windows.PlugIns.Communications;
 
 using System;
 using System.Collections.Generic;
@@ -8,8 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace CeidDiplomatiki
 {
@@ -188,16 +185,20 @@ namespace CeidDiplomatiki
                 databaseOptions.TryGetConnectionString(out var connectionString);
 
                 // Get the analyzer
-                var analyzer = CeidDiplomatikiDI.GetDatabaseAnalyzer(databaseOptions.Provider);
+                var analyzer = CeidDiplomatikiDI.GetDatabaseAnalyzer(databaseOptions.Provider, connectionString);
 
                 // Get the database
-                var database = analyzer.GetDatabases().First(x => x.DatabaseName == databaseOptions.DatabaseName);
+                var database = analyzer.GetDatabases().Result.First(x => x.DatabaseName == databaseOptions.DatabaseName);
 
                 // Get the tables
-                var tables = analyzer.GetTables(databaseOptions.DatabaseName);
+                var tables = analyzer.GetTables(databaseOptions.DatabaseName).Result;
 
-                // Get the columns
-                var columns = analyzer.GetColumns(database.DatabaseName, null);
+                var columns = new List<IDbProviderColumn>();
+                foreach(var table in tables)
+                {
+                    var columnsResult = analyzer.GetColumns(database.DatabaseName, table.TableName);
+                    columns.AddRange(columnsResult.Result);
+                }
 
                 // For every query map related to that database...
                 foreach (var queryMapDataModel in options.QueryMaps.Where(x => x.DatabaseId == databaseOptions.Id))
@@ -261,7 +262,7 @@ namespace CeidDiplomatiki
                 var options = ToOptions();
 
                 // Save the options
-                XMLHelpers.ToXmlFile(options, OptionsFileName, new XmlWriterSettings());
+                XMLHelpers.ToXmlFile(options, OptionsFileName);
 
                 // Get the page builder
                 var pageBuilder = CeidDiplomatikiDI.GetCeidDiplomatikiMainPageBuilder;
@@ -320,11 +321,38 @@ namespace CeidDiplomatiki
         /// Registers the specified <paramref name="queryMap"/>
         /// </summary>
         /// <param name="queryMap">The query map</param>
-        public Task<IFailable> RegisterAsync(QueryMap queryMap)
+        public async Task<IFailable> RegisterAsync(QueryMap queryMap)
         {
-            mQueryMaps.Add(queryMap);
+            // Create the result
+            var result = new Failable();
 
-            return Task.FromResult<IFailable>(new Failable());
+            try
+            {
+                // Get the communication plug ins
+                var communicationPlugIns = DI.GetServices<ICommunicationPlugIn>();
+
+                // For every communication plug in...
+                foreach(var communicationPlugIn in communicationPlugIns)
+                {
+                    // Get the register point method
+                    // NOTE: We are only registering points for the root types of the queries!
+                    var method = typeof(PlugInHelpers).GetMethod(nameof(PlugInHelpers.CallCommunicationPlugInRegisterPointMethodAsync), BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy).MakeGenericMethod(queryMap.RootType);
+
+                    // Call the export method
+                    var task = (Task)method.Invoke(this, new object[] { communicationPlugIn });
+                    await task;
+                }
+
+                mQueryMaps.Add(queryMap);
+            }
+            catch(Exception ex)
+            {
+                // Set the error message
+                result.ErrorMessage = ex.Message;
+            }
+
+            // Return the result
+            return result;
         }
 
         /// <summary>

@@ -1,0 +1,2310 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.Controls.Charts</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.Controls.Charts.ChartHelpers">
+            <summary>
+            Helper methods related to charts
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartHelpers.SelectColor(Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Selects the most appropriate color using the specified <paramref name="series"/>
+            and the specified <paramref name="value"/>
+            </summary>
+            <param name="series">The series that contains the <paramref name="value"/></param>
+            <param name="value">The value</param>
+            <returns>The selected color</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartHelpers.CountDecimalDigits(System.Decimal)">
+            <summary>
+            Calculates the number of decimal digits of <paramref name="value"/> excluding any trailing zeros
+            </summary>
+            <param name="value">The decimal value</param>
+            <returns>The number of decimal digits</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartHelpers.Round10(System.Decimal)">
+            <summary>
+            Calculates the closest multiple of 10 to <paramref name="value"/>
+            </summary>
+            <param name="value">The decimal value</param>
+            <returns>The closest multiple of 1</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartHelpers.CalculateUniformChartAxisLabels(System.Decimal,System.Decimal,System.Int32)">
+            <summary>
+            Calculates a set of uniform axis labels 
+            </summary>
+            <param name="maxValue">The max chart value</param>
+            <param name="minValue">The min chart value</param>
+            <param name="numberOfLabels">The number of labels</param>
+            <returns>The chart axis labels</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartHelpers.CalculateCartesianPieChartCoordinate(System.Double,System.Double)">
+            <summary>
+            Converts a coordinate from the polar coordinate system to the cartesian coordinate system.
+            </summary>
+            <param name="angle">The angle</param>
+            <param name="radius">The radius</param>
+            <returns>The cartesian point</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartHelpers.CalculateCartesianLineChartCoordinate(System.Double,System.Double,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Nullable{System.Decimal})">
+            <summary>
+            Calculates the point representation of the chart value in the line chart
+            </summary>
+            <param name="containerWidth">The container width</param>
+            <param name="containerHeight">The container height</param>
+            <param name="maxSeriesValuesCount">The maximum chart series values count</param>
+            <param name="chartValueIndex">The index of the chart value</param>
+            <param name="maxValue">The maximum value of the chart</param>
+            <param name="minValue">The minimum value of the chart</param>
+            <param name="chartValue">The chart value</param>
+            <returns>The point representation of the chart value in the line chart</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartHelpers.GetCartesialLineChartElementVisibility(Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Gets the element's visibility state
+            </summary>
+            <param name="series">The chart series</param>
+            <param name="value">The chart value</param>
+            <returns>The element's visibility state</returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartSeriesAndValuePair">
+            <summary>
+            Maps the <see cref="P:Atom.Windows.Controls.Charts.ChartSeriesAndValuePair.ChartSeries"/> to the <see cref="P:Atom.Windows.Controls.Charts.ChartSeriesAndValuePair.ChartValue"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeriesAndValuePair.ChartSeries">
+            <summary>
+            The chart series
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeriesAndValuePair.ChartValue">
+            <summary>
+            The chart value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeriesAndValuePair.#ctor(Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chartSeries">The chart series</param>
+            <param name="chartValue">The chart value</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.BaseChart">
+            <summary>
+            The base for all the charts
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.TooltipsContainer">
+            <summary>
+            The tooltips contains
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.ContentGrid">
+            <summary>
+            The grid that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.ChartPresenter">
+            <summary>
+            The chart presenter that contains the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.ChartElement"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.ChartElement">
+            <summary>
+            The chart element
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.LegendsContainer">
+            <summary>
+            The legends container
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.ToolTipElement">
+            <summary>
+            The current tool tip element
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.ToolTipChartValue">
+            <summary>
+            The chart value that currently presents the tool tip
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.LegendsMargin">
+            <summary>
+            The margin of the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsContainer"/>.
+            NOTE: The default value is <see cref="F:Atom.Core.Personalization.NormalUniformMargin"/>
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.BaseChart.ChartLegendMarginProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsMargin"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.LegendsHorizontalAlignment">
+            <summary>
+            The horizontal alignment of the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsContainer"/>.
+            NOTE: The default value is <see cref="F:System.Windows.HorizontalAlignment.Right"/>!
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.BaseChart.LegendsHorizontalAlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsHorizontalAlignment"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.LegendsVericalAlignment">
+            <summary>
+            The vertical alignment of the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsContainer"/>.
+            NOTE: The default value is <see cref="F:System.Windows.VerticalAlignment.Center"/>!
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.BaseChart.LegendsVerticalAlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsVericalAlignment"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.ChartPadding">
+            <summary>
+            Along with the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsHorizontalAlignment"/> and the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsVericalAlignment"/> properties
+            define the placement of the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.LegendsContainer"/> relative to the chart
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.BaseChart.ChartPaddingProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.ChartPadding"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.ToolTipShowDuration">
+            <summary>
+            The duration in milliseconds before hiding the tooltip when the cursor is not hovering over
+            the chart value component.
+            NOTE: The default value is 2000!
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.BaseChart.ToolTipShowDurationProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.ToolTipShowDuration"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChart.ToolTipOpacity">
+            <summary>
+            The opacity of the tool tip.
+            NOTE: The value ranges between 0 and 1!
+            NOTE: The default value is 1!
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.BaseChart.ToolTipOpacityProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.ToolTipOpacity"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.CreateChartElement">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.ChartElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemAdded(Atom.Core.ItemAddedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the addition of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemAddedCore(Atom.Core.ItemAddedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the addition of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemRemoved(Atom.Core.ItemRemovedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the removal of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemRemovedCore(Atom.Core.ItemRemovedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the removal of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemReplaced(Atom.Core.ItemReplacedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the replacement of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemReplacedCore(Atom.Core.ItemReplacedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the replacement of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemMoved(Atom.Core.ItemMovedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the move of two items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemMovedCore(Atom.Core.ItemMovedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the move of two items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemsCleared(Atom.Core.ItemsClearedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the disposal of all items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChart.OnItemsClearedCore(Atom.Core.ItemsClearedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the disposal of all items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.BaseChartValueComponent">
+            <summary>
+            The base for all the chart value component
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.BaseChartValueComponent.mToolTipElement">
+            <summary>
+            The tool tip element that is being presented for the <see cref="P:Atom.Windows.Controls.Charts.BaseChartValueComponent.Value"/> if any
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChartValueComponent.Chart">
+            <summary>
+            The chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChartValueComponent.Series">
+            <summary>
+            The chart series
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.BaseChartValueComponent.Value">
+            <summary>
+            The chart value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChartValueComponent.#ctor(Atom.Windows.Controls.Charts.BaseChart,Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The chart</param>
+            <param name="series">The chart series</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChartValueComponent.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the mouse enter of the cursor
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChartValueComponent.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the mouse leave of the cursor
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.BaseChartValueComponent.GetRelatedPairs">
+            <summary>
+            Gets the chart values along with their related chart series that should get displayed
+            along the current <see cref="P:Atom.Windows.Controls.Charts.BaseChartValueComponent.Value"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.StandardChart">
+            <summary>
+            A standard chart with axis
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.MinValuesAxisLabelsDistance">
+            <summary>
+            The minimum distance between each text block of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxis"/>
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.mCategoriesAxisFormatter">
+            <summary>
+            The member of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxisFormatter"/> property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.mValuesAxisFormatter">
+            <summary>
+            The member of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisFormatter"/> property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxisFormatter">
+            <summary>
+            Formats the labels of the categories axis based on their index
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisFormatter">
+            <summary>
+            Formats the labels of the values axis based on their index
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.ChartGrid">
+            <summary>
+            The grid that contains the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxis"/>, the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxis"/>
+            and the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ChartElement"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.HorizontalLinesOverlay">
+            <summary>
+            The overlay that presents the horizontal lines
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxis">
+            <summary>
+            The values axis
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxis">
+            <summary>
+            The categories axis
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.ChartElement">
+            <summary>
+            The core chart element
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.MinValuePropertyKey">
+            <summary>
+            The property key for giving limited access on reading and writing to the <see cref="F:Atom.Windows.Controls.Charts.StandardChart.MinValueProperty"/> dependency property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.MinValueProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MinValue"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.MinValue">
+            <summary>
+            The minimum value.
+            NOTE: If there isn't a minimum value this is set to zero!
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMinValuePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MinValue"/> property changes
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.MaxValuePropertyKey">
+            <summary>
+            The property key for giving limited access on reading and writing to the <see cref="F:Atom.Windows.Controls.Charts.StandardChart.MaxValueProperty"/> dependency property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.MaxValueProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxValue"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.MaxValue">
+            <summary>
+            The maximum value.
+            NOTE: If there isn't a maximum value this is set to zero!
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMaxValuePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxValue"/> property changes
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.MaxSeriesValuesCountPropertyKey">
+            <summary>
+            The property key for giving limited access on reading and writing to the <see cref="F:Atom.Windows.Controls.Charts.StandardChart.MaxSeriesValuesCountProperty"/> dependency property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.MaxSeriesValuesCountProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxSeriesValuesCount"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.MaxSeriesValuesCount">
+            <summary>
+            The maximum value.
+            NOTE: If there isn't a maximum value this is set to zero!
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMaxSeriesValuesCountPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxSeriesValuesCount"/> property changes
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.VerticalAxisValuesCountPropertyKey">
+            <summary>
+            The property key for giving limited access on reading and writing to the <see cref="F:Atom.Windows.Controls.Charts.StandardChart.VerticalAxisValuesCountProperty"/> dependency property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.VerticalAxisValuesCountProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisValuesCount"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisValuesCount">
+            <summary>
+            The maximum value.
+            NOTE: If there isn't a maximum value this is set to zero!
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnVerticalAxisValuesCountPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisValuesCount"/> property changes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxisLabelsWidth">
+            <summary>
+            The with of the labels placed on the categories axis
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.HorizontalAxisLabelsWidthProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxisLabelsWidth"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnHorizontalAxisLabelsWidthPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxisLabelsWidth"/> property changes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisLabelsHeight">
+            <summary>
+            The height of the labels placed on the values axis
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.StandardChart.VerticalAxisLabelsHeightProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisLabelsHeight"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnVerticalAxisLabelsHeightPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisLabelsHeight"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.CreateChartElementCore">
+            <summary>
+            Creates the chart
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.UpdateContainers(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Updates the chart containers
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.GetRelatedMinValue">
+            <summary>
+            Gets the min value related to the needs of the char.
+            Ex.: ColumnsChart -> GetRelatedMinValue LesserOrEqual 0
+            Ex.: LinesChart -> GetRelatedMinValue Equals MinValue
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.CreateCategoriesChartAxis">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxis"/>
+            </summary>
+            <returns>The categories chart axis</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.CreateVerticalChartAxis">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxis"/>
+            </summary>
+            <returns>The values chart axis</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.CreateChartElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns>The updated chart element</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnItemAddedCore(Atom.Core.ItemAddedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the addition of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnItemRemovedCore(Atom.Core.ItemRemovedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the removal of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnItemReplacedCore(Atom.Core.ItemReplacedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the replacement of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnItemsClearedCore(Atom.Core.ItemsClearedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the disposal of all items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMinValueChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MinValue"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMaxValueChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxValue"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMaxSeriesValuesCountChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxSeriesValuesCount"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnValuesAxisValuesCountsChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisValuesCount"/> property
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnValuesAxisLabelsHeightChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisLabelsHeight"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnCategoriesAxisLabelsWidthChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxisLabelsWidth"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnValuesAxisValuesCountChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisValuesCount"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnSeriesValuesChanged(System.Object,Atom.Windows.Controls.Charts.ChartValuesChangedArgs)">
+            <summary>
+            Handles the change of a series value
+            </summary>
+            <param name="sender">The sender</param>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnSeriesChartValuesUpdated(System.Object,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Handles the change of a series chart value
+            </summary>
+            <param name="sender">The sender</param>
+            <param name="e">Chart value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.HandleSeriesAddition(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Handles the chart series addition
+            </summary>
+            <param name="series">The chart series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.HandleSeriesRemoval(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Handles the chart series removal
+            </summary>
+            <param name="series">The chart series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.UpdateValuesAxis">
+            <summary>
+            Updates the values axis
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.UpdateCategoriesAxis(System.Int32)">
+            <summary>
+            Updates the categories axis
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMinValueChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MinValue"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMaxValueChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxValue"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.HandleSeriesAdditionCore(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Handles the addition of the specified <paramref name="series"/>
+            </summary>
+            <param name="series">The series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.HandleSeriesRemovalCore(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Handles the removal of the specified <paramref name="series"/>
+            </summary>
+            <param name="series">The series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.Series_ChartValueUpdated(System.Object,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Handles the change of the a chart value
+            </summary>
+            <param name="sender">The sender</param>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.Series_ValuesChanged(System.Object,Atom.Windows.Controls.Charts.ChartValuesChangedArgs)">
+            <summary>
+            Handles the addition and the removal of the chart values of a chart series
+            </summary>
+            <param name="sender">The sender</param>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnMaxSeriesValuesCountChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxSeriesValuesCount"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnValuesAxisValuesCountChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisValuesCount"/> property internally
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnValuesAxisLabelsHeightChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.ValuesAxisLabelsHeight"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.OnCategoriesAxisLabelsWidthChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxisLabelsWidth"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.UpdateReadOnlyProperties">
+            <summary>
+            Updates the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MinValue"/> and the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.MaxValue"/> properties based on the values of the current series
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.SubscribeToSeriesEvents(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Subscribes to the necessary events of the specified <paramref name="series"/>
+            </summary>
+            <param name="series">The series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.StandardChart.UnsubscribeFromSeriesEvents(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Unsubscribe from the necessary events of the specified <paramref name="series"/>
+            </summary>
+            <param name="series">The series</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartBar">
+            <summary>
+            A chart bar
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartBar.ColumnSize">
+            <summary>
+            The bar size. 
+            NOTE: The column width if the horizontal chart is selected or the column height if the vertical chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartBar.Chart">
+            <summary>
+            The chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartBar.ContentBorder">
+            <summary>
+            The border that contains all the content
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBar.#ctor(Atom.Windows.Controls.Charts.ColumnsChart,Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The chart</param>
+            <param name="series">The series</param>
+            <param name="value">The chart value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBar.CreateBaseGUIElement">
+            <summary>
+            Creates the bar border
+            </summary>
+            <returns>The updated border</returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartBarsContainer">
+            <summary>
+            The chart bars container
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartBarsContainer.Chart">
+            <summary>
+            The chart
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.#ctor(Atom.Windows.Controls.Charts.ColumnsChart)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The bar chart</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.Update">
+            <summary>
+            Updates the component
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.GetOrientation">
+            <summary>
+            Updates the component
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.OnItemAdded(Atom.Core.ItemAddedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.ChartBar})">
+            <summary>
+            Handles the addition of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.OnItemRemoved(Atom.Core.ItemRemovedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.ChartBar})">
+            <summary>
+            Handles the removal of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.OnItemReplaced(Atom.Core.ItemReplacedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.ChartBar})">
+            <summary>
+            Handles the replacement of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.OnItemMoved(Atom.Core.ItemMovedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.ChartBar})">
+            <summary>
+            Handles the move of two items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.OnItemsCleared(Atom.Core.ItemsClearedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.ChartBar})">
+            <summary>
+            Handles the disposal of all items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.UpdateColumnColor(Atom.Windows.Controls.Charts.ChartBar,Atom.Windows.Controls.Charts.ChartSeriesAndValuePair)">
+            <summary>
+            Updates the bar's border back and border color
+            </summary>
+            <param name="bar">The chart bar</param>
+            <param name="pair">The chart series and value pair</param>
+            <returns>The updated chart bar</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.SubscribeToEventHandlers(Atom.Windows.Controls.Charts.ChartSeriesAndValuePair)">
+            <summary>
+            Subscribes to the necessary events of the specified <paramref name="value"/> 
+            </summary>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.UnsubscribeFromEventHandlers(Atom.Windows.Controls.Charts.ChartSeriesAndValuePair)">
+            <summary>
+            Unsubscribes from the necessary events of the specified <paramref name="value"/> 
+            </summary>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.ChartValue_ValueChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.ChartSeries_IsVisibleChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart series visibility
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.ChartValue_ColorChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart value color
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartBarsContainer.ChartSeriesColorChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart series value color
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartColumnsContainer">
+            <summary>
+            The chart columns container
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartColumnsContainer.#ctor(Atom.Windows.Controls.Charts.ColumnsChart)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The column chart</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartColumnsContainer.GetOrientation">
+            <summary>
+            Gets the component orientation
+            </summary>
+            <returns>The component orientation</returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ColumnsChart">
+            <summary>
+            A column chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ColumnsChart.ContainersContainer">
+            <summary>
+            The chart column uniform grid
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ColumnsChart.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ColumnsChart.CreateChartElementCore">
+            <summary>
+            Creates the column chart element
+            </summary>
+            <returns>The column chart element</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ColumnsChart.GetRelatedMinValue">
+            <summary>
+            Gets the min value related to the needs of the char.
+            Ex.: ColumnsChart -> GetRelatedMinValue LesserOrEqual 0
+            Ex.: LinesChart -> GetRelatedMinValue Equals MinValue
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ColumnsChart.CreateCategoriesChartAxis">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Charts.StandardChart.CategoriesAxis"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ColumnsChart.UpdateContainers(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Updates the chart columns containers
+            </summary>
+            <param name="series">The chart series</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.LinesChart">
+            <summary>
+            A line chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesChart.LinesContainer">
+            <summary>
+            The lines container
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesChart.PointsContainer">
+            <summary>
+            The points container
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChart.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChart.CreateChartElementCore">
+            <summary>
+            Creates the line chart element
+            </summary>
+            <returns>The line chart element</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChart.OnSeriesValuesChanged(System.Object,Atom.Windows.Controls.Charts.ChartValuesChangedArgs)">
+            <summary>
+            Handles the change of a series value
+            </summary>
+            <param name="sender">The sender</param>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChart.HandleSeriesAddition(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Handles the chart series addition
+            </summary>
+            <param name="series">The chart series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChart.HandleSeriesRemoval(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Handles the chart series removal
+            </summary>
+            <param name="series">The chart series</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.LinesChartLinesContainer">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.CanvasItemsControl`2"/> that presents the lines that link the <see cref="T:Atom.Windows.Controls.Charts.LinesChartPoint"/>s
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.LinesChartLinesContainer.FillAreaOpacity">
+            <summary>
+            The opacity of the fill area
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesChartLinesContainer.Chart">
+            <summary>
+            The line chart
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.#ctor(Atom.Windows.Controls.Charts.LinesChart)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The line chart</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.Update">
+            <summary>
+            Updates the component
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.OnItemAdded(Atom.Core.ItemAddedEventArgs{Atom.Windows.Controls.Charts.ChartValuesPair,System.Windows.Shapes.Path})">
+            <summary>
+            Handles the addition of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.OnItemRemoved(Atom.Core.ItemRemovedEventArgs{Atom.Windows.Controls.Charts.ChartValuesPair,System.Windows.Shapes.Path})">
+            <summary>
+            Handles the removal of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.OnItemReplaced(Atom.Core.ItemReplacedEventArgs{Atom.Windows.Controls.Charts.ChartValuesPair,System.Windows.Shapes.Path})">
+            <summary>
+            Handles the replacement of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.OnItemsCleared(Atom.Core.ItemsClearedEventArgs{Atom.Windows.Controls.Charts.ChartValuesPair,System.Windows.Shapes.Path})">
+            <summary>
+            Handles the disposal of all items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.HandleAddition(Atom.Windows.Controls.Charts.ChartValuesPair,System.Windows.Shapes.Path)">
+            <summary>
+            Handles the addition of a values pair
+            </summary>
+            <param name="pair">The pair</param>
+            <param name="path">The related path</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.HandleRemoval(Atom.Windows.Controls.Charts.ChartValuesPair)">
+            <summary>
+            Handles the removal of a values pair
+            </summary>
+            <param name="pair">The pair</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.ChartValue_ValueChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Color"/> property
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.ChartSeries_IsVisibleChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.IsVisible"/> property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartLinesContainer.UpdateLine(Atom.Windows.Controls.Charts.ChartValuesPair)">
+            <summary>
+            Updates the path related to the specified <paramref name="pair"/>
+            </summary>
+            <param name="pair">The pair</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.LinesChartPoint">
+            <summary>
+            A line chart point
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.LinesChartPoint.PointSize">
+            <summary>
+            The default size of the chart point
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesChartPoint.Chart">
+            <summary>
+            The chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesChartPoint.ContentBorder">
+            <summary>
+            The border that contains all the content
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPoint.#ctor(Atom.Windows.Controls.Charts.LinesChart,Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The chart</param>
+            <param name="series">The series</param>
+            <param name="value">The chart value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPoint.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPoint.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the mouse enter of the cursor
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPoint.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the mouse leave of the cursor
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.LinesChartPointsContainer">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.CanvasItemsControl`2"/> that presents <see cref="T:Atom.Windows.Controls.Charts.LinesChartPoint"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesChartPointsContainer.Chart">
+            <summary>
+            The line chart
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.#ctor(Atom.Windows.Controls.Charts.LinesChart)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The line chart</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.Update">
+            <summary>
+            Updates the container
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.OnItemAdded(Atom.Core.ItemAddedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.LinesChartPoint})">
+            <summary>
+            Handles the addition of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.OnItemRemoved(Atom.Core.ItemRemovedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.LinesChartPoint})">
+            <summary>
+            Handles the removal of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.OnItemReplaced(Atom.Core.ItemReplacedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.LinesChartPoint})">
+            <summary>
+            Handles the replacement of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.OnItemsCleared(Atom.Core.ItemsClearedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.LinesChartPoint})">
+            <summary>
+            Handles the disposal of all items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.HandleAddition(Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.LinesChartPoint)">
+            <summary>
+            Handles the addition of the specified <paramref name="pair"/> 
+            </summary>
+            <param name="pair">The value</param>
+            <param name="point">The related point</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.HandleRemoval(Atom.Windows.Controls.Charts.ChartSeriesAndValuePair)">
+            <summary>
+            Handles the removal of the specified <paramref name="pair"/> 
+            </summary>
+            <param name="pair">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.UpdatePlacement(Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.LinesChartPoint)">
+            <summary>
+            Updates the placement of the specified <paramref name="point"/>
+            </summary>
+            <param name="point">The point</param>
+            <param name="series">The series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.ChartValue_ColorChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart value color
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.ChartSeries_ColorChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Color"/> property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.ChartSeries_IsVisibleChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.IsVisible"/> property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesChartPointsContainer.ChartValue_ValueChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Value"/> property
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.PieChart">
+            <summary>
+            A pie chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChart.ContainersContainer">
+            <summary>
+            The pie sectors container
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChart.InnerRadius">
+            <summary>
+            The inner radius of the chart.
+            NOTE: Setting the inner radius to a value greater than zero creates a doughnut chart!
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChart.InnerRadiusProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.PieChart.InnerRadius"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.OnInnerRadiusPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.PieChart.InnerRadius"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.CreateChartElement">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Charts.BaseChart.ChartElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.OnItemAddedCore(Atom.Core.ItemAddedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the addition of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.OnItemRemovedCore(Atom.Core.ItemRemovedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the removal of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.OnItemMovedCore(Atom.Core.ItemMovedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the move of two items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.OnItemReplacedCore(Atom.Core.ItemReplacedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the replacement of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.OnItemsClearedCore(Atom.Core.ItemsClearedEventArgs{Atom.Windows.Controls.Charts.ChartSeries})">
+            <summary>
+            Handles the disposal of all items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.OnInnerRadiusChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.PieChart.InnerRadius"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.SubscribeToSeriesEvents(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Subscribes to the necessary events of the specified <paramref name="series"/>
+            </summary>
+            <param name="series">The series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.Series_ValuesChanged(System.Object,Atom.Windows.Controls.Charts.ChartValuesChangedArgs)">
+            <summary>
+            Handles the addition and the removal of the chart values of a chart series
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.UpdateContainers(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Updates the containers using the current chart values of the series
+            </summary>
+            <param name="series">The series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.UnsubscribeFromSeriesEvents(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Unsubscribe from the necessary events of the specified <paramref name="series"/>
+            </summary>
+            <param name="series">The series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.OnInnerRadiusChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.PieChart.InnerRadius"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChart.PieSectorsContainerRadiusConverterArgs.Chart">
+            <summary>
+            The chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChart.PieSectorsContainerRadiusConverterArgs.ContainersContainer">
+            <summary>
+            The container that contains all the pie sector containers
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChart.PieSectorsContainerRadiusConverterArgs.Container">
+            <summary>
+            The target container
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChart.PieSectorsContainerRadiusConverterArgs.#ctor(Atom.Windows.Controls.Charts.PieChart,Atom.Windows.Controls.IItemsControl{Atom.Windows.Controls.Charts.PieChartSectorsContainer},Atom.Windows.Controls.Charts.PieChartSectorsContainer)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The chart</param>
+            <param name="containersContainer">The container that contains all the pie sector containers</param>
+            <param name="container">The target container</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.PieChartSector">
+            <summary>
+            Represents a pie sector (slice)
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PushOutAnimationValue">
+            <summary>
+            The value that is set to the <see cref="P:Atom.Windows.Controls.Charts.PieChartSector.PushOut"/> property when animating
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.Chart">
+            <summary>
+            The chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.ContentGrid">
+            <summary>
+            The grid that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.Sector">
+            <summary>
+            The sector
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.InnerRadius">
+            <summary>
+            The inner radius of this pie piece
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.InnerRadiusProperty">
+            <summary>
+            The inner radius property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.Radius">
+            <summary>
+            The radius of this pie piece
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.RadiusProperty">
+            <summary>
+            The radius property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PushOut">
+            <summary>
+            The distance to 'push' this pie piece out from the center.
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PushOutProperty">
+            <summary>
+            The push out property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.WedgeAngle">
+            <summary>
+            The wedge angle of this pie piece in degrees
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.WedgeAngleProperty">
+            <summary>
+            The wedge angle property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.RotationAngleProperty">
+            <summary>
+            The rotation angle property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.RotationAngle">
+            <summary>
+            The rotation, in degrees, from the Y axis vector of this pie piece.
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.CenterXProperty">
+            <summary>
+            The center x property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.CenterX">
+            <summary>
+            The X coordinate of center of the circle from which this pie piece is cut.
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.CenterY">
+            <summary>
+            The Y coordinate of center of the circle from which this pie piece is cut.
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.CenterYProperty">
+            <summary>
+            The center y property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.#ctor(Atom.Windows.Controls.Charts.PieChart,Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.OnMouseEnter(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the mouse enter of the cursor
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.OnMouseLeave(System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Handles the mouse leave of the cursor
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.PushOutAsync">
+            <summary>
+            Push outs the sector
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.PushInAsync">
+            <summary>
+            Returns the sector to its normal position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.PushAsync(System.Double)">
+            <summary>
+            Pushes the sector at the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal">
+            <summary>
+            Represents a pie sector
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.Series">
+            <summary>
+            The series
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.Value">
+            <summary>
+            The value
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.InnerRadius">
+            <summary>
+            The inner radius of this pie piece
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.InnerRadiusProperty">
+            <summary>
+            The inner radius property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.Radius">
+            <summary>
+            The radius of this pie piece
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.RadiusProperty">
+            <summary>
+            The radius property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.PushOut">
+            <summary>
+            The distance to 'push' this pie piece out from the center.
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.PushOutProperty">
+            <summary>
+            The push out property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.WedgeAngle">
+            <summary>
+            The wedge angle of this pie piece in degrees
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.WedgeAngleProperty">
+            <summary>
+            The wedge angle property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.RotationAngleProperty">
+            <summary>
+            The rotation angle property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.RotationAngle">
+            <summary>
+            The rotation, in degrees, from the Y axis vector of this pie piece.
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.CenterX">
+            <summary>
+            The X coordinate of center of the circle from which this pie piece is cut.
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.CenterXProperty">
+            <summary>
+            The center x property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.CenterY">
+            <summary>
+            The Y coordinate of center of the circle from which this pie piece is cut.
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.CenterYProperty">
+            <summary>
+            The center y property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.DefiningGeometry">
+            <summary>
+             Gets a value that represents the System.Windows.Media.Geometry of the <see cref="T:System.Windows.Shapes.Shape"/>.
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSector.PieSectorInternal.DrawGeometry(System.Windows.Media.StreamGeometryContext)">
+            <summary>
+            Draws the pie piece
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.PieChartSectorsContainer">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.CanvasItemsControl`2"/> that presents the <see cref="T:Atom.Windows.Controls.Charts.PieChartSector"/>s of a <see cref="T:Atom.Windows.Controls.Charts.ChartSeries"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSectorsContainer.Chart">
+            <summary>
+            The chart
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSectorsContainer.InnerRadius">
+            <summary>
+            The inner radius of the pie sectors contained in the container
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSectorsContainer.InnerRadiusProperty">
+            <summary>
+            The inner radius property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.PieChartSectorsContainer.Radius">
+            <summary>
+            The radius of the pie sectors contained in the container
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.PieChartSectorsContainer.RadiusProperty">
+            <summary>
+            The radius property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.#ctor(Atom.Windows.Controls.Charts.PieChart)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="chart">The chart</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.Update">
+            <summary>
+            Updates the component
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.OnItemAdded(Atom.Core.ItemAddedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.PieChartSector})">
+            <summary>
+            Handles the addition of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.OnItemRemoved(Atom.Core.ItemRemovedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.PieChartSector})">
+            <summary>
+            Handles the removal of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.OnItemReplaced(Atom.Core.ItemReplacedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.PieChartSector})">
+            <summary>
+            Handles the replacement of an item
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.OnItemMoved(Atom.Core.ItemMovedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.PieChartSector})">
+            <summary>
+            Handles the move of two items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.OnItemsCleared(Atom.Core.ItemsClearedEventArgs{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair,Atom.Windows.Controls.Charts.PieChartSector})">
+            <summary>
+            Handles the disposal of all items
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.SubscribeToEventHandlers(Atom.Windows.Controls.Charts.ChartSeriesAndValuePair)">
+            <summary>
+            Subscribes to the necessary events of the specified <paramref name="value"/> 
+            </summary>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.UnsubscribeFromEventHandlers(Atom.Windows.Controls.Charts.ChartSeriesAndValuePair)">
+            <summary>
+            Unsubscribes from the necessary events of the specified <paramref name="value"/> 
+            </summary>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.ChartValue_ValueChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.ChartSeries_IsVisibleChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart series visibility
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.ChartValue_ColorChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart value color
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.PieChartSectorsContainer.ChartSeries_ColorChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the chart series value color
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartAxis">
+            <summary>
+            The chart axis
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartAxis.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartAxisValue">
+            <summary>
+            The chart axis value
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartAxisValue.Value">
+            <summary>
+            The value of the chart axis element
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartAxisValue.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="value">The value of the chart axis element</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartLegend">
+            <summary>
+            The GUI element that represents the specified chart <see cref="P:Atom.Windows.Controls.Charts.ChartLegend.Series"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartLegend.Series">
+            <summary>
+            The related chart series
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartLegend.ContentStackPanel">
+            <summary>
+            The content stack panel
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartLegend.VisibilityCheckBox">
+            <summary>
+            The visibility check box
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartLegend.ColorBorder">
+            <summary>
+            The color border
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartLegend.TitleTextBlock">
+            <summary>
+            The title text block
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartLegend.#ctor(Atom.Windows.Controls.Charts.ChartSeries)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartLegend.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns>The updated content stack panel</returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartLegend.CreateGUI">
+            <summary>
+            Creates and adds the required GUI elements
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartLegendsContainer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartLegendsContainer.ContentBorder">
+            <summary>
+            The border that contains all the content
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartLegendsContainer.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartLegendsContainer.CreateBaseGUIElement">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartLegendsContainer.CreateGUI">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.LinesOverlay">
+            <summary>
+            The lines overlay
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesOverlay.Overlay">
+            <summary>
+            The lines overlay
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesOverlay.Orientation">
+            <summary>
+            The orientation
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.LinesOverlay.OrientationProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.LinesOverlay.Orientation"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.LinesOverlay.LineCount">
+            <summary>
+            The number of lines
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.LinesOverlay.LineCountProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.LinesOverlay.LineCount"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesOverlay.OnLineCountPropertyChange(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.LinesOverlay.LineCount"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesOverlay.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesOverlay.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.LinesOverlay.OnLinesCountChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.LinesOverlay.LineCount"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.UniformChartAxis">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.UniformChartAxis.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.UniformChartAxis.OnOrientationChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.OrientedItemsControl`3.Orientation"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.UniformChartAxis.OnOrientationChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.OrientedItemsControl`3.Orientation"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartTooltip">
+            <summary>
+            The standard chart tooltip
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartTooltip.Series">
+            <summary>
+            The series that contains the <see cref="P:Atom.Windows.Controls.Charts.ChartTooltip.Value"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartTooltip.Value">
+            <summary>
+            The value that triggered the display of the tool tip
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartTooltip.Pairs">
+            <summary>
+            The chart values along with their related series that should get presented
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartTooltip.ContentStackPanel">
+            <summary>
+            The stack panel that contains all the content
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartTooltip.#ctor(Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue,System.Collections.Generic.IEnumerable{Atom.Windows.Controls.Charts.ChartSeriesAndValuePair})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="series">The series that contains the <paramref name="value"/></param>
+            <param name="value">The value that triggered the display of the tool tip</param>
+            <param name="pairs">The series</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartTooltip.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartTooltip.CreateGUI">
+            <summary>
+            Creates and adds the required GUI elements
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent">
+            <summary>
+            Component that presents the specified <see cref="P:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.Series"/> and the specified <see cref="P:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.Value"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.Series">
+            <summary>
+            The series
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.Value">
+            <summary>
+            The value
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.ContentUniformGrid">
+            <summary>
+            The grid that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.SeriesTextBlock">
+            <summary>
+            The series text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.ValueTextBlock">
+            <summary>
+            The value text block
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.#ctor(Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="series">The series</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.SeriesAndValueToolTipComponent.CreateGUI">
+            <summary>
+            Creates and adds the required GUI elements
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartSeries">
+            <summary>
+            Represents a chart series
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartSeries.mValues">
+            <summary>
+            The member of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Values"/> property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartSeries.mValueFormatter">
+            <summary>
+            The member of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.ValueFormatter"/> property
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartSeries.mTooltipImplementationFactory">
+            <summary>
+            The member of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.TooltipImplementationFactory"/> property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.Values">
+            <summary>
+            The chart values
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.ValuesCount">
+            <summary>
+            The number of the chart values
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.ValueFormatter">
+            <summary>
+            Returns a string that represents the value of the inserted chart value
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.TooltipImplementationFactory">
+            <summary>
+            Creates and returns the tooltip element that presents additional information related to the inserted value
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.ClickAction">
+            <summary>
+            The click action that gets executed when a chart value component gets clicked
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.Id">
+            <summary>
+            The unique identifier of the series
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartSeries.IdProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Id"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.Title">
+            <summary>
+            The title
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartSeries.TitleProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Title"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.Color">
+            <summary>
+            The color
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartSeries.ColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Color"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.OnColorPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Color"/> property changes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartSeries.IsVisible">
+            <summary>
+            A flag indicating whether the chart series is visible or not.
+            NOTE: The default value is <see cref="!:true"/>
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartSeries.IsVisibleProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.IsVisible"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.OnIsVisiblePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.IsVisible"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.ToString">
+            <summary>
+            Creates and returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.Add(Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Adds the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.AddRange(System.Collections.Generic.IEnumerable{Atom.Windows.Controls.Charts.ChartValue})">
+            <summary>
+            Adds the specified <paramref name="values"/>
+            </summary>
+            <param name="values">The values</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.Remove(Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Removes the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.RemoveRange(System.Collections.Generic.IEnumerable{Atom.Windows.Controls.Charts.ChartValue})">
+            <summary>
+            Removes the specified <paramref name="values"/>
+            </summary>
+            <param name="values">The values</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.Clear">
+            <summary>
+            Clears the values
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.IndexOf(Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Gets the index of the specified <paramref name="value"/>
+            </summary>
+            <param name="value">The value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.Get(System.Int32)">
+            <summary>
+            Gets the value at the specified <paramref name="index"/>
+            </summary>
+            <param name="index">The index</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.Clone">
+            <summary>
+            Creates a new <see cref="T:Atom.Windows.Controls.Charts.ChartSeries"/> from the current <see cref="T:Atom.Windows.Controls.Charts.ChartSeries"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.OnValuesChanged(Atom.Windows.Controls.Charts.ChartValuesChangedArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Values"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.OnColorChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Color"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.OnIsVisibleChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.IsVisible"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.OnValuesChangedCore(Atom.Windows.Controls.Charts.ChartValuesChangedArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Values"/> property internally
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.SubscribeToChartValueEvents(Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Subscribes to the required events of the specified <paramref name="chartValue"/>
+            </summary>
+            <param name="chartValue">The chart value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.UnsubscribeFromChartValueEvents(Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Unsubscribes from the already subscribed events of the specified <paramref name="chartValue"/>
+            </summary>
+            <param name="chartValue">The chart value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.ChartValueValueChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="E:Atom.Windows.Controls.Charts.ChartValue.ValueChanged"/> event
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.OnColorChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Color"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartSeries.OnIsVisibleChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.IsVisible"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="E:Atom.Windows.Controls.Charts.ChartSeries.ValuesChanged">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Values"/> property changes
+            </summary>
+        </member>
+        <member name="E:Atom.Windows.Controls.Charts.ChartSeries.ChartValueUpdated">
+            <summary>
+            Fires every time a chart value gets updated
+            </summary>
+        </member>
+        <member name="E:Atom.Windows.Controls.Charts.ChartSeries.ColorChanged">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.Color"/> property changes
+            </summary>
+        </member>
+        <member name="E:Atom.Windows.Controls.Charts.ChartSeries.IsVisibleChanged">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.Charts.ChartSeries.IsVisible"/> property changes
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartValue">
+            <summary>
+            Represents a chart value
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValue.Id">
+            <summary>
+            The unique identifier of the series
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartValue.IdProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Id"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValue.Value">
+            <summary>
+            The value
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartValue.ValueProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Value"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.OnValuePropertyChange(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires when the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Value"/> property changes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValue.Color">
+            <summary>
+            The color.
+            NOTE: If the color of the chart value isn't set then the value of the series is used!
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.Charts.ChartValue.ColorProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Color"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.OnColorPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Color"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.ToString">
+            <summary>
+            Creates and returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.Clone">
+            <summary>
+            Creates and returns a new <see cref="T:Atom.Windows.Controls.Charts.ChartValue"/> from the current <see cref="T:Atom.Windows.Controls.Charts.ChartValue"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.OnValueChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Value"/> property
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.OnColorChanged(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Color"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.OnValueChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Value"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValue.OnColorChangedCore(System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the change of the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Color"/> property internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="E:Atom.Windows.Controls.Charts.ChartValue.ValueChanged">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Value"/> property changes
+            </summary>
+        </member>
+        <member name="E:Atom.Windows.Controls.Charts.ChartValue.ColorChanged">
+            <summary>
+            Fires every time the <see cref="P:Atom.Windows.Controls.Charts.ChartValue.Color"/> property changes
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartValuesChangedArgs">
+            <summary>
+            Provides data related to a chart series values change
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValuesChangedArgs.OldValues">
+            <summary>
+            The values before the change
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValuesChangedArgs.NewValues">
+            <summary>
+            The current values
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValuesChangedArgs.AddedValues">
+            <summary>
+            The values that were added
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValuesChangedArgs.RemovedValues">
+            <summary>
+            The values that were removed
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValuesChangedArgs.#ctor(System.Collections.Generic.IEnumerable{Atom.Windows.Controls.Charts.ChartValue},System.Collections.Generic.IEnumerable{Atom.Windows.Controls.Charts.ChartValue})">
+            <summary>
+            Default constructors
+            </summary>
+            <param name="oldValues">The values before the change</param>
+            <param name="newValues">The current values</param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartValuesChangedEventHandler">
+            <summary>
+            Represents the method that will handle the change of the values of a chart series
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.ChartValuesPair">
+            <summary>
+            A pair of chart values
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValuesPair.ChartSeries">
+            <summary>
+            The series that contains the values
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValuesPair.ChartValue1">
+            <summary>
+            The first value
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.ChartValuesPair.ChartValue2">
+            <summary>
+            The second value
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValuesPair.#ctor(Atom.Windows.Controls.Charts.ChartSeries,Atom.Windows.Controls.Charts.ChartValue,Atom.Windows.Controls.Charts.ChartValue)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="series">The series that contains the values</param>
+            <param name="value1">The first value</param>
+            <param name="value2">The second value</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.Charts.ChartValuesPair.ToString">
+            <summary>
+            Creates and returns a string that represents the current object
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.Charts.IChartAxis">
+            <summary>
+            Provides abstractions for chart axes
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.Charts.IChartAxis.Orientation">
+            <summary>
+            The axis orientation
+            </summary>
+        </member>
+    </members>
+</doc>

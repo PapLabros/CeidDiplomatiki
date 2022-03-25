@@ -4,14 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {
     /// <summary>
     /// Maps information related to a page and its sub pages
     /// </summary>
-    public class PageMap : IIdentifiable<string>, INameable
+    public class PageMap : IIdentifiable, INameable
     {
         #region Public Properties
 

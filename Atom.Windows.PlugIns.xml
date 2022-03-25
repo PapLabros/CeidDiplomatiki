@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.PlugIns</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.PlugIns.BaseConfigurablePlugIn">
+            <summary>
+            The base for all the configurable plug ins
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BaseConfigurablePlugIn.ConfigurePathData">
+            <summary>
+            The icon path used by the options access point (usually a button at the options page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BaseConfigurablePlugIn.ConfigureText">
+            <summary>
+            The text used by the options access point (usually a button at the options page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BaseConfigurablePlugIn.OptionsBackColor">
+            <summary>
+            The back color of the text
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BaseConfigurablePlugIn.OptionsForeColor">
+            <summary>
+            The fore color of the text
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.BaseConfigurablePlugIn.CreateConfigurationUIElementAsync">
+            <summary>
+            Creates the ui element that the options access point navigates to
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.BasePlugIn">
+            <summary>
+            The default implementation of the <see cref="T:Atom.PlugIns.IPlugIn"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.Name">
+            <summary>
+            The name of the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.Description">
+            <summary>
+            The description of the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.Slug">
+            <summary>
+            The slug of the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.PathData">
+            <summary>
+            The path data of the icon of the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.Color">
+            <summary>
+            The color that represents the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.AssemblyFileName">
+            <summary>
+            Gets the file name of the plug in assembly
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.AssemblyDirectoryPath">
+            <summary>
+            Gets the path of the plug in assembly directory
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.AssemblyAssetsDirectoryPath">
+            <summary>
+            Gets the path of the plug in assets directory.
+            NOTE: If the directory doesn't exists, then it gets created!
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.AssemblyTempDirectoryPath">
+            <summary>
+            Gets the path of the plug in temp directory.
+            NOTE: If the directory doesn't exists, then it gets created!
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.AssemblyLocalDataStorageDirectoryPath">
+            <summary>
+            Gets the path of the plug in local data storage directory.
+            NOTE: If the directory doesn't exists, then it gets created!
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.BasePlugIn.AssemblyOptionsDirectoryPath">
+            <summary>
+            Gets the path of the plug in options directory.
+            NOTE: If the directory doesn't exists, then it gets created!
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.BasePlugIn.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.BasePlugIn.OnInjected(Atom.Core.FrameworkConstruction,Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Handles the injection of the plug in the DI
+            </summary>
+            <param name="construction">The framework construction used for injecting services in the DI</param>
+            <param name="services">The services</param>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.BasePlugIn.OnApplicationStartedAsync">
+            <summary>
+            Handles the application start up
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.BasePlugIn.OnInitialized(System.IServiceProvider)">
+            <summary>
+            Handles the initialization of the plug in
+            </summary>
+            <param name="provider">The service provider</param>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.IConfigurablePlugIn">
+            <summary>
+            Provides abstractions for a plug in that offers configuration options
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IConfigurablePlugIn.ConfigurePathData">
+            <summary>
+            The icon path used by the options access point (usually a button at the options page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IConfigurablePlugIn.ConfigureText">
+            <summary>
+            The text used by the options access point (usually a button at the options page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IConfigurablePlugIn.OptionsBackColor">
+            <summary>
+            The back color of the text
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IConfigurablePlugIn.OptionsForeColor">
+            <summary>
+            The fore color of the text
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.IConfigurablePlugIn.CreateConfigurationUIElementAsync">
+            <summary>
+            Creates the ui element that the options access point navigates to
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.ICustomerPlugIn">
+            <summary>
+            Provides abstractions for a plug in the presents information related to a customer
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.ICustomerPlugIn.CustomerPathData">
+            <summary>
+            The icon path used by the customer access point (usually a button at the customers page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.ICustomerPlugIn.CustomerText">
+            <summary>
+            The text used by the customer access point (usually a button at the customers page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.ICustomerPlugIn.CustomerBackColor">
+            <summary>
+            The back color of the text
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.ICustomerPlugIn.CustomerForeColor">
+            <summary>
+            The fore color of the text
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.ICustomerPlugIn.CreateCustomerUIElementAsync(System.String)">
+            <summary>
+            Creates and returns the customer UI element
+            </summary>
+            <param name="customerId">The id of the customer</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.IEmployeePlugIn">
+            <summary>
+            Provides abstractions for a plug in that presents information related to an employee
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IEmployeePlugIn.EmployeePathData">
+            <summary>
+            The icon path used by the employee access point (usually a button at the staff page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IEmployeePlugIn.EmployeeText">
+            <summary>
+            The text used by the employee access point (usually a button at the staff page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IEmployeePlugIn.EmployeeBackColor">
+            <summary>
+            The back color of the text
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IEmployeePlugIn.EmployeeForeColor">
+            <summary>
+            The fore color of the text
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.IEmployeePlugIn.CreateEmployeeUIElementAsync(System.String)">
+            <summary>
+            Creates and returns the employee UI elements
+            </summary>
+            <param name="employeeId">The id of the employee</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.IFinancePlugIn">
+            <summary>
+            Provides abstractions for a plug in that offers an intractable GUI interface and presents financial data
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IFinancePlugIn.FinancePathData">
+            <summary>
+            The icon path used by the finance access point (usually a button at the finance page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IFinancePlugIn.FinanceText">
+            <summary>
+            The text used by the finance access point (usually a button at the finance page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IFinancePlugIn.FinanceBackColor">
+            <summary>
+            The back color of the text
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IFinancePlugIn.FinanceForeColor">
+            <summary>
+            The fore color of the text
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.IFinancePlugIn.CreateFinanceUIElementAsync">
+            <summary>
+            Creates the ui element that the finance access point navigates to
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.IMainPlugIn">
+            <summary>
+            Provides abstractions for a plug in that offers an intractable GUI interface
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IMainPlugIn.MainPathData">
+            <summary>
+            The icon path used by the main access point (usually a button at the main page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IMainPlugIn.MainText">
+            <summary>
+            The text used by the main access point (usually a button at the main page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IMainPlugIn.MainBackColor">
+            <summary>
+            The back color of the text
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IMainPlugIn.MainForeColor">
+            <summary>
+            The fore color of the text
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.IMainPlugIn.CreateMainUIElementAsync">
+            <summary>
+            Creates the ui element that the main access point navigates to
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.IOperationPlugIn">
+            <summary>
+            Provides abstractions for a plug in the presents information related to an operation
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IOperationPlugIn.OperationPathData">
+            <summary>
+            The icon path used by the operation access point
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IOperationPlugIn.OperationText">
+            <summary>
+            The text used by the operation access point
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IOperationPlugIn.OperationBackColor">
+            <summary>
+            The back color of the text
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IOperationPlugIn.OperationForeColor">
+            <summary>
+            The fore color of the text
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.IOperationPlugIn.CreateOperationUIElementAsync(System.String)">
+            <summary>
+            Creates and returns the customer UI element
+            </summary>
+            <param name="operationId">The id of the operation</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.IStatsPlugIn">
+            <summary>
+            Provides abstractions for a plug in that offers an intractable GUI interface and presents stats
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IStatsPlugIn.StatsPathData">
+            <summary>
+            The icon path used by the stats access point (usually a button at the stats page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IStatsPlugIn.StatsText">
+            <summary>
+            The text used by the stats access point (usually a button at the stats page)
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IStatsPlugIn.StatsBackColor">
+            <summary>
+            The back color of the text
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.IStatsPlugIn.StatsForeColor">
+            <summary>
+            The fore color of the text
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.IStatsPlugIn.CreateStatsUIElementAsync">
+            <summary>
+            Creates the ui element that the stats access point navigates to
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

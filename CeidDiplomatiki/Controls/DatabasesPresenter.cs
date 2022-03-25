@@ -1,6 +1,4 @@
 ﻿using Atom.Core;
-using Atom.Relational;
-using Atom.Relational.Providers;
 using Atom.Windows.Controls;
 
 using System.Linq;
@@ -8,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {
@@ -104,11 +102,7 @@ namespace CeidDiplomatiki
             // Create the SQLite options data grid
             SQLiteOptionsDataGrid = CeidDiplomatikiDataModelHelpers.CreateDefaultSQLiteOptionsDataModelDataGrid();
 
-            SQLiteOptionsDataGrid.ConfigureOptions((container, grid, row, model) =>
-            {
-                container.AddDeleteOption(async (button) => await RemoveOptionAsync(model));
-            });
-
+            SQLiteOptionsDataGrid.SetDeleteOption(async (button, grid, row, model) => await RemoveOptionAsync(model));
 
             SQLiteOptionsDataGrid.Margin = new Thickness(NormalUniformMargin);
 
@@ -132,31 +126,26 @@ namespace CeidDiplomatiki
             // Create the MySQL options data grid
             MySQLOptionsDataGrid = CeidDiplomatikiDataModelHelpers.CreateDefaultMySQLOptionsDataModelDataGrid();
 
-            MySQLOptionsDataGrid.ConfigureOptions((container, grid, row, model) =>
-            {
-                container.AddOpenOption(async (button) =>
-                {
-                    var provider = SQLDatabaseProvider.MySQL;
+            MySQLOptionsDataGrid.SetOpenOption(async (button, grid, row, model) =>
+                                {
+                                    var provider = SQLDatabaseProvider.MySQL;
 
-                    // Get the analyzer
-                    var analyzer = CeidDiplomatikiDI.GetDatabaseAnalyzer(provider);
+                                    // Get the connection string
+                                    model.TryGetConnectionString(out var connectionString);
 
-                    // Get the connection string
-                    model.TryGetConnectionString(out var connectionString);
+                                    // Get the analyzer
+                                    var analyzer = CeidDiplomatikiDI.GetDatabaseAnalyzer(provider, connectionString);
 
-                    // Get the database
-                    var database = analyzer.GetDatabases().First(x => x.DatabaseName == model.DatabaseName);
+                                    // Get the database
+                                    var database = analyzer.GetDatabases().Result.First(x => x.DatabaseName == model.DatabaseName);
 
-                    // Show the page
-                    await WindowsControlsDI.GetWindowsDialogManager.OpenAsync(model.DatabaseName, IconPaths.DatabasePath, () =>
-                    {
-                        return new QueryMapsPage(database, model);
-                    }, connectionString);
-                });
-                container.AddDeleteOption(async (button) => await RemoveOptionAsync(model));
-            });
-
-            
+                                    // Show the page
+                                    await WindowsControlsDI.GetWindowsDialogManager.OpenAsync(model.DatabaseName, IconPaths.DatabasePath, () =>
+                                    {
+                                        return new QueryMapsPage(database, model);
+                                    }, connectionString);
+                                })
+                                .SetDeleteOption(async (button, grid, row, model) => await RemoveOptionAsync(model));
 
             MySQLOptionsDataGrid.Margin = new Thickness(NormalUniformMargin);
 
@@ -180,11 +169,7 @@ namespace CeidDiplomatiki
             // Create the SQLServer options data grid
             SQLServerOptionsDataGrid = CeidDiplomatikiDataModelHelpers.CreateDefaultSQLServerOptionsDataModelDataGrid();
 
-            SQLServerOptionsDataGrid.ConfigureOptions((container, grid, row, model) =>
-            {
-                container.AddDeleteOption(async (button) => await RemoveOptionAsync(model));
-            });
-
+            SQLServerOptionsDataGrid.SetDeleteOption(async (button, grid, row, model) => await RemoveOptionAsync(model));
 
             SQLServerOptionsDataGrid.Margin = new Thickness(NormalUniformMargin);
 
@@ -208,10 +193,7 @@ namespace CeidDiplomatiki
             // Create the PostgreSQL options data grid
             PostgreSQLOptionsDataGrid = CeidDiplomatikiDataModelHelpers.CreateDefaultPostgreSQLOptionsDataModelDataGrid();
 
-            PostgreSQLOptionsDataGrid.ConfigureOptions((container, grid, row, model) =>
-            {
-                container.AddDeleteOption(async (button) => await RemoveOptionAsync(model));
-            });
+            PostgreSQLOptionsDataGrid.SetDeleteOption(async (button, grid, row, model) => await RemoveOptionAsync(model));
 
             PostgreSQLOptionsDataGrid.Margin = new Thickness(NormalUniformMargin);
 

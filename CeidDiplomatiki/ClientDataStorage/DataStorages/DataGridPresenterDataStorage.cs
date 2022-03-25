@@ -1,7 +1,4 @@
 ﻿using Atom.Core;
-using Atom.Relational.Analyzers;
-
-using Microsoft.EntityFrameworkCore;
 
 using System;
 using System.Collections;
@@ -83,11 +80,11 @@ namespace CeidDiplomatiki
                     // If there is an after date...
                     if (args.After != null)
                         // Add a where condition
-                        queryable = CeidDiplomatikiHelpers.AddWhereCondition(queryable, dataModelType, ExpressionHelpers.CreatePropertyEqualityExpression(dataModelType, DataGridMap.DateColumn, args.After.Value.DateTime, NumericEqualityOperator.GreaterOrEqualThan));
+                        queryable = CeidDiplomatikiHelpers.AddWhereCondition(queryable, dataModelType, ExpressionHelpers.CreatePropertyEqualityExpression(dataModelType, DataGridMap.DateColumn, args.After.Value.DateTime, EqualityOperator.GreaterOrEqualThan));
                     // If there is a before date...
                     if (args.Before != null)
                         // Add a where condition
-                        queryable = CeidDiplomatikiHelpers.AddWhereCondition(queryable, dataModelType, ExpressionHelpers.CreatePropertyEqualityExpression(dataModelType, DataGridMap.DateColumn, args.Before.Value.DateTime, NumericEqualityOperator.LessOrEqualThan));
+                        queryable = CeidDiplomatikiHelpers.AddWhereCondition(queryable, dataModelType, ExpressionHelpers.CreatePropertyEqualityExpression(dataModelType, DataGridMap.DateColumn, args.Before.Value.DateTime, EqualityOperator.LessOrEqualThan));
                 }
 
                 // If there is a search value...

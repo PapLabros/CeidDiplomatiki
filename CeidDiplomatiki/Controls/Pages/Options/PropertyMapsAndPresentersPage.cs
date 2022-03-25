@@ -4,7 +4,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {
@@ -58,6 +58,11 @@ namespace CeidDiplomatiki
         /// The container that contains the 
         /// </summary>
         protected StackPanelCollapsibleVerticalMenu<UIElement> CalendarPresentersComponentContainer { get; private set; }
+
+        /// <summary>
+        /// The calendar presenter maps page
+        /// </summary>
+        protected CalendarPresenterMapsPage CalendarPresenterMapsPage { get; private set; }
 
         /// <summary>
         /// The container that contains the 
@@ -143,6 +148,32 @@ namespace CeidDiplomatiki
 
             // Add it to the stack panel
             ContentStackPanel.Add(DataGridPresentersComponentContainer);
+
+            // Create the calendar presenters component container
+            CalendarPresentersComponentContainer = new StackPanelCollapsibleVerticalMenu<UIElement>()
+            {
+                IsOpen = true,
+                Text = "Calendar presenters"
+            };
+
+            // Create the calendar presenter maps page
+            CalendarPresenterMapsPage = new CalendarPresenterMapsPage(QueryMap) { AllowVerticalScroll = false };
+
+            // Add it to the container
+            CalendarPresentersComponentContainer.Add(CalendarPresenterMapsPage);
+
+            // Add it to the stack panel
+            ContentStackPanel.Add(CalendarPresentersComponentContainer);
+
+            // Create the dash board presenters component container
+            DashboardPresentersComponentContainer = new StackPanelCollapsibleVerticalMenu<UIElement>()
+            {
+                IsOpen = true,
+                Text = "Dashboard presenters"
+            };
+
+            // Add it to the stack panel
+            ContentStackPanel.Add(DashboardPresentersComponentContainer);
         }
 
         #endregion

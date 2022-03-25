@@ -1,9 +1,5 @@
 ﻿using Atom.Core;
-using Atom.Relational;
-using Atom.Relational.Providers;
 using Atom.Windows.Controls;
-using Atom.Windows.Controls.Relational;
-using Atom.Windows.Controls.Relational.Providers;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,7 +9,7 @@ namespace CeidDiplomatiki
     /// <summary>
     /// The databases page
     /// </summary>
-    public class DatabasesPage : BaseFullyInitializableItemsControlPage<BaseDatabaseOptionsDataModel>
+    public class DatabasesPage : ConventionalBaseItemsControlPage<BaseDatabaseOptionsDataModel>
     {
         #region Protected Properties
 

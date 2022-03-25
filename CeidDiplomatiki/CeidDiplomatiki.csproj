@@ -14,88 +14,112 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Fody" Version="4.2.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
+	<Target Name="ChangeAliasesOfStrongNameAssemblies" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
+		<ItemGroup>
+			<ReferencePath Condition="'%(FileName)' == 'MySqlConnector'">
+				<Aliases>MySqlConnectorAlias</Aliases>
+			</ReferencePath>
+		</ItemGroup>
+	</Target>
 
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.2" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+	<ItemGroup>
+		<PackageReference Include="Fody" Version="4.2.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.2" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="3.1.2" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
 
-    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.1" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
-    <PackageReference Include="Npgsql" Version="4.1.3.1" />
-    <PackageReference Include="MySql.Data" Version="8.0.20" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.2" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
 
-    <PackageReference Include="PropertyChanged.Fody" Version="2.6.1" />
+		<PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.1" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+		<PackageReference Include="Npgsql" Version="4.1.3.1" />
+		<PackageReference Include="MySql.Data" Version="8.0.20" />
 
-    <PackageReference Include="System.Collections" Version="4.3.0" />
-    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
-    <PackageReference Include="System.Runtime" Version="4.3.1" />
+		<PackageReference Include="PropertyChanged.Fody" Version="2.6.1" />
 
-    <PackageReference Include="System.Buffers" Version="4.5.0" />
-    <PackageReference Include="System.Management" Version="4.6.0" />
-    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+		<PackageReference Include="System.Collections" Version="4.3.0" />
+		<PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
+		<PackageReference Include="System.Runtime" Version="4.3.1" />
 
-    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.1.6" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="Polly" Version="7.2.1" />
-    <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
+		<PackageReference Include="System.Buffers" Version="4.5.0" />
+		<PackageReference Include="System.Management" Version="4.6.0" />
+		<PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
 
-    <PackageReference Include="SharpVectors" Version="1.7.1" />
-  </ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.6" />
+		<PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.1.6" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+		<PackageReference Include="Polly" Version="7.2.1" />
+		<PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Atom.Core">
-      <HintPath>..\Atom.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Core.Controls">
-      <HintPath>..\Atom.Core.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Personalization">
-      <HintPath>..\Atom.Personalization.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Relational">
-      <HintPath>..\Atom.Relational.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Relational.Analyzers">
-      <HintPath>..\Atom.Relational.Analyzers.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Relational.Providers">
-      <HintPath>..\Atom.Relational.Providers.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Web">
-      <HintPath>..\Atom.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Windows">
-      <HintPath>..\Atom.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Windows.Controls">
-      <HintPath>..\Atom.Windows.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Windows.Controls.Relational">
-      <HintPath>..\Atom.Windows.Controls.Relational.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Windows.Controls.Relational.Providers">
-      <HintPath>..\Atom.Windows.Controls.Relational.Providers.dll</HintPath>
-    </Reference>
-    <Reference Include="Atom.Windows.Controls.TabControl">
-      <HintPath>..\Atom.Windows.Controls.TabControl.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="Atom.Billing">
+			<HintPath>..\Atom.Billing.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Communications">
+			<HintPath>..\Atom.Communications.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Core">
+			<HintPath>..\Atom.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Core.Controls">
+			<HintPath>..\Atom.Core.Controls.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Core.Controls.Calendar">
+			<HintPath>..\Atom.Core.Controls.Calendar.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Core.PlugIns">
+			<HintPath>..\Atom.Core.PlugIns.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Data">
+			<HintPath>..\Atom.Data.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.PlugIns">
+			<HintPath>..\Atom.PlugIns.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Web">
+			<HintPath>..\Atom.Web.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows">
+			<HintPath>..\Atom.Windows.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows.Controls">
+			<HintPath>..\Atom.Windows.Controls.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows.Controls.Calendar">
+			<HintPath>..\Atom.Windows.Controls.Calendar.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows.Controls.Charts">
+			<HintPath>..\Atom.Windows.Controls.Charts.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows.Controls.TabControl">
+			<HintPath>..\Atom.Windows.Controls.TabControl.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows.PlugIns">
+			<HintPath>..\Atom.Windows.PlugIns.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows.PlugIns.Billing">
+			<HintPath>..\Atom.Windows.PlugIns.Billing.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows.PlugIns.Communications">
+			<HintPath>..\Atom.Windows.PlugIns.Communications.dll</HintPath>
+		</Reference>
+		<Reference Include="Atom.Windows.PlugIns.Data">
+			<HintPath>..\Atom.Windows.PlugIns.Data.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
 </Project>

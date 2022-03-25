@@ -1,19 +1,17 @@
-﻿using Atom.Core;
-using Atom.Relational;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CeidDiplomatiki
 {
     /// <summary>
-    /// A <see cref="StandardDbContext"/> that used the Fluent API to configure its
+    /// A <see cref="BaseDbContext"/> that used the Fluent API to configure its
     /// dynamically created <see cref="DbSet{TEntity}"/> properties using the information
     /// provided by the <see cref="QueryMap"/>
     /// </summary>
-    public class PresenterDbContext : StandardDbContext
+    public class PresenterDbContext : BaseDbContext
     {
         #region Public Properties
         
@@ -131,6 +129,42 @@ namespace CeidDiplomatiki
                     onDeleteMethod.Invoke(referenceCollectionBuilder, new object[] { DeleteBehavior.Cascade });
                 }
             }
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// A <see cref="DbContext"/> that provides data fixes related to some database providers.
+    /// </summary>
+    public class BaseDbContext : DbContext
+    {
+        #region Constructors
+
+        /// <summary>
+        ///  Initializes a new instance of the Microsoft.EntityFrameworkCore.DbContext class
+        ///  using the specified options. The Microsoft.EntityFrameworkCore.DbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)
+        ///  method will still be called to allow further configuration of the options.
+        /// </summary>
+        /// <param name="options">The options for this context.</param>
+        public BaseDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        #endregion
+
+        #region Protected Methods
+
+        /// <summary>
+        ///  Override this method to further configure the model that was discovered by convention
+        ///  from the entity types exposed in <see cref="DbSet{TEntity}"/> properties
+        ///  on your derived context. The resulting model may be cached and re-used for subsequent
+        ///  instances of your derived context.
+        /// </summary>
+        /// <param name="modelBuilder">The model builder</param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
 
         #endregion

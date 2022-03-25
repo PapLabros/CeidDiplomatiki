@@ -68,7 +68,7 @@ namespace CeidDiplomatiki
                 })
                 {
                     Text = pageMap.Name,
-                    VectorSource = pageMap.PathData,
+                    PathData = pageMap.PathData,
                     BackColor = pageMap.Color.ToColor(),
                     ForeColor = pageMap.Color.ToColor().DarkOrWhite(),
                     IsEnabled = !(pageMap.Presenter == null && pageMap.Pages.Count == 0)
@@ -77,7 +77,7 @@ namespace CeidDiplomatiki
                 // Create the context menu
                 var contextMenu = new StandardContextMenu();
 
-                contextMenu.AddOpenOption((button) =>
+                contextMenu.Add("Open in new tab", IconPaths.TabPlusPath, new RelayCommand(() =>
                 {
                     WindowsControlsDI.GetWindowsDialogManager.OpenAsync(pageMap.Name, pageMap.PathData, () =>
                     {
@@ -95,7 +95,7 @@ namespace CeidDiplomatiki
                             return PresenterPagesFactory.CreatePresenterPage(presenter, pageMap);
                         }
                     }, pageMap.Id);
-                });
+                }));
 
                 // Set it to the button
                 button.ContextMenu = contextMenu;

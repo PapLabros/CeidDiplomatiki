@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.PlugIns.Billing</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.PlugIns.Billing.IBillingPlugIn">
+            <summary>
+            Provides abstractions for a billing
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.IBillingPlugIn.RegisterPointAsync``1(System.String,System.Func{``0,Atom.Billing.ReceiptHistoryDataModel},System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task})">
+            <summary>
+            Creates and adds a new <see cref="T:Atom.Windows.PlugIns.Billing.ReceiptPoint`1"/>
+            </summary>
+            <typeparam name="TData">The type of the data model that contains the information used for issuing the receipt</typeparam>
+            <param name="id">
+            The id of the receipt point.
+            Ex. Store, Subscriptions.
+            </param>
+            <param name="receiptHistoryImplementationFactory">Creates and returns a <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/> from the current <typeparamref name="TData"/></param>
+            <param name="navigateToIssuerAsync">Uses the inserted communication history model to navigate to the sender specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.IssuerId"/></param>
+            <param name="navigateToReceiverAsync">Uses the inserted communication history model to navigate to the receiver specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.ReceiverId"/></param>
+            <param name="navigateToOperationAsync">Uses the inserted communication history model to navigate to the transaction specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.OperationId"/></param>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.IBillingPlugIn.GetPoints">
+            <summary>
+            Gets all the registered receipt points
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.IBillingPlugIn.HasRegisteredPoint(System.String)">
+            <summary>
+            Returns a flag indicating whether or not there is an entry point registered with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">
+            The id of the entry point.
+            Ex. Store, Subscriptions.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.IBillingPlugIn.GetPoint``1(System.String)">
+            <summary>
+            Gets the already registered <see cref="T:Atom.Windows.PlugIns.Billing.ReceiptPoint`1"/> with the specified <paramref name="id"/>
+            </summary>
+            <typeparam name="TData">The type of the data model that contains the information used for issuing the receipt</typeparam>
+            <param name="id">
+            The id of the receipt point.
+            Ex. Store, Subscriptions.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.IBillingPlugIn.GetPoint(System.String)">
+            <summary>
+            Gets the already registered <see cref="T:Atom.Windows.PlugIns.Billing.ReceiptPoint"/> with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">
+            The id of the entry point.
+            Ex. Store, Subscriptions.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.IBillingPlugIn.GetReceiptsAsync(Atom.Billing.BillingFilterArgs)">
+            <summary>
+            Gets receipt points using the <see cref="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.Id"/>
+            </summary>
+            <param name="args">Arguments used for filtering the retrieved billing operations</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.Billing.ReceiptPoint">
+            <summary>
+            Represents an entry point
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.PlugIn">
+            <summary>
+            The plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.Id">
+            <summary>
+            The id of the point.
+            Ex. Store, Subscriptions
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.DataModelType">
+            <summary>
+            The type of the data model that contains the information that will be used
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.NavigateToIssuerAsync">
+            <summary>
+            Uses the inserted communication history model to navigate to the sender specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.IssuerId"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.CanNavigateToIssuer">
+            <summary>
+            A flag indicating whether navigation to the issuer is available
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.NavigateToReceiverAsync">
+            <summary>
+            Uses the inserted communication history model to navigate to the receiver specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.ReceiverId"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.CanNavigateToReceiver">
+            <summary>
+            A flag indicating whether navigation to the receiver is available
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.NavigateToOperationAsync">
+            <summary>
+            Uses the inserted communication history model to navigate to the operation specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.OperationId"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.CanNavigateToOperation">
+            <summary>
+            A flag indicating whether navigation to the operation is available
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.ReceiptPoint.#ctor(Atom.Windows.PlugIns.Billing.IBillingPlugIn,System.String,System.Type,System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="plugIn">The plug in</param>
+            <param name="id">
+            The id of the entry point.
+            Ex. Store, Subscriptions
+            </param>
+            <param name="dataModelType">The type of the data model that contains the information that will be used</param>
+            <param name="navigateToIssuerAsync">Uses the inserted communication history model to navigate to the sender specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.IssuerId"/></param>
+            <param name="navigateToReceiverAsync">Uses the inserted communication history model to navigate to the receiver specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.ReceiverId"/></param>
+            <param name="navigateToOperationAsync">Uses the inserted communication history model to navigate to the operation specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.OperationId"/></param>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.Billing.ReceiptPoint`1">
+            <summary>
+            Represents an entry point
+            </summary>
+            <typeparam name="TDataModel">The type of the data model that contains the information that will be used</typeparam>
+        </member>
+        <member name="F:Atom.Windows.PlugIns.Billing.ReceiptPoint`1.mReceiptHistoryImplementationFactory">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/> from the current <typeparamref name="TDataModel"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.ReceiptPoint`1.#ctor(Atom.Windows.PlugIns.Billing.IBillingPlugIn,System.String,System.Func{`0,Atom.Billing.ReceiptHistoryDataModel},System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Billing.ReceiptHistoryDataModel,System.Threading.Tasks.Task})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="plugIn">The plug in</param>
+            <param name="id">The id of the entry point</param>
+            <param name="receiptHistoryImplementationFactory">Creates and returns a <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/> from the current <typeparamref name="TDataModel"/></param>
+            <param name="navigateToIssuerAsync">Uses the inserted communication history model to navigate to the sender specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.IssuerId"/></param>
+            <param name="navigateToReceiverAsync">Uses the inserted communication history model to navigate to the receiver specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.ReceiverId"/></param>
+            <param name="navigateToOperationAsync">Uses the inserted communication history model to navigate to the operation specified by the <see cref="P:Atom.Billing.ReceiptHistoryDataModel.OperationId"/></param>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.ReceiptPoint`1.IssueReceiptAsync(System.Windows.UIElement,`0,System.String,System.String,System.String)">
+            <summary>
+            Uses the specified <see cref="P:Atom.Windows.PlugIns.Billing.ReceiptPoint.Id"/> to retrieve any receipt options.
+            If any receipt options are found, they are used to issue a receipt, otherwise
+            a configuration dialog is shown for the receipt to be configured and the options
+            to get saved afterwards.
+            </summary>
+            <param name="element">The target element used for identifying the parent of the dialog</param>
+            <param name="dialogTitle">The title of the message</param>
+            <param name="dialogMessage">The message of the dialog</param>
+            <param name="data">
+            Information related to the receipt we want to issue.
+            NOTE: This can be any class with public properties containing the information we want to get, and using this
+                  properties we can create shortcodes that can be used for creating the receipt template!%
+            NOTE: Usually the <see cref="T:Atom.Billing.ReceiptDataModel"/> or a derivative is used!
+            </param>
+            <param name="pathData">The path data of the icon of the dialog</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Billing.ReceiptPoint`1.CreateHistoryDataModel(`0)">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Billing.ReceiptHistoryDataModel"/> using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The creation args</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

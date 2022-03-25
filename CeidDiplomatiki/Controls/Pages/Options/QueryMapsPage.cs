@@ -1,6 +1,4 @@
 ﻿using Atom.Core;
-using Atom.Relational;
-using Atom.Relational.Analyzers;
 using Atom.Windows;
 using Atom.Windows.Controls;
 
@@ -15,7 +13,7 @@ namespace CeidDiplomatiki
     /// <summary>
     /// The query maps page
     /// </summary>
-    public class QueryMapsPage : BaseFullyInitializableDataPresenterPage<QueryMap>
+    public class QueryMapsPage : ConventionalBaseDataPresenterPage<QueryMap>
     {
         #region Public Properties
 
@@ -72,23 +70,23 @@ namespace CeidDiplomatiki
                .ShowData(x => x.Columns, CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Columns))
                .ShowData(x => x.Joins, CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Joins))
 
-               .SetDataPresenterSubElement(x => x.Tables, model => model.Tables.Count().ToString("table", "tables", "No tables"), model =>
+               .SetDataPresenterSubElement(x => x.Tables, model => model.Tables.Count().ToString("table", "tables", "No tables"), model => 
                {
                    return new DataGrid<IDbProviderTable>()
-                    .ShowData(x => x.TableCatalog, RelationalAnalyzersHelpers.DbProviderTableMapper.Value.GetTitle(x => x.TableCatalog))
-                    .ShowData(x => x.TableSchema, RelationalAnalyzersHelpers.DbProviderTableMapper.Value.GetTitle(x => x.TableSchema))
-                    .ShowData(x => x.TableName, RelationalAnalyzersHelpers.DbProviderTableMapper.Value.GetTitle(x => x.TableName));
+                    .ShowData(x => x.TableCatalog, "Table catalog")
+                    .ShowData(x => x.TableSchema, "Table schema")
+                    .ShowData(x => x.TableName, "Table name");
                })
-               .SetDataPresenterSubElement(x => x.Columns, model => model.Columns.Count().ToString("column", "columns", "No columns"), model =>
+               .SetDataPresenterSubElement(x => x.Columns, model => model.Columns.Count().ToString("column", "columns", "No columns"), model => 
                {
                    return new DataGrid<IDbProviderColumn>()
-                    .ShowData(x => x.TableName, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.TableName))
-                    .ShowData(x => x.ColumnName, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.ColumnName))
-                    .ShowData(x => x.DataType, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.DataType))
-                    .ShowData(x => x.IsPrimaryKey, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.IsPrimaryKey))
-                    .ShowData(x => x.IsNullable, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.IsNullable))
-                    .ShowData(x => x.IsUnique, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.IsUnique))
-                    .ShowData(x => x.IsAutoIncrement, RelationalAnalyzersHelpers.DbProviderColumnMapper.Value.GetTitle(x => x.IsAutoIncrement))
+                    .ShowData(x => x.TableName, "Table name")
+                    .ShowData(x => x.ColumnName, "Column name")
+                    .ShowData(x => x.DataType, "Data type")
+                    .ShowData(x => x.IsPrimaryKey, "Is primary key")
+                    .ShowData(x => x.IsNullable, "Is nullable")
+                    .ShowData(x => x.IsUnique, "Is unique")
+                    .ShowData(x => x.IsAutoIncrement, "Is auto increment")
 
                     .SetLabelUIElement(x => x.DataType, model => model.DataType.ToColumnValueType().ToLocalizedString(), model => model.DataType.ToColumnValueType().ToColorHex())
                     .SetBooleanUIElement(x => x.IsPrimaryKey)
@@ -96,7 +94,7 @@ namespace CeidDiplomatiki
                     .SetBooleanUIElement(x => x.IsUnique)
                     .SetBooleanUIElement(x => x.IsAutoIncrement);
                })
-               .SetDataPresenterSubElement(x => x.Joins, model => model.Joins.Count().ToString("join", "joins", "No joins"), model =>
+               .SetDataPresenterSubElement(x => x.Joins, model => model.Joins.Count().ToString("join", "joins", "No joins"), model => 
                {
                    return new DataGrid<JoinMap>() { Mapper = CeidDiplomatikiDataModelHelpers.JoinMapMapper.Value, Translator = CeidDiplomatikiDataModelHelpers.JoinMapTranslator.Value }
                     .ShowData(x => x.Table)
@@ -104,39 +102,38 @@ namespace CeidDiplomatiki
                     .ShowData(x => x.ReferencedTable)
                     .ShowData(x => x.ForeignKeyColumn)
                     .ShowData(x => x.IsRightJoin)
-
+                    
                     .SetBooleanUIElement(x => x.IsRightJoin);
                })
-               .SetColorUIElement(x => x.Color)
 
-               .ConfigureOptions((container, grid, row, model) =>
+               .SetComponentBackColorSetter((model, index) => model.Color.ToColor())
+               .SetComponentForeColorSetter((model, index) => model.Color.ToColor().DarkOrWhite())
+               
+               .SetOpenOption((button, grid, row, model) => 
                {
-                   container.AddOpenOption((button) =>
-                    {
-                        WindowsControlsDI.GetWindowsDialogManager.OpenAsync(model.Name, IconPaths.TablePath, () =>
-                        {
-                            return new PropertyMapsAndPresentersPage(model);
-                        }, model.Id);
-                    });
-                   container.AddEditOption("Query map modification", null, () =>
+                   WindowsControlsDI.GetWindowsDialogManager.OpenAsync(model.Name, IconPaths.TablePath, () =>
                    {
-                       return new DataForm<QueryMap>()
-                        .ShowInput(x => x.Name, settings => { settings.Name = CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Name); settings.IsRequired = true; })
-                        .ShowInput(x => x.Description, settings => settings.Name = CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Description))
-                        .ShowStringColorInput(x => x.Color, settings => settings.Name = CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Color));
-                   }, async (model) => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync(), null, IconPaths.TablePath);
-                    container.AddDeleteOption("Query map deletion", null, async (model) =>
-                    {
-                        // Get the manager
-                        var manager = CeidDiplomatikiDI.GetCeidDiplomatikiManager;
+                       return new PropertyMapsAndPresentersPage(model);
+                   }, model.Id);
+               })
+               .SetEditOption(() => 
+               {
+                   return new DataForm<QueryMap>()
+                    .ShowInput(x => x.Name, CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Name), true)
+                    .ShowInput(x => x.Description, CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Description))
+                    .ShowStringColorFormInput(x => x.Color, CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Color));
+               }, "Query map modification", null, async (model) => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync(), IconPaths.TablePath)
+               .SetDeleteOption("Query map deletion", null, async (model) => 
+               {
+                   // Get the manager
+                   var manager = CeidDiplomatikiDI.GetCeidDiplomatikiManager;
 
-                        // Unregister the map
-                        await manager.Unregister(model);
+                   // Unregister the map
+                   await manager.Unregister(model);
 
-                        // Save the changes
-                        return await manager.SaveChangesAsync();
-                    }, null, IconPaths.TablePath);
-               });
+                   // Save the changes
+                   return await manager.SaveChangesAsync();
+               }, IconPaths.TablePath);
         }
 
         /// <summary>
@@ -169,17 +166,20 @@ namespace CeidDiplomatiki
                 // Disable the button
                 AddButton.IsEnabled = false;
 
-                // Get the analyzer
-                var analyzer = CeidDiplomatikiDI.GetDatabaseAnalyzer(DatabaseOptions.Provider);
-
                 // Get the connection string
                 DatabaseOptions.TryGetConnectionString(out var connectionString);
 
+                // Get the analyzer
+                var analyzer = CeidDiplomatikiDI.GetDatabaseAnalyzer(DatabaseOptions.Provider, connectionString);
+
                 // Get all the tables
-                var tables = analyzer.GetTables(Database.DatabaseName);
+                var tablesResult = analyzer.GetTables(Database.DatabaseName);
+
+                var tables = tablesResult.Result;
 
                 // Get all the foreign key columns
-                var foreignKeyColumns = analyzer.GetForeignKeyColumns(Database.DatabaseName, null);
+                var foreignKeyColumnsResult = analyzer.GetForeignKeyColumns(Database.DatabaseName, null);
+                var foreignKeyColumns = foreignKeyColumnsResult.Result;
 
                 // Create a steps presenter
                 var stepsPresenter = new StepsPresenter() { AllowArbitraryNavigation = false };
@@ -213,9 +213,9 @@ namespace CeidDiplomatiki
 
                 // Create the form
                 var form = new DataForm<QueryMap>()
-                    .ShowInput(x => x.Name, settings => { settings.Name = CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Name); settings.IsRequired = true; })
-                    .ShowInput(x => x.Description, settings => settings.Name = CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Description))
-                    .ShowStringColorInput(x => x.Color, settings => settings.Name = CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Color));
+                    .ShowInput(x => x.Name, CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Name), true)
+                    .ShowInput(x => x.Description, CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Description))
+                    .ShowStringColorFormInput(x => x.Color, CeidDiplomatikiDataModelHelpers.QueryMapMapper.Value.GetTitle(x => x.Color));
 
                 // Add it to the steps presenter
                 stepsPresenter.Add("Info", form, (element) => element.Validate());
@@ -241,10 +241,14 @@ namespace CeidDiplomatiki
 
                 // Get the node path
                 var nodePath = nodeComponent.NodePath;
-
-                // Get the columns of the table
-                var columns = analyzer.GetColumns(DatabaseOptions.DatabaseName, null).Where(x => tables.Any(y => y.TableName == x.TableName)).ToList();
-
+                var columns = new List<IDbProviderColumn>();
+                foreach(var table in tables)
+                {
+                    // Get the columns of the table
+                    var columnsResult = analyzer.GetColumns(DatabaseOptions.DatabaseName, table.TableName);
+                    columns.AddRange(columnsResult.Result);
+                }
+               
                 // The joins collection
                 var joins = new List<JoinMap>();
 

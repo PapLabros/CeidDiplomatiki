@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.PlugIns</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.PlugIns.IPlugIn">
+            <summary>
+            Provides abstractions for a plug in
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.Name">
+            <summary>
+            The name of the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.Description">
+            <summary>
+            The description of the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.Slug">
+            <summary>
+            The slug of the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.PathData">
+            <summary>
+            The path data of the icon of the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.Color">
+            <summary>
+            The color that represents the plug in
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.AssemblyFileName">
+            <summary>
+            Gets the file name of the plug in assembly
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.AssemblyDirectoryPath">
+            <summary>
+            Gets the path of the plug in assembly directory
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.AssemblyAssetsDirectoryPath">
+            <summary>
+            Gets the path of the plug in assets directory.
+            NOTE: If the directory doesn't exists, then it gets created!
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.AssemblyTempDirectoryPath">
+            <summary>
+            Gets the path of the plug in temp directory.
+            NOTE: If the directory doesn't exists, then it gets created!
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.AssemblyLocalDataStorageDirectoryPath">
+            <summary>
+            Gets the path of the plug in local data storage directory.
+            NOTE: If the directory doesn't exists, then it gets created!
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.IPlugIn.AssemblyOptionsDirectoryPath">
+            <summary>
+            Gets the path of the plug in options directory.
+            NOTE: If the directory doesn't exists, then it gets created!
+            </summary>
+        </member>
+        <member name="M:Atom.PlugIns.IPlugIn.OnInjected(Atom.Core.FrameworkConstruction,Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Handles the injection of the plug in the DI
+            </summary>
+            <param name="construction">The framework construction used for injecting services in the DI</param>
+            <param name="services">The services</param>
+        </member>
+        <member name="M:Atom.PlugIns.IPlugIn.OnApplicationStartedAsync">
+            <summary>
+            Handles the application start up
+            </summary>
+        </member>
+        <member name="M:Atom.PlugIns.IPlugIn.OnInitialized(System.IServiceProvider)">
+            <summary>
+            Handles the initialization of the plug in
+            </summary>
+            <param name="provider">The service provider</param>
+        </member>
+        <member name="T:Atom.PlugIns.PlugInConstants">
+            <summary>
+            Constants for related to the plug ins
+            </summary>
+        </member>
+        <member name="F:Atom.PlugIns.PlugInConstants.AssetsDirectoryName">
+            <summary>
+            The name of the assets folder
+            </summary>
+        </member>
+        <member name="F:Atom.PlugIns.PlugInConstants.TempDirectoryName">
+            <summary>
+            The name of the temp folder
+            </summary>
+        </member>
+        <member name="F:Atom.PlugIns.PlugInConstants.LocalDataStorageDirectoryName">
+            <summary>
+            The name of the local data storage folder
+            </summary>
+        </member>
+        <member name="F:Atom.PlugIns.PlugInConstants.OptionsDirectoryName">
+            <summary>
+            The name of the options folder
+            </summary>
+        </member>
+        <member name="T:Atom.PlugIns.PlugInsResolver">
+            <summary>
+            Resolves all the plug ins at a specified directory
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.PlugInsResolver.Services">
+            <summary>
+            The services collection that will be used for injecting the discovered plug ins
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.PlugInsResolver.Construction">
+            <summary>
+            The framework construction
+            </summary>
+        </member>
+        <member name="P:Atom.PlugIns.PlugInsResolver.TargetTypes">
+            <summary>
+            The types that we care about.
+            NOTE: These types are usually interfaces!
+            </summary>
+        </member>
+        <member name="M:Atom.PlugIns.PlugInsResolver.#ctor(Atom.Core.FrameworkConstruction,Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type[])">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="construction">The framework construction</param>
+            <param name="services">The services collection that will be used for injecting the discovered plug ins</param>
+            <param name="targetTypes">
+            The types that we care about.
+            NOTE: These types are usually interfaces!
+            </param>
+        </member>
+        <member name="M:Atom.PlugIns.PlugInsResolver.LoadPlugIn(System.String,System.String)">
+            <summary>
+            Loads the plug in assembly with the specified <paramref name="fileName"/>
+            and its dependencies contained at the directory with the specified <paramref name="dependenciesDirectoryPath"/>
+            </summary>
+            <param name="fileName">The file name of the plug in assembly</param>
+            <param name="dependenciesDirectoryPath">The directory path to th e directory that contains the plug in dependencies</param>
+        </member>
+        <member name="M:Atom.PlugIns.PlugInsResolver.LoadPlugIn(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Loads the plug in assembly with the specified <paramref name="fileName"/>
+            ands its dependencies with the specified <paramref name="dependencyFileNames"/>
+            </summary>
+            <param name="fileName">The file name of the plug in assembly</param>
+            <param name="dependencyFileNames">The file names of the plug in dependencies</param>
+        </member>
+    </members>
+</doc>

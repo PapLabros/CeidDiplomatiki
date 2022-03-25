@@ -1,6 +1,4 @@
 ﻿using Atom.Core;
-using Atom.Relational;
-using Atom.Relational.Analyzers;
 
 using System;
 
@@ -14,7 +12,7 @@ namespace CeidDiplomatiki
         /// <summary>
         /// Gets the CeidDiplomatiki manager
         /// </summary>
-        public static CeidDiplomatikiManager GetCeidDiplomatikiManager => CoreDI.GetService<CeidDiplomatikiManager>();
+        public static CeidDiplomatikiManager GetCeidDiplomatikiManager => DI.GetService<CeidDiplomatikiManager>();
 
         /// <summary>
         /// Gets the CeidDiplomatiki main page builder
@@ -24,19 +22,20 @@ namespace CeidDiplomatiki
         /// <summary>
         /// Gets the options file name
         /// </summary>
-        public static string GetOptionsFileName => CoreDI.GetConfiguration["OptionsFileName"];
+        public static string GetOptionsFileName => DI.GetConfiguration["OptionsFileName"];
 
         /// <summary>
         /// Gets the database provider of the requested type
         /// </summary>
         /// <param name="provider">The type of the provider</param>
+        /// <param name="connectionString">The connection string</param>
         /// <returns></returns>
-        public static IDatabaseAnalyzer GetDatabaseAnalyzer(SQLDatabaseProvider provider)
+        public static IDatabaseAnalyzer GetDatabaseAnalyzer(SQLDatabaseProvider provider, string connectionString)
         {
             if (provider == SQLDatabaseProvider.MySQL)
-                return GetMySQLDatabaseAnalyzer;
+                return new MySqlDatabaseAnalyzer(connectionString);
             else if (provider == SQLDatabaseProvider.SQLite)
-                return GetSQLiteDatabaseAnalyzer;
+                return new SQLiteDatabaseAnalyzer(connectionString);
 
             throw new NotImplementedException();
         }
@@ -44,11 +43,11 @@ namespace CeidDiplomatiki
         /// <summary>
         /// Gets the MySQL database analyzer
         /// </summary>
-        public static MySqlDatabaseAnalyzer GetMySQLDatabaseAnalyzer => CoreDI.GetService<MySqlDatabaseAnalyzer>();
+        public static MySqlDatabaseAnalyzer GetMySQLDatabaseAnalyzer => DI.GetService<MySqlDatabaseAnalyzer>();
 
         /// <summary>
         /// Gets the SQLite database analyzer
         /// </summary>
-        public static SQLiteDatabaseAnalyzer GetSQLiteDatabaseAnalyzer => CoreDI.GetService<SQLiteDatabaseAnalyzer>();
+        public static SQLiteDatabaseAnalyzer GetSQLiteDatabaseAnalyzer => DI.GetService<SQLiteDatabaseAnalyzer>();
     }
 }

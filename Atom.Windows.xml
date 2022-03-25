@@ -28,7 +28,7 @@
             <param name="animationEndingVisibility">The visibility of the <paramref name="element"/> after the finish of the animation</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeInAsync(System.Windows.FrameworkElement,System.Boolean,System.Single,System.Double,System.Double,System.Double,System.Boolean)">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeInAsync(System.Windows.FrameworkElement,System.Boolean,System.Single,System.Double,System.Double)">
             <summary>
             Scales and fades in the specified <paramref name="element"/>
             </summary>
@@ -36,28 +36,16 @@
             <param name="firstLoad">A flag indicating if its the first load</param>
             <param name="duration">The duration of the animation</param>
             <param name="startingScaleFactor">The starting scale factor</param>
-            <param name="endingScaleFactor">The ending scale factor</param>
             <param name="toOpacity">The opacity to animate to</param>
-            <param name="renderTransform">
-            A flag indicating whether render transform should be used or not.
-            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
-            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
-            </param>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeOutAsync(System.Windows.FrameworkElement,System.Single,System.Double,System.Double,System.Windows.Visibility,System.Boolean)">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAndFadeOutAsync(System.Windows.FrameworkElement,System.Single,System.Double,System.Windows.Visibility)">
             <summary>
             Scales and fades out the specified <paramref name="element"/>
             </summary>
             <param name="element">The element to animate</param>
             <param name="duration">The duration of the animation</param>
             <param name="endingScaleFactor">The ending scale factor</param>
-            <param name="startingScaleFactor">The starting scale factor</param>
             <param name="animationEndingVisibility">The visibility of the <paramref name="element"/> after the finish of the animation</param>
-            <param name="renderTransform">
-            A flag indicating whether render transform should be used or not.
-            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
-            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
-            </param>
             <returns></returns>
         </member>
         <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.SlideAndFadeInAsync(System.Windows.FrameworkElement,Atom.Core.Direction,System.Boolean,System.Single,System.Boolean,System.Int32)">
@@ -179,7 +167,7 @@
             <param name="animateFromLocation">The custom value to animate from</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleXAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleXAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
             <summary>
             Scales the width of an element
             </summary>
@@ -188,14 +176,9 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
             <param name="animateFromWidthScaleFactor">The multiplier factor of the width to animate from</param>
-            <param name="renderTransform">
-            A flag indicating whether render transform should be used or not.
-            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
-            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
-            </param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleYAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleYAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
             <summary>
             Scales the height of an element
             </summary>
@@ -204,14 +187,9 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
             <param name="animateFromHeightScaleFactor">The multiplier factor of the height to animate from</param>
-            <param name="renderTransform">
-            A flag indicating whether render transform should be used or not.
-            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
-            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
-            </param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
+        <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ScaleAsync(System.Windows.FrameworkElement,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
             <summary>
             Scales the width and the height of an element
             </summary>
@@ -220,11 +198,6 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating whether we want to animate from a custom value or not</param>
             <param name="animateFromScaleFactor">The multiplier factor of the width and the height to animate from</param>
-            <param name="renderTransform">
-            A flag indicating whether render transform should be used or not.
-            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
-            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
-            </param>
             <returns></returns>
         </member>
         <member name="M:Atom.Windows.FrameworkElementAnimationsExtensions.ChangeThicknessAsync(System.Windows.FrameworkElement,Atom.Core.Controls.ThicknessAnimationTargetProperty,System.Double[],System.Single,System.Boolean,System.Double[])">
@@ -412,7 +385,7 @@
             <param name="animateFrom">A flag indicating if we want to start from a specific canvas top value</param>
             <param name="animateFromCanvasTop">The canvas top value to start from</param>
         </member>
-        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleXAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
+        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleXAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
             <summary>
             Adds a width scale animation to the storyboard
             </summary>
@@ -421,13 +394,8 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating if we want to start from a specific scale x value</param>
             <param name="animateFromWidthScaleFactor">The multiplier factor of the width to animate from</param>
-            <param name="renderTransform">
-            A flag indicating whether render transform should be used or not.
-            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
-            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
-            </param>
         </member>
-        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleYAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double},System.Boolean)">
+        <member name="M:Atom.Windows.StoryboardExtensions.AddScaleYAnimation(System.Windows.Media.Animation.Storyboard,System.Double,System.Single,System.Boolean,System.Nullable{System.Double})">
             <summary>
             Adds a height scale animation to the storyboard
             </summary>
@@ -436,11 +404,6 @@
             <param name="duration">The duration of the animation</param>
             <param name="animateFrom">A flag indicating if we want to start from a specific angle</param>
             <param name="animateFromheightScaleFactor">The multiplier factor of the height to animate from</param>
-            <param name="renderTransform">
-            A flag indicating whether render transform should be used or not.
-            If set to true, then <see cref="P:System.Windows.UIElement.RenderTransform"/> is used.
-            If set to false, then <see cref="P:System.Windows.FrameworkElement.LayoutTransform"/> is used.
-            </param>
         </member>
         <member name="M:Atom.Windows.StoryboardExtensions.AddThicknessAnimation(System.Windows.Media.Animation.Storyboard,Atom.Core.Controls.ThicknessAnimationTargetProperty,System.Double[],System.Single,System.Boolean,System.Double[])">
             <summary>
@@ -950,7 +913,7 @@
         </member>
         <member name="P:Atom.Windows.FileDialogConstants.Data">
             <summary>
-            All the available filters paired with their related vector sources and their related colors
+            All the available filters paired with their related path data and their related colors
             </summary>
         </member>
         <member name="M:Atom.Windows.FileDialogConstants.ParseFileExtensions(System.String)">
@@ -971,9 +934,9 @@
             The filter
             </summary>
         </member>
-        <member name="P:Atom.Windows.DialogFilterDataModel.VectorSource">
+        <member name="P:Atom.Windows.DialogFilterDataModel.PathData">
             <summary>
-            The vector source
+            The path data
             </summary>
         </member>
         <member name="P:Atom.Windows.DialogFilterDataModel.Color">
@@ -981,12 +944,12 @@
             The color
             </summary>
         </member>
-        <member name="M:Atom.Windows.DialogFilterDataModel.#ctor(System.String,Atom.Core.VectorSource,System.String)">
+        <member name="M:Atom.Windows.DialogFilterDataModel.#ctor(System.String,System.String,System.String)">
             <summary>
             Default constructor
             </summary>
             <param name="filter">The filter</param>
-            <param name="vectorSource">The vector source</param>
+            <param name="pathData">The path data</param>
             <param name="color">The color</param>
         </member>
         <member name="T:Atom.Windows.FileDialogHelpers">
@@ -1040,6 +1003,19 @@
             Attempts to open a class library (.dll) file
             </summary>
             <param name="fileName">The file name selected by the user</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.FrameworkConstructionExtensions">
+            <summary>
+            Extension methods related to <see cref="T:Atom.Core.FrameworkConstruction"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.FrameworkConstructionExtensions.AddTaskManager(Atom.Core.FrameworkConstruction)">
+            <summary>
+            Injects the default task manager into the framework construction.
+            The task manager has the responsibility of executing task related actions
+            </summary>
+            <param name="construction">The framework construction</param>
             <returns></returns>
         </member>
         <member name="T:Atom.Windows.FrameworkElementExtensions">
@@ -1263,27 +1239,6 @@
             </summary>
             <param name="filePath">The path of the file we want to generate</param>
             <param name="visual">The visual we want to generate the pdf from</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Windows.Printing.GetDefaultPrinterName">
-            <summary>
-            Gets the default printer name
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Windows.Printing.SetDefaultPrinter(System.String)">
-            <summary>
-            Sets the printer with the specified <paramref name="printerName"/> as the default printer
-            </summary>
-            <param name="printerName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Windows.Printing.PrintHTMLAsync(System.String,System.String)">
-            <summary>
-            Prints the specified <paramref name="html"/> using the printer with the specified <paramref name="printerName"/>
-            </summary>
-            <param name="html">The HTML</param>
-            <param name="printerName">The printer name</param>
             <returns></returns>
         </member>
         <member name="T:Atom.Windows.RectsExtensions">
@@ -1596,11 +1551,6 @@
             A converter that takes in a <see cref="T:System.Windows.Media.Color"/> and returns its <see cref="T:System.Windows.Media.SolidColorBrush"/>
             </summary>
         </member>
-        <member name="T:Atom.Windows.DarkOrWhiteColorConverter">
-            <summary>
-            Converter that used the inserted <see cref="T:System.Windows.Media.Color"/> to select a dark or white color
-            </summary>
-        </member>
         <member name="T:Atom.Windows.DirectionInvertConverter">
             <summary>
             A converter that takes in a <see cref="T:Atom.Core.Direction"/> an inverts it
@@ -1657,7 +1607,7 @@
             Converter that returns a <see cref="T:System.Windows.Visibility"/> by checking whether the string is null or empty, or it has a value
             </summary>
         </member>
-        <member name="T:Atom.Windows.NullValueToVisibilityCollapsedConverter">
+        <member name="T:Atom.Windows.NullValueToVisibilityCallapsedConverter">
             <summary>
             Converter that returns a <see cref="T:System.Windows.Visibility"/> by checking whether the value is null, or it has a value.
             </summary>

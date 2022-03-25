@@ -1,0 +1,699 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.Controls.PlugIns</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyBillingPage">
+            <summary>
+            The account billing page
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.CompanyBillingPage.Model">
+            <summary>
+            The model
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyBillingPage.#ctor(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="model">The model</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyBillingPage.CreateDataForm">
+            <summary>
+            Creates and returns the data form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyBillingPage.SaveChangesAsync(Atom.Web.Accounts.BillingDataModel)">
+            <summary>
+            Updates the values of the model
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyBillingPage.CreateGUI">
+            <summary>
+            Creates and adds the required GUI elements
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyComponent">
+            <summary>
+            A <see cref="T:Atom.Windows.Controls.Imaging.Devices.BaseImageAndDataFormComponent`1"/> for a <see cref="T:Atom.Web.Accounts.CompanyResponseModel"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyComponent.#ctor(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="model">The model</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyComponent.CreateForm">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Imaging.Devices.BaseImageAndDataFormComponent`1.Form"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyInformationPage">
+            <summary>
+            The company information page
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyInformationPage.#ctor(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="model">The model</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyInformationPage.CreateImageAndDataFormComponent(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Imaging.Devices.BaseImageAndDataFormPage`1.Component"/>
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyInformationPage.SaveChangesAsync(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Saves the changes.
+            NOTE: This method is run when the image hasn't changed!
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyInformationPage.SaveChangesAsync(Atom.Web.Accounts.CompanyResponseModel,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Saves the changes.
+            NOTE: This method is run when the image has changed!
+            </summary>
+            <param name="model">The model</param>
+            <param name="image">The image</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyMetaDataPage">
+            <summary>
+            The account meta data page
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.CompanyMetaDataPage.Model">
+            <summary>
+            The model
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyMetaDataPage.#ctor(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="model">The model</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyMetaDataPage.CreateDataPresenter">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.BaseDataPresenterPage`1.DataPresenter"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyPage">
+            <summary>
+            The company page
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.CompanyPage.CompanyId">
+            <summary>
+            The company id
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPage.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="companyId">The company id</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPage.GetDataAsync">
+            <summary>
+            Gets the data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPage.OnSuccessfulInitialization(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Handles the successful initialization using the model retrieved by the <see cref="M:Atom.Windows.Controls.BaseDataInitializablePage`1.GetDataAsync"/> method.
+            NOTE: Usually used for creating the UI elements after the initialization succeeded!
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPage.CreateCompanyPlugInsPage(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Creates and returns the company plug ins page
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyPlugInRequestsPage">
+            <summary>
+            The company plug in requests page
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.CompanyPlugInRequestsPage.CompanyId">
+            <summary>
+            The company id
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInRequestsPage.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInRequestsPage.CreateArgs">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Web.BaseAPIPaginatedPage`2.Args"/> when they are not set by the user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInRequestsPage.CreateItemsControl">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.BasePaginatedPage`1.DataPresenter"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInRequestsPage.GetDataAsync(Atom.Web.StandardAPIArgs)">
+            <summary>
+            Retrieves the data using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyPlugInsPage">
+            <summary>
+            The company plug ins page
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.CompanyPlugInsPage.CompanyId">
+            <summary>
+            The company id
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInsPage.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="companyId">The company id</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInsPage.CreateArgs">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Web.BaseAPIPaginatedPage`2.Args"/> when they are not set by the user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInsPage.CreateItemsControl">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.BasePaginatedPage`1.DataPresenter"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInsPage.GetDataAsync(Atom.Web.StandardAPIArgs)">
+            <summary>
+            Retrieves the data using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyPlugInsVerticalMenuPage">
+            <summary>
+            The vertical menu page that contains the plug in options
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.CompanyPlugInsVerticalMenuPage.CompanyId">
+            <summary>
+            The company id
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInsVerticalMenuPage.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="companyId">The company id</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInsVerticalMenuPage.CreateCompanyPlugInsPage(System.String)">
+            <summary>
+            Creates and returns the company plug ins page
+            </summary>
+            <param name="companyId">The company id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInsVerticalMenuPage.CreateCompanyPlugInRequestsPage(System.String)">
+            <summary>
+            Creates and returns the company plug in requests page
+            </summary>
+            <param name="companyId">The company id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyPlugInsVerticalMenuPage.CreateGUI">
+            <summary>
+            Creates and adds the required GUI elements
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.CompanyShippingPage">
+            <summary>
+            The account shipping page
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.CompanyShippingPage.Model">
+            <summary>
+            The model
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyShippingPage.#ctor(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="model">The model</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyShippingPage.CreateDataForm">
+            <summary>
+            Creates and returns the data form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyShippingPage.SaveChangesAsync(Atom.Web.Accounts.ShippingDataModel)">
+            <summary>
+            Updates the values of the model
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.CompanyShippingPage.CreateGUI">
+            <summary>
+            Creates and adds the required GUI elements
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.MarketplacePage">
+            <summary>
+            The market place page
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PlugIns.MarketplacePage.mIsDataLoaded">
+            <summary>
+            A flag indicating whether the <see cref="F:Atom.Windows.Controls.PlugIns.MarketplacePage.mCompanyPlugInRequests"/> and the plug in purchases
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PlugIns.MarketplacePage.mCompanyPlugInRequests">
+            <summary>
+            The company plug in requests
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PlugIns.MarketplacePage.mCompanyPlugIns">
+            <summary>
+            The company plug ins
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.CompanyId">
+            <summary>
+            The company id
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.BaseGrid">
+            <summary>
+            The grid that contains the <see cref="P:Atom.Windows.Controls.BasePaginatedPage`1.ContentGrid"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.FiltersBorder">
+            <summary>
+            The border that contains the <see cref="P:Atom.Windows.Controls.PlugIns.MarketplacePage.FiltersGrid"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.FiltersGrid">
+            <summary>
+            The filters grid
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.SearchInput">
+            <summary>
+            The search input
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.FiltersStackPanel">
+            <summary>
+            The filters stack panel
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.CategoriesTextBlock">
+            <summary>
+            The category text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.CategoriesSearchInput">
+            <summary>
+            The categories search input
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.LabelsTextBlock">
+            <summary>
+            The labels text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.MarketplacePage.LabelsSearchInput">
+            <summary>
+            The labels search input
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.MarketplacePage.#ctor(System.String,Atom.Web.PlugIns.PlugInAPIArgs)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="args">The args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.MarketplacePage.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.MarketplacePage.CreateArgs">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.Web.BaseAPIPaginatedPage`2.Args"/> when they are not set by the user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.MarketplacePage.CreateItemsControl">
+            <summary>
+            Creates and returns the <see cref="P:Atom.Windows.Controls.BasePaginatedPage`1.DataPresenter"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.MarketplacePage.GetDataAsync(Atom.Web.PlugIns.PlugInAPIArgs)">
+            <summary>
+            Retrieves the data using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The args</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.PlugInComponent">
+            <summary>
+            Represents a plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.Model">
+            <summary>
+            The model
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.ContentBorder">
+            <summary>
+            The border that contains the <see cref="P:Atom.Windows.Controls.PlugIns.PlugInComponent.ContentStackPanel"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.ContentStackPanel">
+            <summary>
+            The stack panel that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.Image">
+            <summary>
+            The image
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.NameTextBlock">
+            <summary>
+            The name text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.DescriptionTextBlock">
+            <summary>
+            The description text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.PriceTextBlock">
+            <summary>
+            The price text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.IsRequested">
+            <summary>
+            A flag indicating whether this plug in has been requested or not
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PlugIns.PlugInComponent.IsRequestedProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.PlugIns.PlugInComponent.IsRequested"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInComponent.IsPurchased">
+            <summary>
+             A flag indicating whether this plug in has been purchased or not
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PlugIns.PlugInComponent.IsPurchasedProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.PlugIns.PlugInComponent.IsPurchased"/> dependency property
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.PlugInComponent.#ctor(Atom.Web.PlugIns.EmbeddedPlugInResponseModel)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="model">The model</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.PlugInComponent.Update">
+            <summary>
+            Updates the component
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.PlugInComponent.OnInitialized(System.EventArgs)">
+            <summary>
+            Handles the initialization of the control
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.PlugInComponent.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent">
+            <summary>
+            A plug in component that is used for previewing a plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.Model">
+            <summary>
+            The model
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.CompanyId">
+            <summary>
+            The company id
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.IsRequested">
+            <summary>
+            A flag indicating whether this plug in has been requested or not
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.IsRequestedProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.IsRequested"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.IsPurchased">
+            <summary>
+             A flag indicating whether this plug in has been purchased or not
+            </summary>
+        </member>
+        <member name="F:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.IsPurchasedProperty">
+            <summary>
+            Identifies the <see cref="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.IsPurchased"/> dependency property
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.ContentStackPanel">
+            <summary>
+            The stack panel that contains all the content
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.HeaderGrid">
+            <summary>
+            The grid that contains the <see cref="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.Image"/> and the <see cref="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.InformationStackPanel"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.Image">
+            <summary>
+            The image
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.InformationStackPanel">
+            <summary>
+            The information stack panel
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.NameTextBlock">
+            <summary>
+            The name text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.LabelsContainer">
+            <summary>
+            The labels container
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.SmallDescriptionTextBlock">
+            <summary>
+            The small description text block
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.BuyButton">
+            <summary>
+            The buy button
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.HeaderAndDescriptionSeparator">
+            <summary>
+            The header and description separator
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.DescriptionTextBlock">
+            <summary>
+            The full description text block
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.#ctor(System.String,Atom.Web.PlugIns.PlugInResponseModel)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="companyId">The company id</param>
+            <param name="model">The model</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.Update">
+            <summary>
+            Updates the component
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.OnInitialized(System.EventArgs)">
+            <summary>
+            Handles the initialization of the control
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.CreateBaseGUIElement">
+            <summary>
+            Creates and returns the GUI in a form of a <see cref="T:System.Windows.FrameworkElement"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:Atom.Windows.Controls.PlugIns.PlugInPreviewComponent.PlugInRequested">
+            <summary>
+            Event that fires every time the plug in is requested
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.ICompanyPageBuilder">
+            <summary>
+            Provides abstractions for a company page builder
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.ICompanyPageBuilder.Id">
+            <summary>
+            The id
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.ICompanyPageBuilder.Name">
+            <summary>
+            The name
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.ICompanyPageBuilder.PathData">
+            <summary>
+            The path data of the icon
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.ICompanyPageBuilder.ValidateAsync(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Validates the reasons for the creation of the page
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.ICompanyPageBuilder.CreatePageAsync(Atom.Web.Accounts.CompanyResponseModel)">
+            <summary>
+            Creates and returns the page.
+            NOTE: Make sure that the page should get created using the <see cref="M:Atom.Windows.Controls.PlugIns.ICompanyPageBuilder.ValidateAsync(Atom.Web.Accounts.CompanyResponseModel)"/> method!
+            </summary>
+            <param name="model">The model</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.WindowsControlsPlugInsDI">
+            <summary>
+            The default windows controls plug ins services that should be available everywhere in the application
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.Controls.PlugIns.WindowsControlsPlugInsDI.GetCompanyPageBuilders">
+            <summary>
+            Gets the company page builders
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.FrameworkConstructionExtensions">
+            <summary>
+            Extension methods for <see cref="T:Atom.Core.FrameworkConstruction"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.FrameworkConstructionExtensions.AddCompanyPageBuilder(Atom.Core.FrameworkConstruction,System.Func{System.IServiceProvider,Atom.Windows.Controls.PlugIns.ICompanyPageBuilder})">
+            <summary>
+            Injects a <see cref="T:Atom.Windows.Controls.PlugIns.ICompanyPageBuilder"/> into the framework construction
+            </summary>
+            <param name="construction">The construction</param>
+            <param name="implementationFactory">Creates and returns the company page builder</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.Controls.PlugIns.WindowsPlugInHelpers">
+            <summary>
+            Helper methods related to plug ins
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.WindowsPlugInHelpers.CreatePlugInRequestModelDataForm">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.DataForm`1"/> for a <see cref="T:Atom.Web.PlugIns.PlugInRequestModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.WindowsPlugInHelpers.CreatePlugInVersionRequestModelDataForm">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.DataForm`1"/> for a <see cref="T:Atom.Web.PlugIns.PlugInVersionRequestModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.WindowsPlugInHelpers.CreateDefaultPlugInResponseModelCollapsibleDataGrid">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.DataGrid`1"/> used for presenting
+            <see cref="T:Atom.Web.PlugIns.PlugInResponseModel"/>s that has pre-selected the default columns
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.WindowsPlugInHelpers.CreatePlugInResponseModelDataForm">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.DataForm`1"/> for a <see cref="T:Atom.Web.PlugIns.PlugInResponseModel"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.WindowsPlugInHelpers.CreateDefaultPlugInVersionResponseModelDataGrid">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.DataGrid`1"/> used for presenting
+            <see cref="T:Atom.Web.PlugIns.PlugInVersionResponseModel"/>s that has pre-selected the default columns
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.WindowsPlugInHelpers.CreateDefaultPlugInRequestResponseModelCollapsibleDataGrid">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.CollapsibleDataGrid`1"/> used for presenting
+            <see cref="T:Atom.Web.PlugIns.PlugInRequestResponseModel"/>s that has pre-selected the default columns
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.Controls.PlugIns.WindowsPlugInHelpers.CreateDefaultCompanyPlugInResponseModelCollapsibleDataGrid">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Windows.Controls.CollapsibleDataGrid`1"/> used for presenting
+            <see cref="T:Atom.Web.PlugIns.CompanyPlugInResponseModel"/>s that has pre-selected the default columns
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,557 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Data.NumberAnnotation">
+            <summary>
+            The available number annotations
+            </summary>
+        </member>
+        <member name="F:Atom.Data.NumberAnnotation.None">
+            <summary>
+            No number representation
+            </summary>
+        </member>
+        <member name="F:Atom.Data.NumberAnnotation.Normal">
+            <summary>
+            Normal number representation
+            </summary>
+        </member>
+        <member name="F:Atom.Data.NumberAnnotation.Price">
+            <summary>
+            Price value representation
+            </summary>
+        </member>
+        <member name="F:Atom.Data.NumberAnnotation.Percentage">
+            <summary>
+            Percentage value representation
+            </summary>
+        </member>
+        <member name="T:Atom.Data.IExporter">
+            <summary>
+            Provides abstractions for an exporter when the type of the models is unknown
+            </summary>
+        </member>
+        <member name="P:Atom.Data.IExporter.FileExtension">
+            <summary>
+            The extension of the file that is generated.
+            Ex.: .xlns
+            </summary>
+        </member>
+        <member name="M:Atom.Data.IExporter.UnsafeExport(System.Collections.Generic.IEnumerable{System.Object},System.String)">
+            <summary>
+            Exports the specified <paramref name="models"/> to the specified <paramref name="fileName"/>.
+            NOTE: This method should only be used by implementations related to <see cref="N:System.Reflection"/>!
+            </summary>
+            <param name="models">The models</param>
+            <param name="fileName">The file name</param>
+        </member>
+        <member name="T:Atom.Data.IExporter`1">
+            <summary>
+            Provides abstractions for an exporter
+            </summary>
+            <typeparam name="TClass">The type of the models</typeparam>
+        </member>
+        <member name="M:Atom.Data.IExporter`1.Export(System.Collections.Generic.IEnumerable{`0},System.String)">
+            <summary>
+            Exports the specified <paramref name="models"/> to the specified <paramref name="fileName"/>
+            </summary>
+            <param name="models">The models</param>
+            <param name="fileName">The file name</param>
+        </member>
+        <member name="T:Atom.Data.IImporter`1">
+            <summary>
+            Provides abstractions for an importer
+            </summary>
+            <typeparam name="TClass">The type of the generated models</typeparam>
+        </member>
+        <member name="P:Atom.Data.IImporter`1.FileExtension">
+            <summary>
+            The extension of the file that is generated.
+            Ex.: .xlns
+            </summary>
+        </member>
+        <member name="M:Atom.Data.IImporter`1.Import(System.String)">
+            <summary>
+            Imports the instances of the <typeparamref name="TClass"/> from a file at the specified <paramref name="fileName"/>>
+            </summary>
+            <param name="fileName">The filename</param>
+            <returns>A list that contains the <typeparamref name="TClass"/> instances</returns>
+            <exception cref="T:System.Exception">Thrown when the file can't be opened, usually because it's used by another process!</exception>
+        </member>
+        <member name="T:Atom.Data.PropertyMapperExtensions">
+            <summary>
+            Extension methods related to <see cref="T:Atom.Core.PropertyMapper`1"/>
+            </summary>
+        </member>
+        <member name="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation">
+            <summary>
+            The id of the maps category that contains number annotations
+            </summary>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Reflection.PropertyInfo,Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            for the specified <paramref name="propertyInfo"/>
+            and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="propertyInfo">The property info</param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.SByte}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.SByte}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Byte}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Byte}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Int16}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Int16}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.UInt16}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.UInt16}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Int32}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Int32}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.UInt32}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.UInt32}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Int64}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Int64}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.UInt64}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.UInt64}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Single}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Single}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Double}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Double}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Decimal}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.MapNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Decimal}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Create a map for the map collection with id: '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>' for the property targeted by the 
+            specified <paramref name="targetPropertySelector"/> and with the specified <paramref name="annotation"/>.
+            </summary>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/></param>
+            <param name="annotation">The annotation</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Reflection.PropertyInfo,Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the specified <paramref name="propertyInfo"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="propertyInfo">The property info</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.SByte}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.SByte}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Byte}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Byte}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Int16}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Int16}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.UInt16}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.UInt16}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Int32}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Int32}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.UInt32}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.UInt32}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Int64}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.UInt64}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Single}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Single}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Double}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Double}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Decimal}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Data.PropertyMapperExtensions.GetNumberAnnotation``1(Atom.Core.PropertyMapper{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Nullable{System.Decimal}}},Atom.Data.NumberAnnotation)">
+            <summary>
+            Gets the value of the property targeted by the specified <paramref name="targetPropertySelector"/>
+            from the map collection with the id : '<see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/>'
+            </summary>
+            <typeparam name="TClass">The type of the model</typeparam>
+            <param name="mapper">The mapper</param>
+            <param name="targetPropertySelector">Expression that selects a property from the <typeparamref name="TClass"/> selector</param>
+            <param name="annotation">The value that is returned when a custom value is not assigned</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

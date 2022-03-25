@@ -1,6 +1,4 @@
 ﻿using Atom.Core;
-using Atom.Relational;
-using Atom.Relational.Analyzers;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {
@@ -30,6 +28,16 @@ namespace CeidDiplomatiki
         /// The registered data grid presenter maps
         /// </summary>
         private readonly List<DataGridPresenterMap> mDataGridPresenterMaps = new List<DataGridPresenterMap>();
+
+        /// <summary>
+        /// The registered calendar presenter maps
+        /// </summary>
+        private readonly List<CalendarPresenterMap> mCalendarPresenterMaps = new List<CalendarPresenterMap>();
+
+        /// <summary>
+        /// The member of the <see cref="CustomShortcodes"/> property
+        /// </summary>
+        private IEnumerable<CeidDiplomatikiPropertyShortcodeDataModel> mCustomShortcodes;
 
         #endregion
 
@@ -69,7 +77,7 @@ namespace CeidDiplomatiki
         /// <summary>
         /// The presenter maps
         /// </summary>
-        public IEnumerable<BasePresenterMap> PresenterMaps => mDataGridPresenterMaps.ToList();
+        public IEnumerable<BasePresenterMap> PresenterMaps => mDataGridPresenterMaps.Concat<BasePresenterMap>(CalendarPresenterMaps).ToList();
 
         /// <summary>
         /// The data grid presenter maps
@@ -77,9 +85,23 @@ namespace CeidDiplomatiki
         public IEnumerable<DataGridPresenterMap> DataGridPresenterMaps => mDataGridPresenterMaps.ToList();
 
         /// <summary>
+        /// The calendar presenter maps
+        /// </summary>
+        public IEnumerable<CalendarPresenterMap> CalendarPresenterMaps => mCalendarPresenterMaps.ToList();
+
+        /// <summary>
         /// The property shortcodes related to the root type
         /// </summary>
         public Lazy<IEnumerable<PropertyShortcode>> PropertyShortcodes { get; }
+
+        /// <summary>
+        /// The custom shortcodes
+        /// </summary>
+        public IEnumerable<CeidDiplomatikiPropertyShortcodeDataModel> CustomShortcodes
+        {
+            get => mCustomShortcodes ?? Enumerable.Empty<CeidDiplomatikiPropertyShortcodeDataModel>();
+            set => mCustomShortcodes = value;
+        }
 
         /// <summary>
         /// The id of the query map
@@ -143,7 +165,7 @@ namespace CeidDiplomatiki
 
             PropertyShortcodes = new Lazy<IEnumerable<PropertyShortcode>>(() =>
             {
-                return RootType.GetProperties().Select(x => new PropertyShortcode(x.Name, Blue, "Shortcodes", null, x, null)).ToList();
+                return RootType.GetProperties().Select(x => new PropertyShortcode(null, x, null, x.Name, Blue, "Shortcodes")).ToList();
             });
         }
 
@@ -212,6 +234,18 @@ namespace CeidDiplomatiki
         public void Remove(DataGridPresenterMap map) => mDataGridPresenterMaps.Remove(map);
 
         /// <summary>
+        /// Adds the specified <paramref name="map"/>
+        /// </summary>
+        /// <param name="map">The map</param>
+        public void Add(CalendarPresenterMap map) => mCalendarPresenterMaps.Add(map);
+
+        /// <summary>
+        /// Removes the specified <paramref name="map"/>
+        /// </summary>
+        /// <param name="map">The map</param>
+        public void Remove(CalendarPresenterMap map) => mCalendarPresenterMaps.Remove(map);
+
+        /// <summary>
         /// Replaces the shortcodes of the specified <paramref name="formula"/> with the values
         /// of the specified root <paramref name="instance"/>
         /// </summary>
@@ -267,11 +301,13 @@ namespace CeidDiplomatiki
             {
                 // Create the builder
                 var typeBuilder = CeidDiplomatikiHelpers.GetTypeBuilder(queryMap.Id + "-" + table.TableName);
-                
+
                 // For every table column...
                 foreach (var column in columns.Where(x => x.TableName == table.TableName))
-                    // Create a property
+                {
+                    // Create a property // Warning
                     TypeBuilderHelpers.CreateProperty(typeBuilder, column.ColumnName, column.DataType);
+                }
 
                 // Map it
                 tableToTypeBuilderMapper.Add(table, typeBuilder);
@@ -348,6 +384,7 @@ namespace CeidDiplomatiki
             {
                 dataModel.PropertyMaps.ForEach(model => queryMap.Add(PropertyMap.FromDataModel(queryMap,queryMap.DataModelTypes.First(x => queryMap.GetTableName(x) == model.TableName), dataModel.PropertyMaps.First(x => x.TableName == model.TableName && x.ColumnName == model.ColumnName))));
                 dataModel.DataGridPresenterMaps.ForEach(model => queryMap.Add(DataGridPresenterMap.FromDataModel(queryMap, model)));
+                dataModel.CalendarPresenterMaps.ForEach(model => queryMap.Add(CalendarPresenterMap.FromDataModel(queryMap, model)));
             }
 
             // Return the map
@@ -405,6 +442,9 @@ namespace CeidDiplomatiki
 
             // Set the data grid presenter maps
             DataGridPresenterMaps = DataGridPresenterMaps.Select(x => x.ToDataModel()).ToArray(),
+
+            // Set the calendar presenter maps
+            CalendarPresenterMaps = CalendarPresenterMaps.Select(x => x.ToDataModel()).ToArray()
         };
 
         #endregion
@@ -447,6 +487,11 @@ namespace CeidDiplomatiki
         /// The data grid presenter maps
         /// </summary>
         public DataGridPresenterMapDataModel[] DataGridPresenterMaps { get; set; }
+
+        /// <summary>
+        /// The calendar presenter maps
+        /// </summary>
+        public CalendarPresenterMapDataModel[] CalendarPresenterMaps { get; set; }
 
         /// <summary>
         /// The name

@@ -7,13 +7,12 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!-- Order is important -->
-                <ResourceDictionary Source="pack://application:,,,/Atom.Windows;component/Styles/ColorsStyle.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/FontsStyle.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ColorsStyle.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ScrollBarsStyle.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/WindowsStyle.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ContextMenusStyle.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ToolTipsStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/Scroll.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/Windows.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Atom.Windows.Controls;component/Styles/ContextMenu.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

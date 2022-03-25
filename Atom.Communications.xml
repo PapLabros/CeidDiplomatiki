@@ -1,0 +1,1389 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Communications</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Communications.BaseMessenger">
+            <summary>
+            The base of all the messengers
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessenger.Id">
+            <summary>
+            The unique identifier of the messenger
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessenger.Name">
+            <summary>
+            The name of the messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.#ctor(System.String,System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="id">The unique identifier of the messenger</param>
+            <param name="name">The name of the messenger</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.SendAsync(System.String,System.String)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receiver"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receiver">The receiver</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.SendAsync(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receivers"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.SendAsync(System.String,System.String,System.DateTimeOffset)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receiver"/>
+            at the specified <paramref name="dateTime"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receiver">The receiver</param>
+            <param name="dateTime">The date and time that the message will be send</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.SendAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.DateTimeOffset)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receivers"/>
+            at the specified <paramref name="dateTime"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+            <param name="dateTime">The date and time that the message will be send</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.CancelAsync(System.String)">
+            <summary>
+            Cancels the schedules message with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id of the message to cancel</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.SendCoreAsync(System.String,System.String)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receiver"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receiver">The receiver</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.SendCoreAsync(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receivers"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.SendCoreAsync(System.String,System.String,System.DateTimeOffset)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receiver"/>
+            at the specified <paramref name="dateTime"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receiver">The receiver</param>
+            <param name="dateTime">The date and time that the message will be send</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.SendCoreAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.DateTimeOffset)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receivers"/>
+            at the specified <paramref name="dateTime"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+            <param name="dateTime">The date and time that the message will be send</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.CancelCoreAsync(System.String)">
+            <summary>
+            Cancels the schedules message with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id of the message to cancel</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.OnMessageSentInitialized(Atom.Communications.MessageSentIntializedEventArgs)">
+            <summary>
+            Handles the initialization of a message sent
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.OnMessageSent(Atom.Communications.MessageSentEventArgs)">
+            <summary>
+            Handles the send of a message
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.OnMessageSentFailed(Atom.Communications.MessageSentFailedEventArgs)">
+            <summary>
+            Handles the failure of a message send
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.OnMessageCancelled(System.Object)">
+            <summary>
+            Handles the cancellation of a message
+            </summary>
+            <param name="result">The result</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.OnMessageSentInitializedCore(Atom.Communications.MessageSentIntializedEventArgs)">
+            <summary>
+            Handles the initialization of a message sent internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.OnMessageSentCore(Atom.Communications.MessageSentEventArgs)">
+            <summary>
+            Handles the send of a message internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessenger.OnMessageSentFailedCore(Atom.Communications.MessageSentFailedEventArgs)">
+            <summary>
+            Handles the failure of a message send internally
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="E:Atom.Communications.BaseMessenger.MessageSentInitialized">
+            <summary>
+            Fires every time a message sent gets initialized
+            </summary>
+        </member>
+        <member name="E:Atom.Communications.BaseMessenger.MessageSent">
+            <summary>
+            Fires every time a message is sent
+            </summary>
+        </member>
+        <member name="E:Atom.Communications.BaseMessenger.MessageSentFailed">
+            <summary>
+            Fires every time a message sent fails
+            </summary>
+        </member>
+        <member name="E:Atom.Communications.BaseMessenger.MessageCancelled">
+            <summary>
+            Fires every time an sms is cancelled
+            </summary>
+        </member>
+        <member name="T:Atom.Communications.BaseSMSMessenger">
+            <summary>
+            The base of all the sms messengers
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.BaseSMSMessenger.mOriginator">
+            <summary>
+            The member of the <see cref="P:Atom.Communications.BaseSMSMessenger.Originator"/> property
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseSMSMessenger.APIKey">
+            <summary>
+            The api key
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseSMSMessenger.Originator">
+            <summary>
+            The originator
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseSMSMessenger.OriginatorCharactersLimit">
+            <summary>
+            The limit of characters of the originator
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseSMSMessenger.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="id">The unique identifier of the messenger</param>
+            <param name="name">The name of the messenger</param>
+            <param name="apiKey">The originator</param>
+            <param name="originator">The limit of characters of the originator</param>
+        </member>
+        <member name="T:Atom.Communications.CommunicationExtensions">
+            <summary>
+            Extension methods for communications
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.CommunicationExtensions.ToLocalizedString(Atom.Communications.CommunicationState)">
+            <summary>
+            Returns a localized string that represents the specified <paramref name="state"/>
+            Localization
+            </summary>
+            <param name="state">The state</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Communications.CommunicationExtensions.ToColorHex(Atom.Communications.CommunicationState)">
+            <summary>
+            Returns the color hex value that represents the specified <paramref name="state"/>
+            </summary>
+            <param name="state">The state</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Communications.CommunicationExtensions.ToLocalizedString(Atom.Communications.CommunicationMean)">
+            <summary>
+            Returns a localized string that represents the specified <paramref name="mean"/>
+            </summary>
+            <param name="mean">The communication mean</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Communications.CommunicationExtensions.ToColorHex(Atom.Communications.CommunicationMean)">
+            <summary>
+            Returns the color hex value that represents the specified <paramref name="mean"/>
+            </summary>
+            <param name="mean">The communication mean</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Communications.CommunicationFilterArgs">
+            <summary>
+            Arguments used for filtering communications
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationFilterArgs.After">
+            <summary>
+            Limit the results using a later <see cref="P:Atom.Communications.CommunicationHistoryDataModel.DateInitialized"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationFilterArgs.Before">
+            <summary>
+            Limit the results using an earlier <see cref="P:Atom.Communications.CommunicationHistoryDataModel.DateInitialized"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationFilterArgs.Points">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Communications.CommunicationHistoryDataModel.PointId"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationFilterArgs.Receivers">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Communications.CommunicationHistoryDataModel.ReceiverId"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationFilterArgs.Operations">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Communications.CommunicationHistoryDataModel.OperationId"/>s
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationFilterArgs.Senders">
+            <summary>
+            Limit the results using specified <see cref="P:Atom.Communications.CommunicationHistoryDataModel.SenderId"/>s
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.CommunicationFilterArgs.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Atom.Communications.CommunicationHelpers">
+            <summary>
+            Helper methods related to communications
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationHelpers.IdentifiersCategoryName">
+            <summary>
+            The name of the identifiers category
+            Localization
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationHelpers.MainCategoryName">
+            <summary>
+            The name of the main category
+            Localization
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationHelpers.DatesCategoryName">
+            <summary>
+            The name of the dates category
+            Localization
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationHelpers.PricesCategoryname">
+            <summary>
+            The name of the prices category
+            Localization
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationHelpers.MiscCategoryName">
+            <summary>
+            The name of the misc category
+            Localization
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHelpers.CommunicationHistoryDataModelMapper">
+            <summary>
+            Maps the properties of the <see cref="T:Atom.Communications.CommunicationHistoryDataModel"/> to custom values
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHelpers.DefaultCommunicationHistoryDataModelProperties">
+            <summary>
+            Gets the default properties of the <see cref="T:Atom.Communications.CommunicationHistoryDataModel"/>.
+            NOTE: The values of these properties are the most commonly used values of the model!
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHelpers.CommunicationHistoryDataModelTranslator">
+            <summary>
+            Gets the <see cref="T:Atom.Core.Translator`1"/> required for translating the 
+            values of a <see cref="T:Atom.Communications.CommunicationHistoryDataModel"/>
+            </summary>
+        </member>
+        <member name="T:Atom.Communications.BaseMessengerPointDataModel`5">
+            <summary>
+            The base for all the entry point data models of messengers
+            </summary>
+            <typeparam name="TPresetSelectorDataModel">The type of the messenger preset selector data model</typeparam>
+            <typeparam name="TPresetSelectorRuleDataModel">The type of the messenger preset selector rule data model</typeparam>
+            <typeparam name="TPointDataModel">The type of the messenger point data model</typeparam>
+            <typeparam name="TPresetDataModel">The type of the messenger preset data model</typeparam>
+            <typeparam name="TPointShortcodeDataModel">The type of the entry point shortcode data model</typeparam>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPointDataModel`5.SilentSend">
+            <summary>
+            A flag indicating whether automated send is active or not
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPointDataModel`5.Presets">
+            <summary>
+            The presets related to this point
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPointDataModel`5.Selectors">
+            <summary>
+            The preset selectors
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPointDataModel`5.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPointDataModel`5.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="name">The name of the entry point</param>
+            <param name="description">The description of the entry point</param>
+            <param name="isActive">A flag indicating whether the entry point is active or not</param>
+            <param name="silentSend">A flag indicating whether automated send is active or not</param>
+        </member>
+        <member name="T:Atom.Communications.BaseMessengerPresetDataModel`5">
+            <summary>
+            The base for all the messenger preset data models
+            </summary>
+            <typeparam name="TPresetSelectorDataModel">The type of the messenger preset selector data model</typeparam>
+            <typeparam name="TPresetSelectorRuleDataModel">The type of the messenger preset selector rule data model</typeparam>
+            <typeparam name="TPointDataModel">The type of the messenger point data model</typeparam>
+            <typeparam name="TPresetDataModel">The type of the messenger preset data model</typeparam>
+            <typeparam name="TPointShortcodeDataModel">The type of the entry point shortcode data model</typeparam>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.Id">
+            <summary>
+            The id of the preset
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.PointId">
+            <summary>
+            The <see cref="P:Atom.Core.EntryPointDataModel`1.Id"/> of the related <see cref="T:Atom.Core.EntryPointDataModel`1"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.Name">
+            <summary>
+            The name of the preset
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.Description">
+            <summary>
+            The optional description of the preset
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.Color">
+            <summary>
+            The color
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.IsActive">
+            <summary>
+            A flag indicating whether this preset is the active one and is used during the silent sends
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.Message">
+            <summary>
+            The message
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.EntryPoint">
+            <summary>
+            The entry point navigation property
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetDataModel`5.Selectors">
+            <summary>
+            The selectors used for automatically selecting this preset
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetDataModel`5.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetDataModel`5.#ctor(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="pointId">The <see cref="P:Atom.Core.EntryPointDataModel`1.Id"/> of the related <see cref="T:Atom.Core.EntryPointDataModel`1"/></param>
+            <param name="name">The name of the preset</param>
+            <param name="description">The optional description</param>
+            <param name="message">The message</param>
+            <param name="isActive">A flag indicating whether this preset is the active one and is used during the silent sends</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetDataModel`5.CompareTo(System.Object)">
+            <summary>
+            Compares the current object to the specified <paramref name="obj"/>
+            </summary>
+            <param name="obj">The object to be compared to</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Communications.CommunicationHistoryDataModel">
+            <summary>
+            Represents a communication.
+            NOTE: This class is sealed. Any additional information should be stored as a key pair value in the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.MetaData"/> property!
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Id">
+            <summary>
+            The id of the history model
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.PointId">
+            <summary>
+            The id of the entry point
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.PointName">
+            <summary>
+            The name of the point
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.OperationId">
+            <summary>
+            The id of the operation.
+            Ex. The id of a subscription purchase or an order.
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Operation">
+            <summary>
+            A custom identifier for the operation.
+            Ex. Order 1313, Subscription Purchase
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.MessageId">
+            <summary>
+            The id of the message if any
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.CommunicationMean">
+            <summary>
+            The communication mean that was used
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.State">
+            <summary>
+            The state of the message
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Message">
+            <summary>
+            The message that was sent
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.IsMessageHTML">
+            <summary>
+            A flag indicating whether the message is an HTML or not
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.DateInitialized">
+            <summary>
+            The date the message was initialized
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Date">
+            <summary>
+            The date and time the message was or will be sent
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.SenderId">
+            <summary>
+            The id of the user that sent the message
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Sender">
+            <summary>
+            The user that sent the message
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.ReceiverId">
+            <summary>
+            The receiver id
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Receiver">
+            <summary>
+            The receiver.
+            Ex. (6977594432), paplabros@gmail.com
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.ReceiverName">
+            <summary>
+            The name of the receiver
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Note">
+            <summary>
+            Note related to the message
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.ErrorMessage">
+            <summary>
+            The error message in the case of a failure
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Successful">
+            <summary>
+            A flag indicating whether the message was successful or not
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Canceled">
+            <summary>
+            A flag indicating whether the message was canceled or not
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.Fee">
+            <summary>
+            The cost of the send of this message
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryDataModel.MetaData">
+            <summary>
+            Meta data related to this receipt
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.CommunicationHistoryDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.CommunicationHistoryDataModel.#ctor(System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="messageId">
+            The id of a message if any.
+            </param>
+        </member>
+        <member name="T:Atom.Communications.CommunicationHistoryMetaDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.MetaDataModel"/> used by <see cref="T:Atom.Communications.CommunicationHistoryMetaDataModel"/>s for storing extra information related to a communication
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryMetaDataModel.CommunicationHistoryId">
+            <summary>
+            The <see cref="P:Atom.Communications.CommunicationHistoryDataModel.Id"/> of a <see cref="T:Atom.Communications.CommunicationHistoryDataModel"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.CommunicationHistoryMetaDataModel.ReceiptHistory">
+            <summary>
+            The communication history data model that contains this communication history meta data model
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.CommunicationHistoryMetaDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.CommunicationHistoryMetaDataModel.#ctor(System.String,System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="key">They key</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="T:Atom.Communications.EmailMessengerPointDataModel">
+            <summary>
+            A <see cref="T:Atom.Communications.BaseMessengerPointDataModel`5"/> used by an email messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointDataModel.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="name">The custom name used for identification by the user</param>
+            <param name="description">An optional description</param>
+            <param name="isActive">A flag indicating whether the entry point is active or not</param>
+            <param name="silentSend">A flag indicating whether automated send is active or not</param>
+        </member>
+        <member name="T:Atom.Communications.EmailMessengerPointPropertyShortcodeDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeDataModel`3"/> used by an email messenger
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.EmailMessengerPointPropertyShortcodeDataModel.EntryPointId">
+            <summary>
+            The id of the entry point that contains this shortcode
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.EmailMessengerPointPropertyShortcodeDataModel.EntryPoint">
+            <summary>
+            The entry point related to this custom shortcode, retrieved using the <see cref="P:Atom.Communications.EmailMessengerPointPropertyShortcodeDataModel.EntryPointId"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointPropertyShortcodeDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointPropertyShortcodeDataModel.#ctor(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{Atom.Communications.EmailMessengerPointPropertyShortcodeValueTranslatorDataModel},System.Collections.Generic.IEnumerable{Atom.Communications.EmailMessengerPointPropertyShortcodeFilterDataModel})">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="propertyName">The name of the related property</param>
+            <param name="fallbackValue">The value that is used when the formula returns a null or empty string</param>
+            <param name="formula">A string value that represents the shortcode formula</param>
+            <param name="newLineAfterEveryItem">
+            If this is set to true a new line character is set after every item.
+            NOTE: This applies only to enumerables!
+            </param>
+            <param name="name">The name of the shortcode</param>
+            <param name="slug">The shortcode slug</param>
+            <param name="color">The color that represents the shortcode</param>
+            <param name="parent">
+            The parent path.
+            NOTE: This is used for shortcodes of a property of a sub-property and so on, of the instance that contains the property with the specified <see cref="P:Atom.Core.PropertyShortcodeDataModel`3.PropertyName"/>!
+            NOTE: This is set to <see cref="!:null"/> when the property with the specified <see cref="P:Atom.Core.PropertyShortcodeDataModel`3.PropertyName"/> is a property contained in the instance of the target type!
+            Ex: FirstLevelProperty.SecondLevelProperty
+            </param>
+            <param name="translators">The translators</param>
+            <param name="filters">The filters</param>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointPropertyShortcodeDataModel.#ctor(System.String,Atom.Core.PropertyShortcode)">
+            <summary>
+            Shortcode based constructor
+            </summary>
+            <param name="entryPointId">The entry point id</param>
+            <param name="shortcode">The shortcode</param>
+        </member>
+        <member name="T:Atom.Communications.EmailMessengerPointPropertyShortcodeFilterDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeFilterDataModel`3"/> used by an email messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointPropertyShortcodeFilterDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointPropertyShortcodeFilterDataModel.#ctor(System.String,System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="propertyName">The name of the property that the translator used for filtering</param>
+            <param name="value">The value of the property</param>
+        </member>
+        <member name="T:Atom.Communications.EmailMessengerPointPropertyShortcodeValueTranslatorDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeValueTranslatorDataModel`3"/> used by an email messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointPropertyShortcodeValueTranslatorDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPointPropertyShortcodeValueTranslatorDataModel.#ctor(System.Boolean,System.String,System.String,System.Boolean,Atom.Core.WordReplacementOperation,System.String,System.String,System.Int32)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="valueConversion"></param>
+            <param name="fromValue">The value to translate from</param>
+            <param name="formula">The formula value that the <see cref="P:Atom.Core.PropertyShortcodeValueTranslatorDataModel`3.FromValue"/> is translated to</param>
+            <param name="wordReplacement">A flag indicating whether word replacement is enabled or not</param>
+            <param name="wordReplacementOperation">The word replacement operation</param>
+            <param name="fromWord">The word to replace</param>
+            <param name="toWord">The word that the <see cref="P:Atom.Core.PropertyShortcodeValueTranslatorDataModel`3.FromWord"/> should be replaced with</param>
+            <param name="priority">The priority index</param>
+        </member>
+        <member name="T:Atom.Communications.EmailMessengerPresetDataModel">
+            <summary>
+            Represents an email messenger preset
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.EmailMessengerPresetDataModel.Originator">
+            <summary>
+            The originator
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.EmailMessengerPresetDataModel.OriginatorEmail">
+            <summary>
+            The originator email
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.EmailMessengerPresetDataModel.Subject">
+            <summary>
+            The subject
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetDataModel.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="pointId">The <see cref="P:Atom.Core.EntryPointDataModel`1.Id"/> of the related <see cref="T:Atom.Core.EntryPointDataModel`1"/></param>
+            <param name="name">The name of the preset</param>
+            <param name="description">The optional description</param>
+            <param name="originator">The custom originator</param>
+            <param name="originatorEmail">The custom originator email</param>
+            <param name="subject">The custom subject</param>
+            <param name="message">The message</param>
+            <param name="isActive">A flag indicating whether this preset is the active one and is used during the silent sends</param>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetDataModel.Equals(Atom.Communications.EmailMessengerPresetDataModel)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">The other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetDataModel.CompareTo(Atom.Communications.EmailMessengerPresetDataModel)">
+            <summary>
+            Compares the current object to the specified <paramref name="other"/>
+            </summary>
+            <param name="other">The object to be compared to</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Communications.EmailMessengerPresetSelectorDataModel">
+            <summary>
+            Α <see cref="T:Atom.Communications.BaseMessengerPresetSelectorDataModel`5"/> for an email messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetSelectorDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetSelectorDataModel.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="pointId">The <see cref="P:Atom.Core.EntryPointDataModel`1.Id"/> of the <see cref="T:Atom.Core.EntryPointDataModel`1"/> that contains this selector</param>
+            <param name="name">The name of the selector</param>
+            <param name="description">The description of the selector</param>
+            <param name="color">The color of the selector</param>
+            <param name="parentPath">The property parent path</param>
+            <param name="priority">The priority</param>
+        </member>
+        <member name="T:Atom.Communications.EmailMessengerPresetSelectorRuleDataModel">
+            <summary>
+            A <see cref="T:Atom.Communications.BaseMessengerPresetSelectorRuleDataModel`5"/> for an email messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetSelectorRuleDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetSelectorRuleDataModel.#ctor(System.Int32)">
+            <summary>
+            Minimal constructor
+            </summary>
+            <param name="optionSelectorId">The id of the option selector</param>
+        </member>
+        <member name="M:Atom.Communications.EmailMessengerPresetSelectorRuleDataModel.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="optionSelectorId">The id of the option selector</param>
+            <param name="propertyName">The property name</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="T:Atom.Communications.CommunicationMean">
+            <summary>
+            All the available communication means
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationMean.Application">
+            <summary>
+            Communication through the application
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationMean.SMS">
+            <summary>
+            Communication using SMS
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationMean.Email">
+            <summary>
+            Communication using email
+            </summary>
+        </member>
+        <member name="F:Atom.Communications.CommunicationMean.Other">
+            <summary>
+            Other communication method
+            </summary>
+        </member>
+        <member name="T:Atom.Communications.CommunicationState">
+            <summary>
+            The states of a communication
+            </summary>
+        </member>
+        <member name="T:Atom.Communications.MessageDataModel">
+            <summary>
+            Contains information related to a message that is about to be sent
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessageDataModel.Instance">
+            <summary>
+            The instance of the model that contains the information about the communication.
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessageDataModel.Receiver">
+            <summary>
+            The receivers
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessageDataModel.Name">
+            <summary>
+            Name identifier.
+            Ex. Labros Papadopoulos
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessageDataModel.Date">
+            <summary>
+            The date that the message should be scheduled if any
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.MessageDataModel.#ctor(System.Object,System.String,System.String,System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="instance">
+            The instance of the model that contains the information about the receiver.
+            NOTE: This model is used for defining the properties available for creating custom shortcodes!
+            </param>
+            <param name="receiver">The receiver</param>
+            <param name="name">Name identifier</param>
+            <param name="date">The date that the message should be scheduled if any</param>
+        </member>
+        <member name="T:Atom.Communications.MessageDataModel`1">
+            <summary>
+            A <see cref="T:Atom.Communications.MessageDataModel"/> with a specified type of data model
+            </summary>
+            <typeparam name="TDataModel">The type of the data model that contains the information about the communication</typeparam>
+        </member>
+        <member name="P:Atom.Communications.MessageDataModel`1.Instance">
+            <summary>
+            The instance of the model that contains the information about the communication.
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.MessageDataModel`1.#ctor(`0,System.String,System.String,System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="instance">
+            The instance of the model that contains the information about the receiver.
+            NOTE: This model is used for defining the properties available for creating custom shortcodes!
+            </param>
+            <param name="receiver">The receiver</param>
+            <param name="name">Name identifier</param>
+            <param name="date">The date that the message should be scheduled if any</param>
+        </member>
+        <member name="T:Atom.Communications.MessengerPresetSelector">
+            <summary>
+            A <see cref="T:Atom.Core.OptionSelector"/> used for selecting communication presets
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessengerPresetSelector.PresetId">
+            <summary>
+            The <see cref="P:Atom.Communications.BaseMessengerPresetDataModel`5.Id"/> of the <see cref="T:Atom.Communications.BaseMessengerPresetDataModel`5"/> that will be selected if the selector is valid
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.MessengerPresetSelector.#ctor(System.String,System.Object,System.String,System.Int32,System.Collections.Generic.IEnumerable{Atom.Core.OptionSelectorRule})">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="presetId">The <see cref="P:Atom.Communications.BaseMessengerPresetDataModel`5.Id"/> of the <see cref="T:Atom.Communications.BaseMessengerPresetDataModel`5"/> that will be selected if the selector is valid</param>
+            <param name="instance">The instance of the object that contains the information that will be used by the selector and its <paramref name="rules"/></param>
+            <param name="parentPath">The property path that navigates to a property or a sub property of the <paramref name="instance"/></param>
+            <param name="priority">The priority</param>
+            <param name="rules">The option selector rules that at least one must be satisfied in order for the selector to be valid</param>
+        </member>
+        <member name="T:Atom.Communications.BaseMessengerPresetSelectorDataModel`5">
+            <summary>
+            The base for all the messenger preset selector data models
+            </summary>
+            <typeparam name="TPresetSelectorDataModel">The type of the messenger preset selector data model</typeparam>
+            <typeparam name="TPresetSelectorRuleDataModel">The type of the messenger preset selector rule data model</typeparam>
+            <typeparam name="TPointDataModel">The type of the messenger point data model</typeparam>
+            <typeparam name="TPresetDataModel">The type of the messenger preset data model</typeparam>
+            <typeparam name="TPointShortcodeDataModel">The type of the entry point shortcode data model</typeparam>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.PointId">
+            <summary>
+            The <see cref="P:Atom.Core.EntryPointDataModel`1.Id"/> of the <see cref="T:Atom.Core.EntryPointDataModel`1"/> that contains this selector
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.PresetId">
+            <summary>
+            The <see cref="P:Atom.Communications.BaseMessengerPresetDataModel`5.Id"/> of the <see cref="T:Atom.Communications.BaseMessengerPresetDataModel`5"/> that will be selected if the selector is valid
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.Point">
+            <summary>
+            The messenger point retrieved using the <see cref="P:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.PointId"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.Preset">
+            <summary>
+            The messenger preset retrieved using the <see cref="P:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.PresetId"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="pointId">The <see cref="P:Atom.Core.EntryPointDataModel`1.Id"/> of the <see cref="T:Atom.Core.EntryPointDataModel`1"/> that contains this selector</param>
+            <param name="name">The name of the selector</param>
+            <param name="description">The description of the selector</param>
+            <param name="color">The color of the selector</param>
+            <param name="parentPath">The property parent path</param>
+            <param name="priority">The priority</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetSelectorDataModel`5.ToMessengerPresetSelector(System.Object)">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Communications.MessengerPresetSelector"/> from the current <see cref="T:Atom.Communications.BaseMessengerPresetSelectorDataModel`5"/>
+            </summary>
+            <param name="instance">The instance of the object that contains the information that will be used by the selector and its <see cref="P:Atom.Core.OptionSelector.Rules"/></param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Communications.BaseMessengerPresetSelectorRuleDataModel`5">
+            <summary>
+            The base for all the messenger preset selector rule data models
+            </summary>
+            <typeparam name="TPresetSelectorDataModel">The type of the messenger preset selector data model</typeparam>
+            <typeparam name="TPresetSelectorRuleDataModel">The type of the messenger preset selector rule data model</typeparam>
+            <typeparam name="TPointDataModel">The type of the messenger point data model</typeparam>
+            <typeparam name="TPresetDataModel">The type of the messenger preset data model</typeparam>
+            <typeparam name="TPointShortcodeDataModel">The type of the entry point shortcode data model</typeparam>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetSelectorRuleDataModel`5.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetSelectorRuleDataModel`5.#ctor(System.Int32)">
+            <summary>
+            Minimal constructor
+            </summary>
+            <param name="optionSelectorId">The id of the option selector</param>
+        </member>
+        <member name="M:Atom.Communications.BaseMessengerPresetSelectorRuleDataModel`5.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="optionSelectorId">The id of the option selector</param>
+            <param name="propertyName">The property name</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="T:Atom.Communications.SMSMessengerPointDataModel">
+            <summary>
+            A <see cref="T:Atom.Communications.BaseMessengerPointDataModel`5"/> used by an sms messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointDataModel.#ctor(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="name">The custom name used for identification by the user</param>
+            <param name="description">An optional description</param>
+            <param name="isActive">A flag indicating whether the entry point is active or not</param>
+            <param name="silentSend">A flag indicating whether automated send is active or not</param>
+        </member>
+        <member name="T:Atom.Communications.SMSMessengerPointPropertyShortcodeDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeDataModel`3"/> used by an sms messenger
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.SMSMessengerPointPropertyShortcodeDataModel.EntryPointId">
+            <summary>
+            The id of the entry point that contains this shortcode
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.SMSMessengerPointPropertyShortcodeDataModel.EntryPoint">
+            <summary>
+            The entry point related to this custom shortcode, retrieved using the <see cref="P:Atom.Communications.SMSMessengerPointPropertyShortcodeDataModel.EntryPointId"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointPropertyShortcodeDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointPropertyShortcodeDataModel.#ctor(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{Atom.Communications.SMSMessengerPointPropertyShortcodeValueTranslatorDataModel},System.Collections.Generic.IEnumerable{Atom.Communications.SMSMessengerPointPropertyShortcodeFilterDataModel})">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="propertyName">The name of the related property</param>
+            <param name="fallbackValue">The value that is used when the formula returns a null or empty string</param>
+            <param name="formula">A string value that represents the shortcode formula</param>
+            <param name="newLineAfterEveryItem">
+            If this is set to true a new line character is set after every item.
+            NOTE: This applies only to enumerables!
+            </param>
+            <param name="name">The name of the shortcode</param>
+            <param name="slug">The shortcode slug</param>
+            <param name="color">The color that represents the shortcode</param>
+            <param name="parent">
+            The parent path.
+            NOTE: This is used for shortcodes of a property of a sub-property and so on, of the instance that contains the property with the specified <see cref="P:Atom.Core.PropertyShortcodeDataModel`3.PropertyName"/>!
+            NOTE: This is set to <see cref="!:null"/> when the property with the specified <see cref="P:Atom.Core.PropertyShortcodeDataModel`3.PropertyName"/> is a property contained in the instance of the target type!
+            Ex: FirstLevelProperty.SecondLevelProperty
+            </param>
+            <param name="translators">The translators</param>
+            <param name="filters">The filters</param>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointPropertyShortcodeDataModel.#ctor(System.String,Atom.Core.PropertyShortcode)">
+            <summary>
+            Shortcode based constructor
+            </summary>
+            <param name="entryPointId">The entry point id</param>
+            <param name="shortcode">The shortcode</param>
+        </member>
+        <member name="T:Atom.Communications.SMSMessengerPointPropertyShortcodeFilterDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeFilterDataModel`3"/> used by an sms messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointPropertyShortcodeFilterDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointPropertyShortcodeFilterDataModel.#ctor(System.String,System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="propertyName">The name of the property that the translator used for filtering</param>
+            <param name="value">The value of the property</param>
+        </member>
+        <member name="T:Atom.Communications.SMSMessengerPointPropertyShortcodeValueTranslatorDataModel">
+            <summary>
+            A <see cref="T:Atom.Core.PropertyShortcodeValueTranslatorDataModel`3"/> used by an sms messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointPropertyShortcodeValueTranslatorDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPointPropertyShortcodeValueTranslatorDataModel.#ctor(System.Boolean,System.String,System.String,System.Boolean,Atom.Core.WordReplacementOperation,System.String,System.String,System.Int32)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="valueConversion"></param>
+            <param name="fromValue">The value to translate from</param>
+            <param name="formula">The formula value that the <see cref="P:Atom.Core.PropertyShortcodeValueTranslatorDataModel`3.FromValue"/> is translated to</param>
+            <param name="wordReplacement">A flag indicating whether word replacement is enabled or not</param>
+            <param name="wordReplacementOperation">The word replacement operation</param>
+            <param name="fromWord">The word to replace</param>
+            <param name="toWord">The word that the <see cref="P:Atom.Core.PropertyShortcodeValueTranslatorDataModel`3.FromWord"/> should be replaced with</param>
+            <param name="priority">The priority index</param>
+        </member>
+        <member name="T:Atom.Communications.SMSMessengerPresetDataModel">
+            <summary>
+            Represents an sms messenger preset
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.SMSMessengerPresetDataModel.Originator">
+            <summary>
+            The originator
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetDataModel.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="pointId">The <see cref="P:Atom.Core.EntryPointDataModel`1.Id"/> of the related <see cref="T:Atom.Core.EntryPointDataModel`1"/></param>
+            <param name="name">The name of the preset</param>
+            <param name="description">The optional description</param>
+            <param name="originator">The custom originator</param>
+            <param name="message">The message</param>
+            <param name="isActive">A flag indicating whether this preset is the active one and is used during the silent sends</param>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetDataModel.Equals(Atom.Communications.SMSMessengerPresetDataModel)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">The other object</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetDataModel.CompareTo(Atom.Communications.SMSMessengerPresetDataModel)">
+            <summary>
+            Compares the current object to the specified <paramref name="other"/>
+            </summary>
+            <param name="other">The object to be compared to</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Communications.SMSMessengerPresetSelectorDataModel">
+            <summary>
+            Α <see cref="T:Atom.Communications.BaseMessengerPresetSelectorDataModel`5"/> for a sms messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetSelectorDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetSelectorDataModel.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="pointId">The <see cref="P:Atom.Core.EntryPointDataModel`1.Id"/> of the <see cref="T:Atom.Core.EntryPointDataModel`1"/> that contains this selector</param>
+            <param name="name">The name of the selector</param>
+            <param name="description">The description of the selector</param>
+            <param name="color">The color of the selector</param>
+            <param name="parentPath">The property parent path</param>
+            <param name="priority">The priority</param>
+        </member>
+        <member name="T:Atom.Communications.SMSMessengerPresetSelectorRuleDataModel">
+            <summary>
+            A <see cref="T:Atom.Communications.BaseMessengerPresetSelectorRuleDataModel`5"/> for a sms messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetSelectorRuleDataModel.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetSelectorRuleDataModel.#ctor(System.Int32)">
+            <summary>
+            Minimal constructor
+            </summary>
+            <param name="optionSelectorId">The id of the option selector</param>
+        </member>
+        <member name="M:Atom.Communications.SMSMessengerPresetSelectorRuleDataModel.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Standard constructor
+            </summary>
+            <param name="optionSelectorId">The id of the option selector</param>
+            <param name="propertyName">The property name</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="T:Atom.Communications.MessageSentEventArgs">
+            <summary>
+            Provides data related to the <see cref="E:Atom.Communications.IMessenger.MessageSent"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessageSentEventArgs.Result">
+            <summary>
+            The result
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.MessageSentEventArgs.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Object)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+            <param name="date">The date</param>
+            <param name="result">The result</param>
+        </member>
+        <member name="T:Atom.Communications.MessageSentFailedEventArgs">
+            <summary>
+            Provides data related to the <see cref="E:Atom.Communications.IMessenger.MessageSentFailed"/> event
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.MessageSentFailedEventArgs.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset},System.Object)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+            <param name="date">The date</param>
+            <param name="result">The result</param>
+        </member>
+        <member name="T:Atom.Communications.MessageSentIntializedEventArgs">
+            <summary>
+            Provides data related to the <see cref="E:Atom.Communications.IMessenger.MessageSentInitialized"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessageSentIntializedEventArgs.Message">
+            <summary>
+            The message
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessageSentIntializedEventArgs.Receivers">
+            <summary>
+            The receivers
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.MessageSentIntializedEventArgs.Date">
+            <summary>
+            The schedule date if any
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.MessageSentIntializedEventArgs.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="date">The schedule date</param>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+        </member>
+        <member name="T:Atom.Communications.IEmailMessenger">
+            <summary>
+            Provides abstractions for an email messenger
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.IEmailMessenger.Originator">
+            <summary>
+            The originator
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.IEmailMessenger.OriginatorEmail">
+            <summary>
+            The originator email
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.IEmailMessenger.Subject">
+            <summary>
+            The subject
+            </summary>
+        </member>
+        <member name="T:Atom.Communications.IMessenger">
+            <summary>
+            Provides abstractions for a messenger
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.IMessenger.Id">
+            <summary>
+            The id of the messenger
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.IMessenger.Name">
+            <summary>
+            The name of the messenger
+            </summary>
+        </member>
+        <member name="M:Atom.Communications.IMessenger.SendAsync(System.String,System.String)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receiver"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receiver">The receiver</param>
+        </member>
+        <member name="M:Atom.Communications.IMessenger.SendAsync(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receivers"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.IMessenger.SendAsync(System.String,System.String,System.DateTimeOffset)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receiver"/>
+            at the specified <paramref name="dateTime"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receiver">The receiver</param>
+            <param name="dateTime">The date and time that the message will be send</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.IMessenger.SendAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.DateTimeOffset)">
+            <summary>
+            Sends the specified <paramref name="message"/> to the specified <paramref name="receivers"/>
+            at the specified <paramref name="dateTime"/>
+            </summary>
+            <param name="message">The message</param>
+            <param name="receivers">The receivers</param>
+            <param name="dateTime">The date and time that the message will be send</param>
+            <returns>An object that represents the result</returns>
+        </member>
+        <member name="M:Atom.Communications.IMessenger.CancelAsync(System.String)">
+            <summary>
+            Cancels the scheduled message with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">The id of the scheduled message</param>
+            <returns></returns>
+        </member>
+        <member name="E:Atom.Communications.IMessenger.MessageSentInitialized">
+            <summary>
+            Fires every time a message sent is initialized
+            </summary>
+        </member>
+        <member name="E:Atom.Communications.IMessenger.MessageSent">
+            <summary>
+            Fires every time a message is sent
+            </summary>
+        </member>
+        <member name="E:Atom.Communications.IMessenger.MessageSentFailed">
+            <summary>
+            Fires every time a message sent fails
+            </summary>
+        </member>
+        <member name="E:Atom.Communications.IMessenger.MessageCancelled">
+            <summary>
+            Fires every time the scheduling of a message gets cancelled
+            </summary>
+        </member>
+        <member name="T:Atom.Communications.ISMSMessenger">
+            <summary>
+            Provides abstractions for an sms messenger
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.ISMSMessenger.APIKey">
+            <summary>
+            The api key
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.ISMSMessenger.Originator">
+            <summary>
+            The originator
+            </summary>
+        </member>
+        <member name="P:Atom.Communications.ISMSMessenger.OriginatorCharactersLimit">
+            <summary>
+            The limit of characters of the originator
+            </summary>
+        </member>
+    </members>
+</doc>

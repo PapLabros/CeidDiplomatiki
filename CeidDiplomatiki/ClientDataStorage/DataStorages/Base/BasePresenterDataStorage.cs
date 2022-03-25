@@ -1,5 +1,4 @@
 ﻿using Atom.Core;
-using Atom.Relational.Analyzers;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -125,7 +124,7 @@ namespace CeidDiplomatiki
 
             var castedResult = new Failable<IEnumerable<T>>()
             {
-                Result = result.Result.Cast<object>().Select(x => (T)x).ToList(),
+                Result = result.Result.SelectBase(x => (T)x).ToList(),
                 ErrorMessage = result.ErrorMessage
             };
 
@@ -364,7 +363,7 @@ namespace CeidDiplomatiki
             var modelType = queryable.GetType().GetGenericArguments()[0];
 
             // Get the previous property type
-            var previousPropertyType = TypeHelpers.GetNonEnumerableType(queryable.GetType().GetGenericArguments()[1]);
+            var previousPropertyType = TypeHelpers.GetEnumerableType(queryable.GetType().GetGenericArguments()[1]);
 
             // Get the navigation property name
             var navigationPropertyName = CeidDiplomatikiHelpers.GetPluralForm(joinMap.ReferencedTable.TableName);

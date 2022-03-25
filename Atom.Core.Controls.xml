@@ -308,17 +308,6 @@
             A flag indicating whether we got a positive feedback or not
             </summary>
         </member>
-        <member name="M:Atom.Core.Controls.BaseDialogResult.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="M:Atom.Core.Controls.BaseDialogResult.ToString">
-            <summary>
-            Returns a string that represents the current object
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Atom.Core.Controls.StandardDialogResult">
             <summary>
             A standard <see cref="T:Atom.Core.Controls.BaseDialogResult"/>
@@ -451,12 +440,6 @@
             Default constructor
             </summary>
         </member>
-        <member name="M:Atom.Core.Controls.TextDialogResult.ToString">
-            <summary>
-            Returns a string that represents the current object
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Atom.Core.Controls.TransitionalDialogResult">
             <summary>
             A <see cref="T:Atom.Core.Controls.BaseDialogResult"/> used when displaying a transitional dialog to the user
@@ -562,6 +545,268 @@
             <param name="sender">The owner of the handler</param>
             <param name="e">Event arguments</param>
         </member>
+        <member name="T:Atom.Core.Controls.IColor">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IColor.Color"/> property and the <see cref="E:Atom.Core.Controls.IColor.ColorChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IColor.Color">
+            <summary>
+            The color
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IColor.ColorChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IColor.Color"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IColor.OnColorChange(System.String)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IColor.ColorChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IContent">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IContent.Content"/> property and the <see cref="E:Atom.Core.Controls.IContent.ContentChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IContent.Content">
+            <summary>
+            The content
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IContent.ContentChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IContent.Content"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IContent.OnContentChange(Atom.Core.Controls.IView)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IContent.ContentChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ICoordinates">
+            <summary>
+            Interface that forces the implementation of the coordinates properties and events
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ICoordinates.X">
+            <summary>
+            The X coordinate
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ICoordinates.Y">
+            <summary>
+            The Y coordinate
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ICoordinates.XChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ICoordinates.X"/> property changes
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ICoordinates.YChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ICoordinates.Y"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ICoordinates.OnXChange(System.Double)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ICoordinates.XChanged"/> event
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ICoordinates.OnYChange(System.Double)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ICoordinates.YChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IDate">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IDate.Date"/> property and <see cref="E:Atom.Core.Controls.IDate.DateChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IDate.Date">
+            <summary>
+            The date
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IDate.DateChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IDate.Date"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IDate.OnDateChange(System.DateTime)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IDate.DateChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IEnabled">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IEnabled.Enabled"/> property and <see cref="E:Atom.Core.Controls.IEnabled.EnabledChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IEnabled.Enabled">
+            <summary>
+            If true, it's enabled, otherwise it isn't
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IEnabled.EnabledChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IEnabled.Enabled"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IEnabled.OnEnabledChange(System.Boolean)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IEnabled.EnabledChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IError">
+            <summary>
+            Interface that forces the implementation of an error property
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IError.Error">
+            <summary>
+            If true, there is an error, otherwise we are golden
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IError.ErrorMessage">
+            <summary>
+            The error message
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IError.ErrorChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IError.Error"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IError.OnErrorChange(System.Boolean)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IError.ErrorChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IHint">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IHint.Hint"/> property and the <see cref="E:Atom.Core.Controls.IHint.HintChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IHint.Hint">
+            <summary>
+            The hint
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IHint.HintForeColor">
+            <summary>
+            The text color of the hint
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IHint.HintChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IHint.Hint"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IHint.OnHintChange(System.String)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IHint.HintChanged"/> event
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:Atom.Core.Controls.IIcon">
+            <summary>
+            Interface that forces the implementation of the icon property
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IIcon.Icon">
+            <summary>
+            The icon
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IIcon.HasIcon">
+            <summary>
+            If true, there is an icon, otherwise there isn't
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IIcon.IconFontSize">
+            <summary>
+            The font size of the icon
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IIcon.IconChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IIcon.Icon"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IIcon.OnIconChange(System.String)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IIcon.IconChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IIndex">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IView.View"/> and the <see cref="P:Atom.Core.Controls.IIndex.Index"/> properties
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IIndex.Index">
+            <summary>
+            The placement index of the view
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IInputOptions">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IInputOptions.InputLimit"/>, <see cref="P:Atom.Core.Controls.IInputOptions.AllowSpaces"/> and <see cref="P:Atom.Core.Controls.IInputOptions.AllowedChars"/> properties
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IInputOptions.InputLimit">
+            <summary>
+            The maximum length of the string in the input control 
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IInputOptions.AllowSpaces">
+            <summary>
+            A flag indicating whether the input text is allowed to have spaces
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IInputOptions.AllowedChars">
+            <summary>
+            An array of the allowed chars.
+            If it's empty then all the chars are allowed!
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IMessage">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IMessage.Message"/> property and <see cref="E:Atom.Core.Controls.IMessage.MessageChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IMessage.Message">
+            <summary>
+            The message
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IMessage.MessageChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IMessage.Message"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IMessage.OnMessageChange(System.String)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IMessage.MessageChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IParent">
+            <summary>
+            Interface that used to identify a parent
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IParent.IsMain">
+             <summary>
+            If true, it's the main parent, otherwise it isn't
+             </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IParent.Close">
+            <summary>
+            Closes the parent
+            </summary>
+        </member>
         <member name="T:Atom.Core.Controls.IPassword">
             <summary>
             Interface that forces the implementation of a <see cref="P:Atom.Core.Controls.IPassword.SecurePassword"/> property and the password changed event
@@ -571,6 +816,254 @@
             <summary>
             The password
             </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IPrimaryCommand">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IPrimaryCommand.PrimaryCommand"/> property
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IPrimaryCommand.PrimaryCommand">
+            <summary>
+            The primary action
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ISecondaryCommand">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.ISecondaryCommand.SecondaryCommand"/> property
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISecondaryCommand.SecondaryCommand">
+            <summary>
+            The secondary action
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ISelectable">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.ISelectable.Selected"/> property and the <see cref="E:Atom.Core.Controls.ISelectable.SelectedChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISelectable.Selected">
+            <summary>
+            If true, it's selected, otherwise it isn't
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ISelectable.SelectedChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ISelectable.Selected"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ISelectable.OnSelectedChange(System.Boolean)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ISelectable.SelectedChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ISize">
+            <summary>
+            Interface that forces the implementation of the size properties and events
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISize.MinWidth">
+            <summary>
+            The minimum width of the control
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISize.MinHeight">
+            <summary>
+            The minimum height of the control
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISize.Width">
+            <summary>
+            The controls width
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISize.Height">
+            <summary>
+            The controls height
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISize.MaxWidth">
+            <summary>
+            The controls maximum width
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISize.MaxHeight">
+            <summary>
+            The controls maximum width
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ISize.MinWidthChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ISize.MinWidth"/> property changes 
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ISize.MinHeightChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ISize.MinHeight"/> property changes 
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ISize.WidthChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ISize.Width"/> property changes 
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ISize.HeightChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ISize.Height"/> property changes 
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ISize.MaxWidthChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ISize.MaxWidth"/> property changes 
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ISize.MaxHeightChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ISize.MaxHeight"/> property changes 
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ISize.OnMinWidthChange(System.Double)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ISize.MinWidthChanged"/> event
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ISize.OnMinHeightChange(System.Double)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ISize.MinHeightChanged"/> event
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ISize.OnWidthChange(System.Double)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ISize.WidthChanged"/> event
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ISize.OnHeightChange(System.Double)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ISize.HeightChanged"/> event
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ISize.OnMaxWidthChange(System.Double)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ISize.MaxWidthChanged"/> event
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ISize.OnMaxHeightChange(System.Double)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ISize.MaxHeightChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ISuccess">
+            <summary>
+            Interface that forces the implementation of a success property
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISuccess.Success">
+            <summary>
+            If true, we are golden, otherwise we are bronze
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ISuccess.SuccessMessage">
+            <summary>
+            The success message
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.ISuccess.SuccessChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.ISuccess.Success"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ISuccess.OnSuccessChange(System.Boolean)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.ISuccess.SuccessChanged"/> event
+            </summary>
+            <param name="flag"></param>
+        </member>
+        <member name="T:Atom.Core.Controls.IText">
+            <summary>
+            Interface that forces the implementation of the text properties
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IText.Text">
+            <summary>
+            The text
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IText.HasText">
+            <summary>
+            If true, there is text, otherwise there isn't
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IText.FontSize">
+            <summary>
+            The font size of the text
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IText.TextChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IText.Text"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IText.OnTextChange(System.String)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IText.TextChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IView">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IView.View"/> property
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IView.View">
+            <summary>
+            The view property
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.IVisible">
+            <summary>
+            Interface that forces the implementation of the <see cref="P:Atom.Core.Controls.IVisible.Visible"/> property and the <see cref="E:Atom.Core.Controls.IVisible.VisibleChanged"/> event
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.IVisible.Visible">
+            <summary>
+            If true, it's visible, otherwise it's not
+            </summary>
+        </member>
+        <member name="E:Atom.Core.Controls.IVisible.VisibleChanged">
+            <summary>
+            Event that fires every time the <see cref="P:Atom.Core.Controls.IVisible.Visible"/> property changes
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.IVisible.OnVisibleChange(System.Boolean)">
+            <summary>
+            Fires the <see cref="E:Atom.Core.Controls.IVisible.VisibleChanged"/> event
+            </summary>
+        </member>
+        <member name="T:Atom.Core.Controls.ViewBasedViewModel">
+            <summary>
+            A standard view model that fires the property changed when needed
+            </summary>
+        </member>
+        <member name="F:Atom.Core.Controls.ViewBasedViewModel.mView">
+            <summary>
+            The <see cref="P:Atom.Core.Controls.ViewBasedViewModel.View"/> member
+            </summary>
+        </member>
+        <member name="P:Atom.Core.Controls.ViewBasedViewModel.View">
+            <summary>
+            The view of the control created using the DI if required
+            </summary>
+        </member>
+        <member name="M:Atom.Core.Controls.ViewBasedViewModel.CreateView">
+            <summary>
+            Creates and returns the view that this view model controls
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Core.Controls.ViewBasedViewModel.SetView">
+            <summary>
+            Creates the view using the <see cref="M:Atom.Core.Controls.ViewBasedViewModel.CreateView"/> method and sets its data context before return it
+            </summary>
+            <returns></returns>
         </member>
     </members>
 </doc>

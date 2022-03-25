@@ -10,7 +10,7 @@ namespace CeidDiplomatiki
     /// <summary>
     /// The page used for configuring the CeidDiplomatiki pages
     /// </summary>
-    public class PageMapsPage : BaseFullyInitializableDataPresenterPage<PageMap>
+    public class PageMapsPage : ConventionalBaseDataPresenterPage<PageMap>
     {
         #region Protected Properties
 
@@ -50,12 +50,12 @@ namespace CeidDiplomatiki
                 .ShowData(x => x.Pages)
 
                 .SetColorUIElement(x => x.Color)
-                .SetDataPresenterSubElement(x => x.Pages,
-                                            model => model.Pages.Count.ToString("page", "pages", "No pages"),
-                                            model => CreateDataPresenter(),
-                                            (presenter, model, button) =>
+                .SetDataPresenterSubElement(x => x.Pages, 
+                                            model => model.Pages.Count.ToString("page", "pages", "No pages"), 
+                                            model => CreateDataPresenter(), 
+                                            (presenter, model, button) => 
                                             {
-                                                button.VectorSource = IconPaths.PlusPath;
+                                                button.PathData = IconPaths.PlusPath;
 
                                                 button.Command = new RelayCommand(async () =>
                                                 {
@@ -99,27 +99,24 @@ namespace CeidDiplomatiki
                                                     presenter.Add(form.Model);
                                                 });
                                             })
-
-                .ConfigureOptions((container, grid, row, model) =>
+                
+                .SetEditOption(() => CeidDiplomatikiDataModelHelpers.CreatePageMapDataForm(), "Page modification", null, async (model) => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync())
+                .SetDeleteOption("Page deletion", null, async (model) => 
                 {
-                    container.AddEditOption("Page modification", null, () => CeidDiplomatikiDataModelHelpers.CreatePageMapDataForm(), async (model) => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync());
-                    container.AddDeleteOption("Page deletion", null, async (model) =>
-                    {
-                        // Get the manger
-                        var manager = CeidDiplomatikiDI.GetCeidDiplomatikiManager;
+                    // Get the manger
+                    var manager = CeidDiplomatikiDI.GetCeidDiplomatikiManager;
 
-                        // If there is a parent...
-                        if (model.Parent != null)
-                            // Remove the model form the parent
-                            model.Parent.Pages.Remove(model);
-                        // Else...
-                        else
-                            // This is a root page so remove it from the manager
-                            manager.Unregister(model);
+                    // If there is a parent...
+                    if (model.Parent != null)
+                        // Remove the model form the parent
+                        model.Parent.Pages.Remove(model);
+                    // Else...
+                    else
+                        // This is a root page so remove it from the manager
+                        manager.Unregister(model);
 
-                        // Save the changes
-                        return await manager.SaveChangesAsync();
-                    });
+                    // Save the changes
+                    return await manager.SaveChangesAsync();
                 });
         }
 

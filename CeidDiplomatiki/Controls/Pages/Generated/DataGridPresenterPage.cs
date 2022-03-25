@@ -1,6 +1,9 @@
-﻿using Atom.Core;
+﻿using Atom.Communications;
+using Atom.Core;
 using Atom.Windows;
 using Atom.Windows.Controls;
+using Atom.Windows.PlugIns.Communications;
+using Atom.Windows.PlugIns.Data;
 
 using System;
 using System.Collections;
@@ -13,7 +16,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {
@@ -184,7 +187,7 @@ namespace CeidDiplomatiki
                 return;
 
             // If no more items were returned...
-            if (DataPresenter.ItemsCount > 0 && result.Result.Cast<object>().Count() == 0)
+            if (DataPresenter.ItemsCount > 0 && result.Result.CountBase() == 0)
             {
                 // Show a hint dialog
                 await DialogHelpers.ShowInfoHintDialogAsync(this, GetNoMoreDataWereRetrievedMessage());
@@ -194,7 +197,7 @@ namespace CeidDiplomatiki
             }
 
             // If no data at all were retrieved...
-            if (result.Result.Cast<object>().Count() == 0)
+            if (result.Result.CountBase() == 0)
             {
                 // Show a hint dialog
                 await DialogHelpers.ShowInfoHintDialogAsync(this, GetNoDataWereRetrievedMessage());
@@ -225,7 +228,7 @@ namespace CeidDiplomatiki
         /// NOTE: Usually used for creating the UI elements after the initialization succeeded!
         /// </summary>
         /// <returns></returns>
-        protected async override Task OnSuccessfulInitializationAsync()
+        protected async override Task OnSuccessfulInitialization()
         {
             // Create the data grid type
             var dataGridType = typeof(CollapsibleDataGrid<>).MakeGenericType(PresenterMap.QueryMap.RootType);
@@ -289,7 +292,7 @@ namespace CeidDiplomatiki
                     form.ShowOption(property, (string)Mapper.UnsafeGet(PropertyMapperExtensions.Title, property, property.Name), null, null, DataGridMap.Columns.Any(x => x.Name == property.Name));
 
                 // Show a dialog
-                var dialogResult = await DialogHelpers.ShowSelectMultipleDialogAsync(this, "Field selection", null, form, IconPaths.SettingsPath);
+                var dialogResult = await DialogHelpers.ShowOptionsSelectionDialogAsync(this, "Field selection", null, form, IconPaths.SettingsPath);
 
                 // If we didn't get positive feedback...
                 if (!dialogResult.Feedback)
@@ -337,6 +340,104 @@ namespace CeidDiplomatiki
                 });
             }
 
+            // For every data plug in...
+            foreach (var dataPlugIn in DI.GetServices<IDataPlugIn>())
+            {
+                // If the plug in doesn't support export or import...
+                if (!dataPlugIn.SupportsExport && !dataPlugIn.SupportsImport)
+                    // Continue
+                    continue;
+
+                // Add an option
+                OptionsContainer.AddOption(dataPlugIn.Name, async (button) =>
+                {
+                    // A flag indicating whether the plug in should be used for exporting data.
+                    // NOTE: If the flag is set to true then we will the plug in for exporting data
+                    //       otherwise will user it to import data!
+                    var export = true;
+
+                    // If the plug in can export an import...
+                    if (dataPlugIn.SupportsExport && dataPlugIn.SupportsImport)
+                    {
+                        // Show a select dialog
+                        var dialogResult = await DialogHelpers.ShowStackPanelSelectSingleDialogAsync(this, dataPlugIn.Name, null, new List<string>() { "Export", "Import" }, x => new InformationalButton() { Text = x }, null, dataPlugIn.PathData);
+
+                        // If we got negative feedback...
+                        if (!dialogResult.Feedback)
+                            // Return
+                            return;
+
+                        // Set the flag
+                        export = dialogResult.Model == "Export";
+                    }
+                    // If the plug in supports only import...
+                    else if (dataPlugIn.SupportsImport)
+                        // Set the flag
+                        export = false;
+
+                    // If we should export...
+                    if (export == true)
+                    {
+                        // Get the export method
+                        var method = typeof(PlugInHelpers).GetMethod(nameof(PlugInHelpers.CallDataPlugInExportMethodAsync), BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy).MakeGenericMethod(DataGridMap.Type, typeof(DataGridPresenterArgs));
+
+                        // Call the export method
+                        var task = (Task)method.Invoke(this, new object[] { dataPlugIn, this, Mapper, DataStorage, new DataGridPresenterArgs() { PerPage = int.MaxValue } });
+                        await task;
+
+                        // Get the result property
+                        var resultProperty = task.GetType().GetProperty(nameof(Task<object>.Result));
+
+                        // Get the result
+                        var result = (IFailable)resultProperty.GetValue(task);
+
+                        // If there was an error...
+                        if (!result.Successful)
+                            // Show the error
+                            await result.ShowDialogAsync(this);
+                    }
+                    // If we should import...
+                    else
+                    {
+                        // Get the export method
+                        var method = typeof(PlugInHelpers).GetMethod(nameof(PlugInHelpers.CallDataPlugInImportMethodAsync), BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy).MakeGenericMethod(DataGridMap.Type);
+
+                        // Call the export method
+                        var task = (Task)method.Invoke(this, new object[] { dataPlugIn, this, Mapper });
+                        await task;
+
+                        // Get the result property
+                        var resultProperty = task.GetType().GetProperty(nameof(Task<object>.Result));
+
+                        // Get the result
+                        var result = (IFailable<IEnumerable<object>>)resultProperty.GetValue(task);
+
+                        // If there was an error...
+                        if (!result.Successful)
+                        {
+                            // Show the error
+                            await result.ShowDialogAsync(this);
+
+                            // Return
+                            return;
+                        }
+
+                        // If there are models...
+                        if (!result.Result.IsNullOrEmpty())
+                        {
+                            // For every model..
+                            foreach (var model in result.Result)
+                            {
+
+                            }
+                        }
+
+                        // Show a changes dialog
+                        await DialogHelpers.ShowChangesSavedHintDialogAsync(this);
+                    }
+                }, dataPlugIn.PathData, dataPlugIn.Name, dataPlugIn.Color.ToColor());
+            }
+
             // Add it to the content grid
             ContentGrid.Children.Add(OptionsContainer);
 
@@ -351,6 +452,107 @@ namespace CeidDiplomatiki
 
             // Get the last name property map if any
             var lastNamePropertyMap = QueryMap.PropertyMaps.FirstOrDefault(x => x.Attributes.Any(y => y.Equals(ColumnAttributes.LastName)));
+
+            // For every communication plug in...
+            foreach (var communicationPlugIn in DI.GetServices<ICommunicationPlugIn>())
+            {
+                // The property map that will be used
+                var propertyMap = default(PropertyMap);
+
+                // If this is an SMS plug in...
+                if (communicationPlugIn.CommunicationMean == CommunicationMean.SMS)
+                {
+                    // If there isn't a phone number property map...
+                    if (phoneNumberPropertyMap == null)
+                        // Continue
+                        continue;
+
+                    // Set the property map
+                    propertyMap = phoneNumberPropertyMap;
+                }
+                // If this is an Email plug in
+                else if (communicationPlugIn.CommunicationMean == CommunicationMean.Email)
+                {
+                    // If there isn't an email property map...
+                    if (emailPropertyMap == null)
+                        // Continue
+                        continue;
+
+                    // Set the property map
+                    propertyMap = emailPropertyMap;
+                }
+
+                // Add an option
+                DataPresenter.SetOption(communicationPlugIn.Name, async (button, grid, model) =>
+                {
+                    // Disable the button
+                    button.IsEnabled = false;
+
+                    // If the plug in isn't configured...
+                    if (!communicationPlugIn.HasRegisteredPoint(model.GetType().Name))
+                    {
+                        // Show the error
+                        await DialogHelpers.ShowErrorDialogAsync(this, $"A communication point for the order model: {model.GetType().Name}, hasn't be set!");
+
+                        // Re-enable the button
+                        button.IsEnabled = true;
+
+                        // Return
+                        return;
+                    }
+
+                    // Get the receiver
+                    var receiverString = propertyMap.PropertyInfo.GetValue(model).ToPotentialNullString();
+
+                    // Check if the receiver is valid...
+                    var isValidReceiver = communicationPlugIn.ValidateReceiver(receiverString, out var error);
+
+                    // If the receiver isn't valid...
+                    if (!isValidReceiver)
+                    {
+                        // Show an error dialog
+                        await DialogHelpers.ShowErrorDialogAsync(this, error);
+
+                        // Re-enable the button
+                        button.IsEnabled = true;
+
+                        // Return
+                        return;
+                    }
+
+                    // Get the export method
+                    var method = typeof(PlugInHelpers).GetMethod(nameof(PlugInHelpers.CallCommunicationPlugInSendMessageMethodAsync), BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy).MakeGenericMethod(DataGridMap.Type);
+
+                    // Call the export method
+                    var task = (Task)method.Invoke(this, new object[] { communicationPlugIn, this, receiverString, model, $"{firstNamePropertyMap?.PropertyInfo.GetValue(model)} {lastNamePropertyMap?.PropertyInfo.GetValue(model)}" });
+                    await task;
+
+                    // Get the result property
+                    var resultProperty = task.GetType().GetProperty(nameof(Task<object>.Result));
+
+                    // Get the result
+                    var result = (IFailable)resultProperty.GetValue(task);
+
+                    // If there was an error...
+                    if (!result.Successful)
+                    {
+                        // Show the error
+                        await result.ShowDialogAsync(this);
+
+                        // Re-enable the button
+                        button.IsEnabled = true;
+
+                        // Return
+                        return;
+                    }
+
+                    // Re-enable the button
+                    button.IsEnabled = true;
+
+                    // Show a success dialog
+                    await DialogHelpers.ShowSuccessHintDialogAsync(this, "Message sent!");
+                }, communicationPlugIn.PathData, communicationPlugIn.Name, communicationPlugIn.Color.ToColor());
+            }
 
             // Configure the presenter
             ConfigurePresenter(PresenterMap, DataGridMap, DataPresenter);
@@ -377,29 +579,14 @@ namespace CeidDiplomatiki
                     if (propertyMap.Attributes.Any(x => x.Equals(ColumnAttributes.HEXColor)))
                     {
                         // Show a string color input
-                        form.UnsafeShowInput(propertyMap.PropertyInfo, settings => 
-                        {
-                            settings.CustomFormInputImplementationFactory = (form, propertyInfo) => new StringColorFormInput(form, propertyInfo);
-                            settings.Name = propertyMap.Name; 
-                            settings.IsRequired = propertyMap.IsRequired;
-                            settings.Description = propertyMap.Description;
-                            settings.IsReadOnly = propertyMap.IsPreview;
-                            settings.Color = propertyMap.Color;
-                        });
+                        form.UnsafeShowCustomFormInput(propertyMap.PropertyInfo, (form, propertyInfo) => new StringColorFormInput(form, propertyInfo), false, propertyMap.Name, propertyMap.IsRequired, propertyMap.Description, propertyMap.IsPreview, null, propertyMap.Color);
 
                         // Continue
                         continue;
                     }
 
                     // Show a standard input
-                    form.UnsafeShowInput(propertyMap.PropertyInfo, settings => 
-                    {
-                        settings.Name = propertyMap.Name;
-                        settings.IsRequired = propertyMap.IsRequired;
-                        settings.Description = propertyMap.Description;
-                        settings.IsReadOnly = propertyMap.IsPreview;
-                        settings.Color = propertyMap.Color;
-                    });
+                    form.UnsafeShowInput(propertyMap.PropertyInfo, propertyMap.Name, propertyMap.IsRequired, propertyMap.Description, propertyMap.IsPreview, null, propertyMap.Color);
                 }
 
                 // Show a dialog
@@ -500,7 +687,7 @@ namespace CeidDiplomatiki
                 if (column.PropertyType != typeof(string) && column.PropertyType.IsGenericIEnumerable())
                 {
                     // Get type of the models that the presenter will presenter
-                    var modelType = TypeHelpers.GetNonEnumerableType(column.PropertyType);
+                    var modelType = TypeHelpers.GetEnumerableType(column.PropertyType);
 
                     // Create the presenter type
                     var presenterType = typeof(CollapsibleDataGrid<>).MakeGenericType(modelType);
@@ -512,7 +699,7 @@ namespace CeidDiplomatiki
                         if (value == null)
                             return "No items";
 
-                        var count = value.Cast<object>().Count();
+                        var count = value.CountBase();
 
                         if (count == 1)
                             return "1 item";
@@ -600,140 +787,118 @@ namespace CeidDiplomatiki
             // If the data of the presenter can get manipulated...
             if (dataGridMap.AllowEdit)
             {
-                dataPresenter.ConfigureOptions((container, presenter, model) =>
+                dataPresenter.SetOption("edit", async (button, presenter, model) =>
                 {
-                    container.AddOption("edit", async (button) =>
+                    // Disable the button
+                    button.IsEnabled = false;
+
+                    // Create the form type
+                    var formType = typeof(DataForm<>).MakeGenericType(dataGridMap.Type);
+
+                    // Create the form
+                    var form = (IDataForm)Activator.CreateInstance(formType);
+
+                    form.Model = model;
+
+                    // For every property map related to this data grid...
+                    foreach(var propertyMap in QueryMap.PropertyMaps.Where(x => x.Type == dataGridMap.Type && (x.IsEditable || x.IsPreview)).OrderBy(x => x.Order))
                     {
-                        // Disable the button
-                        button.IsEnabled = false;
-
-                        // Create the form type
-                        var formType = typeof(DataForm<>).MakeGenericType(dataGridMap.Type);
-
-                        // Create the form
-                        var form = (IDataForm)Activator.CreateInstance(formType);
-
-                        form.Model = model;
-
-                        // For every property map related to this data grid...
-                        foreach(var propertyMap in QueryMap.PropertyMaps.Where(x => x.Type == dataGridMap.Type && (x.IsEditable || x.IsPreview)).OrderBy(x => x.Order))
+                        if (propertyMap.Attributes.Any(x => x.Equals(ColumnAttributes.HEXColor)))
                         {
-                            if (propertyMap.Attributes.Any(x => x.Equals(ColumnAttributes.HEXColor)))
-                            {
-                                // Show a string color input
-                                form.UnsafeShowInput(propertyMap.PropertyInfo, settings =>
-                                {
-                                    settings.CustomFormInputImplementationFactory = (form, propertyInfo) => new StringColorFormInput(form, propertyInfo);
-                                    settings.Name = propertyMap.Name;
-                                    settings.IsRequired = propertyMap.IsRequired;
-                                    settings.Description = propertyMap.Description;
-                                    settings.IsReadOnly = propertyMap.IsPreview;
-                                    settings.Color = propertyMap.Color;
-                                });
+                            // Show a string color input
+                            form.UnsafeShowCustomFormInput(propertyMap.PropertyInfo, (form, propertyInfo) => new StringColorFormInput(form, propertyInfo), false, propertyMap.Name, propertyMap.IsRequired, propertyMap.Description, propertyMap.IsPreview, null, propertyMap.Color);
 
-                                // Continue
-                                continue;
-                            }
-
-                            // Show a standard input
-                            form.UnsafeShowInput(propertyMap.PropertyInfo, settings =>
-                            {
-                                settings.Name = propertyMap.Name;
-                                settings.IsRequired = propertyMap.IsRequired;
-                                settings.Description = propertyMap.Description;
-                                settings.IsReadOnly = propertyMap.IsPreview;
-                                settings.Color = propertyMap.Color;
-                            });
+                            // Continue
+                            continue;
                         }
 
-                        // Show a dialog
-                        var dialogResult = await DialogHelpers.ShowValidationDialogAsync(this, "Item modification", null, form.Element, element => form.Validate(), PageMap.PathData, overlay => overlay.PositiveFeedbackText = "Update");
+                        // Show a standard input
+                        form.UnsafeShowInput(propertyMap.PropertyInfo, propertyMap.Name, propertyMap.IsRequired, propertyMap.Description, propertyMap.IsPreview, null, propertyMap.Color);
+                    }
 
-                        // If we didn't get positive feedback...
-                        if (!dialogResult.Feedback)
-                        {
-                            // Re enable the button
-                            button.IsEnabled = true;
+                    // Show a dialog
+                    var dialogResult = await DialogHelpers.ShowValidationDialogAsync(this, "Item modification", null, form.Element, element => form.Validate(), PageMap.PathData, overlay => overlay.PositiveFeedbackText = "Update");
 
-                            // Return
-                            return;
-                        }
-
-                        // Update the values of the model
-                        form.UpdateModelValues();
-
-                        // Update the item
-                        var result = await DialogHelpers.ShowUpdateLoadingHintDialogAsync(this, () => DataStorage.UpdateDataAsync(model));
-
+                    // If we didn't get positive feedback...
+                    if (!dialogResult.Feedback)
+                    {
                         // Re enable the button
                         button.IsEnabled = true;
 
-                        // If there was an error...
-                        if (!result.Successful)
-                        {
-                            // Show the error
-                            await result.ShowDialogAsync(this);
+                        // Return
+                        return;
+                    }
 
-                            // Return
-                            return;
-                        }
+                    // Update the values of the model
+                    form.UpdateModelValues();
 
-                        // Update the data presenter
-                        presenter.Update(model);
+                    // Update the item
+                    var result = await DialogHelpers.ShowUpdateLoadingHintDialogAsync(this, () => DataStorage.UpdateDataAsync(model));
 
-                        // Show a success dialog
-                        await DialogHelpers.ShowChangesSavedHintDialogAsync(this);
-                    }, IconPaths.EditPath, "Edit", Blue);
-                });
+                    // Re enable the button
+                    button.IsEnabled = true;
+
+                    // If there was an error...
+                    if (!result.Successful)
+                    {
+                        // Show the error
+                        await result.ShowDialogAsync(this);
+
+                        // Return
+                        return;
+                    }
+
+                    // Update the data presenter
+                    presenter.Update(model);
+
+                    // Show a success dialog
+                    await DialogHelpers.ShowChangesSavedHintDialogAsync(this);
+                }, IconPaths.EditPath, "Edit", Blue.ToColor());
             }
 
             // If the data of the presenter can get deleted...
             if (dataGridMap.AllowDelete)
             {
-                dataPresenter.ConfigureOptions((container, presenter, model) =>
+                dataPresenter.SetOption("delete", async (button, presenter, model) =>
                 {
-                    container.AddOption("delete", async (button) =>
+                    // Disable the button
+                    button.IsEnabled = false;
+
+                    // Show a transitional dialog
+                    var dialogResult = await DialogHelpers.ShowDeletionTransitionalDialogAsync(this, "Item deletion", null, IconPaths.DeletePath);
+
+                    // If we didn't get positive feedback...
+                    if (!dialogResult.Feedback)
                     {
-                        // Disable the button
-                        button.IsEnabled = false;
-
-                        // Show a transitional dialog
-                        var dialogResult = await DialogHelpers.ShowDeletionTransitionalDialogAsync(this, "Item deletion", null, IconPaths.DeletePath);
-
-                        // If we didn't get positive feedback...
-                        if (!dialogResult.Feedback)
-                        {
-                            // Re enable the button
-                            button.IsEnabled = true;
-
-                            // Return
-                            return;
-                        }
-
-                        // Delete the data
-                        var result = await DialogHelpers.ShowDeleteLoadingHintDialogAsync(this, () => DataStorage.DeleteDataAsync(model));
-
-                        // If there was an error...
-                        if (!result.Successful)
-                        {
-                            // Re enable the button
-                            button.IsEnabled = true;
-
-                            // Show the error
-                            await result.ShowDialogAsync(this);
-
-                            // Return
-                            return;
-                        }
-
-                        // Remove the model from the data presenter
-                        presenter.Remove(model);
-
                         // Re enable the button
                         button.IsEnabled = true;
-                    }, IconPaths.DeletePath, "Delete", Red);
-                });
-                
+
+                        // Return
+                        return;
+                    }
+
+                    // Delete the data
+                    var result = await DialogHelpers.ShowDeleteLoadingHintDialogAsync(this, () => DataStorage.DeleteDataAsync(model));
+
+                    // If there was an error...
+                    if (!result.Successful)
+                    {
+                        // Re enable the button
+                        button.IsEnabled = true;
+
+                        // Show the error
+                        await result.ShowDialogAsync(this);
+
+                        // Return
+                        return;
+                    }
+
+                    // Remove the model from the data presenter
+                    presenter.Remove(model);
+
+                    // Re enable the button
+                    button.IsEnabled = true;
+                }, IconPaths.DeletePath, "Delete", Red.ToColor());
             }
         }
 
@@ -745,14 +910,13 @@ namespace CeidDiplomatiki
         private void SetSearchRules<TClass>(CollapsibleDataGrid<TClass> dataGrid)
             where TClass : class
         {
-            dataGrid.ConfigureFilters((container, grid) =>
-            {
-                container.AddSearchFilter(value =>
-                {
-                    Args.Search = value;
+            dataGrid.SetSearchRule((model, target, value) => true);
 
-                    Update();
-                });
+            dataGrid.TypingFinished += new EventHandler<SearchEventArgs>((sender, e) =>
+            {
+                Args.Search = e.SearchValue;
+
+                Update();
             });
         }
 
@@ -762,7 +926,7 @@ namespace CeidDiplomatiki
 
         protected class InnerCollapsibleDataGridPage : BaseControl
         {
-            #region Private Members
+            #region Private Methods
 
             /// <summary>
             /// The current page index

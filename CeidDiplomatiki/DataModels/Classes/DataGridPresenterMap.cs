@@ -1,5 +1,4 @@
 ﻿using Atom.Core;
-using Atom.Relational.Analyzers;
 
 using System;
 using System.Collections.Generic;
@@ -405,7 +404,7 @@ namespace CeidDiplomatiki
     }
 
     /// <summary>
-    /// Represents a <see cref="DbProviderColumn"/>
+    /// Represents a <see cref="IDbProviderColumn"/>
     /// </summary>
     public class DbProviderColumnDataModel
     {

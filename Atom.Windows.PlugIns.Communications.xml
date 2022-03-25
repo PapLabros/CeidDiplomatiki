@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.PlugIns.Communications</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.PlugIns.Communications.CommunicationPoint">
+            <summary>
+            Represents an entry point
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.PlugIn">
+            <summary>
+            The plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.Id">
+            <summary>
+            The id of the entry point.
+            Ex. Store, Subscriptions
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.DataModelType">
+            <summary>
+            The type of the data model that contains the information that will be used
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.NavigateToSenderAsync">
+            <summary>
+            Uses the inserted communication history model to navigate to the sender specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.SenderId"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.CanNavigateToSender">
+            <summary>
+            A flag indicating whether navigation to the sender is available
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.NavigateToReceiverAsync">
+            <summary>
+            Uses the inserted communication history model to navigate to the receiver specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.ReceiverId"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.CanNavigateToReceiver">
+            <summary>
+            A flag indicating whether navigation to the receiver is available
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.NavigateToOperationAsync">
+            <summary>
+            Uses the inserted communication history model to navigate to the operation specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.OperationId"/>
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.CommunicationPoint.CanNavigateToOperation">
+            <summary>
+            A flag indicating whether navigation to the operation is available
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.CommunicationPoint.#ctor(Atom.Windows.PlugIns.Communications.ICommunicationPlugIn,System.String,System.Type,System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="plugIn">The plug in</param>
+            <param name="id">
+            The id of the entry point.
+            Ex. Store, Subscriptions
+            </param>
+            <param name="dataModelType">The type of the data model that contains the information that will be used</param>
+            <param name="navigateToSenderAsync">Uses the inserted communication history model to navigate to the sender specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.SenderId"/></param>
+            <param name="navigateToReceiverAsync">Uses the inserted communication history model to navigate to the receiver specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.ReceiverId"/></param>
+            <param name="navigateToOperationAsync">Uses the inserted communication history model to navigate to the operation specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.OperationId"/></param>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.Communications.CommunicationPoint`1">
+            <summary>
+            Represents an entry point
+            </summary>
+            <typeparam name="TDataModel">The type of the data model that contains the information that will be used for composing the message</typeparam>
+        </member>
+        <member name="F:Atom.Windows.PlugIns.Communications.CommunicationPoint`1.mHistoryImplementationFactory">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Communications.CommunicationHistoryDataModel"/> from the current <typeparamref name="TDataModel"/>
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.CommunicationPoint`1.#ctor(Atom.Windows.PlugIns.Communications.ICommunicationPlugIn,System.String,System.Func{`0,Atom.Communications.CommunicationHistoryDataModel},System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task})">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="plugIn">The plug in</param>
+            <param name="id">The id of the entry point</param>
+            <param name="historyImplementationFactory">Creates and returns a <see cref="T:Atom.Communications.CommunicationHistoryDataModel"/> from the current <typeparamref name="TDataModel"/></param>
+            <param name="navigateToSenderAsync">Uses the inserted communication history model to navigate to the sender specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.SenderId"/></param>
+            <param name="navigateToReceiverAsync">Uses the inserted communication history model to navigate to the receiver specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.ReceiverId"/></param>
+            <param name="navigateToOperationAsync">Uses the inserted communication history model to navigate to the operation specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.OperationId"/></param>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.CommunicationPoint`1.SendMessageAsync(System.Windows.UIElement,System.Collections.Generic.IEnumerable{Atom.Communications.MessageDataModel{`0}},System.String,System.String,System.String,System.IProgress{System.Int32})">
+            <summary>
+            Sends a message to the specified <paramref name="messages"/>
+            </summary>
+            <param name="element">The target element used for identifying the parent of the dialog</param>
+            <param name="dialogTitle">The title of the message</param>
+            <param name="dialogMessage">The message of the dialog</param>
+            <param name="messages">The messages</param>
+            <param name="pathData">The path data of the icon of the dialog</param>
+            <param name="progressReporter">The progress reporter</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.CommunicationPoint`1.CreateHistoryDataModel(`0)">
+            <summary>
+            Creates and returns a <see cref="T:Atom.Communications.CommunicationHistoryDataModel"/> using the specified <paramref name="args"/>
+            </summary>
+            <param name="args">The creation args</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn">
+            <summary>
+            Provides abstractions for a communication plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.CommunicationMean">
+            <summary>
+            The communication mean that the plug in used
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.IsConfiguredAsync">
+            <summary>
+            Returns a flag indicating whether the plug in is configured and ready to use or not
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.RegisterPointAsync``1(System.String,System.Func{``0,Atom.Communications.CommunicationHistoryDataModel},System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task},System.Func{Atom.Communications.CommunicationHistoryDataModel,System.Threading.Tasks.Task})">
+            <summary>
+            Creates and adds a new <see cref="T:Atom.Windows.PlugIns.Communications.CommunicationPoint`1"/>
+            </summary>
+            <typeparam name="TDataModel">The type of the data model that contains the information used for issuing the communication</typeparam>
+            <param name="id">
+            The id of the entry point.
+            Ex. Store, Subscriptions.
+            </param>
+            <param name="historyImplementationFactory">Creates and returns a <see cref="T:Atom.Communications.CommunicationHistoryDataModel"/> from the current <typeparamref name="TDataModel"/></param>
+            <param name="navigateToSenderAsync">Uses the inserted communication history model to navigate to the sender specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.SenderId"/></param>
+            <param name="navigateToReceiverAsync">Uses the inserted communication history model to navigate to the receiver specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.ReceiverId"/></param>
+            <param name="navigateToOperationAsync">Uses the inserted communication history model to navigate to the operation specified by the <see cref="P:Atom.Communications.CommunicationHistoryDataModel.OperationId"/></param>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.GetPoints">
+            <summary>
+            Gets all the registered communication points
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.HasRegisteredPoint(System.String)">
+            <summary>
+            Returns a flag indicating whether or not there is a communication point registered with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">
+            The id of the communication point.
+            Ex. Store, Subscriptions.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.GetPoint``1(System.String)">
+            <summary>
+            Gets the already registered <see cref="T:Atom.Windows.PlugIns.Communications.CommunicationPoint`1"/> with the specified <paramref name="id"/>
+            </summary>
+            <typeparam name="TDataModel">The type of the data model that contains the information used for sending the message</typeparam>
+            <param name="id">
+            The id of the entry point.
+            Ex. Store, Subscriptions.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.GetPoint(System.String)">
+            <summary>
+            Gets the already registered <see cref="T:Atom.Windows.PlugIns.Communications.CommunicationPoint"/> with the specified <paramref name="id"/>
+            </summary>
+            <param name="id">
+            The id of the entry point.
+            Ex. Store, Subscriptions.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.ValidateReceiver(System.String,System.String@)">
+            <summary>
+            Checks whether the specified <paramref name="receiver"/> is valid or not
+            </summary>
+            <param name="receiver">The receiver to validate</param>
+            <param name="error">The error</param>
+            <returns></returns>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Communications.ICommunicationPlugIn.GetCommunicationsAsync(Atom.Communications.CommunicationFilterArgs)">
+            <summary>
+            Gets the established communications without limiting the results
+            </summary>
+            <param name="args">Arguments used for filtering the retrieved communications</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

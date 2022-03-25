@@ -19,21 +19,16 @@
             Maximum number of items to be returned in result set.
             </summary>
         </member>
-        <member name="P:Atom.Web.APIArgs.Offset">
-            <summary>
-            Offset the result set by a specific number of items.
-            </summary>
-        </member>
         <member name="P:Atom.Web.APIArgs.Order">
             <summary>
             Order condition.
             NOTE: The default is <see cref="F:Atom.Core.OrderCondition.Descending"/>!
             </summary>
         </member>
-        <member name="P:Atom.Web.APIArgs.OrderBy">
+        <member name="P:Atom.Web.APIArgs.OrderTarget">
             <summary>
             Order by target.
-            NOTE: The default is <see cref="F:Atom.Web.OrderBy.Date"/>!
+            NOTE: The default is <see cref="F:Atom.Web.OrderTarget.Date"/>!
             </summary>
         </member>
         <member name="M:Atom.Web.APIArgs.#ctor">
@@ -41,22 +36,9 @@
             Default constructor
             </summary>
         </member>
-        <member name="M:Atom.Web.APIArgs.GetMapper">
-            <summary>
-            Returns a mapper that contains the query parameter names paired with their related query parameter values.
-            NOTE: When a query parameter value is "null" or "unrecognized", then the related query parameter is not placed in the query!
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.APIArgs.ToString">
-            <summary>
-            Returns a string that represents the current object
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:Atom.Web.DateAPIArgs">
             <summary>
-            Arguments used for date GET API args
+            Arguments used for 
             </summary>
         </member>
         <member name="P:Atom.Web.DateAPIArgs.After">
@@ -74,29 +56,9 @@
             Default constructor
             </summary>
         </member>
-        <member name="T:Atom.Web.HeaderDateAPIArgs">
-            <summary>
-            Arguments used for date HEAD API args
-            </summary>
-        </member>
-        <member name="P:Atom.Web.HeaderDateAPIArgs.After">
-            <summary>
-            Limit response to resources published after a given ISO8601 compliant date.
-            </summary>
-        </member>
-        <member name="P:Atom.Web.HeaderDateAPIArgs.Before">
-            <summary>
-            Limit response to resources published before a given ISO8601 compliant date.
-            </summary>
-        </member>
-        <member name="M:Atom.Web.HeaderDateAPIArgs.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
         <member name="T:Atom.Web.StandardAPIArgs">
             <summary>
-            Arguments used for standard GET API requests
+            The standard API args
             </summary>
         </member>
         <member name="P:Atom.Web.StandardAPIArgs.Search">
@@ -117,56 +79,6 @@
         <member name="M:Atom.Web.StandardAPIArgs.#ctor">
             <summary>
             Default constructor
-            </summary>
-        </member>
-        <member name="T:Atom.Web.StandardParentAPIArgs">
-            <summary>
-            <see cref="T:Atom.Web.StandardAPIArgs"/> that contain a parent field
-            </summary>
-        </member>
-        <member name="P:Atom.Web.StandardParentAPIArgs.Parent">
-            <summary>
-            Limit result set to those of particular parent ids.
-            </summary>
-        </member>
-        <member name="P:Atom.Web.StandardParentAPIArgs.ParentExclude">
-            <summary>
-            Limit result set excluding specific parent ids.
-            </summary>
-        </member>
-        <member name="M:Atom.Web.StandardParentAPIArgs.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="T:Atom.Web.HeaderStandardAPIArgs">
-            <summary>
-            Arguments used for standard HEAD API requests
-            </summary>
-        </member>
-        <member name="P:Atom.Web.HeaderStandardAPIArgs.Search">
-            <summary>
-            Limit results to those matching a string.
-            </summary>
-        </member>
-        <member name="P:Atom.Web.HeaderStandardAPIArgs.Include">
-            <summary>
-            Limit result set to specific ids.
-            </summary>
-        </member>
-        <member name="P:Atom.Web.HeaderStandardAPIArgs.Exclude">
-            <summary>
-            Ensure result set excludes specific ids.
-            </summary>
-        </member>
-        <member name="M:Atom.Web.HeaderStandardAPIArgs.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="T:Atom.Web.StandardPolicyAttribute">
-            <summary>
-            Specifies that the policy requires a claim of the same type name
             </summary>
         </member>
         <member name="T:Atom.Web.ApplicationNameAttribute">
@@ -212,76 +124,6 @@
             <param name="validationContext">The context information about the validation operation.</param>
             <returns></returns>
         </member>
-        <member name="T:Atom.Web.E164PhoneNumberAttribute">
-            <summary>
-            Validation attribute used for ensuring that a property contains an E.164 phone number.
-            NOTE: The attribute can be used with both a <see cref="T:System.String"/> property and a <see cref="T:Atom.Core.PhoneNumber"/> property!
-            NOTE: <see cref="!:null"/> values are not validated!
-            </summary>
-        </member>
-        <member name="M:Atom.Web.E164PhoneNumberAttribute.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="M:Atom.Web.E164PhoneNumberAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
-            <summary>
-            Validates the specified value with respect to the current validation attribute.
-            </summary>
-            <param name="value">The value to validate</param>
-            <param name="validationContext">The context information about the validation operation.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Atom.Web.MaxNumericValueAttribute">
-            <summary>
-            Validation attribute used for ensuring that a numeric property doesn't exceed a value.
-            NOTE: <see cref="!:null"/> values aren't validated!
-            </summary>
-        </member>
-        <member name="F:Atom.Web.MaxNumericValueAttribute.mMaxValue">
-            <summary>
-            The max value
-            </summary>
-        </member>
-        <member name="M:Atom.Web.MaxNumericValueAttribute.#ctor(System.Double)">
-            <summary>
-            Default constructor
-            </summary>
-            <param name="maxValue">The max value</param>
-        </member>
-        <member name="M:Atom.Web.MaxNumericValueAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
-            <summary>
-            Validates the specified value with respect to the current validation attribute.
-            </summary>
-            <param name="value">The value to validate</param>
-            <param name="validationContext">The context information about the validation operation.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Atom.Web.MinNumericValueAttribute">
-            <summary>
-            Validation attribute used for ensuring that a numeric property is bigger than a value.
-            NOTE: <see cref="!:null"/> values aren't validated!
-            </summary>
-        </member>
-        <member name="F:Atom.Web.MinNumericValueAttribute.mMinValue">
-            <summary>
-            The min value
-            </summary>
-        </member>
-        <member name="M:Atom.Web.MinNumericValueAttribute.#ctor(System.Double)">
-            <summary>
-            Default constructor
-            </summary>
-            <param name="minValue">The max value</param>
-        </member>
-        <member name="M:Atom.Web.MinNumericValueAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
-            <summary>
-            Validates the specified value with respect to the current validation attribute.
-            </summary>
-            <param name="value">The value to validate</param>
-            <param name="validationContext">The context information about the validation operation.</param>
-            <returns></returns>
-        </member>
         <member name="T:Atom.Web.RequiredOnPostAttribute">
             <summary>
             Validation attribute used for ensuring that a property is not null during POST requests
@@ -305,139 +147,29 @@
             <param name="validationContext">The context information about the validation operation.</param>
             <returns></returns>
         </member>
-        <member name="T:Atom.Web.RequiredOnPutAttribute">
+        <member name="T:Atom.Web.OrderTarget">
             <summary>
-            Validation attribute used for ensuring that a property is not null during PUT requests
+            The order targets
             </summary>
         </member>
-        <member name="F:Atom.Web.RequiredOnPutAttribute.mFallbackValue">
-            <summary>
-            The value that is used when the value is <see cref="!:null"/>
-            </summary>
-        </member>
-        <member name="M:Atom.Web.RequiredOnPutAttribute.#ctor(System.Object)">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="M:Atom.Web.RequiredOnPutAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
-            <summary>
-            Validates the specified value with respect to the current validation attribute.
-            </summary>
-            <param name="value">The value to validate</param>
-            <param name="validationContext">The context information about the validation operation.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Atom.Web.HttpContentType">
-            <summary>
-            Provides enumeration for the HTTP request content type
-            </summary>
-        </member>
-        <member name="F:Atom.Web.HttpContentType.JsonBody">
-            <summary>
-            The raw Json body option
-            </summary>
-        </member>
-        <member name="F:Atom.Web.HttpContentType.FormData">
-            <summary>
-            The form-data body option
-            </summary>
-        </member>
-        <member name="T:Atom.Web.OrderBy">
-            <summary>
-            Provides enumeration over the order by options
-            </summary>
-        </member>
-        <member name="F:Atom.Web.OrderBy.Id">
+        <member name="F:Atom.Web.OrderTarget.Id">
             <summary>
             Order based on id
             </summary>
         </member>
-        <member name="F:Atom.Web.OrderBy.Title">
+        <member name="F:Atom.Web.OrderTarget.Title">
             <summary>
             Order based on title
             </summary>
         </member>
-        <member name="F:Atom.Web.OrderBy.Date">
+        <member name="F:Atom.Web.OrderTarget.Date">
             <summary>
             Order based on date
-            </summary>
-        </member>
-        <member name="T:Atom.Web.CountHeaderResult">
-            <summary>
-            A header result that provides mapping for the header with the <see cref="F:Atom.Web.HeaderConstants.Count"/> key
-            </summary>
-        </member>
-        <member name="P:Atom.Web.CountHeaderResult.Count">
-            <summary>
-            The count.
-            NOTE: This value is mapped using the header with the <see cref="F:Atom.Web.HeaderConstants.Count"/> header key!
-            </summary>
-        </member>
-        <member name="M:Atom.Web.CountHeaderResult.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="T:Atom.Web.StandardHeaderResult">
-            <summary>
-            A <see cref="T:Atom.Web.CountHeaderResult"/> that provides mapping properties for the headers with the
-            <see cref="F:Atom.Web.HeaderConstants.MinDate"/> and the <see cref="F:Atom.Web.HeaderConstants.MaxDate"/> keys
-            </summary>
-        </member>
-        <member name="P:Atom.Web.StandardHeaderResult.MinDate">
-            <summary>
-            The min date.
-            NOTE: This value is mapped using the header with the <see cref="F:Atom.Web.HeaderConstants.MinDate"/> header key!
-            </summary>
-        </member>
-        <member name="P:Atom.Web.StandardHeaderResult.MaxDate">
-            <summary>
-            The max date
-            NOTE: This value is mapped using the header with the <see cref="F:Atom.Web.HeaderConstants.MaxDate"/> header key!
-            </summary>
-        </member>
-        <member name="M:Atom.Web.StandardHeaderResult.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="T:Atom.Web.HeaderConstants">
-            <summary>
-            Constants related to headers
-            </summary>
-        </member>
-        <member name="T:Atom.Web.IImageableResponse">
-            <summary>
-            Provides abstractions for a response that provides url for
-            accessing a small, a normal and a large image that represents
-            the response
-            </summary>
-        </member>
-        <member name="P:Atom.Web.IImageableResponse.SmallImageUrl">
-            <summary>
-            The small image url
-            </summary>
-        </member>
-        <member name="P:Atom.Web.IImageableResponse.ImageUrl">
-            <summary>
-            The image url
-            </summary>
-        </member>
-        <member name="P:Atom.Web.IImageableResponse.LargeImageUrl">
-            <summary>
-            The large image url
             </summary>
         </member>
         <member name="T:Atom.Web.QueryConstants">
             <summary>
             Constants related to queries
-            </summary>
-        </member>
-        <member name="F:Atom.Web.QueryConstants.Root">
-            <summary>
-            Represents a root value.
-            Ex.: This can be used when we want to get the root category as the parent argument!
             </summary>
         </member>
         <member name="T:Atom.Web.KnownContentSerializers">
@@ -466,42 +198,6 @@
             </summary>
             <param name="serializer">The serializer</param>
             <returns></returns>
-        </member>
-        <member name="T:Atom.Web.FileUploadGroupDataModel">
-            <summary>
-            Represents a group of files that are sent to the ASP.NET API
-            </summary>
-        </member>
-        <member name="P:Atom.Web.FileUploadGroupDataModel.Name">
-            <summary>
-            The name of the parameter of the Action of the ASP.NET controller that the file/s
-            should be assigned to.
-            </summary>
-        </member>
-        <member name="P:Atom.Web.FileUploadGroupDataModel.Files">
-            <summary>
-            The files
-            </summary>
-        </member>
-        <member name="M:Atom.Web.FileUploadGroupDataModel.#ctor(System.String,System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Http.IFormFile})">
-            <summary>
-            Default constructor
-            </summary>
-            <param name="name">
-            The name of the parameter of the Action of the ASP.NET controller that the file/s
-            should be assigned to.
-            </param>
-            <param name="files">The files</param>
-        </member>
-        <member name="M:Atom.Web.FileUploadGroupDataModel.#ctor(System.String,Microsoft.AspNetCore.Http.IFormFile)">
-            <summary>
-            Single file constructor
-            </summary>
-            <param name="name">
-            The name of the parameter of the Action of the ASP.NET controller that the file/s
-            should be assigned to.
-            </param>
-            <param name="file">The file</param>
         </member>
         <member name="T:Atom.Web.HttpEndpointChecker">
             <summary>
@@ -544,32 +240,25 @@
             Disposes the task that runs the periodic connectivity check
             </summary>
         </member>
-        <member name="T:Atom.Web.HttpResponceMessageExtensions">
+        <member name="T:Atom.Web.HttpWebResponceExtensions">
             <summary>
             Extension methods for <see cref="T:System.Net.HttpWebResponse"/>
             </summary>
         </member>
-        <member name="M:Atom.Web.HttpResponceMessageExtensions.CreateWebRequestResultAsync(System.Net.Http.HttpResponseMessage)">
+        <member name="M:Atom.Web.HttpWebResponceExtensions.CreateWebRequestResultAsync(System.Net.Http.HttpResponseMessage)">
             <summary>
             Returns a <see cref="T:Atom.Web.WebRequestResult"/> pre-populated with the <see cref="T:System.Net.HttpWebResponse"/> information
             </summary>
             <param name="serverResponse">The server response</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.HttpResponceMessageExtensions.CreateWebRequestResultAsync``1(System.Net.Http.HttpResponseMessage)">
+        <member name="M:Atom.Web.HttpWebResponceExtensions.CreateWebRequestResultAsync``1(System.Net.Http.HttpResponseMessage,System.Func{System.String,System.String})">
             <summary>
             Returns a <see cref="T:Atom.Web.WebRequestResult`1"/> pre-populated with the <see cref="T:System.Net.HttpWebResponse"/> information
             </summary>
             <typeparam name="TResponse">The type of response to create</typeparam>
             <param name="serverResponse">The server response</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.HttpResponceMessageExtensions.CreateWebRequestResultFromHeadersAsync``1(System.Net.Http.HttpResponseMessage)">
-            <summary>
-            Creates and returns a <see cref="T:Atom.Web.WebRequestResult`1"/> using the headers of the specified <paramref name="serverResponse"/>
-            </summary>
-            <typeparam name="THeadersResult">The type of the header result</typeparam>
-            <param name="serverResponse">The server response</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
         <member name="T:Atom.Web.WebRequestResult">
@@ -623,133 +312,55 @@
             The actual server response as an object
             </summary>
         </member>
-        <member name="M:Atom.Web.WebRequestResult.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="M:Atom.Web.WebRequestResult.op_Implicit(System.String)~Atom.Web.WebRequestResult">
-            <summary>
-            Creates a <see cref="T:Atom.Web.WebRequestResult"/> using the specified string as its error message
-            </summary>
-            <param name="s">The string</param>
-        </member>
-        <member name="M:Atom.Web.WebRequestResult.op_Implicit(System.Exception)~Atom.Web.WebRequestResult">
-            <summary>
-            Creates a <see cref="T:Atom.Core.Failable"/> using the message of the specified ex and its inner exceptions
-            as its error message
-            </summary>
-            <param name="ex">The exception</param>
-        </member>
         <member name="T:Atom.Web.WebRequestResult`1">
             <summary>
             A web response from a call to get specific data from a HTTP server
             </summary>
-            <typeparam name="TResult">The type of data to deserialize the raw body into</typeparam>
+            <typeparam name="T">The type of data to deserialize the raw body into</typeparam>
         </member>
         <member name="P:Atom.Web.WebRequestResult`1.Result">
             <summary>
             Casts the underlying object to the specified type
             </summary>
         </member>
-        <member name="M:Atom.Web.WebRequestResult`1.#ctor">
+        <member name="T:Atom.Web.WebRequests">
             <summary>
-            Default constructor
+            Provides HTTP calls for sending and receiving information from a HTTP server
             </summary>
         </member>
-        <member name="M:Atom.Web.WebRequestResult`1.#ctor(`0)">
-            <summary>
-            Standard constructor
-            </summary>
-            <param name="result">The result</param>
-        </member>
-        <member name="M:Atom.Web.WebRequestResult`1.op_Implicit(System.String)~Atom.Web.WebRequestResult{`0}">
-            <summary>
-            Creates a <see cref="T:Atom.Web.WebRequestResult`1"/> using the specified string as its error message
-            </summary>
-            <param name="s">The string</param>
-        </member>
-        <member name="M:Atom.Web.WebRequestResult`1.op_Implicit(System.Exception)~Atom.Web.WebRequestResult{`0}">
-            <summary>
-            Creates a <see cref="T:Atom.Web.WebRequestResult`1"/> using the message of the specified ex and its inner exceptions
-            as its error message
-            </summary>
-            <param name="ex">The exception</param>
-        </member>
-        <member name="M:Atom.Web.WebRequestResult`1.op_Implicit(`0)~Atom.Web.WebRequestResult{`0}">
-            <summary>
-            Creates a <see cref="T:Atom.Core.Failable`1"/> using the specified result as its result
-            </summary>
-            <param name="result">The result</param>
-        </member>
-        <member name="M:Atom.Web.WebRequestResult`1.op_Implicit(Atom.Web.WebRequestResult{`0})~Atom.Core.Failable{`0}">
-            <summary>
-            Converts a <see cref="T:Atom.Web.WebRequestResult`1"/> to a <see cref="T:Atom.Core.Failable`1"/>
-            </summary>
-            <param name="result">The data storage result</param>
-        </member>
-        <member name="T:Atom.Web.WebRequestsClient`1">
-            <summary>
-            Client that provides HTTP calls for sending and receiving information from a HTTP server
-            </summary>
-            <typeparam name="TAuthenticationArgs">
-            The type of the authentication args.
-            NOTE: The authentication args determine the authentication scheme that will be used against the server!
-            </typeparam>
-        </member>
-        <member name="F:Atom.Web.WebRequestsClient`1.PATCH">
-            <summary>
-            The name of the PATCH HTTP method
-            </summary>
-        </member>
-        <member name="F:Atom.Web.WebRequestsClient`1.MediaTypeJson">
+        <member name="F:Atom.Web.WebRequests.MediaTypeJson">
             <summary>
             The json request and response preferred media type
             </summary>
         </member>
-        <member name="P:Atom.Web.WebRequestsClient`1.DeserializationErrorMessage">
+        <member name="F:Atom.Web.WebRequests.DeserializationErrorMessage">
             <summary>
             The standard deserialization error message
             </summary>
         </member>
-        <member name="F:Atom.Web.WebRequestsClient`1.mClient">
+        <member name="F:Atom.Web.WebRequests.ErrorParser">
             <summary>
-            THe member of the <see cref="P:Atom.Web.WebRequestsClient`1.Client"/> property
+            The error parser, that is used when the custom error parse of the methods isn't set
             </summary>
         </member>
-        <member name="P:Atom.Web.WebRequestsClient`1.Client">
+        <member name="F:Atom.Web.WebRequests.Client">
             <summary>
-            The HTTP client that is used for sending the HTTP requests
-            NOTE: HTTP client is recommended to be injected as a Singleton in DI
+            The http client that is used for sending the http requests
+            NOTE: Http client is recommended to be injected as a Singleton in DI
                   https://stackoverflow.com/questions/4015324/how-to-make-http-post-web-request
             </summary>
         </member>
-        <member name="P:Atom.Web.WebRequestsClient`1.RequestBodyType">
-            <summary>
-            The type for the request body
-            </summary>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.#ctor">
-            <summary>
-            Default constructor
-            </summary>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.ConfigureClient(System.Net.Http.HttpClient)">
-            <summary>
-            Configures the specified <paramref name="client"/>
-            </summary>
-            <param name="client"></param>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PostAsync(System.String,System.Object,`0)">
+        <member name="M:Atom.Web.WebRequests.PostAsync(System.String,System.Object,System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
             POSTs a web request to an URL that contains the specified <paramref name="content"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
             <param name="url">The URL</param>
             <param name="content">The content to post</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PostModelAndFilesAsync(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="M:Atom.Web.WebRequests.PostModelAndFilesAsync(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
             POSTs a web request to an URL that contains the specified <paramref name="content"/> and the specified <paramref name="fileGroups"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
@@ -760,53 +371,58 @@
             </param>
             <param name="content">The content to post</param>
             <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PostFilesAsync(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="M:Atom.Web.WebRequests.PostFilesAsync(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
             POSTs a web request to an URL that contains the specified <paramref name="fileGroups"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
             <param name="url">The URL</param>
             <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.GetAsync(System.String,`0)">
+        <member name="M:Atom.Web.WebRequests.GetAsync(System.String,System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
             GETs a web request to a URL and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
             <param name="url">The URL</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.GetBytesAsync(System.String,`0)">
+        <member name="M:Atom.Web.WebRequests.GetBytesAsync(System.String,System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
             GETs the bytes that are returned in the <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
             <param name="url">The URL</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.DownloadFileAsync(System.String,System.String,`0)">
+        <member name="M:Atom.Web.WebRequests.DeleteAsync(System.String,System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
-            Downloads the file from the specified <paramref name="url"/> and saves it at the specified <paramref name="fileName"/>
+            Sends a DELETE request and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
-            <param name="url">The url</param>
-            <param name="fileName">The file path combined with the file name</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="url">The URL</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PutAsync(System.String,System.Object,`0)">
+        <member name="M:Atom.Web.WebRequests.PutAsync(System.String,System.Object,System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
             PUTs the specified <paramref name="content"/> at the specified <paramref name="url"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
             <param name="url">The URL</param>
             <param name="content">The content to put</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PutAsync(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="M:Atom.Web.WebRequests.PutAsync(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
             PUTs the specified <paramref name="content"/> and the specified <paramref name="fileGroups"/> at the specified <paramref name="url"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
@@ -817,85 +433,33 @@
             </param>
             <param name="content">The content to put</param>
             <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PutAsync(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="M:Atom.Web.WebRequests.PutAsync(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},System.String,System.Action{System.Net.Http.HttpClient})">
             <summary>
             PUTs the specified <paramref name="fileGroups"/> at the specified <paramref name="url"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
             </summary>
             <param name="url">The URL</param>
             <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PatchAsync(System.String,System.Object,`0)">
-            <summary>
-            PATCHes the specified <paramref name="content"/> at the specified <paramref name="url"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
-            </summary>
-            <param name="url">The URL</param>
-            <param name="content">The content to patch</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PatchAsync(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
-            <summary>
-            PATCHes the specified <paramref name="content"/> and the specified <paramref name="fileGroups"/> at the specified <paramref name="url"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
-            </summary>
-            <param name="url">The URL</param>
-            <param name="contentName">
-            The name of the parameter of the Action of the ASP.NET controller that the model
-            should be assigned to.
-            </param>
-            <param name="content">The content to patch</param>
-            <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PatchAsync(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
-            <summary>
-            PATCHes the specified <paramref name="fileGroups"/> at the specified <paramref name="url"/> and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
-            </summary>
-            <param name="url">The URL</param>
-            <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.DeleteAsync(System.String,`0)">
-            <summary>
-            Sends a DELETE request and returns a <see cref="T:System.Net.Http.HttpResponseMessage"/>
-            </summary>
-            <param name="url">The URL</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.HeadAsync``1(System.String,`0)">
-            <summary>
-            Sends a head request to the specified <paramref name="url"/>
-            </summary>
-            <param name="url">The URL</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.OptionsAsync(System.String,`0)">
-            <summary>
-            Sends an options request to the specified <paramref name="url"/>
-            </summary>
-            <param name="url">The URL</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PostAsync``1(System.String,System.Object,`0)">
+        <member name="M:Atom.Web.WebRequests.PostAsync``1(System.String,System.Object,System.String,System.Action{System.Net.Http.HttpClient},System.Func{System.String,System.String})">
             <summary>
             POSTs a web request to an URL that contains the specified <paramref name="content"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
             </summary>
             <typeparam name="TResponse">The type of the response</typeparam>
             <param name="url">The URL</param>
             <param name="content">The content to post</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PostModelAndFilesAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="M:Atom.Web.WebRequests.PostModelAndFilesAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},System.String,System.Action{System.Net.Http.HttpClient},System.Func{System.String,System.String})">
             <summary>
             POSTs a web request to an URL that contains the specified <paramref name="content"/> and the specified <paramref name="fileGroups"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
             </summary>
@@ -907,61 +471,56 @@
             </param>
             <param name="content">The content to post</param>
             <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PostFilesAsync``1(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="M:Atom.Web.WebRequests.PostFilesAsync``1(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},System.String,System.Action{System.Net.Http.HttpClient},System.Func{System.String,System.String})">
             <summary>
             POSTs a web request to an URL that contains the specified <paramref name="fileGroups"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
             </summary>
             <typeparam name="TResponse">The type of the response</typeparam>
             <param name="url">The URL</param>
             <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.GetAsync``1(System.String,`0)">
+        <member name="M:Atom.Web.WebRequests.GetAsync``1(System.String,System.String,System.Action{System.Net.Http.HttpClient},System.Func{System.String,System.String})">
             <summary>
             GETs a web request to a URL and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
             </summary>
             <param name="url">The URL</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.GetAllAsync``2(``0,System.Func{``0,System.Threading.Tasks.Task{Atom.Web.WebRequestResult{System.Collections.Generic.IEnumerable{``1}}}},System.Int32,System.IProgress{System.Int32})">
+        <member name="M:Atom.Web.WebRequests.DeleteAsync``1(System.String,System.String,System.Action{System.Net.Http.HttpClient},System.Func{System.String,System.String})">
             <summary>
-            Recursively calls the API to get all the data based on the <paramref name="maxPerPage"/> threshold
+            Sends a DELETE request and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
             </summary>
-            <typeparam name="TAPIArgs">The type of the API args</typeparam>
-            <typeparam name="TResponse"></typeparam>
-            <param name="args">The args</param>
-            <param name="getAsync">The get function</param>
-            <param name="maxPerPage">The maximum amount of items that the API can send</param>
-            <param name="progress">The progress reporter</param>
+            <remarks>IMPORTANT: Remember to close the returned <see cref="T:System.Net.HttpWebResponse"/> stream once done</remarks>
+            <param name="url">The URL</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.GetAllAsync``2(``0,System.Func{``0,System.Threading.Tasks.Task{Atom.Web.WebRequestResult{System.Collections.Generic.IEnumerable{``1}}}},System.IProgress{System.Int32})">
-            <summary>
-            Recursively calls the API to get all the data based on the <see cref="F:Atom.Web.QueryConstants.MaxPerPage"/> threshold
-            </summary>
-            <typeparam name="TAPIArgs">The type of the API args</typeparam>
-            <typeparam name="TResponse"></typeparam>
-            <param name="args">The args</param>
-            <param name="getAsync">The get function</param>
-            <param name="progress">The progress reporter</param>
-            <returns></returns>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PutAsync``1(System.String,System.Object,`0)">
+        <member name="M:Atom.Web.WebRequests.PutAsync``1(System.String,System.Object,System.String,System.Action{System.Net.Http.HttpClient},System.Func{System.String,System.String})">
             <summary>
             PUTs the specified <paramref name="content"/> at the specified <paramref name="url"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
             </summary>
             <param name="url">The URL</param>
             <param name="content">The content to put</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PutModelAndFilesAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="M:Atom.Web.WebRequests.PutModelAndFilesAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},System.String,System.Action{System.Net.Http.HttpClient},System.Func{System.String,System.String})">
             <summary>
             PUTs the specified <paramref name="content"/> and the specified <paramref name="fileGroups"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
             </summary>
@@ -971,179 +530,69 @@
             The name of the parameter of the Action of the ASP.NET controller that the model
             should be assigned to.
             </param>
-            <param name="content">The content to put</param>
+            <param name="content">The content to post</param>
             <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PutFilesAsync``1(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="M:Atom.Web.WebRequests.PutFilesAsync``1(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},System.String,System.Action{System.Net.Http.HttpClient},System.Func{System.String,System.String})">
             <summary>
             PUTs the specified <paramref name="fileGroups"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
             </summary>
             <typeparam name="TResponse">The type of the response</typeparam>
             <param name="url">The URL</param>
             <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <param name="configureClient">Allows caller to customize and configure the <see cref="F:Atom.Web.WebRequests.Client"/> prior to the request being sent</param>
+            <param name="errorParser">The custom error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PatchAsync``1(System.String,System.Object,`0)">
+        <member name="M:Atom.Web.WebRequests.ParseErrorMessage(System.String,System.Func{System.String,System.String})">
             <summary>
-            Patches the specified <paramref name="content"/> at the specified <paramref name="url"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
+            Attempts to parse the error message contained in the <paramref name="rawServerResponse"/> using the
+            <paramref name="errorParser"/> and the <see cref="F:Atom.Web.WebRequests.ErrorParser"/>
             </summary>
-            <param name="url">The URL</param>
-            <param name="content">The content to patch</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
+            <param name="rawServerResponse">The server response</param>
+            <param name="errorParser">The error parser</param>
             <returns></returns>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PatchModelAndFilesAsync``1(System.String,System.String,System.Object,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
+        <member name="T:Atom.Web.FileUploadGroupDataModel">
             <summary>
-            PATCHes the specified <paramref name="content"/> and the specified <paramref name="fileGroups"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
+            Represents a group of files that are sent to the ASP.NET API
             </summary>
-            <typeparam name="TResponse">The type of the response</typeparam>
-            <param name="url">The URL</param>
-            <param name="contentName">
-            The name of the parameter of the Action of the ASP.NET controller that the model
+        </member>
+        <member name="P:Atom.Web.FileUploadGroupDataModel.Name">
+            <summary>
+            The name of the parameter of the Action of the ASP.NET controller that the file/s
             should be assigned to.
-            </param>
-            <param name="content">The content to patch</param>
-            <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.PatchFilesAsync``1(System.String,System.Collections.Generic.IEnumerable{Atom.Web.FileUploadGroupDataModel},`0)">
-            <summary>
-            PATCHes the specified <paramref name="fileGroups"/> and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
-            </summary>
-            <typeparam name="TResponse">The type of the response</typeparam>
-            <param name="url">The URL</param>
-            <param name="fileGroups">Groups of files that contains all the required information to perform the binding to ASP.NET controller action</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.DeleteAsync``1(System.String,`0)">
-            <summary>
-            Sends a DELETE request and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
-            </summary>
-            <param name="url">The URL</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.OptionsAsync``1(System.String,`0)">
-            <summary>
-            Sends an OPTIONS request and returns a <see cref="T:Atom.Web.WebRequestResult`1"/>
-            </summary>
-            <typeparam name="TResponse">The type of the response</typeparam>
-            <param name="url">The URL</param>
-            <param name="authenticationArgs">If specified, provides the Authorization header is set</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.ConfigureStringContent(System.Net.Http.StringContent)">
-            <summary>
-            Configures the specified <paramref name="stringContent"/>
-            </summary>
-            <param name="stringContent">The content</param>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.Serialize(System.Object)">
-            <summary>
-            Serializes the specified <paramref name="obj"/> to a string
-            before sending the request
-            </summary>
-            <param name="obj">The object</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.Deserialize``1(System.String)">
-            <summary>
-            Deserializes the specified <paramref name="rawServerResponse"/> to the requested
-            type
-            </summary>
-            <typeparam name="TResponse">The type to deserialize to</typeparam>
-            <param name="rawServerResponse">The raw server response</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.GetMediaType">
-            <summary>
-            Gets the media type header that is attached to the request before sending it
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.GetEncoding">
-            <summary>
-            Gets the encoding that is attached to the request before sending it
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.CreateAuthenticationHeader(`0)">
-            <summary>
-            Creates and returns a <see cref="T:System.Net.Http.Headers.AuthenticationHeaderValue"/> using the
-            specified <paramref name="authenticationArgs"/>
-            </summary>
-            <param name="authenticationArgs">The authentication args</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.ParseErrorMessage(System.String)">
-            <summary>
-            Attempts to parse the error message contained in the <paramref name="rawServerResponse"/>
-            </summary>
-            <param name="rawServerResponse">The server response</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.CreateStringContent(System.Object)">
-            <summary>
-            Creates and returns the <see cref="T:System.Net.Http.StringContent"/> that represents
-            the specified <paramref name="content"/>
-            </summary>
-            <param name="content">The content</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.CreateFormDataContent(System.Object)">
-            <summary>
-            Creates the form-data, using the non null value in the <paramref name="content"/>
-            </summary>
-            <param name="content">The form-data content</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.SetAuthorizationHeader(`0)">
-            <summary>
-            Sets the specified <paramref name="authentication"/> if any to the <see cref="P:Atom.Web.WebRequestsClient`1.Client"/>
-            </summary>
-            <param name="authentication">The token</param>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.ParseErrorMessageCore(System.String)">
-            <summary>
-            Attempts to parse the error message contained in the <paramref name="rawServerResponse"/>
-            </summary>
-            <param name="rawServerResponse">The server response</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.WebRequestsClient`1.CreateHttpContent(System.Object)">
-            <summary>
-            Creates the <paramref name="content"/> for 
-            </summary>
-            <param name="content">The request body content</param>
-            <returns></returns>
-        </member>
-        <member name="T:Atom.Web.WebRequestsClient">
-            <summary>
-            The JWT token based implementation of the <see cref="T:Atom.Web.WebRequestsClient`1"/>
             </summary>
         </member>
-        <member name="P:Atom.Web.WebRequestsClient.Instance">
+        <member name="P:Atom.Web.FileUploadGroupDataModel.Files">
             <summary>
-            A single instance of the <see cref="T:Atom.Web.WebRequestsClient"/>
+            The files
             </summary>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient.#ctor">
+        <member name="M:Atom.Web.FileUploadGroupDataModel.#ctor(System.String,System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Http.IFormFile})">
             <summary>
             Default constructor
             </summary>
+            <param name="name">
+            The name of the parameter of the Action of the ASP.NET controller that the file/s
+            should be assigned to.
+            </param>
+            <param name="files">The files</param>
         </member>
-        <member name="M:Atom.Web.WebRequestsClient.CreateAuthenticationHeader(System.String)">
+        <member name="M:Atom.Web.FileUploadGroupDataModel.#ctor(System.String,Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
-            Creates and returns a <see cref="T:System.Net.Http.Headers.AuthenticationHeaderValue"/> using the
-            specified <paramref name="authenticationArgs"/>
+            Single file constructor
             </summary>
-            <param name="authenticationArgs">The authentication args</param>
-            <returns></returns>
+            <param name="name">
+            The name of the parameter of the Action of the ASP.NET controller that the file/s
+            should be assigned to.
+            </param>
+            <param name="file">The file</param>
         </member>
         <member name="T:Atom.Web.RouteConstants">
             <summary>
@@ -1167,15 +616,7 @@
             <param name="relativeUrl">The relative URL</param>
             <returns>Returns the absolute URL including the Host URL</returns>
         </member>
-        <member name="M:Atom.Web.RouteHelpers.AttachStringParameters(System.String,Atom.Web.QueryParameter[])">
-            <summary>
-            Attaches the specified <paramref name="parameters"/> to the specified <paramref name="url"/>
-            </summary>
-            <param name="url">The url</param>
-            <param name="parameters">The parameters</param>
-            <returns></returns>
-        </member>
-        <member name="M:Atom.Web.RouteHelpers.AttachParameters``1(System.String,``0)">
+        <member name="M:Atom.Web.RouteHelpers.AttachParameters(System.String,System.Object)">
             <summary>
             Attaches the parameters that are specified as properties in the <paramref name="args"/>
             to the specified <paramref name="url"/>.
@@ -1185,37 +626,6 @@
             <param name="url">The url</param>
             <param name="args">The arguments</param>
             <returns></returns>
-        </member>
-        <member name="M:Atom.Web.RouteHelpers.GetQueryParameterValue(System.Object)">
-            <summary>
-            Converts the specified <paramref name="value"/> into a query parameter string value.
-            NOTE: If the value is <see cref="!:null"/> the "null" is returned!
-            NOTE: If the value isn't of a known type the "unrecognized" is returned!
-            </summary>
-            <param name="value">The value</param>
-            <returns></returns>
-        </member>
-        <member name="T:Atom.Web.QueryParameter">
-            <summary>
-            Represents a query parameter
-            </summary>
-        </member>
-        <member name="P:Atom.Web.QueryParameter.Name">
-            <summary>
-            The name
-            </summary>
-        </member>
-        <member name="P:Atom.Web.QueryParameter.Value">
-            <summary>
-            The value
-            </summary>
-        </member>
-        <member name="M:Atom.Web.QueryParameter.#ctor(System.String,System.String)">
-            <summary>
-            Default constructor
-            </summary>
-            <param name="name">The name</param>
-            <param name="value">The value</param>
         </member>
         <member name="T:Atom.Web.WebConstants">
             <summary>

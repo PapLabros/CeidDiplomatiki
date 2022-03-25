@@ -17,7 +17,12 @@ namespace CeidDiplomatiki
         /// <returns></returns>
         public static FrameworkElement CreatePresenterPage(BasePresenterMap presenterMap, PageMap pageMap)
         {
-            return new DataGridPresenterPage(presenterMap as DataGridPresenterMap, pageMap);
+            if (presenterMap is DataGridPresenterMap dataGridPresenter)
+                return new DataGridPresenterPage(dataGridPresenter, pageMap);
+            else if (presenterMap is CalendarPresenterMap calendarPresenterMap)
+                return new CalendarPresenterPage(calendarPresenterMap, pageMap);
+
+            throw new InvalidOperationException($"Unknown presenter map type: {presenterMap.GetType()}!");
         }
     }
 }

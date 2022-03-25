@@ -9,15 +9,14 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {
     /// <summary>
     /// The property maps page
     /// </summary>
-    public class PropertyMapsPage : BaseFullyInitializableItemsControlPage<PropertyMap>
+    public class PropertyMapsPage : ConventionalBaseItemsControlPage<PropertyMap>
     {
         #region Public Properties
 
@@ -106,7 +105,7 @@ namespace CeidDiplomatiki
                                        label.Margin = new Thickness(NormalUniformMargin);
 
                                        return label;
-                                   })
+                                   }) 
                                    {
                                        Orientation = Orientation.Horizontal,
                                        HorizontalAlignment = HorizontalAlignment.Center
@@ -117,40 +116,37 @@ namespace CeidDiplomatiki
                                    return await Task.FromResult(itemsControl);
                                },
                                (row, model, element) => element.SetItemsSource(model.Attributes))
-                .SetTextInputUIElement(x => x.Order, async (row, model, value) =>
+                .SetTextInputUIElement(x => x.Order, async (row, model, value) => 
                 {
                     var result = await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync();
 
                     return new Failable<PropertyMap>() { ErrorMessage = result.ErrorMessage };
                 })
 
-                .ConfigureOptions((container, grid, row, model) =>
+                .SetEditOption(() => 
                 {
-                    container.AddEditOption("Property map modification", null, () =>
-                     {
-                         return new DataForm<PropertyMap>() { Mapper = CeidDiplomatikiDataModelHelpers.PropertyMapMapper.Value }
-                         .ShowInput(x => x.Name, settings => settings.IsRequired = true)
-                         .ShowInput(x => x.Description)
-                         .ShowStringColorInput(x => x.Color)
-                         .ShowSelectMultipleOptionsInput(x => x.Attributes, (form, propertyInfo) => new DropDownMenuOptionsFormInput<ColumnAttribute>(form, propertyInfo, ColumnAttributes.Data.Value, x => x.Name), settings => settings.IsRequired = true)
-                         .ShowNumericInput(x => x.Order)
-                         .ShowInput(x => x.DefaultValue)
-                         .ShowInput(x => x.IsEditable)
-                         .ShowInput(x => x.IsRequired)
-                         .ShowInput(x => x.IsPreview);
-                     },  async (model) => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync(), null, IconPaths.TableColumnPath);
-                     container.AddDeleteOption("Property map deletion", null, async (model) =>
-                     {
-                         // Get the manager
-                         var manager = CeidDiplomatikiDI.GetCeidDiplomatikiManager;
-                     
-                         // Unregister the map
-                         QueryMap.Remove(model);
-                     
-                         // Save the changes
-                         return await manager.SaveChangesAsync();
-                     }, null, IconPaths.TableColumnPath);
-                });
+                    return new DataForm<PropertyMap>() { Mapper = CeidDiplomatikiDataModelHelpers.PropertyMapMapper.Value }
+                    .ShowInput(x => x.Name, null, true)
+                    .ShowInput(x => x.Description)
+                    .ShowStringColorFormInput(x => x.Color)
+                    .ShowSelectMultipleOptionsInput(x => x.Attributes, (form, propertyInfo) => new DropDownMenuOptionsFormInput<ColumnAttribute>(form, propertyInfo, ColumnAttributes.Data.Value, x => x.Name), null, true)
+                    .ShowNumericInput(x => x.Order)
+                    .ShowInput(x => x.DefaultValue)
+                    .ShowInput(x => x.IsEditable)
+                    .ShowInput(x => x.IsRequired)
+                    .ShowInput(x => x.IsPreview);
+                }, "Property map modification", null, async (model) => await CeidDiplomatikiDI.GetCeidDiplomatikiManager.SaveChangesAsync(), IconPaths.TableColumnPath)
+                .SetDeleteOption("Property map deletion", null, async (model) => 
+                {
+                    // Get the manager
+                    var manager = CeidDiplomatikiDI.GetCeidDiplomatikiManager;
+
+                    // Unregister the map
+                    QueryMap.Remove(model);
+
+                    // Save the changes
+                    return await manager.SaveChangesAsync();
+                }, IconPaths.TableColumnPath);
         }
 
         #endregion
@@ -201,10 +197,10 @@ namespace CeidDiplomatiki
 
                 // Create the form
                 var form = new DataForm<PropertyMap>() { Mapper = CeidDiplomatikiDataModelHelpers.PropertyMapMapper.Value }
-                    .ShowInput(x => x.Name, settings => settings.IsRequired = true)
+                    .ShowInput(x => x.Name, null, true)
                     .ShowInput(x => x.Description)
-                    .ShowStringColorInput(x => x.Color)
-                    .ShowSelectMultipleOptionsInput(x => x.Attributes, (form, propertyInfo) => new DropDownMenuOptionsFormInput<ColumnAttribute>(form, propertyInfo, ColumnAttributes.Data.Value, x => x.Name), null, settings => settings.IsRequired = true)
+                    .ShowStringColorFormInput(x => x.Color)
+                    .ShowSelectMultipleOptionsInput(x => x.Attributes, (form, propertyInfo) => new DropDownMenuOptionsFormInput<ColumnAttribute>(form, propertyInfo, ColumnAttributes.Data.Value, x => x.Name), null, true)
                     .ShowNumericInput(x => x.Order)
                     .ShowInput(x => x.DefaultValue)
                     .ShowInput(x => x.IsEditable)

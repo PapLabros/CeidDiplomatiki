@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Atom.Windows.PlugIns.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Atom.Windows.PlugIns.Data.IDataPlugIn">
+            <summary>
+            Provides abstractions for a data plug in
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Data.IDataPlugIn.SupportsExport">
+            <summary>
+            A flag indicating whether the current plug in supports data export.
+            NOTE: If the data export is supported then the plug implements the <see cref="T:Atom.Windows.PlugIns.Data.IExportPlugIn"/> interface!
+            </summary>
+        </member>
+        <member name="P:Atom.Windows.PlugIns.Data.IDataPlugIn.SupportsImport">
+            <summary>
+            A flag indicating whether the current plug in supports data export.
+            NOTE: If the data export is supported then the plug implements the <see cref="T:Atom.Windows.PlugIns.Data.IImportPlugIn"/> interface!
+            </summary>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.Data.IExportPlugIn">
+            <summary>
+            Provides abstractions for an export plug in
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Data.IExportPlugIn.ExportAsync``1(System.Windows.UIElement,Atom.Core.PropertyMapper{``0},System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Func{System.Threading.Tasks.Task{Atom.Core.IFailable{System.Collections.Generic.IEnumerable{``0}}}},Atom.Core.Translator{``0},System.String)">
+            <summary>
+            Exports the data returned by the specified <paramref name="dataRetriever"/>.
+            NOTE: Any error dialog are displayed by this method using the <paramref name="element"/> to identify the parent!
+            </summary>
+            <typeparam name="TClass">The type of the models</typeparam>
+            <param name="element">The target element used for identifying the parent of the dialog</param>
+            <param name="key">
+            The key used for identifying the export point.
+            NOTE: When the key is set to <see cref="!:null"/> then full name of the <typeparamref name="TClass"/> is set as the key!
+            </param>
+            <param name="mapper">
+            The mapper that contains information related to the properties of the <typeparamref name="TClass"/>.
+            Useful map keys: <see cref="F:Atom.Core.PropertyMapperExtensions.Title"/> ex. Defines the title of an excel column.
+                             <see cref="F:Atom.Core.PropertyMapperExtensions.Size"/> ex. Defines the size of an excel column.
+                             <see cref="F:Atom.Data.PropertyMapperExtensions.NumberAnnotation"/> ex. Defines the type of a numeric excel column.
+                             <see cref="F:Atom.Core.PropertyMapperExtensions.Ignore"/> ex. Defines properties that should get ignored.
+            </param>
+            <param name="properties">
+            The properties of the <typeparamref name="TClass"/> whose values should get exported.
+            NOTE: This properties can also act as the default properties!
+            </param>
+            <param name="dataRetriever">Retrieves the data that should get exported</param>
+            <param name="translator">The optional translator</param>
+            <returns></returns>
+        </member>
+        <member name="T:Atom.Windows.PlugIns.Data.IImportPlugIn">
+            <summary>
+            Provides abstractions for an import plug in
+            </summary>
+        </member>
+        <member name="M:Atom.Windows.PlugIns.Data.IImportPlugIn.ImportAsync``1(System.Windows.UIElement,System.Func{``0},Atom.Core.PropertyMapper{``0})">
+            <summary>
+            Imports data from an external source represented by a model of type <typeparamref name="TClass"/>.
+            NOTE: Any error dialog are displayed by this method using the <paramref name="element"/> to identify the parent!
+            </summary>
+            <typeparam name="TClass">The type of the models</typeparam>
+            <param name="element">The target element used for identifying the parent of the dialog</param>
+            <param name="implemetationFactory">The default <typeparamref name="TClass"/> initializer that will be used for creating the default instances</param>
+            <param name="mapper">The mapper that contains information related to the properties of the <typeparamref name="TClass"/>.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

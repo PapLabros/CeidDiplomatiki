@@ -7,7 +7,7 @@ namespace CeidDiplomatiki
     /// <summary>
     /// Provides enumeration over the available column attributes
     /// </summary>
-    public class ColumnAttribute : IIdentifiable<string>, INameable, IEquatable<ColumnAttribute>
+    public class ColumnAttribute : IIdentifiable, INameable, IEquatable<ColumnAttribute>
     {
         #region Public Properties
 

@@ -1,11 +1,10 @@
 ﻿using Atom.Core;
-using Atom.Relational.Providers;
 using Atom.Windows.Controls;
 
 using System;
 using System.Linq;
 
-using static Atom.Personalization.Constants;
+using static Atom.Core.Personalization;
 
 namespace CeidDiplomatiki
 {
@@ -110,7 +109,9 @@ namespace CeidDiplomatiki
                 .MapTitle(x => x.Color, "Color")
                 .MapTitle(x => x.RootType, "Root type")
                 .MapTitle(x => x.PresenterMaps, "Presenter maps")
-                .MapTitle(x => x.DataGridPresenterMaps, "Data grid presenter maps");
+                .MapTitle(x => x.DataGridPresenterMaps, "Data grid presenter maps")
+                .MapTitle(x => x.CalendarPresenterMaps, "Calendar presenter maps")
+                .MapTitle(x => x.CustomShortcodes, "Custom shortcodes");
 
             // Validate the mapper
             mapper.Validate();
@@ -231,7 +232,7 @@ namespace CeidDiplomatiki
             var mapper = new PropertyMapper<DataGridPresenterMap>()
                 .MapTitle(x => x.DataGrids, "Data grids");
 
-            mapper.CopyMapsFrom(BasePresenterMapMapper.Value);
+            mapper.CopyMapsForm(BasePresenterMapMapper.Value);
 
             // Validate the mapper
             mapper.Validate();
@@ -276,6 +277,50 @@ namespace CeidDiplomatiki
         public static Lazy<Translator<DataGridMap>> DataGridMapTranslator { get; } = new Lazy<Translator<DataGridMap>>(() =>
         {
             return new Translator<DataGridMap>().SetTranslator(x => x.Type, t => t.Name.Split("-").Last());
+        });
+
+        #endregion
+
+        #region Calendar Presenter Map
+
+        /// <summary>
+        /// Maps the properties of the <see cref="CalendarPresenterMap"/> to custom values
+        /// </summary>
+        public static Lazy<PropertyMapper<CalendarPresenterMap>> CalendarPresenterMapMapper { get; } = new Lazy<PropertyMapper<CalendarPresenterMap>>(() =>
+        {
+            // Create the mapper
+            var mapper = new PropertyMapper<CalendarPresenterMap>()
+                .MapTitle(x => x.TitleFormula, "Title formula")
+                .MapTitle(x => x.DescriptionFormula, "Description formula")
+                .MapTitle(x => x.DateStartColumn, "Date start column")
+                .MapTitle(x => x.DateEndColumn, "Date end column")
+                .MapTitle(x => x.SearchColumns, "Search columns")
+                .MapTitle(x => x.AllowAdd, "Allow add")
+                .MapTitle(x => x.AllowEdit, "Allow edit")
+                .MapTitle(x => x.AllowDelete, "Allow delete");
+
+            mapper.CopyMapsForm(BasePresenterMapMapper.Value);
+
+            // Validate the mapper
+            mapper.Validate();
+
+            // Return the mapper
+            return mapper;
+        });
+
+        /// <summary>
+        /// Gets the <see cref="Translator{TClass}"/> required for translating the 
+        /// values of a <see cref="CalendarPresenterMap"/>
+        /// </summary>
+        public static Lazy<Translator<CalendarPresenterMap>> CalendarPresenterMapTranslator { get; } = new Lazy<Translator<CalendarPresenterMap>>(() =>
+        {
+            return new Translator<CalendarPresenterMap>()
+                .SetTranslator(x => x.DateStartColumn, x => x.Name)
+                .SetTranslator(x => x.DateEndColumn, x => x?.Name)
+                
+                .SetEnumerableAggragationTranslator(x => x.SearchColumns, x => x.Name)
+
+                .SetBooleanTranslator(x => x.AllowDelete);
         });
 
         #endregion
@@ -353,10 +398,10 @@ namespace CeidDiplomatiki
         public static DataForm<PageMap> CreatePageMapDataForm()
         {
             return new DataForm<PageMap>() { Mapper = CeidDiplomatikiDataModelHelpers.PageMapMapper.Value }
-                    .ShowInput(x => x.Name, settings => settings.IsRequired = true)
+                    .ShowInput(x => x.Name, null, true)
                     .ShowInput(x => x.Description)
-                    .ShowIconInput(x => x.PathData)
-                    .ShowStringColorInput(x => x.Color)
+                    .ShowIconFormInput(x => x.PathData)
+                    .ShowStringColorFormInput(x => x.Color)
                     .ShowInput(x => x.Category)
                     .ShowNumericInput(x => x.Order)
                     .ShowSelectSingleOptionInput<BasePresenterMap>(x => x.Presenter, (form, propertyInfo) => new DropDownMenuOptionsFormInput<BasePresenterMap>(form, propertyInfo, CeidDiplomatikiDI.GetCeidDiplomatikiManager.Presenters, x => x.Name));
