@@ -34,7 +34,7 @@ namespace CeidDiplomatiki
         {
             return new DataForm<SQLiteOptionsDataModel>()
                 .ShowCustomFormInput(x => x.DirectoryPath, (dataForm, propertyInfo) => new DirectoryInputFormInput(dataForm, propertyInfo), false, "Directory path", true)
-                .ShowInput(x => x.DatabaseName, "Database name", true);
+                .ShowInput(x => x.DatabaseName, "Database name", true, ".db extension is added as a suffix!");
         }
 
         /// <summary>
